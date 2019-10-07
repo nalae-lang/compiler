@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "pretty": true,
+    "target": "es5",
+    "sourceMap": true,
+    "noEmitOnError": true,
+    "baseUrl": "src",
+    "outDir": "dist",
+    "rootDirs": ["src", "tests"],
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictPropertyInitialization": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+
+    "skipLibCheck": true,
+
+    "alwaysStrict": true,
+    "preserveConstEnums": true,
+    "newLine": "lf",
+    "types": ["./tests/chai", "mocha", "chai"]
+  }
+}
