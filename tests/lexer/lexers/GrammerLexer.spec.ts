@@ -4,7 +4,7 @@ import { compareTokenType } from "../../helper/lexer/CompareTokenType";
 import { createLexer } from "../../helper/lexer/CreateLexer";
 import { GrammerLexer } from "lexer/lexers/GrammerLexer";
 
-describe("GrammerLexer 테스트", () => {
+describe("GrammerLexer", () => {
   describe("매치되는 경우", () => {
     it("한글만 존재할 때", () => {
       const grammerLexer = createLexer(GrammerLexer, "변수");

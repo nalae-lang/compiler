@@ -3,4 +3,5 @@
 --require source-map-support/register
 --require tests/mocha-setup.js
 --recursive
+--watch-extensions ts
 tests/**/*.spec.ts
