@@ -2,20 +2,19 @@
   "compilerOptions": {
     "pretty": true,
     "target": "es5",
+    "lib": ["es6"],
     "sourceMap": true,
     "noEmitOnError": true,
     "baseUrl": "src",
     "outDir": "dist",
-    "rootDirs": ["src", "tests"],
     "strictNullChecks": true,
     "noImplicitAny": true,
     "noImplicitThis": true,
     "strictPropertyInitialization": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-
     "skipLibCheck": true,
-
+    "strict": true,
     "alwaysStrict": true,
     "preserveConstEnums": true,
     "newLine": "lf",
