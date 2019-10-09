@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "tsc && nyc mocha --opts tests/mocha.opts",
+    "test": "tsc && nyc mocha --opts tests/mocha-coverage.opts",
     "test:watch": "mocha --opts tests/mocha.opts --watch"
   },
   "keywords": [],
@@ -31,8 +31,12 @@
   "nyc": {
     "extends": "@istanbuljs/nyc-config-typescript",
     "all": true,
+    "cache": false,
     "include": [
       "src/**/*.ts"
+    ],
+    "require": [
+      "ts-node/register"
     ],
     "reporter": [
       "text",
