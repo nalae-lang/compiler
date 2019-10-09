@@ -33,4 +33,12 @@ describe("OperatorLexer", () => {
       }
     });
   });
+  describe("매치 되지 않는 경우", () => {
+    it("연산자가 아닐 때", () => {
+      const operatorLexer = createLexer(OperatorLexer, "text");
+      const result = operatorLexer.parse(0);
+
+      expect(result).to.be.not.ok;
+    });
+  });
 });

@@ -1,6 +1,7 @@
 import { Index } from "token";
 
 import { ErrorCode } from "./ErrorCode";
+import { formatString } from "utils/FormatString";
 
 export class NalaeLexerError extends Error {
   name = "NalaeLexerError";
@@ -11,10 +12,7 @@ export class NalaeLexerError extends Error {
     parameter?: Array<string | number>
   ) {
     super();
-    let i = 0;
-    this.message = parameter
-      ? code.replace(/%s/g, () => "" + parameter[i++])
-      : code;
+    this.message = formatString(code, parameter);
     this.index = index;
   }
 }
