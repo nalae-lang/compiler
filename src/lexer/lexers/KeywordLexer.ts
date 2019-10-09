@@ -1,14 +1,14 @@
 import { Token, TokenTypes } from "token";
-import { KeywordList } from "./models/KeywordList";
+import { keywordList } from "./models/KeywordList";
 import { Lexer } from "lexer";
-import { OperatorList } from "./models/OperatorList";
+import { operatorList } from "./models/OperatorList";
 
 export interface KeywordToken extends Token {
   type: TokenTypes.KEYWORD;
-  name: (typeof KeywordList)[number]["name"];
+  name: (typeof keywordList)[number]["name"];
 }
 
-export const ALLOWED_KEYWORD_NEXT = ["\n", " ", "\t", ...OperatorList];
+export const ALLOWED_KEYWORD_NEXT = ["\n", " ", "\t", ...operatorList];
 
 export class KeywordLexer extends Lexer<KeywordToken> {
   private matchWord(match: string, index: number): boolean {
@@ -24,7 +24,7 @@ export class KeywordLexer extends Lexer<KeywordToken> {
   }
 
   public parse(index: number): KeywordToken | null {
-    const find = KeywordList.find(keyword => {
+    const find = keywordList.find(keyword => {
       return this.matchWord(keyword.match, index);
     });
 

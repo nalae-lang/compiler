@@ -1,4 +1,4 @@
-export const OperatorList = [
+export const operatorList = [
   "+",
   "-",
   "/",

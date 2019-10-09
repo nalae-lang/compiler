@@ -1,4 +1,4 @@
-export const KeywordList = [
+export const keywordList = [
   {
     name: "==",
     match: "이면"

@@ -17,6 +17,7 @@
     "plugin:prettier/recommended"
   ],
   "rules": {
-    "max-len": ["error", { "code": 80 }]
+    "max-len": ["error", { "code": 80 }],
+    "curly": ["error"]
   }
 }
