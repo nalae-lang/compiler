@@ -26,7 +26,7 @@ export class StringLexer extends Lexer<StringToken> {
           };
         }
       }
-      throw new NalaeLexerError(ErrorCode.RAWCODE_NOT_END, {
+      throw new NalaeLexerError(ErrorCode.STRING_NOT_END, {
         start: index,
         end: i
       });
