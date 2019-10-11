@@ -1,12 +1,14 @@
 import { Lexer } from "lexer";
-import { Token, TokenTypes } from "token";
+import { TokenBase, TokenTypes } from "token";
 
-export interface CommentToken extends Token {
+export interface EndToken extends TokenBase {
   endType: "." | "\n";
 }
 
-export class EndLexer extends Lexer<CommentToken> {
-  public parse(index: number): CommentToken | null {
+export class EndLexer extends Lexer<EndToken> {
+  public static readonly TOKEN_TYPE = TokenTypes.END;
+
+  public parse(index: number): EndToken | null {
     const { code } = this.state;
 
     // 1. 엔터로 줄을 끝내는 경우

@@ -1,13 +1,15 @@
-import { Token, TokenTypes } from "token";
+import { TokenBase, TokenTypes } from "token";
 import { operatorList } from "./models/OperatorList";
 import { Lexer } from "lexer";
 
-export interface OperatorToken extends Token {
+export interface OperatorToken extends TokenBase {
   type: TokenTypes.OPERATOR;
   operator: (typeof operatorList)[number];
 }
 
 export class OperatorLexer extends Lexer<OperatorToken> {
+  public static readonly TOKEN_TYPE = TokenTypes.OPERATOR;
+
   public parse(index: number): OperatorToken | null {
     const { code } = this.state;
 

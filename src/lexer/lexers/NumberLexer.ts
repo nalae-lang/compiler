@@ -1,16 +1,18 @@
-import { Token, TokenTypes } from "token";
+import { TokenBase, TokenTypes } from "token";
 import { Lexer } from "lexer";
 import { NalaeLexerError } from "lexer/error";
 import { ErrorCode } from "lexer/error/ErrorCode";
 
 export type Radix = 2 | 8 | 10 | 16;
-export interface NumberToken extends Token {
+export interface NumberToken extends TokenBase {
   type: TokenTypes.NUMBER;
   number: number;
   radix: Radix;
 }
 
 export class NumberLexer extends Lexer<NumberToken> {
+  public static readonly TOKEN_TYPE = TokenTypes.NUMBER;
+
   private checkNumber(index: number, radix: Radix): boolean {
     const { code } = this.state;
     if (code[index] === undefined) {
@@ -28,7 +30,7 @@ export class NumberLexer extends Lexer<NumberToken> {
     startOfNumber: number,
     radix: Radix
   ): NumberToken {
-    const { code, codeLength } = this.state;
+    const { code } = this.state;
     let i = index + startOfNumber;
     // 음수 체크변수
     let isNegative = false;
@@ -36,7 +38,7 @@ export class NumberLexer extends Lexer<NumberToken> {
     if (code[index - 1] === "-") {
       isNegative = true;
     }
-    for (; i < codeLength + 1; i++) {
+    for (; i < code.length + 1; i++) {
       // 숫자가 맞을 때
       if (this.checkNumber(i, radix)) {
         continue;

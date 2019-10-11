@@ -1,6 +1,6 @@
-import { Token, TokenTypes } from "token";
+import { TokenBase, TokenTypes } from "token";
 
-export function compareTokenType<T extends Token>(
+export function compareTokenType<T extends TokenBase>(
   token: T | null,
   match: TokenTypes
 ): token is T {

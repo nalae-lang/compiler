@@ -1,9 +1,9 @@
-import { Token, TokenTypes } from "token";
+import { TokenBase, TokenTypes } from "token";
 import { keywordList } from "./models/KeywordList";
 import { Lexer } from "lexer";
 import { operatorList } from "./models/OperatorList";
 
-export interface KeywordToken extends Token {
+export interface KeywordToken extends TokenBase {
   type: TokenTypes.KEYWORD;
   name: (typeof keywordList)[number]["name"];
 }
@@ -11,6 +11,8 @@ export interface KeywordToken extends Token {
 export const ALLOWED_KEYWORD_NEXT = ["\n", " ", "\t", ...operatorList];
 
 export class KeywordLexer extends Lexer<KeywordToken> {
+  public static readonly TOKEN_TYPE = TokenTypes.KEYWORD;
+
   private matchWord(match: string, index: number): boolean {
     const { code } = this.state;
 

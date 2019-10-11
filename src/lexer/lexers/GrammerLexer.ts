@@ -1,12 +1,14 @@
 import { Lexer } from "lexer";
-import { Token, TokenTypes } from "token";
+import { TokenBase, TokenTypes } from "token";
 
-export interface GrammerToken extends Token {
+export interface GrammerToken extends TokenBase {
   type: TokenTypes.GRAMMER;
   text: string;
 }
 
 export class GrammerLexer extends Lexer<GrammerToken> {
+  public static readonly TOKEN_TYPE = TokenTypes.GRAMMER;
+
   public parse(index: number): GrammerToken | null {
     const { code } = this.state;
 

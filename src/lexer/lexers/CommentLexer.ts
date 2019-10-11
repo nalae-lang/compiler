@@ -1,21 +1,22 @@
 import { Lexer } from "lexer";
 import { NalaeLexerError } from "lexer/error";
 import { ErrorCode } from "lexer/error/ErrorCode";
-import { Token, TokenTypes } from "token";
+import { TokenBase, TokenTypes } from "token";
 
-export interface CommentToken extends Token {
+export interface CommentToken extends TokenBase {
   type: TokenTypes.COMMENT;
   comment: string;
 }
 
 export class CommentLexer extends Lexer<CommentToken> {
+  public static readonly TOKEN_TYPE = TokenTypes.COMMENT;
   public parse(index: number): CommentToken | null {
-    const { code, codeLength } = this.state;
+    const { code } = this.state;
 
     // 1. /* */ 주석 검사
     if (code[index] === "/" && code[index + 1] === "*") {
       let i = index + 2;
-      for (; i < codeLength; i++) {
+      for (; i < code.length; i++) {
         if (code[i] === "*" && code[i + 1] === "/") {
           return {
             type: TokenTypes.COMMENT,
@@ -36,7 +37,7 @@ export class CommentLexer extends Lexer<CommentToken> {
     // 2. '//' 주석 검사
     if (code[index] === "/" && code[index + 1] === "/") {
       let i = index + 2;
-      for (; i < codeLength; i++) {
+      for (; i < code.length; i++) {
         if (code[i] === "\n") {
           break;
         }
