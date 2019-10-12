@@ -8,29 +8,35 @@ import { ErrorCode } from "lexer/error/ErrorCode";
 describe("CommentLexer", () => {
   describe("매치되는 경우", () => {
     it("/* */이 존재할 때", () => {
-      const commentLexer = createLexer(CommentLexer, "/*test comment*/");
+      const code = "/*test comment*/";
+      const commentLexer = createLexer(CommentLexer, code);
       const result = commentLexer.parse(0);
 
       if (compareTokenType(result, TokenTypes.COMMENT)) {
         expect(result.comment).to.equal("test comment");
+        expect(result.index).to.deep.equal({ start: 0, end: code.length });
       }
     });
 
     it("// 이 존재할 때", () => {
-      const commentLexer = createLexer(CommentLexer, "//test comment");
+      const code = "//test comment";
+      const commentLexer = createLexer(CommentLexer, code);
       const result = commentLexer.parse(0);
 
       if (compareTokenType(result, TokenTypes.COMMENT)) {
         expect(result.comment).to.equal("test comment");
+        expect(result.index).to.deep.equal({ start: 0, end: code.length });
       }
     });
 
     it("// 이 존재하고 다음 라인으로 갈 때", () => {
-      const commentLexer = createLexer(CommentLexer, "//test comment\ntest");
+      const code = "//test comment";
+      const commentLexer = createLexer(CommentLexer, code + "\nnext");
       const result = commentLexer.parse(0);
 
       if (compareTokenType(result, TokenTypes.COMMENT)) {
         expect(result.comment).to.equal("test comment");
+        expect(result.index).to.deep.equal({ start: 0, end: code.length });
       }
     });
   });

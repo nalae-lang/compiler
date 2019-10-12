@@ -46,7 +46,7 @@ export class CommentLexer extends Lexer<CommentToken> {
         type: TokenTypes.COMMENT,
         index: {
           start: index,
-          end: i + 1
+          end: i
         },
         comment: code.substring(index + 2, i)
       };

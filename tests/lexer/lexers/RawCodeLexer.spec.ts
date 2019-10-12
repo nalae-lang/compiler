@@ -11,7 +11,7 @@ describe("RawCodeLexer", () => {
       const result = rawCodeLexer.parse(0);
 
       if (compareTokenType(result, TokenTypes.RAWCODE)) {
-        expect(result.code).to.be.equal("code test");
+        expect(result.code).to.equal("code test");
       }
     });
   });

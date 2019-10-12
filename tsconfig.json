@@ -17,6 +17,7 @@
     "strict": true,
     "alwaysStrict": true,
     "preserveConstEnums": true,
+    "esModuleInterop": true,
     "newLine": "lf",
     "types": ["./tests/chai", "mocha", "chai"]
   }

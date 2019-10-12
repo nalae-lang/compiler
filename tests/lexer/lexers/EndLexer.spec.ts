@@ -10,7 +10,7 @@ describe("EndLexer", () => {
       const result = endLexer.parse(0);
 
       if (compareTokenType(result, TokenTypes.END)) {
-        expect(result.endType).to.be.equal(".");
+        expect(result.endType).to.equal(".");
       }
     });
 
@@ -19,7 +19,7 @@ describe("EndLexer", () => {
       const result = endLexer.parse(0);
 
       if (compareTokenType(result, TokenTypes.END)) {
-        expect(result.endType).to.be.equal("\n");
+        expect(result.endType).to.equal("\n");
       }
     });
   });

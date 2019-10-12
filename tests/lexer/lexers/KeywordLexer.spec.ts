@@ -16,10 +16,10 @@ describe("KeywordLexer", () => {
         const result = keywordLexer.parse(index);
 
         if (compareTokenType(result, TokenTypes.KEYWORD)) {
-          expect(result.name).to.be.equal(keywordList[i].name);
-          expect(
-            code.substring(result.index.start, result.index.end)
-          ).to.be.equal(keywordList[i].match);
+          expect(result.name).to.equal(keywordList[i].name);
+          expect(code.substring(result.index.start, result.index.end)).to.equal(
+            keywordList[i].match
+          );
           index = result.index.end + 1;
         }
       }
@@ -39,10 +39,10 @@ describe("KeywordLexer", () => {
         const result = keywordLexer.parse(index);
 
         if (compareTokenType(result, TokenTypes.KEYWORD)) {
-          expect(result.name).to.be.equal(keywordList[i].name);
-          expect(
-            code.substring(result.index.start, result.index.end)
-          ).to.be.equal(keywordList[i].match);
+          expect(result.name).to.equal(keywordList[i].name);
+          expect(code.substring(result.index.start, result.index.end)).to.equal(
+            keywordList[i].match
+          );
           // 뒤에 추가로 붙은 Operator 길이를 더함
           index = result.index.end + 2;
         }

@@ -12,8 +12,8 @@ describe("NumberLexer", () => {
       const result = numberLexer.parse(0);
 
       if (compareTokenType(result, TokenTypes.NUMBER)) {
-        expect(result.radix).to.be.equal(2);
-        expect(result.number).to.be.equal(parseInt("1001", 2));
+        expect(result.radix).to.equal(2);
+        expect(result.number).to.equal(parseInt("1001", 2));
       }
     });
 
@@ -22,8 +22,8 @@ describe("NumberLexer", () => {
       const result = numberLexer.parse(0);
 
       if (compareTokenType(result, TokenTypes.NUMBER)) {
-        expect(result.radix).to.be.equal(2);
-        expect(result.number).to.be.equal(parseInt("-1001", 2));
+        expect(result.radix).to.equal(2);
+        expect(result.number).to.equal(parseInt("-1001", 2));
       }
     });
 
@@ -32,8 +32,8 @@ describe("NumberLexer", () => {
       const result = numberLexer.parse(0);
 
       if (compareTokenType(result, TokenTypes.NUMBER)) {
-        expect(result.radix).to.be.equal(8);
-        expect(result.number).to.be.equal(0o65);
+        expect(result.radix).to.equal(8);
+        expect(result.number).to.equal(0o65);
       }
     });
 
@@ -42,8 +42,8 @@ describe("NumberLexer", () => {
       const result = numberLexer.parse(0);
 
       if (compareTokenType(result, TokenTypes.NUMBER)) {
-        expect(result.radix).to.be.equal(8);
-        expect(result.number).to.be.equal(-0o65);
+        expect(result.radix).to.equal(8);
+        expect(result.number).to.equal(-0o65);
       }
     });
 
@@ -52,8 +52,8 @@ describe("NumberLexer", () => {
       const result = numberLexer.parse(0);
 
       if (compareTokenType(result, TokenTypes.NUMBER)) {
-        expect(result.radix).to.be.equal(8);
-        expect(result.number).to.be.equal(0o65);
+        expect(result.radix).to.equal(8);
+        expect(result.number).to.equal(0o65);
       }
     });
 
@@ -62,8 +62,8 @@ describe("NumberLexer", () => {
       const result = numberLexer.parse(0);
 
       if (compareTokenType(result, TokenTypes.NUMBER)) {
-        expect(result.radix).to.be.equal(8);
-        expect(result.number).to.be.equal(-0o65);
+        expect(result.radix).to.equal(8);
+        expect(result.number).to.equal(-0o65);
       }
     });
 
@@ -72,8 +72,8 @@ describe("NumberLexer", () => {
       const result = numberLexer.parse(0);
 
       if (compareTokenType(result, TokenTypes.NUMBER)) {
-        expect(result.radix).to.be.equal(10);
-        expect(result.number).to.be.equal(10);
+        expect(result.radix).to.equal(10);
+        expect(result.number).to.equal(10);
       }
     });
 
@@ -82,8 +82,8 @@ describe("NumberLexer", () => {
       const result = numberLexer.parse(0);
 
       if (compareTokenType(result, TokenTypes.NUMBER)) {
-        expect(result.radix).to.be.equal(10);
-        expect(result.number).to.be.equal(-13);
+        expect(result.radix).to.equal(10);
+        expect(result.number).to.equal(-13);
       }
     });
 
@@ -92,8 +92,8 @@ describe("NumberLexer", () => {
       const result = numberLexer.parse(0);
 
       if (compareTokenType(result, TokenTypes.NUMBER)) {
-        expect(result.radix).to.be.equal(10);
-        expect(result.number).to.be.equal(10.132);
+        expect(result.radix).to.equal(10);
+        expect(result.number).to.equal(10.132);
       }
     });
 
@@ -102,8 +102,8 @@ describe("NumberLexer", () => {
       const result = numberLexer.parse(0);
 
       if (compareTokenType(result, TokenTypes.NUMBER)) {
-        expect(result.radix).to.be.equal(10);
-        expect(result.number).to.be.equal(-10.132);
+        expect(result.radix).to.equal(10);
+        expect(result.number).to.equal(-10.132);
       }
     });
 
@@ -112,8 +112,8 @@ describe("NumberLexer", () => {
       const result = numberLexer.parse(0);
 
       if (compareTokenType(result, TokenTypes.NUMBER)) {
-        expect(result.radix).to.be.equal(16);
-        expect(result.number).to.be.equal(0x41ff);
+        expect(result.radix).to.equal(16);
+        expect(result.number).to.equal(0x41ff);
       }
     });
 
@@ -122,8 +122,8 @@ describe("NumberLexer", () => {
       const result = numberLexer.parse(0);
 
       if (compareTokenType(result, TokenTypes.NUMBER)) {
-        expect(result.radix).to.be.equal(16);
-        expect(result.number).to.be.equal(-0x41ff);
+        expect(result.radix).to.equal(16);
+        expect(result.number).to.equal(-0x41ff);
       }
     });
 
@@ -132,8 +132,8 @@ describe("NumberLexer", () => {
       const result = numberLexer.parse(0);
 
       if (compareTokenType(result, TokenTypes.NUMBER)) {
-        expect(result.radix).to.be.equal(10);
-        expect(result.number).to.be.equal(0);
+        expect(result.radix).to.equal(10);
+        expect(result.number).to.equal(0);
       }
     });
   });

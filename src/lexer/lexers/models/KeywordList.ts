@@ -24,7 +24,7 @@ export const keywordList = [
     match: "미만"
   },
   {
-    name: "define",
+    name: "function_define",
     match: "정의하면"
   },
   {
@@ -34,5 +34,21 @@ export const keywordList = [
   {
     name: "arrayIndex",
     match: "번째"
+  },
+  {
+    name: "import",
+    match: "불러오기"
+  },
+  {
+    name: "export",
+    match: "내보내기"
+  },
+  {
+    name: "variable_define",
+    match: "선언한다"
+  },
+  {
+    name: "class",
+    match: "틀"
   }
 ] as const;

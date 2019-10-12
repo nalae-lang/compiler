@@ -1,5 +1,5 @@
 import { CommentLexer } from "./lexers/CommentLexer";
-import { LexerState } from "lexer";
+import { LexerState, Lexer } from "lexer";
 import { StringLexer } from "./lexers/StringLexer";
 import { RawCodeLexer } from "./lexers/RawCodeLexer";
 import { GrammerLexer } from "./lexers/GrammerLexer";
@@ -9,25 +9,28 @@ import { NumberLexer } from "./lexers/NumberLexer";
 import { OperatorLexer } from "./lexers/OperatorLexer";
 import { EndLexer } from "./lexers/EndLexer";
 import { Token } from "token";
+import { NalaeLexerError } from "./error";
+import { ErrorCode } from "./error/ErrorCode";
 
 export class NalaeLexer {
   private readonly state: LexerState;
-  private readonly lexers = [
-    new KeywordLexer(this.state),
-    new OperatorLexer(this.state),
-    new IndentLexer(this.state),
-    new EndLexer(this.state),
-    new NumberLexer(this.state),
-    new CommentLexer(this.state),
-    new StringLexer(this.state),
-    new RawCodeLexer(this.state),
-    new GrammerLexer(this.state)
-  ];
+  private readonly lexers: Lexer<Token>[];
 
   public constructor(code: string) {
     this.state = {
       code
     };
+    this.lexers = [
+      new CommentLexer(this.state),
+      new StringLexer(this.state),
+      new RawCodeLexer(this.state),
+      new KeywordLexer(this.state),
+      new OperatorLexer(this.state),
+      new IndentLexer(this.state),
+      new EndLexer(this.state),
+      new NumberLexer(this.state),
+      new GrammerLexer(this.state)
+    ];
   }
 
   public setCode(code: string): void {
@@ -54,6 +57,16 @@ export class NalaeLexer {
       this.lexers.find(lexer => (result = lexer.parse(i)));
       if (result) {
         tokens.push(result);
+        if (i === result.index.end) {
+          throw new NalaeLexerError(
+            ErrorCode.LEXER_LOOP,
+            {
+              start: i,
+              end: i + 1
+            },
+            [i, code[i]]
+          );
+        }
         i = result.index.end;
       } else {
         i++;

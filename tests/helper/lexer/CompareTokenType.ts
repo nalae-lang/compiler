@@ -6,7 +6,7 @@ export function compareTokenType<T extends TokenBase>(
 ): token is T {
   expect(token).to.be.ok;
   if (token) {
-    expect(token.type).to.be.equal(match);
+    expect(token.type).to.equal(match);
   }
   return !!token;
 }

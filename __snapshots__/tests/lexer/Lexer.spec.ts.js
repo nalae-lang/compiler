@@ -1,0 +1,378 @@
+exports['Lexer test1 1'] = [
+  {
+    "type": "end",
+    "index": {
+      "start": 0,
+      "end": 1
+    },
+    "endType": "\n"
+  },
+  {
+    "type": "string",
+    "index": {
+      "start": 1,
+      "end": 8
+    },
+    "string": "./web"
+  },
+  {
+    "type": "grammer",
+    "index": {
+      "start": 8,
+      "end": 10
+    },
+    "text": "에서"
+  },
+  {
+    "type": "grammer",
+    "index": {
+      "start": 11,
+      "end": 16
+    },
+    "text": "텍스트박스"
+  },
+  {
+    "type": "grammer",
+    "index": {
+      "start": 17,
+      "end": 21
+    },
+    "text": "불러오기"
+  },
+  {
+    "type": "end",
+    "index": {
+      "start": 21,
+      "end": 22
+    },
+    "endType": "."
+  },
+  {
+    "type": "end",
+    "index": {
+      "start": 22,
+      "end": 23
+    },
+    "endType": "\n"
+  },
+  {
+    "type": "grammer",
+    "index": {
+      "start": 23,
+      "end": 29
+    },
+    "text": "텍스트박스의"
+  },
+  {
+    "type": "grammer",
+    "index": {
+      "start": 30,
+      "end": 32
+    },
+    "text": "값은"
+  },
+  {
+    "type": "string",
+    "index": {
+      "start": 33,
+      "end": 40
+    },
+    "string": "안녕하세요"
+  },
+  {
+    "type": "grammer",
+    "index": {
+      "start": 40,
+      "end": 42
+    },
+    "text": "이다"
+  },
+  {
+    "type": "end",
+    "index": {
+      "start": 42,
+      "end": 43
+    },
+    "endType": "."
+  },
+  {
+    "type": "end",
+    "index": {
+      "start": 43,
+      "end": 44
+    },
+    "endType": "\n"
+  },
+  {
+    "type": "comment",
+    "index": {
+      "start": 44,
+      "end": 58
+    },
+    "comment": "\n  테스트 주석\n"
+  },
+  {
+    "type": "end",
+    "index": {
+      "start": 58,
+      "end": 59
+    },
+    "endType": "\n"
+  },
+  {
+    "type": "grammer",
+    "index": {
+      "start": 59,
+      "end": 65
+    },
+    "text": "텍스트박스가"
+  },
+  {
+    "type": "operator",
+    "index": {
+      "start": 66,
+      "end": 67
+    },
+    "operator": "~"
+  },
+  {
+    "type": "grammer",
+    "index": {
+      "start": 67,
+      "end": 68
+    },
+    "text": "로"
+  },
+  {
+    "type": "grammer",
+    "index": {
+      "start": 69,
+      "end": 72
+    },
+    "text": "수정될"
+  },
+  {
+    "type": "grammer",
+    "index": {
+      "start": 73,
+      "end": 75
+    },
+    "text": "때를"
+  },
+  {
+    "type": "keyword",
+    "index": {
+      "start": 76,
+      "end": 80
+    },
+    "name": "function_define"
+  },
+  {
+    "type": "operator",
+    "index": {
+      "start": 80,
+      "end": 81
+    },
+    "operator": ","
+  },
+  {
+    "type": "end",
+    "index": {
+      "start": 81,
+      "end": 82
+    },
+    "endType": "\n"
+  },
+  {
+    "type": "indent",
+    "index": {
+      "start": 82,
+      "end": 84
+    },
+    "tabType": "space"
+  },
+  {
+    "type": "grammer",
+    "index": {
+      "start": 84,
+      "end": 87
+    },
+    "text": "콘솔이"
+  },
+  {
+    "type": "number",
+    "index": {
+      "start": 88,
+      "end": 89
+    },
+    "radix": 10,
+    "number": 1
+  },
+  {
+    "type": "keyword",
+    "index": {
+      "start": 89,
+      "end": 91
+    },
+    "name": "arrayIndex"
+  },
+  {
+    "type": "grammer",
+    "index": {
+      "start": 92,
+      "end": 94
+    },
+    "text": "인자"
+  },
+  {
+    "type": "operator",
+    "index": {
+      "start": 95,
+      "end": 96
+    },
+    "operator": "+"
+  },
+  {
+    "type": "string",
+    "index": {
+      "start": 97,
+      "end": 104
+    },
+    "string": "로 수정됨"
+  },
+  {
+    "type": "grammer",
+    "index": {
+      "start": 104,
+      "end": 105
+    },
+    "text": "을"
+  },
+  {
+    "type": "grammer",
+    "index": {
+      "start": 106,
+      "end": 110
+    },
+    "text": "출력한다"
+  },
+  {
+    "type": "end",
+    "index": {
+      "start": 110,
+      "end": 111
+    },
+    "endType": "."
+  }
+]
+
+exports['Lexer test2 1'] = [
+  {
+    "type": "end",
+    "index": {
+      "start": 0,
+      "end": 1
+    },
+    "endType": "\n"
+  },
+  {
+    "type": "grammer",
+    "index": {
+      "start": 1,
+      "end": 4
+    },
+    "text": "콘솔이"
+  },
+  {
+    "type": "number",
+    "index": {
+      "start": 5,
+      "end": 6
+    },
+    "radix": 10,
+    "number": 3
+  },
+  {
+    "type": "operator",
+    "index": {
+      "start": 7,
+      "end": 8
+    },
+    "operator": "+"
+  },
+  {
+    "type": "number",
+    "index": {
+      "start": 9,
+      "end": 10
+    },
+    "radix": 10,
+    "number": 2
+  },
+  {
+    "type": "operator",
+    "index": {
+      "start": 11,
+      "end": 12
+    },
+    "operator": "-"
+  },
+  {
+    "type": "operator",
+    "index": {
+      "start": 13,
+      "end": 14
+    },
+    "operator": "("
+  },
+  {
+    "type": "number",
+    "index": {
+      "start": 14,
+      "end": 15
+    },
+    "radix": 10,
+    "number": 5
+  },
+  {
+    "type": "operator",
+    "index": {
+      "start": 16,
+      "end": 17
+    },
+    "operator": "*"
+  },
+  {
+    "type": "number",
+    "index": {
+      "start": 18,
+      "end": 19
+    },
+    "radix": 10,
+    "number": 3
+  },
+  {
+    "type": "operator",
+    "index": {
+      "start": 19,
+      "end": 20
+    },
+    "operator": ")"
+  },
+  {
+    "type": "grammer",
+    "index": {
+      "start": 20,
+      "end": 21
+    },
+    "text": "를"
+  },
+  {
+    "type": "grammer",
+    "index": {
+      "start": 22,
+      "end": 24
+    },
+    "text": "출력"
+  }
+]

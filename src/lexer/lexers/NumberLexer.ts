@@ -49,7 +49,7 @@ export class NumberLexer extends Lexer<NumberToken> {
           ErrorCode.NUMBER_BASE_NOT_MATCH,
           {
             start: i,
-            end: i
+            end: i + 1
           },
           [radix, code[i]]
         );
@@ -64,7 +64,7 @@ export class NumberLexer extends Lexer<NumberToken> {
           ErrorCode.NUMBER_FLOAT_NOT_ALLOWED,
           {
             start: i,
-            end: i
+            end: i + 1
           },
           [radix]
         );
@@ -83,7 +83,7 @@ export class NumberLexer extends Lexer<NumberToken> {
     if (isNaN(resultNumber)) {
       throw new NalaeLexerError(ErrorCode.NUMBER_UNKNOWN, {
         start: index,
-        end: i
+        end: i + 1
       });
     }
 
@@ -91,7 +91,7 @@ export class NumberLexer extends Lexer<NumberToken> {
       type: TokenTypes.NUMBER,
       index: {
         start: index,
-        end: i - 1
+        end: i
       },
       radix,
       number: resultNumber
@@ -125,7 +125,7 @@ export class NumberLexer extends Lexer<NumberToken> {
       return {
         index: {
           start: i,
-          end: i
+          end: i + 1
         },
         number: 0,
         radix: 10,

@@ -31,7 +31,7 @@ export class IndentLexer extends Lexer<IndentToken> {
         type: TokenTypes.INDENT,
         index: {
           start: index,
-          end: index + 1
+          end: index + 2
         },
         tabType: "space"
       };

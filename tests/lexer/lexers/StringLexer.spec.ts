@@ -11,7 +11,7 @@ describe("StringLexer", () => {
       const result = stringLexer.parse(0);
 
       if (compareTokenType(result, TokenTypes.STRING)) {
-        expect(result.string).to.be.equal("string");
+        expect(result.string).to.equal("string");
       }
     });
   });
