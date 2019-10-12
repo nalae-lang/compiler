@@ -6,20 +6,24 @@ import { TokenTypes } from "token";
 describe("EndLexer", () => {
   describe("매치 되는 경우", () => {
     it(".으로 끝날 때", () => {
-      const endLexer = createLexer(EndLexer, ".");
+      const code = ".";
+      const endLexer = createLexer(EndLexer, code);
       const result = endLexer.parse(0);
 
       if (compareTokenType(result, TokenTypes.END)) {
         expect(result.endType).to.equal(".");
+        expect(result.index).to.deep.equal({ start: 0, end: code.length });
       }
     });
 
     it("띄어쓰기로 끝날 때", () => {
-      const endLexer = createLexer(EndLexer, "\n");
+      const code = "\n";
+      const endLexer = createLexer(EndLexer, code);
       const result = endLexer.parse(0);
 
       if (compareTokenType(result, TokenTypes.END)) {
         expect(result.endType).to.equal("\n");
+        expect(result.index).to.deep.equal({ start: 0, end: code.length });
       }
     });
   });

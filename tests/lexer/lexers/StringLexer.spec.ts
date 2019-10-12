@@ -7,11 +7,13 @@ import { ErrorCode } from "lexer/error/ErrorCode";
 describe("StringLexer", () => {
   describe("매치 되는 경우", () => {
     it("문자열일 때", () => {
-      const stringLexer = createLexer(StringLexer, `"string"`);
+      const code = `"string"`;
+      const stringLexer = createLexer(StringLexer, code);
       const result = stringLexer.parse(0);
 
       if (compareTokenType(result, TokenTypes.STRING)) {
         expect(result.string).to.equal("string");
+        expect(result.index).to.deep.equal({ start: 0, end: code.length });
       }
     });
   });

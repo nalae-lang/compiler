@@ -1,141 +1,54 @@
 import { createLexer } from "../../helper/lexer/CreateLexer";
-import { NumberLexer } from "lexer/lexers/NumberLexer";
+import { NumberLexer, Radix } from "lexer/lexers/NumberLexer";
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
 import { TokenTypes } from "token";
 import { ErrorCode } from "lexer/error/ErrorCode";
 import { formatString } from "utils/FormatString";
 
+function testValidNumber(
+  code: string,
+  expectNumber: number,
+  radix: Radix
+): () => void {
+  return (): void => {
+    const numberLexer = createLexer(NumberLexer, code);
+    const result = numberLexer.parse(0);
+
+    if (compareTokenType(result, TokenTypes.NUMBER)) {
+      expect(result.radix).to.equal(radix);
+      expect(result.number).to.equal(expectNumber);
+      expect(result.index).to.deep.equal({ start: 0, end: code.length });
+    }
+  };
+}
+
 describe("NumberLexer", () => {
   describe("매치 되는 경우", () => {
-    it("2진수일 때", () => {
-      const numberLexer = createLexer(NumberLexer, "0b1001");
-      const result = numberLexer.parse(0);
+    it("2진수일 때", testValidNumber("0b1001", 0b1001, 2));
 
-      if (compareTokenType(result, TokenTypes.NUMBER)) {
-        expect(result.radix).to.equal(2);
-        expect(result.number).to.equal(parseInt("1001", 2));
-      }
-    });
+    it("음수인 2진수일 때", testValidNumber("-0b1001", -0b1001, 2));
 
-    it("음수인 2진수일 때", () => {
-      const numberLexer = createLexer(NumberLexer, "-0b1001");
-      const result = numberLexer.parse(0);
+    it("8진수일 때", testValidNumber("0o65", 0o65, 8));
 
-      if (compareTokenType(result, TokenTypes.NUMBER)) {
-        expect(result.radix).to.equal(2);
-        expect(result.number).to.equal(parseInt("-1001", 2));
-      }
-    });
+    it("음수인 8진수일 때", testValidNumber("-0o65", -0o65, 8));
 
-    it("8진수일 때", () => {
-      const numberLexer = createLexer(NumberLexer, "0o65");
-      const result = numberLexer.parse(0);
+    it("o가 없는 8진수일 때", testValidNumber("065", 0o65, 8));
 
-      if (compareTokenType(result, TokenTypes.NUMBER)) {
-        expect(result.radix).to.equal(8);
-        expect(result.number).to.equal(0o65);
-      }
-    });
+    it("o가 없는 음수인 8진수일 때", testValidNumber("-065", -0o65, 8));
 
-    it("음수인 8진수일 때", () => {
-      const numberLexer = createLexer(NumberLexer, "-0o65");
-      const result = numberLexer.parse(0);
+    it("10진수일 때", testValidNumber("10", 10, 10));
 
-      if (compareTokenType(result, TokenTypes.NUMBER)) {
-        expect(result.radix).to.equal(8);
-        expect(result.number).to.equal(-0o65);
-      }
-    });
+    it("음수인 10진수일 때", testValidNumber("-10", -10, 10));
 
-    it("o가 없는 8진수일 때", () => {
-      const numberLexer = createLexer(NumberLexer, "065");
-      const result = numberLexer.parse(0);
+    it("10진수 실수형일 때", testValidNumber("10.132", 10.132, 10));
 
-      if (compareTokenType(result, TokenTypes.NUMBER)) {
-        expect(result.radix).to.equal(8);
-        expect(result.number).to.equal(0o65);
-      }
-    });
+    it("음수인 10진수 실수형일 때", testValidNumber("-10.132", -10.132, 10));
 
-    it("o가 없는 음수인 8진수일 때", () => {
-      const numberLexer = createLexer(NumberLexer, "-065");
-      const result = numberLexer.parse(0);
+    it("16진수일 때", testValidNumber("0x41FF", 0x41ff, 16));
 
-      if (compareTokenType(result, TokenTypes.NUMBER)) {
-        expect(result.radix).to.equal(8);
-        expect(result.number).to.equal(-0o65);
-      }
-    });
+    it("음수인 16진수일 때", testValidNumber("-0x41FF", -0x41ff, 16));
 
-    it("10진수일 때", () => {
-      const numberLexer = createLexer(NumberLexer, "10");
-      const result = numberLexer.parse(0);
-
-      if (compareTokenType(result, TokenTypes.NUMBER)) {
-        expect(result.radix).to.equal(10);
-        expect(result.number).to.equal(10);
-      }
-    });
-
-    it("음수인 10진수일 때", () => {
-      const numberLexer = createLexer(NumberLexer, "-13");
-      const result = numberLexer.parse(0);
-
-      if (compareTokenType(result, TokenTypes.NUMBER)) {
-        expect(result.radix).to.equal(10);
-        expect(result.number).to.equal(-13);
-      }
-    });
-
-    it("10진수 실수형일 때", () => {
-      const numberLexer = createLexer(NumberLexer, "10.132");
-      const result = numberLexer.parse(0);
-
-      if (compareTokenType(result, TokenTypes.NUMBER)) {
-        expect(result.radix).to.equal(10);
-        expect(result.number).to.equal(10.132);
-      }
-    });
-
-    it("음수인 10진수 실수형일 때", () => {
-      const numberLexer = createLexer(NumberLexer, "-10.132");
-      const result = numberLexer.parse(0);
-
-      if (compareTokenType(result, TokenTypes.NUMBER)) {
-        expect(result.radix).to.equal(10);
-        expect(result.number).to.equal(-10.132);
-      }
-    });
-
-    it("16진수일 때", () => {
-      const numberLexer = createLexer(NumberLexer, "0x41FF");
-      const result = numberLexer.parse(0);
-
-      if (compareTokenType(result, TokenTypes.NUMBER)) {
-        expect(result.radix).to.equal(16);
-        expect(result.number).to.equal(0x41ff);
-      }
-    });
-
-    it("음수인 16진수일 때", () => {
-      const numberLexer = createLexer(NumberLexer, "-0x41FF");
-      const result = numberLexer.parse(0);
-
-      if (compareTokenType(result, TokenTypes.NUMBER)) {
-        expect(result.radix).to.equal(16);
-        expect(result.number).to.equal(-0x41ff);
-      }
-    });
-
-    it("0일 때", () => {
-      const numberLexer = createLexer(NumberLexer, "0");
-      const result = numberLexer.parse(0);
-
-      if (compareTokenType(result, TokenTypes.NUMBER)) {
-        expect(result.radix).to.equal(10);
-        expect(result.number).to.equal(0);
-      }
-    });
+    it("0일 때", testValidNumber("0", 0, 10));
   });
 
   describe("매치 되지 않을 때", () => {

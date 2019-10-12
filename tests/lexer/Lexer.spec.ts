@@ -17,10 +17,14 @@ describe("Lexer", () => {
   });
 
   it("test2", () => {
-    const lexer = new NalaeLexer(
-      `
-콘솔이 3 + 2 - (5 * 3)를 출력`
-    );
+    const lexer = new NalaeLexer(`콘솔이 3 + 2 - (5 * 3)를 출력`);
+    snapshot(lexer.lex());
+  });
+
+  it("setCode 테스트", () => {
+    const lexer = new NalaeLexer(`사람이라는 틀 생성.`);
+    snapshot(lexer.lex());
+    lexer.setCode(`한국인이라는 틀 생성.`);
     snapshot(lexer.lex());
   });
 });

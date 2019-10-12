@@ -7,47 +7,57 @@ import { GrammerLexer } from "lexer/lexers/GrammerLexer";
 describe("GrammerLexer", () => {
   describe("매치되는 경우", () => {
     it("한글만 존재할 때", () => {
-      const grammerLexer = createLexer(GrammerLexer, "변수");
+      const code = "변수";
+      const grammerLexer = createLexer(GrammerLexer, code);
       const result = grammerLexer.parse(0);
 
       if (compareTokenType(result, TokenTypes.GRAMMER)) {
-        expect(result.text).to.equal("변수");
+        expect(result.text).to.equal(code);
+        expect(result.index).to.deep.equal({ start: 0, end: code.length });
       }
     });
 
     it("영어만 존재할 때", () => {
-      const grammerLexer = createLexer(GrammerLexer, "testVariable");
+      const code = "testVariable";
+      const grammerLexer = createLexer(GrammerLexer, code);
       const result = grammerLexer.parse(0);
 
       if (compareTokenType(result, TokenTypes.GRAMMER)) {
-        expect(result.text).to.equal("testVariable");
+        expect(result.text).to.equal(code);
+        expect(result.index).to.deep.equal({ start: 0, end: code.length });
       }
     });
 
     it("영어 + 한글 + _", () => {
-      const grammerLexer = createLexer(GrammerLexer, "test_변수");
+      const code = "test_변수";
+      const grammerLexer = createLexer(GrammerLexer, code);
       const result = grammerLexer.parse(0);
 
       if (compareTokenType(result, TokenTypes.GRAMMER)) {
-        expect(result.text).to.equal("test_변수");
+        expect(result.text).to.equal(code);
+        expect(result.index).to.deep.equal({ start: 0, end: code.length });
       }
     });
 
     it("_로 시작", () => {
-      const grammerLexer = createLexer(GrammerLexer, "_variable");
+      const code = "_variable";
+      const grammerLexer = createLexer(GrammerLexer, code);
       const result = grammerLexer.parse(0);
 
       if (compareTokenType(result, TokenTypes.GRAMMER)) {
-        expect(result.text).to.equal("_variable");
+        expect(result.text).to.equal(code);
+        expect(result.index).to.deep.equal({ start: 0, end: code.length });
       }
     });
 
     it("한글 + 숫자", () => {
-      const grammerLexer = createLexer(GrammerLexer, "변수2");
+      const code = "변수2";
+      const grammerLexer = createLexer(GrammerLexer, code);
       const result = grammerLexer.parse(0);
 
       if (compareTokenType(result, TokenTypes.GRAMMER)) {
-        expect(result.text).to.equal("변수2");
+        expect(result.text).to.equal(code);
+        expect(result.index).to.deep.equal({ start: 0, end: code.length });
       }
     });
   });

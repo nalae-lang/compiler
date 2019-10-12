@@ -268,26 +268,18 @@ exports['Lexer test1 1'] = [
 
 exports['Lexer test2 1'] = [
   {
-    "type": "end",
-    "index": {
-      "start": 0,
-      "end": 1
-    },
-    "endType": "\n"
-  },
-  {
     "type": "grammer",
     "index": {
-      "start": 1,
-      "end": 4
+      "start": 0,
+      "end": 3
     },
     "text": "콘솔이"
   },
   {
     "type": "number",
     "index": {
-      "start": 5,
-      "end": 6
+      "start": 4,
+      "end": 5
     },
     "radix": 10,
     "number": 3
@@ -295,16 +287,16 @@ exports['Lexer test2 1'] = [
   {
     "type": "operator",
     "index": {
-      "start": 7,
-      "end": 8
+      "start": 6,
+      "end": 7
     },
     "operator": "+"
   },
   {
     "type": "number",
     "index": {
-      "start": 9,
-      "end": 10
+      "start": 8,
+      "end": 9
     },
     "radix": 10,
     "number": 2
@@ -312,24 +304,24 @@ exports['Lexer test2 1'] = [
   {
     "type": "operator",
     "index": {
-      "start": 11,
-      "end": 12
+      "start": 10,
+      "end": 11
     },
     "operator": "-"
   },
   {
     "type": "operator",
     "index": {
-      "start": 13,
-      "end": 14
+      "start": 12,
+      "end": 13
     },
     "operator": "("
   },
   {
     "type": "number",
     "index": {
-      "start": 14,
-      "end": 15
+      "start": 13,
+      "end": 14
     },
     "radix": 10,
     "number": 5
@@ -337,16 +329,16 @@ exports['Lexer test2 1'] = [
   {
     "type": "operator",
     "index": {
-      "start": 16,
-      "end": 17
+      "start": 15,
+      "end": 16
     },
     "operator": "*"
   },
   {
     "type": "number",
     "index": {
-      "start": 18,
-      "end": 19
+      "start": 17,
+      "end": 18
     },
     "radix": 10,
     "number": 3
@@ -354,25 +346,95 @@ exports['Lexer test2 1'] = [
   {
     "type": "operator",
     "index": {
-      "start": 19,
-      "end": 20
+      "start": 18,
+      "end": 19
     },
     "operator": ")"
   },
   {
     "type": "grammer",
     "index": {
-      "start": 20,
-      "end": 21
+      "start": 19,
+      "end": 20
     },
     "text": "를"
   },
   {
     "type": "grammer",
     "index": {
-      "start": 22,
-      "end": 24
+      "start": 21,
+      "end": 23
     },
     "text": "출력"
+  }
+]
+
+exports['Lexer setCode 테스트 1'] = [
+  {
+    "type": "grammer",
+    "index": {
+      "start": 0,
+      "end": 5
+    },
+    "text": "사람이라는"
+  },
+  {
+    "type": "keyword",
+    "index": {
+      "start": 6,
+      "end": 7
+    },
+    "name": "class"
+  },
+  {
+    "type": "grammer",
+    "index": {
+      "start": 8,
+      "end": 10
+    },
+    "text": "생성"
+  },
+  {
+    "type": "end",
+    "index": {
+      "start": 10,
+      "end": 11
+    },
+    "endType": "."
+  }
+]
+
+exports['Lexer setCode 테스트 2'] = [
+  {
+    "type": "grammer",
+    "index": {
+      "start": 0,
+      "end": 6
+    },
+    "text": "한국인이라는"
+  },
+  {
+    "type": "keyword",
+    "index": {
+      "start": 7,
+      "end": 8
+    },
+    "name": "class"
+  },
+  {
+    "type": "grammer",
+    "index": {
+      "start": 9,
+      "end": 11
+    },
+    "text": "생성"
+  },
+  {
+    "type": "end",
+    "index": {
+      "start": 11,
+      "end": 12
+    },
+    "endType": "."
   }
 ]

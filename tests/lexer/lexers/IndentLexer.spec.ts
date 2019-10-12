@@ -14,6 +14,7 @@ describe("IndentLexer", () => {
 
       if (compareTokenType(result, TokenTypes.INDENT)) {
         expect(result.tabType).to.equal("tab");
+        expect(result.index).to.deep.equal({ start: 0, end: 1 });
       }
     });
 
@@ -23,6 +24,7 @@ describe("IndentLexer", () => {
 
       if (compareTokenType(result, TokenTypes.INDENT)) {
         expect(result.tabType).to.equal("space");
+        expect(result.index).to.deep.equal({ start: 0, end: 2 });
       }
     });
   });

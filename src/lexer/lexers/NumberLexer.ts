@@ -90,7 +90,7 @@ export class NumberLexer extends Lexer<NumberToken> {
     return {
       type: TokenTypes.NUMBER,
       index: {
-        start: index,
+        start: index - (isNegative ? 1 : 0),
         end: i
       },
       radix,

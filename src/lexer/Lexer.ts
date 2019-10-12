@@ -57,16 +57,6 @@ export class NalaeLexer {
       this.lexers.find(lexer => (result = lexer.parse(i)));
       if (result) {
         tokens.push(result);
-        if (i === result.index.end) {
-          throw new NalaeLexerError(
-            ErrorCode.LEXER_LOOP,
-            {
-              start: i,
-              end: i + 1
-            },
-            [i, code[i]]
-          );
-        }
         i = result.index.end;
       } else {
         i++;

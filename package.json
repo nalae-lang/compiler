@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "tsc && nyc mocha --opts tests/mocha-coverage.opts",
-    "test:watch": "mocha --opts tests/mocha.opts --watch"
+    "test:watch": "mocha --opts tests/mocha.opts --watch",
+    "test:snapshot": "cross-env SNAPSHOT_UPDATE=1 yarn test"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +18,7 @@
     "@typescript-eslint/eslint-plugin": "^2.3.2",
     "@typescript-eslint/parser": "^2.3.2",
     "chai": "^4.2.0",
+    "cross-env": "^6.0.3",
     "eslint": "^6.5.1",
     "eslint-config-prettier": "^6.4.0",
     "eslint-plugin-prettier": "^3.1.1",

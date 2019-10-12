@@ -7,11 +7,13 @@ import { ErrorCode } from "lexer/error/ErrorCode";
 describe("RawCodeLexer", () => {
   describe("매치 되는 경우", () => {
     it("코드일 때", () => {
-      const rawCodeLexer = createLexer(RawCodeLexer, "`code test`");
+      const code = "`code test`";
+      const rawCodeLexer = createLexer(RawCodeLexer, code);
       const result = rawCodeLexer.parse(0);
 
       if (compareTokenType(result, TokenTypes.RAWCODE)) {
         expect(result.code).to.equal("code test");
+        expect(result.index).to.deep.equal({ start: 0, end: code.length });
       }
     });
   });
