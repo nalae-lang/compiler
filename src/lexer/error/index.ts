@@ -3,15 +3,15 @@ import { Index } from "token";
 import { ErrorCode } from "./ErrorCode";
 import { formatString } from "utils/FormatString";
 
-export class NalaeLexerError extends Error {
+export class NalaeLexerError {
   name = "NalaeLexerError";
   index: Index;
+  message: string;
   constructor(
     code: ErrorCode,
     index: Index,
     parameter?: Array<string | number>
   ) {
-    super();
     this.message = formatString(code, parameter);
     this.index = index;
   }

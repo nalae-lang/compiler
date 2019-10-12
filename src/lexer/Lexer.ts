@@ -9,8 +9,6 @@ import { NumberLexer } from "./lexers/NumberLexer";
 import { OperatorLexer } from "./lexers/OperatorLexer";
 import { EndLexer } from "./lexers/EndLexer";
 import { Token } from "token";
-import { NalaeLexerError } from "./error";
-import { ErrorCode } from "./error/ErrorCode";
 
 export class NalaeLexer {
   private readonly state: LexerState;
