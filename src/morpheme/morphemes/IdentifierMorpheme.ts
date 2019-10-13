@@ -1,4 +1,4 @@
-import { TokenBase, MorphemeTokenTypes } from "token";
+import { TokenBase, MorphemeTokenTypes, Token } from "token";
 import { MorphemeAnalyser } from "morpheme";
 import { GrammerToken } from "lexer/lexers/GrammerLexer";
 
@@ -7,7 +7,7 @@ export interface IdentifierToken extends TokenBase {
   name: string;
 }
 
-export class IdentifierMorpheme extends MorphemeAnalyser<IdentifierToken> {
+export class IdentifierMorpheme implements MorphemeAnalyser<IdentifierToken> {
   public analyze(token: GrammerToken): IdentifierToken | null {
     return {
       type: MorphemeTokenTypes.IDENTIFIER,

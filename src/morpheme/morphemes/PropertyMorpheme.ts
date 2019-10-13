@@ -8,7 +8,7 @@ export interface PropertyToken extends TokenBase {
   object: IdentifierToken;
 }
 
-export class PropertyMorpheme extends MorphemeAnalyser<PropertyToken> {
+export class PropertyMorpheme implements MorphemeAnalyser<PropertyToken> {
   public analyze(token: GrammerToken): PropertyToken | null {
     if (token.text[token.text.length - 1] === "의") {
       return {

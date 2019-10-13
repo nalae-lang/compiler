@@ -3,6 +3,7 @@ import { TokenBase, LexerTokenTypes } from "token";
 
 export type EndType = "dot" | "newLine";
 export interface EndToken extends TokenBase {
+  type: LexerTokenTypes.END;
   endType: EndType;
 }
 

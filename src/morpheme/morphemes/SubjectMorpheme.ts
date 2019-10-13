@@ -10,7 +10,7 @@ export interface SubjectToken extends TokenBase {
   subjectType: "은/는" | "이/가";
 }
 
-export class SubjectMorpheme extends MorphemeAnalyser<SubjectToken> {
+export class SubjectMorpheme implements MorphemeAnalyser<SubjectToken> {
   public analyze(token: GrammerToken): SubjectToken | null {
     if (token.text.length < 2) {
       return null;
