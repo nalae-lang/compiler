@@ -7,8 +7,11 @@ import { GrammerToken } from "lexer/lexers/GrammerLexer";
 import { OperatorToken } from "lexer/lexers/OperatorLexer";
 import { KeywordToken } from "lexer/lexers/KeywordLexer";
 import { CommentToken } from "lexer/lexers/CommentLexer";
+import { IdentifierToken } from "morpheme/morphemes/IdentifierMorpheme";
+import { PropertyToken } from "morpheme/morphemes/PropertyMorpheme";
+import { SubjectToken } from "morpheme/morphemes/SubjectMorpheme";
 
-export enum TokenTypes {
+export enum LexerTokenTypes {
   INDENT = "indent",
   STRING = "string",
   COMMENT = "comment",
@@ -19,6 +22,16 @@ export enum TokenTypes {
   OPERATOR = "operator",
   END = "end"
 }
+
+export enum MorphemeTokenTypes {
+  SUBJECT = "subject",
+  ARGUMENT = "argument",
+  ARGUMENT_TYPE = "argument_type",
+  IDENTIFIER = "identifier",
+  PROPERTY = "property"
+}
+
+export type TokenTypes = LexerTokenTypes | MorphemeTokenTypes;
 
 export interface Index {
   start: number;
@@ -39,4 +52,7 @@ export type Token =
   | GrammerToken
   | OperatorToken
   | KeywordToken
-  | CommentToken;
+  | CommentToken
+  | IdentifierToken
+  | PropertyToken
+  | SubjectToken;

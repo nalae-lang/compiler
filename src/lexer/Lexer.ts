@@ -9,6 +9,8 @@ import { NumberLexer } from "./lexers/NumberLexer";
 import { OperatorLexer } from "./lexers/OperatorLexer";
 import { EndLexer } from "./lexers/EndLexer";
 import { Token } from "token";
+import { NalaeLexerError } from "./error";
+import { ErrorCode } from "./error/ErrorCode";
 
 export class NalaeLexer {
   private readonly state: LexerState;
@@ -57,7 +59,18 @@ export class NalaeLexer {
         tokens.push(result);
         i = result.index.end;
       } else {
-        i++;
+        if (code[i] === " ") {
+          i++;
+        } else {
+          throw new NalaeLexerError(
+            ErrorCode.LEXER_UNKNOWN_WORD,
+            {
+              start: i,
+              end: i + 1
+            },
+            [code[i]]
+          );
+        }
       }
     }
     return this.afterLex(tokens);

@@ -1,14 +1,14 @@
-import { TokenBase, TokenTypes } from "token";
+import { TokenBase, LexerTokenTypes } from "token";
 import { operatorList } from "./models/OperatorList";
 import { Lexer } from "lexer";
 
 export interface OperatorToken extends TokenBase {
-  type: TokenTypes.OPERATOR;
+  type: LexerTokenTypes.OPERATOR;
   operator: (typeof operatorList)[number];
 }
 
 export class OperatorLexer extends Lexer<OperatorToken> {
-  public static readonly TOKEN_TYPE = TokenTypes.OPERATOR;
+  public static readonly TOKEN_TYPE = LexerTokenTypes.OPERATOR;
 
   public parse(index: number): OperatorToken | null {
     const { code } = this.state;
@@ -17,7 +17,7 @@ export class OperatorLexer extends Lexer<OperatorToken> {
 
     if (find) {
       return {
-        type: TokenTypes.OPERATOR,
+        type: LexerTokenTypes.OPERATOR,
         index: {
           start: index,
           end: index + 1

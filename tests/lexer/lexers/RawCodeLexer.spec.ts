@@ -1,7 +1,7 @@
 import { createLexer } from "../../helper/lexer/CreateLexer";
 import { RawCodeLexer } from "lexer/lexers/RawCodeLexer";
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
-import { TokenTypes } from "token";
+import { LexerTokenTypes } from "token";
 import { ErrorCode } from "lexer/error/ErrorCode";
 
 describe("RawCodeLexer", () => {
@@ -11,7 +11,7 @@ describe("RawCodeLexer", () => {
       const rawCodeLexer = createLexer(RawCodeLexer, code);
       const result = rawCodeLexer.parse(0);
 
-      if (compareTokenType(result, TokenTypes.RAWCODE)) {
+      if (compareTokenType(result, LexerTokenTypes.RAWCODE)) {
         expect(result.code).to.equal("code test");
         expect(result.index).to.deep.equal({ start: 0, end: code.length });
       }

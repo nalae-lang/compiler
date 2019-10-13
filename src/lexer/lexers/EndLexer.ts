@@ -1,12 +1,13 @@
 import { Lexer } from "lexer";
-import { TokenBase, TokenTypes } from "token";
+import { TokenBase, LexerTokenTypes } from "token";
 
+export type EndType = "dot" | "newLine";
 export interface EndToken extends TokenBase {
-  endType: "." | "\n";
+  endType: EndType;
 }
 
 export class EndLexer extends Lexer<EndToken> {
-  public static readonly TOKEN_TYPE = TokenTypes.END;
+  public static readonly TOKEN_TYPE = LexerTokenTypes.END;
 
   public parse(index: number): EndToken | null {
     const { code } = this.state;
@@ -14,24 +15,24 @@ export class EndLexer extends Lexer<EndToken> {
     // 1. 엔터로 줄을 끝내는 경우
     if (code[index] === "\n") {
       return {
-        type: TokenTypes.END,
+        type: LexerTokenTypes.END,
         index: {
           start: index,
           end: index + 1
         },
-        endType: "\n"
+        endType: "newLine"
       };
     }
 
     // 2. '.'으로 줄을 끝내는 경우
     if (code[index] === ".") {
       return {
-        type: TokenTypes.END,
+        type: LexerTokenTypes.END,
         index: {
           start: index,
           end: index + 1
         },
-        endType: "."
+        endType: "dot"
       };
     }
 

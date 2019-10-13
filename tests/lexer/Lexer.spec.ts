@@ -1,5 +1,7 @@
 import { NalaeLexer } from "lexer/Lexer";
 import snapshot from "snap-shot-it";
+import { formatString } from "utils/FormatString";
+import { ErrorCode } from "lexer/error/ErrorCode";
 
 describe("Lexer", () => {
   it("test1", () => {
@@ -26,5 +28,12 @@ describe("Lexer", () => {
     snapshot(lexer.lex());
     lexer.setCode(`한국인이라는 틀 생성.`);
     snapshot(lexer.lex());
+  });
+
+  it("알 수 없는 문자", () => {
+    const lexer = new NalaeLexer("알 수 없는 문자 &");
+    expect(() => {
+      lexer.lex();
+    }).to.throw(formatString(ErrorCode.LEXER_UNKNOWN_WORD, ["&"]));
   });
 });

@@ -1,17 +1,17 @@
-import { TokenBase, TokenTypes } from "token";
+import { TokenBase, LexerTokenTypes } from "token";
 import { Lexer } from "lexer";
 import { NalaeLexerError } from "lexer/error";
 import { ErrorCode } from "lexer/error/ErrorCode";
 
 export type Radix = 2 | 8 | 10 | 16;
 export interface NumberToken extends TokenBase {
-  type: TokenTypes.NUMBER;
+  type: LexerTokenTypes.NUMBER;
   number: number;
   radix: Radix;
 }
 
 export class NumberLexer extends Lexer<NumberToken> {
-  public static readonly TOKEN_TYPE = TokenTypes.NUMBER;
+  public static readonly TOKEN_TYPE = LexerTokenTypes.NUMBER;
 
   private checkNumber(index: number, radix: Radix): boolean {
     const { code } = this.state;
@@ -88,7 +88,7 @@ export class NumberLexer extends Lexer<NumberToken> {
     }
 
     return {
-      type: TokenTypes.NUMBER,
+      type: LexerTokenTypes.NUMBER,
       index: {
         start: index - (isNegative ? 1 : 0),
         end: i
@@ -129,7 +129,7 @@ export class NumberLexer extends Lexer<NumberToken> {
         },
         number: 0,
         radix: 10,
-        type: TokenTypes.NUMBER
+        type: LexerTokenTypes.NUMBER
       };
     } else if (code[i] >= "1" && code[i] <= "9") {
       return this.parseNumber(i, 0, 10);

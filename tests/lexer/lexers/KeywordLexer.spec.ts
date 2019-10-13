@@ -2,7 +2,7 @@ import { keywordList } from "lexer/lexers/models/KeywordList";
 import { createLexer } from "../../helper/lexer/CreateLexer";
 import { KeywordLexer } from "lexer/lexers/KeywordLexer";
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
-import { TokenTypes } from "token";
+import { LexerTokenTypes } from "token";
 import { operatorList } from "lexer/lexers/models/OperatorList";
 
 describe("KeywordLexer", () => {
@@ -15,7 +15,7 @@ describe("KeywordLexer", () => {
       for (let i = 0; i < keywordList.length; i++) {
         const result = keywordLexer.parse(index);
 
-        if (compareTokenType(result, TokenTypes.KEYWORD)) {
+        if (compareTokenType(result, LexerTokenTypes.KEYWORD)) {
           expect(result.name).to.equal(keywordList[i].name);
           expect(code.substring(result.index.start, result.index.end)).to.equal(
             keywordList[i].match
@@ -38,7 +38,7 @@ describe("KeywordLexer", () => {
       for (let i = 0; i < keywordList.length; i++) {
         const result = keywordLexer.parse(index);
 
-        if (compareTokenType(result, TokenTypes.KEYWORD)) {
+        if (compareTokenType(result, LexerTokenTypes.KEYWORD)) {
           expect(result.name).to.equal(keywordList[i].name);
           expect(code.substring(result.index.start, result.index.end)).to.equal(
             keywordList[i].match

@@ -5,7 +5,7 @@ exports['Lexer test1 1'] = [
       "start": 0,
       "end": 1
     },
-    "endType": "\n"
+    "endType": "newLine"
   },
   {
     "type": "string",
@@ -45,7 +45,7 @@ exports['Lexer test1 1'] = [
       "start": 21,
       "end": 22
     },
-    "endType": "."
+    "endType": "dot"
   },
   {
     "type": "end",
@@ -53,7 +53,7 @@ exports['Lexer test1 1'] = [
       "start": 22,
       "end": 23
     },
-    "endType": "\n"
+    "endType": "newLine"
   },
   {
     "type": "grammer",
@@ -93,7 +93,7 @@ exports['Lexer test1 1'] = [
       "start": 42,
       "end": 43
     },
-    "endType": "."
+    "endType": "dot"
   },
   {
     "type": "end",
@@ -101,7 +101,7 @@ exports['Lexer test1 1'] = [
       "start": 43,
       "end": 44
     },
-    "endType": "\n"
+    "endType": "newLine"
   },
   {
     "type": "comment",
@@ -117,7 +117,7 @@ exports['Lexer test1 1'] = [
       "start": 58,
       "end": 59
     },
-    "endType": "\n"
+    "endType": "newLine"
   },
   {
     "type": "grammer",
@@ -181,7 +181,7 @@ exports['Lexer test1 1'] = [
       "start": 81,
       "end": 82
     },
-    "endType": "\n"
+    "endType": "newLine"
   },
   {
     "type": "indent",
@@ -189,7 +189,7 @@ exports['Lexer test1 1'] = [
       "start": 82,
       "end": 84
     },
-    "tabType": "space"
+    "indentType": "space"
   },
   {
     "type": "grammer",
@@ -262,7 +262,7 @@ exports['Lexer test1 1'] = [
       "start": 110,
       "end": 111
     },
-    "endType": "."
+    "endType": "dot"
   }
 ]
 
@@ -400,7 +400,7 @@ exports['Lexer setCode 테스트 1'] = [
       "start": 10,
       "end": 11
     },
-    "endType": "."
+    "endType": "dot"
   }
 ]
 
@@ -435,6 +435,6 @@ exports['Lexer setCode 테스트 2'] = [
       "start": 11,
       "end": 12
     },
-    "endType": "."
+    "endType": "dot"
   }
 ]

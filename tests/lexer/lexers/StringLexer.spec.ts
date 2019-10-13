@@ -1,7 +1,7 @@
 import { createLexer } from "../../helper/lexer/CreateLexer";
 import { StringLexer } from "lexer/lexers/StringLexer";
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
-import { TokenTypes } from "token";
+import { LexerTokenTypes } from "token";
 import { ErrorCode } from "lexer/error/ErrorCode";
 
 describe("StringLexer", () => {
@@ -11,7 +11,7 @@ describe("StringLexer", () => {
       const stringLexer = createLexer(StringLexer, code);
       const result = stringLexer.parse(0);
 
-      if (compareTokenType(result, TokenTypes.STRING)) {
+      if (compareTokenType(result, LexerTokenTypes.STRING)) {
         expect(result.string).to.equal("string");
         expect(result.index).to.deep.equal({ start: 0, end: code.length });
       }

@@ -1,7 +1,7 @@
 import { createLexer } from "../../helper/lexer/CreateLexer";
 import { EndLexer } from "lexer/lexers/EndLexer";
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
-import { TokenTypes } from "token";
+import { LexerTokenTypes } from "token";
 
 describe("EndLexer", () => {
   describe("매치 되는 경우", () => {
@@ -10,8 +10,8 @@ describe("EndLexer", () => {
       const endLexer = createLexer(EndLexer, code);
       const result = endLexer.parse(0);
 
-      if (compareTokenType(result, TokenTypes.END)) {
-        expect(result.endType).to.equal(".");
+      if (compareTokenType(result, LexerTokenTypes.END)) {
+        expect(result.endType).to.equal("dot");
         expect(result.index).to.deep.equal({ start: 0, end: code.length });
       }
     });
@@ -21,8 +21,8 @@ describe("EndLexer", () => {
       const endLexer = createLexer(EndLexer, code);
       const result = endLexer.parse(0);
 
-      if (compareTokenType(result, TokenTypes.END)) {
-        expect(result.endType).to.equal("\n");
+      if (compareTokenType(result, LexerTokenTypes.END)) {
+        expect(result.endType).to.equal("newLine");
         expect(result.index).to.deep.equal({ start: 0, end: code.length });
       }
     });

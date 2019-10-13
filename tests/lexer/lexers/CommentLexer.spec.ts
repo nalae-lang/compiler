@@ -1,4 +1,4 @@
-import { TokenTypes } from "token";
+import { LexerTokenTypes } from "token";
 
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
 import { createLexer } from "../../helper/lexer/CreateLexer";
@@ -12,7 +12,7 @@ describe("CommentLexer", () => {
       const commentLexer = createLexer(CommentLexer, code);
       const result = commentLexer.parse(0);
 
-      if (compareTokenType(result, TokenTypes.COMMENT)) {
+      if (compareTokenType(result, LexerTokenTypes.COMMENT)) {
         expect(result.comment).to.equal("test comment");
         expect(result.index).to.deep.equal({ start: 0, end: code.length });
       }
@@ -23,7 +23,7 @@ describe("CommentLexer", () => {
       const commentLexer = createLexer(CommentLexer, code);
       const result = commentLexer.parse(0);
 
-      if (compareTokenType(result, TokenTypes.COMMENT)) {
+      if (compareTokenType(result, LexerTokenTypes.COMMENT)) {
         expect(result.comment).to.equal("test comment");
         expect(result.index).to.deep.equal({ start: 0, end: code.length });
       }
@@ -34,7 +34,7 @@ describe("CommentLexer", () => {
       const commentLexer = createLexer(CommentLexer, code + "\nnext");
       const result = commentLexer.parse(0);
 
-      if (compareTokenType(result, TokenTypes.COMMENT)) {
+      if (compareTokenType(result, LexerTokenTypes.COMMENT)) {
         expect(result.comment).to.equal("test comment");
         expect(result.index).to.deep.equal({ start: 0, end: code.length });
       }

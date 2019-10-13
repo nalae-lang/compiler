@@ -1,17 +1,17 @@
-import { TokenBase, TokenTypes } from "token";
+import { TokenBase, LexerTokenTypes } from "token";
 import { keywordList } from "./models/KeywordList";
 import { Lexer } from "lexer";
 import { operatorList } from "./models/OperatorList";
 
 export interface KeywordToken extends TokenBase {
-  type: TokenTypes.KEYWORD;
+  type: LexerTokenTypes.KEYWORD;
   name: (typeof keywordList)[number]["name"];
 }
 
 export const ALLOWED_KEYWORD_NEXT = ["\n", " ", "\t", ...operatorList];
 
 export class KeywordLexer extends Lexer<KeywordToken> {
-  public static readonly TOKEN_TYPE = TokenTypes.KEYWORD;
+  public static readonly TOKEN_TYPE = LexerTokenTypes.KEYWORD;
 
   private matchWord(match: string, index: number): boolean {
     const { code } = this.state;
@@ -32,7 +32,7 @@ export class KeywordLexer extends Lexer<KeywordToken> {
 
     if (find) {
       return {
-        type: TokenTypes.KEYWORD,
+        type: LexerTokenTypes.KEYWORD,
         index: {
           start: index,
           end: index + find.match.length

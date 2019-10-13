@@ -1,4 +1,4 @@
-import { TokenTypes } from "token";
+import { LexerTokenTypes } from "token";
 
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
 import { createLexer } from "../../helper/lexer/CreateLexer";
@@ -11,7 +11,7 @@ describe("GrammerLexer", () => {
       const grammerLexer = createLexer(GrammerLexer, code);
       const result = grammerLexer.parse(0);
 
-      if (compareTokenType(result, TokenTypes.GRAMMER)) {
+      if (compareTokenType(result, LexerTokenTypes.GRAMMER)) {
         expect(result.text).to.equal(code);
         expect(result.index).to.deep.equal({ start: 0, end: code.length });
       }
@@ -22,7 +22,7 @@ describe("GrammerLexer", () => {
       const grammerLexer = createLexer(GrammerLexer, code);
       const result = grammerLexer.parse(0);
 
-      if (compareTokenType(result, TokenTypes.GRAMMER)) {
+      if (compareTokenType(result, LexerTokenTypes.GRAMMER)) {
         expect(result.text).to.equal(code);
         expect(result.index).to.deep.equal({ start: 0, end: code.length });
       }
@@ -33,7 +33,7 @@ describe("GrammerLexer", () => {
       const grammerLexer = createLexer(GrammerLexer, code);
       const result = grammerLexer.parse(0);
 
-      if (compareTokenType(result, TokenTypes.GRAMMER)) {
+      if (compareTokenType(result, LexerTokenTypes.GRAMMER)) {
         expect(result.text).to.equal(code);
         expect(result.index).to.deep.equal({ start: 0, end: code.length });
       }
@@ -44,7 +44,7 @@ describe("GrammerLexer", () => {
       const grammerLexer = createLexer(GrammerLexer, code);
       const result = grammerLexer.parse(0);
 
-      if (compareTokenType(result, TokenTypes.GRAMMER)) {
+      if (compareTokenType(result, LexerTokenTypes.GRAMMER)) {
         expect(result.text).to.equal(code);
         expect(result.index).to.deep.equal({ start: 0, end: code.length });
       }
@@ -55,7 +55,7 @@ describe("GrammerLexer", () => {
       const grammerLexer = createLexer(GrammerLexer, code);
       const result = grammerLexer.parse(0);
 
-      if (compareTokenType(result, TokenTypes.GRAMMER)) {
+      if (compareTokenType(result, LexerTokenTypes.GRAMMER)) {
         expect(result.text).to.equal(code);
         expect(result.index).to.deep.equal({ start: 0, end: code.length });
       }

@@ -1,15 +1,15 @@
-import { TokenBase, TokenTypes } from "token";
+import { TokenBase, LexerTokenTypes } from "token";
 import { Lexer } from "lexer";
 import { NalaeLexerError } from "lexer/error";
 import { ErrorCode } from "lexer/error/ErrorCode";
 
 export interface RawCodeToken extends TokenBase {
-  type: TokenTypes.RAWCODE;
+  type: LexerTokenTypes.RAWCODE;
   code: string;
 }
 
 export class RawCodeLexer extends Lexer<RawCodeToken> {
-  public static readonly TOKEN_TYPE = TokenTypes.RAWCODE;
+  public static readonly TOKEN_TYPE = LexerTokenTypes.RAWCODE;
 
   public parse(index: number): RawCodeToken | null {
     const { code } = this.state;
@@ -19,7 +19,7 @@ export class RawCodeLexer extends Lexer<RawCodeToken> {
       for (; i < code.length; i++) {
         if (code[i] === "`" && code[i - 1] != "\\") {
           return {
-            type: TokenTypes.RAWCODE,
+            type: LexerTokenTypes.RAWCODE,
             index: {
               start: index,
               end: i + 1

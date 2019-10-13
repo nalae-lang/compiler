@@ -2,7 +2,7 @@ import { createLexer } from "../../helper/lexer/CreateLexer";
 import { OperatorLexer } from "lexer/lexers/OperatorLexer";
 import { operatorList } from "lexer/lexers/models/OperatorList";
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
-import { TokenTypes } from "token";
+import { LexerTokenTypes } from "token";
 
 describe("OperatorLexer", () => {
   describe("매치 되는 경우", () => {
@@ -13,7 +13,7 @@ describe("OperatorLexer", () => {
       for (let i = 0; i < operatorList.length; i++) {
         const result = operatorLexer.parse(i);
 
-        if (compareTokenType(result, TokenTypes.OPERATOR)) {
+        if (compareTokenType(result, LexerTokenTypes.OPERATOR)) {
           expect(result.operator).to.equal(operatorList[i]);
         }
       }
@@ -26,7 +26,7 @@ describe("OperatorLexer", () => {
       let searchIndex = 0;
       for (let i = 0; i < operatorList.length; i++) {
         const result = operatorLexer.parse(searchIndex);
-        if (compareTokenType(result, TokenTypes.OPERATOR)) {
+        if (compareTokenType(result, LexerTokenTypes.OPERATOR)) {
           expect(result.operator).to.equal(operatorList[i]);
           searchIndex = result.index.end + 1;
         }

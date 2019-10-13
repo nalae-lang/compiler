@@ -1,15 +1,15 @@
-import { TokenBase, TokenTypes } from "token";
+import { TokenBase, LexerTokenTypes } from "token";
 import { Lexer } from "lexer";
 import { NalaeLexerError } from "lexer/error";
 import { ErrorCode } from "lexer/error/ErrorCode";
 
 export interface StringToken extends TokenBase {
-  type: TokenTypes.STRING;
+  type: LexerTokenTypes.STRING;
   string: string;
 }
 
 export class StringLexer extends Lexer<StringToken> {
-  public static readonly TOKEN_TYPE = TokenTypes.STRING;
+  public static readonly TOKEN_TYPE = LexerTokenTypes.STRING;
 
   public parse(index: number): StringToken | null {
     const { code } = this.state;
@@ -19,7 +19,7 @@ export class StringLexer extends Lexer<StringToken> {
       for (; i < code.length; i++) {
         if (code[i] === '"' && code[i - 1] != "\\") {
           return {
-            type: TokenTypes.STRING,
+            type: LexerTokenTypes.STRING,
             index: {
               start: index,
               end: i + 1

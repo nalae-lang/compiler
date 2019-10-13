@@ -1,7 +1,7 @@
 import { createLexer } from "../../helper/lexer/CreateLexer";
 import { NumberLexer, Radix } from "lexer/lexers/NumberLexer";
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
-import { TokenTypes } from "token";
+import { LexerTokenTypes } from "token";
 import { ErrorCode } from "lexer/error/ErrorCode";
 import { formatString } from "utils/FormatString";
 
@@ -14,7 +14,7 @@ function testValidNumber(
     const numberLexer = createLexer(NumberLexer, code);
     const result = numberLexer.parse(0);
 
-    if (compareTokenType(result, TokenTypes.NUMBER)) {
+    if (compareTokenType(result, LexerTokenTypes.NUMBER)) {
       expect(result.radix).to.equal(radix);
       expect(result.number).to.equal(expectNumber);
       expect(result.index).to.deep.equal({ start: 0, end: code.length });

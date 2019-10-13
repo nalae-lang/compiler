@@ -1,10 +1,9 @@
-import { TokenTypes } from "token";
+import { LexerTokenTypes } from "token";
 
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
 import { createLexer } from "../../helper/lexer/CreateLexer";
-import { IndentLexer, IndentToken } from "lexer/lexers/IndentLexer";
-import { EndToken } from "lexer/lexers/EndLexer";
-import { mockToken } from "../../helper/lexer/MockToken";
+import { IndentLexer } from "lexer/lexers/IndentLexer";
+import { mockIndent, mockEnd } from "../../helper/lexer/MockToken";
 
 describe("IndentLexer", () => {
   describe("매치되는 경우", () => {
@@ -12,8 +11,8 @@ describe("IndentLexer", () => {
       const indentLexer = createLexer(IndentLexer, "\tvalue");
       const result = indentLexer.parse(0);
 
-      if (compareTokenType(result, TokenTypes.INDENT)) {
-        expect(result.tabType).to.equal("tab");
+      if (compareTokenType(result, LexerTokenTypes.INDENT)) {
+        expect(result.indentType).to.equal("tab");
         expect(result.index).to.deep.equal({ start: 0, end: 1 });
       }
     });
@@ -22,8 +21,8 @@ describe("IndentLexer", () => {
       const indentLexer = createLexer(IndentLexer, "  value");
       const result = indentLexer.parse(0);
 
-      if (compareTokenType(result, TokenTypes.INDENT)) {
-        expect(result.tabType).to.equal("space");
+      if (compareTokenType(result, LexerTokenTypes.INDENT)) {
+        expect(result.indentType).to.equal("space");
         expect(result.index).to.deep.equal({ start: 0, end: 2 });
       }
     });
@@ -39,15 +38,9 @@ describe("IndentLexer", () => {
   });
 
   describe("reduceIndent 함수", () => {
-    const mockIndentToken = mockToken<IndentToken>(TokenTypes.INDENT, {
-      tabType: "tab"
-    });
-    const mockEndToken = mockToken<EndToken>(TokenTypes.END, {
-      endType: "\n"
-    });
-    const mockEndDotToken = mockToken<EndToken>(TokenTypes.END, {
-      endType: "."
-    });
+    const mockIndentToken = mockIndent("tab");
+    const mockEndToken = mockEnd("newLine");
+    const mockEndDotToken = mockEnd("dot");
 
     it("유효한 Indent 토큰일 때", () => {
       const tokens = IndentLexer.reduceIndent([
