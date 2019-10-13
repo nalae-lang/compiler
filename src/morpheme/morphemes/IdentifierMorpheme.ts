@@ -1,4 +1,4 @@
-import { TokenBase, MorphemeTokenTypes, Token } from "token";
+import { TokenBase, MorphemeTokenTypes } from "token";
 import { MorphemeAnalyser } from "morpheme";
 import { GrammerToken } from "lexer/lexers/GrammerLexer";
 
