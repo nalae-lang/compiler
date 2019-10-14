@@ -1,4 +1,4 @@
-exports['Lexer test1 1'] = [
+exports['LEXER_RESULT_DEFAULT'] = [
   {
     "type": "end",
     "index": {
@@ -266,7 +266,7 @@ exports['Lexer test1 1'] = [
   }
 ]
 
-exports['Lexer test2 1'] = [
+exports['LEXER_RESULT_CALCULATE'] = [
   {
     "type": "grammer",
     "index": {
@@ -369,7 +369,7 @@ exports['Lexer test2 1'] = [
   }
 ]
 
-exports['Lexer setCode 테스트 1'] = [
+exports['LEXER_RESULT_CREATE_CLASS_1'] = [
   {
     "type": "grammer",
     "index": {
@@ -404,7 +404,7 @@ exports['Lexer setCode 테스트 1'] = [
   }
 ]
 
-exports['Lexer setCode 테스트 2'] = [
+exports['LEXER_RESULT_CREATE_CLASS_2'] = [
   {
     "type": "grammer",
     "index": {

@@ -19,6 +19,9 @@
     "preserveConstEnums": true,
     "esModuleInterop": true,
     "newLine": "lf",
-    "types": ["./tests/chai", "mocha", "chai"]
+    "types": ["./tests/chai", "mocha", "chai", "./__snapshots__/module"],
+    "paths": {
+      "snapshots/*": ["../__snapshots__/*"]
+    }
   }
 }

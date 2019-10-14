@@ -47,8 +47,6 @@
     ]
   },
   "config": {
-    "snap-shot-it": {
-      "useRelativePath": true
-    }
+    "snap-shot-it": {}
   }
 }
