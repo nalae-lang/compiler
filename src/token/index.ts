@@ -10,26 +10,8 @@ import { CommentToken } from "lexer/lexers/CommentLexer";
 import { IdentifierToken } from "morpheme/morphemes/IdentifierMorpheme";
 import { PropertyToken } from "morpheme/morphemes/PropertyMorpheme";
 import { SubjectToken } from "morpheme/morphemes/SubjectMorpheme";
-
-export enum LexerTokenTypes {
-  INDENT = "indent",
-  STRING = "string",
-  COMMENT = "comment",
-  RAWCODE = "rawcode",
-  NUMBER = "number",
-  GRAMMER = "grammer",
-  KEYWORD = "keyword",
-  OPERATOR = "operator",
-  END = "end"
-}
-
-export enum MorphemeTokenTypes {
-  SUBJECT = "subject",
-  ARGUMENT = "argument",
-  ARGUMENT_TYPE = "argument_type",
-  IDENTIFIER = "identifier",
-  PROPERTY = "property"
-}
+import { LexerTokenTypes } from "./types/LexerTokenTypes";
+import { MorphemeTokenTypes } from "./types/MorphemeTokenTypes";
 
 export type TokenTypes = LexerTokenTypes | MorphemeTokenTypes;
 

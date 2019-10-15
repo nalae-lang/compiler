@@ -1,7 +1,7 @@
 import { createLexer } from "../../helper/lexer/CreateLexer";
 import { EndLexer } from "lexer/lexers/EndLexer";
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
-import { LexerTokenTypes } from "token";
+import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
 describe("EndLexer", () => {
   describe("매치 되는 경우", () => {

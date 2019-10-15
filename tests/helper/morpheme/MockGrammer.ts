@@ -1,5 +1,5 @@
 import { GrammerToken } from "lexer/lexers/GrammerLexer";
-import { LexerTokenTypes } from "token";
+import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
 export function mockGrammer(text: string): GrammerToken {
   return {

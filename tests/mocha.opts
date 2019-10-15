@@ -4,4 +4,5 @@
 --require tests/mocha-setup.js
 --recursive
 --watch-extensions ts
+--reporter min
 tests/**/*.spec.ts

@@ -2,7 +2,7 @@ import { keywordList } from "lexer/lexers/models/KeywordList";
 import { createLexer } from "../../helper/lexer/CreateLexer";
 import { KeywordLexer } from "lexer/lexers/KeywordLexer";
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
-import { LexerTokenTypes } from "token";
+import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 import { operatorList } from "lexer/lexers/models/OperatorList";
 
 describe("KeywordLexer", () => {

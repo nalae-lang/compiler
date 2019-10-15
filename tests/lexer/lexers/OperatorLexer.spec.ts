@@ -2,7 +2,7 @@ import { createLexer } from "../../helper/lexer/CreateLexer";
 import { OperatorLexer } from "lexer/lexers/OperatorLexer";
 import { operatorList } from "lexer/lexers/models/OperatorList";
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
-import { LexerTokenTypes } from "token";
+import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
 describe("OperatorLexer", () => {
   describe("매치 되는 경우", () => {

@@ -1,4 +1,4 @@
-import { LexerTokenTypes } from "token";
+import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
 import { createLexer } from "../../helper/lexer/CreateLexer";

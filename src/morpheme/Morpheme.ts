@@ -1,7 +1,8 @@
 import { SubjectMorpheme } from "./morphemes/SubjectMorpheme";
 import { PropertyMorpheme } from "./morphemes/PropertyMorpheme";
 import { MorphemeAnalyser } from "morpheme";
-import { Token, LexerTokenTypes } from "token";
+import { Token } from "token";
+import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
 export class NalaeMorphemeAnalyser {
   private readonly morphemes: MorphemeAnalyser<Token>[] = [

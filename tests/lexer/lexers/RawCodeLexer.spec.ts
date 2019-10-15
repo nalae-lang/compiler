@@ -1,7 +1,7 @@
 import { createLexer } from "../../helper/lexer/CreateLexer";
 import { RawCodeLexer } from "lexer/lexers/RawCodeLexer";
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
-import { LexerTokenTypes } from "token";
+import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 import { ErrorCode } from "lexer/error/ErrorCode";
 
 describe("RawCodeLexer", () => {

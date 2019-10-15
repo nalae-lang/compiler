@@ -1,5 +1,5 @@
 import { GrammerToken } from "lexer/lexers/GrammerLexer";
-import { LexerTokenTypes } from "token";
+import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 import { EndType, EndToken } from "lexer/lexers/EndLexer";
 import { IndentType, IndentToken } from "lexer/lexers/IndentLexer";
 

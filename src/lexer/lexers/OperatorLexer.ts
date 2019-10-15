@@ -1,4 +1,5 @@
-import { TokenBase, LexerTokenTypes } from "token";
+import { TokenBase } from "token";
+import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 import { operatorList } from "./models/OperatorList";
 import { Lexer } from "lexer";
 

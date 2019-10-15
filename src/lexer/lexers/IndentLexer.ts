@@ -1,4 +1,5 @@
-import { TokenBase, LexerTokenTypes, Token } from "token";
+import { TokenBase, Token } from "token";
+import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 import { Lexer } from "lexer";
 import { EndToken } from "./EndLexer";
 

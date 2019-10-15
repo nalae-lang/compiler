@@ -1,4 +1,4 @@
-import { MorphemeTokenTypes } from "token";
+import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
 import { SubjectMorpheme } from "morpheme/morphemes/SubjectMorpheme";
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
 import { mockGrammer } from "../../helper/morpheme/MockGrammer";

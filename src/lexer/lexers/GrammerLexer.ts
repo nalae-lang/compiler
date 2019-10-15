@@ -1,5 +1,6 @@
 import { Lexer } from "lexer";
-import { TokenBase, LexerTokenTypes } from "token";
+import { TokenBase } from "token";
+import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
 export interface GrammerToken extends TokenBase {
   type: LexerTokenTypes.GRAMMER;
