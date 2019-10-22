@@ -1,7 +1,7 @@
 import { NalaeLexer } from "lexer/Lexer";
 import snapshot from "snap-shot-it";
 import { formatString } from "utils/FormatString";
-import { ErrorCode } from "lexer/error/ErrorCode";
+import { LexerErrorCode } from "lexer/error/ErrorCode";
 
 describe("Lexer", () => {
   it("기본 문법 테스트", () => {
@@ -34,6 +34,6 @@ describe("Lexer", () => {
     const lexer = new NalaeLexer("알 수 없는 문자 &");
     expect(() => {
       lexer.lex();
-    }).to.throw(formatString(ErrorCode.LEXER_UNKNOWN_WORD, ["&"]));
+    }).to.throw(formatString(LexerErrorCode.LEXER_UNKNOWN_WORD, ["&"]));
   });
 });

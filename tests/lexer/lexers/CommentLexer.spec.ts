@@ -3,7 +3,7 @@ import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
 import { createLexer } from "../../helper/lexer/CreateLexer";
 import { CommentLexer } from "lexer/lexers/CommentLexer";
-import { ErrorCode } from "lexer/error/ErrorCode";
+import { LexerErrorCode } from "lexer/error/ErrorCode";
 
 describe("CommentLexer", () => {
   describe("매치되는 경우", () => {
@@ -46,14 +46,14 @@ describe("CommentLexer", () => {
       const commentLexer = createLexer(CommentLexer, "/* tesfs");
       expect(() => {
         commentLexer.parse(0);
-      }).to.throw(ErrorCode.COMMENT_NOT_END);
+      }).to.throw(LexerErrorCode.COMMENT_NOT_END);
     });
 
     it("/*/ 일 때", () => {
       const commentLexer = createLexer(CommentLexer, "/*fdg/");
       expect(() => {
         commentLexer.parse(0);
-      }).to.throw(ErrorCode.COMMENT_NOT_END);
+      }).to.throw(LexerErrorCode.COMMENT_NOT_END);
     });
 
     it("완전 존재하지 않을 때", () => {

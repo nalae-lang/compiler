@@ -10,7 +10,7 @@ import { OperatorLexer } from "./lexers/OperatorLexer";
 import { EndLexer } from "./lexers/EndLexer";
 import { Token } from "token";
 import { NalaeLexerError } from "./error";
-import { ErrorCode } from "./error/ErrorCode";
+import { LexerErrorCode } from "./error/ErrorCode";
 
 export class NalaeLexer {
   private readonly state: LexerState;
@@ -63,7 +63,7 @@ export class NalaeLexer {
           i++;
         } else {
           throw new NalaeLexerError(
-            ErrorCode.LEXER_UNKNOWN_WORD,
+            LexerErrorCode.LEXER_UNKNOWN_WORD,
             {
               start: i,
               end: i + 1

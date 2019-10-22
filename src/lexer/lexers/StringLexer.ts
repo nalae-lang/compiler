@@ -2,7 +2,7 @@ import { TokenBase } from "token";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 import { Lexer } from "lexer";
 import { NalaeLexerError } from "lexer/error";
-import { ErrorCode } from "lexer/error/ErrorCode";
+import { LexerErrorCode } from "lexer/error/ErrorCode";
 
 export interface StringToken extends TokenBase {
   type: LexerTokenTypes.STRING;
@@ -29,7 +29,7 @@ export class StringLexer extends Lexer<StringToken> {
           };
         }
       }
-      throw new NalaeLexerError(ErrorCode.STRING_NOT_END, {
+      throw new NalaeLexerError(LexerErrorCode.STRING_NOT_END, {
         start: index,
         end: i
       });

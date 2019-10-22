@@ -1,21 +1,35 @@
-import { TokenBase } from "token";
+import { TokenBase, ValueToken } from "token";
 import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
-import { IdentifierToken } from "./IdentifierMorpheme";
 import { MorphemeAnalyser } from "morpheme";
 import { GrammerToken } from "lexer/lexers/GrammerLexer";
 import { checkPostPosition } from "utils/CheckPostPosition";
 
 export interface SubjectToken extends TokenBase {
   type: MorphemeTokenTypes.SUBJECT;
-  subject: IdentifierToken;
+  subject: ValueToken | null;
   subjectType: "은/는" | "이/가";
 }
 
 export class SubjectMorpheme implements MorphemeAnalyser<SubjectToken> {
   public analyze(token: GrammerToken): SubjectToken | null {
-    if (token.text.length < 2) {
-      return null;
+    if (["은", "는"].indexOf(token.text) > -1) {
+      return {
+        type: MorphemeTokenTypes.SUBJECT,
+        index: token.index,
+        subject: null,
+        subjectType: "은/는"
+      };
     }
+
+    if (["이", "가"].indexOf(token.text) > -1) {
+      return {
+        type: MorphemeTokenTypes.SUBJECT,
+        index: token.index,
+        subject: null,
+        subjectType: "이/가"
+      };
+    }
+
     const subjectResult = {
       type: MorphemeTokenTypes.SUBJECT,
       index: token.index,

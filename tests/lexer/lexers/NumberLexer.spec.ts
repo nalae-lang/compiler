@@ -2,7 +2,7 @@ import { createLexer } from "../../helper/lexer/CreateLexer";
 import { NumberLexer, Radix } from "lexer/lexers/NumberLexer";
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
-import { ErrorCode } from "lexer/error/ErrorCode";
+import { LexerErrorCode } from "lexer/error/ErrorCode";
 import { formatString } from "utils/FormatString";
 
 function testValidNumber(
@@ -57,7 +57,9 @@ describe("NumberLexer", () => {
 
       expect(() => {
         numberLexer.parse(0);
-      }).to.be.throw(formatString(ErrorCode.NUMBER_BASE_NOT_MATCH, [8, "F"]));
+      }).to.be.throw(
+        formatString(LexerErrorCode.NUMBER_BASE_NOT_MATCH, [8, "F"])
+      );
     });
 
     it("2진수에서 16진수를 사용했을 때", () => {
@@ -65,7 +67,9 @@ describe("NumberLexer", () => {
 
       expect(() => {
         numberLexer.parse(0);
-      }).to.be.throw(formatString(ErrorCode.NUMBER_BASE_NOT_MATCH, [2, "4"]));
+      }).to.be.throw(
+        formatString(LexerErrorCode.NUMBER_BASE_NOT_MATCH, [2, "4"])
+      );
     });
 
     it("8진수에서 10진수를 사용했을 때", () => {
@@ -73,7 +77,9 @@ describe("NumberLexer", () => {
 
       expect(() => {
         numberLexer.parse(0);
-      }).to.be.throw(formatString(ErrorCode.NUMBER_BASE_NOT_MATCH, [8, 9]));
+      }).to.be.throw(
+        formatString(LexerErrorCode.NUMBER_BASE_NOT_MATCH, [8, 9])
+      );
     });
 
     it("8진수에서 소수점을 사용했을 때", () => {
@@ -81,7 +87,9 @@ describe("NumberLexer", () => {
 
       expect(() => {
         numberLexer.parse(0);
-      }).to.be.throw(formatString(ErrorCode.NUMBER_FLOAT_NOT_ALLOWED, [8]));
+      }).to.be.throw(
+        formatString(LexerErrorCode.NUMBER_FLOAT_NOT_ALLOWED, [8])
+      );
     });
 
     it("0x 만 사용했을 때", () => {
@@ -89,7 +97,7 @@ describe("NumberLexer", () => {
 
       expect(() => {
         numberLexer.parse(0);
-      }).to.be.throw(formatString(ErrorCode.NUMBER_UNKNOWN));
+      }).to.be.throw(formatString(LexerErrorCode.NUMBER_UNKNOWN));
     });
 
     it("숫자가 아닐 때", () => {

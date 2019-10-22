@@ -2,7 +2,7 @@ import { TokenBase } from "token";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 import { Lexer } from "lexer";
 import { NalaeLexerError } from "lexer/error";
-import { ErrorCode } from "lexer/error/ErrorCode";
+import { LexerErrorCode } from "lexer/error/ErrorCode";
 
 export type Radix = 2 | 8 | 10 | 16;
 export interface NumberToken extends TokenBase {
@@ -47,7 +47,7 @@ export class NumberLexer extends Lexer<NumberToken> {
       // 자신의 진수가 아닌 값이 오면
       else if (this.checkNumber(i, 16)) {
         throw new NalaeLexerError(
-          ErrorCode.NUMBER_BASE_NOT_MATCH,
+          LexerErrorCode.NUMBER_BASE_NOT_MATCH,
           {
             start: i,
             end: i + 1
@@ -62,7 +62,7 @@ export class NumberLexer extends Lexer<NumberToken> {
         }
         // 10진수가 아니면
         throw new NalaeLexerError(
-          ErrorCode.NUMBER_FLOAT_NOT_ALLOWED,
+          LexerErrorCode.NUMBER_FLOAT_NOT_ALLOWED,
           {
             start: i,
             end: i + 1
@@ -82,7 +82,7 @@ export class NumberLexer extends Lexer<NumberToken> {
             (isNegative ? "-" : "") + code.substr(index + startOfNumber, i + 1)
           );
     if (isNaN(resultNumber)) {
-      throw new NalaeLexerError(ErrorCode.NUMBER_UNKNOWN, {
+      throw new NalaeLexerError(LexerErrorCode.NUMBER_UNKNOWN, {
         start: index,
         end: i + 1
       });

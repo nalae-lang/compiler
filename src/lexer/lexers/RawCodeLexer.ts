@@ -2,7 +2,7 @@ import { TokenBase } from "token";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 import { Lexer } from "lexer";
 import { NalaeLexerError } from "lexer/error";
-import { ErrorCode } from "lexer/error/ErrorCode";
+import { LexerErrorCode } from "lexer/error/ErrorCode";
 
 export interface RawCodeToken extends TokenBase {
   type: LexerTokenTypes.RAWCODE;
@@ -29,7 +29,7 @@ export class RawCodeLexer extends Lexer<RawCodeToken> {
           };
         }
       }
-      throw new NalaeLexerError(ErrorCode.RAWCODE_NOT_END, {
+      throw new NalaeLexerError(LexerErrorCode.RAWCODE_NOT_END, {
         start: index,
         end: i
       });

@@ -1,14 +1,13 @@
 import { Index } from "token";
-
-import { LexerErrorCode } from "./ErrorCode";
+import { MorphemeErrorCode } from "./ErrorCode";
 import { formatString } from "utils/FormatString";
 
-export class NalaeLexerError {
-  name = "NalaeLexerError";
+export class NalaeMorphemeError {
+  name = "NalaeMorphemeError";
   index: Index;
   message: string;
   constructor(
-    code: LexerErrorCode,
+    code: MorphemeErrorCode,
     index: Index,
     parameter?: Array<string | number>
   ) {

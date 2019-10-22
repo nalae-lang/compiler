@@ -38,3 +38,5 @@ export type Token =
   | IdentifierToken
   | PropertyToken
   | SubjectToken;
+
+export type ValueToken = StringToken | NumberToken | IdentifierToken;

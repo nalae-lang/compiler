@@ -1,6 +1,6 @@
 import { Lexer } from "lexer";
 import { NalaeLexerError } from "lexer/error";
-import { ErrorCode } from "lexer/error/ErrorCode";
+import { LexerErrorCode } from "lexer/error/ErrorCode";
 import { TokenBase } from "token";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
@@ -29,7 +29,7 @@ export class CommentLexer extends Lexer<CommentToken> {
           };
         }
       }
-      throw new NalaeLexerError(ErrorCode.COMMENT_NOT_END, {
+      throw new NalaeLexerError(LexerErrorCode.COMMENT_NOT_END, {
         start: index,
         end: i
       });

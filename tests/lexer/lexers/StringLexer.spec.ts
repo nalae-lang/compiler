@@ -2,7 +2,7 @@ import { createLexer } from "../../helper/lexer/CreateLexer";
 import { StringLexer } from "lexer/lexers/StringLexer";
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
-import { ErrorCode } from "lexer/error/ErrorCode";
+import { LexerErrorCode } from "lexer/error/ErrorCode";
 
 describe("StringLexer", () => {
   describe("매치 되는 경우", () => {
@@ -30,7 +30,7 @@ describe("StringLexer", () => {
       const stringLexer = createLexer(StringLexer, `"string`);
       expect(() => {
         stringLexer.parse(0);
-      }).to.be.throw(ErrorCode.STRING_NOT_END);
+      }).to.be.throw(LexerErrorCode.STRING_NOT_END);
     });
   });
 });

@@ -1,4 +1,4 @@
-export enum ErrorCode {
+export enum LexerErrorCode {
   // 알 수 없는 Lexer 에러
   LEXER_LOOP = "구문 해석기에 알 수 없는 오류가 났습니다. code[%s] (%s)",
   LEXER_UNKNOWN_WORD = "알 수 없는 문자입니다. (%s)",
