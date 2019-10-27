@@ -3,5 +3,7 @@ export function formatString(
   parameter?: Array<string | number>
 ): string {
   let i = 0;
-  return parameter ? string.replace(/%s/g, () => "" + parameter[i++]) : string;
+  return parameter !== undefined
+    ? string.replace(/%s/g, () => "" + parameter[i++])
+    : string;
 }

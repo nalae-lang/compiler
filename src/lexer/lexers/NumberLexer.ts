@@ -6,9 +6,9 @@ import { LexerErrorCode } from "lexer/error/ErrorCode";
 
 export type Radix = 2 | 8 | 10 | 16;
 export interface NumberToken extends TokenBase {
-  type: LexerTokenTypes.NUMBER;
-  number: number;
-  radix: Radix;
+  readonly type: LexerTokenTypes.NUMBER;
+  readonly number: number;
+  readonly radix: Radix;
 }
 
 export class NumberLexer extends Lexer<NumberToken> {
@@ -40,12 +40,11 @@ export class NumberLexer extends Lexer<NumberToken> {
       isNegative = true;
     }
     for (; i < code.length + 1; i++) {
-      // 숫자가 맞을 때
       if (this.checkNumber(i, radix)) {
+        // 숫자가 맞을 때
         continue;
-      }
-      // 자신의 진수가 아닌 값이 오면
-      else if (this.checkNumber(i, 16)) {
+      } else if (this.checkNumber(i, 16)) {
+        // 자신의 진수가 아닌 값이 오면
         throw new NalaeLexerError(
           LexerErrorCode.NUMBER_BASE_NOT_MATCH,
           {
@@ -54,9 +53,8 @@ export class NumberLexer extends Lexer<NumberToken> {
           },
           [radix, code[i]]
         );
-      }
-      // 소수점이 있을 때
-      else if (code[i] === "." && this.checkNumber(i + 1, 16)) {
+      } else if (code[i] === "." && this.checkNumber(i + 1, 16)) {
+        // 소수점이 있을 때
         if (radix === 10) {
           continue;
         }
@@ -105,24 +103,24 @@ export class NumberLexer extends Lexer<NumberToken> {
       i++;
     }
     if (code[i] === "0") {
-      const numberType = code[i + 1] && code[i + 1].toLowerCase();
-      // 16진수
-      if (numberType === "x") {
-        return this.parseNumber(i, 2, 16);
+      if (code[i + 1] !== undefined) {
+        const numberType = code[i + 1].toLowerCase();
+        if (numberType === "x") {
+          // 16진수
+          return this.parseNumber(i, 2, 16);
+        } else if (numberType === "b") {
+          // 2진수
+          return this.parseNumber(i, 2, 2);
+        } else if (numberType === "o") {
+          // 8진수
+          return this.parseNumber(i, 2, 8);
+        } else if (numberType >= "0" && numberType <= "9") {
+          // 8진수에 o제외
+          return this.parseNumber(i, 1, 8);
+        }
       }
-      // 2진수
-      else if (numberType === "b") {
-        return this.parseNumber(i, 2, 2);
-      }
-      // 8진수
-      else if (numberType === "o") {
-        return this.parseNumber(i, 2, 8);
-      }
-      // 8진수에 o제외
-      else if (numberType >= "0" && numberType <= "9") {
-        return this.parseNumber(i, 1, 8);
-      }
-      // 그냥 0일 때
+
+      // 그냥 0이거나 진수 문자가 없을 때
       return {
         index: {
           start: i,

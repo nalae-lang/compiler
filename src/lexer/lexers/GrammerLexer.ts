@@ -3,8 +3,8 @@ import { TokenBase } from "token";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
 export interface GrammerToken extends TokenBase {
-  type: LexerTokenTypes.GRAMMER;
-  text: string;
+  readonly type: LexerTokenTypes.GRAMMER;
+  readonly text: string;
 }
 
 export class GrammerLexer extends Lexer<GrammerToken> {
@@ -14,7 +14,7 @@ export class GrammerLexer extends Lexer<GrammerToken> {
     const { code } = this.state;
 
     const match = code.substr(index).match(/[가-힣a-zA-Z_][가-힣a-zA-Z0-9_]*/);
-    if (match && match.index === 0) {
+    if (match !== null && match.index === 0) {
       return {
         type: LexerTokenTypes.GRAMMER,
         index: {

@@ -24,10 +24,10 @@ describe("OperatorLexer", () => {
       const operatorLexer = createLexer(OperatorLexer, code);
 
       let searchIndex = 0;
-      for (let i = 0; i < operatorList.length; i++) {
+      for (const operator of operatorList) {
         const result = operatorLexer.parse(searchIndex);
         if (compareTokenType(result, LexerTokenTypes.OPERATOR)) {
-          expect(result.operator).to.equal(operatorList[i]);
+          expect(result.operator).to.equal(operator);
           searchIndex = result.index.end + 1;
         }
       }

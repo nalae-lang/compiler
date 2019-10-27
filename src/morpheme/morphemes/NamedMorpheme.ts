@@ -8,9 +8,9 @@ import { checkPostPosition } from "utils/CheckPostPosition";
 import { IdentifierToken } from "./IdentifierMorpheme";
 
 export interface NamedToken extends TokenBase {
-  type: MorphemeTokenTypes.NAMED;
-  name: string;
-  subject: IdentifierToken;
+  readonly type: MorphemeTokenTypes.NAMED;
+  readonly name: string;
+  readonly subject: IdentifierToken;
 }
 
 export const NamedMorphemeList: [string, string] = ["이라는", "라는"];
@@ -23,21 +23,23 @@ export class NamedMorpheme implements MorphemeAnalyser<NamedToken> {
         token.index
       );
     }
-    if (checkPostPosition(token.text, NamedMorphemeList)) {
-      const morphemeLength = token.text.endsWith(NamedMorphemeList[0]) ? 3 : 2;
-
+    const match = checkPostPosition(token.text, NamedMorphemeList);
+    if (match !== false) {
       return {
         type: MorphemeTokenTypes.NAMED,
         subject: {
           type: MorphemeTokenTypes.IDENTIFIER,
           index: {
             start: token.index.start,
-            end: token.index.end - morphemeLength
+            end: token.index.end - NamedMorphemeList[match].length
           },
-          name: token.text.substr(0, token.text.length - morphemeLength)
+          name: token.text.substr(
+            0,
+            token.text.length - NamedMorphemeList[match].length
+          )
         },
         index: token.index,
-        name: NamedMorphemeList[morphemeLength === 3 ? 0 : 1]
+        name: NamedMorphemeList[match]
       };
     }
     return null;

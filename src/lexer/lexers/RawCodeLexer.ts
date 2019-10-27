@@ -5,8 +5,8 @@ import { NalaeLexerError } from "lexer/error";
 import { LexerErrorCode } from "lexer/error/ErrorCode";
 
 export interface RawCodeToken extends TokenBase {
-  type: LexerTokenTypes.RAWCODE;
-  code: string;
+  readonly type: LexerTokenTypes.RAWCODE;
+  readonly code: string;
 }
 
 export class RawCodeLexer extends Lexer<RawCodeToken> {
@@ -18,7 +18,7 @@ export class RawCodeLexer extends Lexer<RawCodeToken> {
     if (code[index] === "`") {
       let i = index + 1;
       for (; i < code.length; i++) {
-        if (code[i] === "`" && code[i - 1] != "\\") {
+        if (code[i] === "`" && code[i - 1] !== "\\") {
           return {
             type: LexerTokenTypes.RAWCODE,
             index: {

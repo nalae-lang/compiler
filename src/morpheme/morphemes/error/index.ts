@@ -3,10 +3,10 @@ import { MorphemeErrorCode } from "./ErrorCode";
 import { formatString } from "utils/FormatString";
 
 export class NalaeMorphemeError {
-  name = "NalaeMorphemeError";
-  index: Index;
-  message: string;
-  constructor(
+  public name = "NalaeMorphemeError";
+  public index: Index;
+  public message: string;
+  public constructor(
     code: MorphemeErrorCode,
     index: Index,
     parameter?: Array<string | number>

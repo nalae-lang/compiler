@@ -4,10 +4,10 @@ import { LexerErrorCode } from "./ErrorCode";
 import { formatString } from "utils/FormatString";
 
 export class NalaeLexerError {
-  name = "NalaeLexerError";
-  index: Index;
-  message: string;
-  constructor(
+  public name = "NalaeLexerError";
+  public index: Index;
+  public message: string;
+  public constructor(
     code: LexerErrorCode,
     index: Index,
     parameter?: Array<string | number>

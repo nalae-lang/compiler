@@ -23,5 +23,6 @@
     "paths": {
       "snapshots/*": ["../__snapshots__/*"]
     }
-  }
+  },
+  "include": ["src/**/*", "tests/**/*"]
 }

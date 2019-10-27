@@ -5,8 +5,8 @@ import { TokenBase } from "token";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
 export interface CommentToken extends TokenBase {
-  type: LexerTokenTypes.COMMENT;
-  comment: string;
+  readonly type: LexerTokenTypes.COMMENT;
+  readonly comment: string;
 }
 
 export class CommentLexer extends Lexer<CommentToken> {

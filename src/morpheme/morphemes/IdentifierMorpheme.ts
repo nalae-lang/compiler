@@ -4,8 +4,8 @@ import { MorphemeAnalyser } from "morpheme";
 import { GrammerToken } from "lexer/lexers/GrammerLexer";
 
 export interface IdentifierToken extends TokenBase {
-  type: MorphemeTokenTypes.IDENTIFIER;
-  name: string;
+  readonly type: MorphemeTokenTypes.IDENTIFIER;
+  readonly name: string;
 }
 
 export class IdentifierMorpheme implements MorphemeAnalyser<IdentifierToken> {

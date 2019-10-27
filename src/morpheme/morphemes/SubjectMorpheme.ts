@@ -5,9 +5,9 @@ import { GrammerToken } from "lexer/lexers/GrammerLexer";
 import { checkPostPosition } from "utils/CheckPostPosition";
 
 export interface SubjectToken extends TokenBase {
-  type: MorphemeTokenTypes.SUBJECT;
-  subject: ValueToken | null;
-  subjectType: "은/는" | "이/가";
+  readonly type: MorphemeTokenTypes.SUBJECT;
+  readonly subject: ValueToken | null;
+  readonly subjectType: "은/는" | "이/가";
 }
 
 export class SubjectMorpheme implements MorphemeAnalyser<SubjectToken> {
@@ -42,13 +42,17 @@ export class SubjectMorpheme implements MorphemeAnalyser<SubjectToken> {
         name: token.text.substr(0, token.text.length - 1)
       }
     } as const;
-    if (checkPostPosition(token.text, ["은", "는"])) {
+
+    const match1 = checkPostPosition(token.text, ["은", "는"]);
+    if (match1 !== false) {
       return {
         ...subjectResult,
         subjectType: "은/는"
       };
     }
-    if (checkPostPosition(token.text, ["이", "가"])) {
+
+    const match2 = checkPostPosition(token.text, ["이", "가"]);
+    if (match2 !== false) {
       return {
         ...subjectResult,
         subjectType: "이/가"

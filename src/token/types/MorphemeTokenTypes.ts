@@ -4,5 +4,6 @@ export enum MorphemeTokenTypes {
   ARGUMENT_TYPE = "argument_type",
   IDENTIFIER = "identifier",
   PROPERTY = "property",
-  NAMED = "named"
+  NAMED = "named",
+  DEFINE = "define"
 }

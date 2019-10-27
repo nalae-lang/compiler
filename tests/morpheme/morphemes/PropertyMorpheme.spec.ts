@@ -22,7 +22,7 @@ describe("PropertyMorpheme", () => {
       const mockGrammerToken = mockGrammer("사람");
       const result = propertyMorpheme.analyze(mockGrammerToken);
 
-      expect(result).to.be.not.true;
+      expect(result).to.be.null;
     });
   });
 });

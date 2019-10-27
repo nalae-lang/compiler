@@ -1,21 +1,35 @@
+import { isKorean } from "./IsKorean";
+import { hasJongSung } from "./HasJongSung";
+
 function comparePostPosition(
   word: string,
   josa: string,
   needJongSong: boolean,
-  executeSecond?: () => boolean
-): boolean {
+  executeSecond?: () => ReturnType<typeof comparePostPosition>
+): 1 | 0 | false {
+  const matchIndex = executeSecond !== undefined ? 0 : 1;
   if (word.endsWith(josa)) {
-    const unicode = word.charCodeAt(word.length - josa.length - 1);
+    const char = word.charAt(word.length - josa.length - 1);
 
-    if (unicode >= 0xac00 && unicode <= 0xd7a3) {
+    if (isKorean(char)) {
       if (needJongSong) {
-        return (unicode - 0xac00) % 28 > 0;
+        if (hasJongSung(char)) {
+          return matchIndex;
+        }
+        return false;
       }
-      return (unicode - 0xac00) % 28 <= 0;
+
+      if (!hasJongSung(char)) {
+        return matchIndex;
+      }
+      return false;
     }
-    return true;
+    return matchIndex;
   }
-  return !!executeSecond && executeSecond();
+  if (executeSecond !== undefined) {
+    return executeSecond();
+  }
+  return false;
 }
 
 /**
@@ -26,7 +40,7 @@ function comparePostPosition(
 export function checkPostPosition(
   word: string,
   josa: [string, string]
-): boolean {
+): 0 | 1 | false {
   // 길이가 긴 조사부터 단어를 비교해야 함.
   if (josa[0].length < josa[1].length) {
     return comparePostPosition(word, josa[1], false, () =>

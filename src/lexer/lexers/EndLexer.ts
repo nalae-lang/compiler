@@ -4,8 +4,8 @@ import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
 export type EndType = "dot" | "newLine";
 export interface EndToken extends TokenBase {
-  type: LexerTokenTypes.END;
-  endType: EndType;
+  readonly type: LexerTokenTypes.END;
+  readonly endType: EndType;
 }
 
 export class EndLexer extends Lexer<EndToken> {

@@ -21,8 +21,8 @@ export interface Index {
 }
 
 export interface TokenBase {
-  type: TokenTypes;
-  index: Index;
+  readonly type: TokenTypes;
+  readonly index: Index;
 }
 
 export type Token =

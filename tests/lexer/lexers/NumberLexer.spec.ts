@@ -100,6 +100,17 @@ describe("NumberLexer", () => {
       }).to.be.throw(formatString(LexerErrorCode.NUMBER_UNKNOWN));
     });
 
+    it("0z를 적었을 때", () => {
+      const numberLexer = createLexer(NumberLexer, "0z");
+      const result = numberLexer.parse(0);
+
+      if (compareTokenType(result, LexerTokenTypes.NUMBER)) {
+        expect(result.number).to.equal(0);
+        expect(result.radix).to.equal(10);
+        expect(result.index).to.deep.equal({ start: 0, end: 1 });
+      }
+    });
+
     it("숫자가 아닐 때", () => {
       const numberLexer = createLexer(NumberLexer, "text");
       const result = numberLexer.parse(0);

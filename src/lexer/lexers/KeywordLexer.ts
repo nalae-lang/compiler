@@ -5,8 +5,8 @@ import { Lexer } from "lexer";
 import { operatorList } from "./models/OperatorList";
 
 export interface KeywordToken extends TokenBase {
-  type: LexerTokenTypes.KEYWORD;
-  name: (typeof keywordList)[number]["name"];
+  readonly type: LexerTokenTypes.KEYWORD;
+  readonly name: (typeof keywordList)[number]["name"];
 }
 
 export const ALLOWED_KEYWORD_NEXT = ["\n", " ", "\t", ...operatorList];
@@ -31,7 +31,7 @@ export class KeywordLexer extends Lexer<KeywordToken> {
       return this.matchWord(keyword.match, index);
     });
 
-    if (find) {
+    if (find !== undefined) {
       return {
         type: LexerTokenTypes.KEYWORD,
         index: {

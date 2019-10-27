@@ -5,8 +5,8 @@ import { NalaeLexerError } from "lexer/error";
 import { LexerErrorCode } from "lexer/error/ErrorCode";
 
 export interface StringToken extends TokenBase {
-  type: LexerTokenTypes.STRING;
-  string: string;
+  readonly type: LexerTokenTypes.STRING;
+  readonly string: string;
 }
 
 export class StringLexer extends Lexer<StringToken> {
@@ -18,7 +18,7 @@ export class StringLexer extends Lexer<StringToken> {
     if (code[index] === '"') {
       let i = index + 1;
       for (; i < code.length; i++) {
-        if (code[i] === '"' && code[i - 1] != "\\") {
+        if (code[i] === '"' && code[i - 1] !== "\\") {
           return {
             type: LexerTokenTypes.STRING,
             index: {

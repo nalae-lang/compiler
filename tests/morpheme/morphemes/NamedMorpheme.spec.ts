@@ -34,14 +34,14 @@ describe("NamedMorpheme", () => {
       const mockGrammerToken = mockGrammer("사람은");
       const result = namedMorpheme.analyze(mockGrammerToken);
 
-      expect(result).to.be.not.true;
+      expect(result).to.be.null;
     });
 
     it("뒤에 맞지 않는 관형오가 올 때", () => {
       const mockGrammerToken = mockGrammer("사람라는");
       const result = namedMorpheme.analyze(mockGrammerToken);
 
-      expect(result).to.be.not.true;
+      expect(result).to.be.null;
     });
 
     it("관형어만 있을 때", () => {

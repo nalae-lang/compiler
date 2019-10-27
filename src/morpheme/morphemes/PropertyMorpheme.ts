@@ -5,8 +5,8 @@ import { MorphemeAnalyser } from "morpheme";
 import { GrammerToken } from "lexer/lexers/GrammerLexer";
 
 export interface PropertyToken extends TokenBase {
-  type: MorphemeTokenTypes.PROPERTY;
-  object: IdentifierToken;
+  readonly type: MorphemeTokenTypes.PROPERTY;
+  readonly object: IdentifierToken;
 }
 
 export class PropertyMorpheme implements MorphemeAnalyser<PropertyToken> {

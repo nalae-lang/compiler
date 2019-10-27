@@ -4,8 +4,8 @@ import { operatorList } from "./models/OperatorList";
 import { Lexer } from "lexer";
 
 export interface OperatorToken extends TokenBase {
-  type: LexerTokenTypes.OPERATOR;
-  operator: (typeof operatorList)[number];
+  readonly type: LexerTokenTypes.OPERATOR;
+  readonly operator: (typeof operatorList)[number];
 }
 
 export class OperatorLexer extends Lexer<OperatorToken> {
@@ -16,7 +16,7 @@ export class OperatorLexer extends Lexer<OperatorToken> {
 
     const find = operatorList.find(operator => operator === code[index]);
 
-    if (find) {
+    if (find !== undefined) {
       return {
         type: LexerTokenTypes.OPERATOR,
         index: {

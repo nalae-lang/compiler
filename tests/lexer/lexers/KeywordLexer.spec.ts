@@ -12,13 +12,13 @@ describe("KeywordLexer", () => {
       const keywordLexer = createLexer(KeywordLexer, code);
 
       let index = 0;
-      for (let i = 0; i < keywordList.length; i++) {
+      for (const keyword of keywordList) {
         const result = keywordLexer.parse(index);
 
         if (compareTokenType(result, LexerTokenTypes.KEYWORD)) {
-          expect(result.name).to.equal(keywordList[i].name);
+          expect(result.name).to.equal(keyword.name);
           expect(code.substring(result.index.start, result.index.end)).to.equal(
-            keywordList[i].match
+            keyword.match
           );
           index = result.index.end + 1;
         }
@@ -35,13 +35,13 @@ describe("KeywordLexer", () => {
       const keywordLexer = createLexer(KeywordLexer, code);
 
       let index = 0;
-      for (let i = 0; i < keywordList.length; i++) {
+      for (const keyword of keywordList) {
         const result = keywordLexer.parse(index);
 
         if (compareTokenType(result, LexerTokenTypes.KEYWORD)) {
-          expect(result.name).to.equal(keywordList[i].name);
+          expect(result.name).to.equal(keyword.name);
           expect(code.substring(result.index.start, result.index.end)).to.equal(
-            keywordList[i].match
+            keyword.match
           );
           // 뒤에 추가로 붙은 Operator 길이를 더함
           index = result.index.end + 2;

@@ -5,8 +5,8 @@ import { EndToken } from "./EndLexer";
 
 export type IndentType = "tab" | "space";
 export interface IndentToken extends TokenBase {
-  type: LexerTokenTypes.INDENT;
-  indentType: IndentType;
+  readonly type: LexerTokenTypes.INDENT;
+  readonly indentType: IndentType;
 }
 
 export class IndentLexer extends Lexer<IndentToken> {
@@ -44,7 +44,7 @@ export class IndentLexer extends Lexer<IndentToken> {
   /**
    * 유효한 IndentToken을 걸러내는 함수
    * */
-  public static reduceIndent(tokens: Token[]): Token[] {
+  public static reduceIndent(tokens: Array<Token>): Array<Token> {
     return tokens.filter((token, index) => {
       if (token.type === LexerTokenTypes.INDENT) {
         for (let i = index; i >= 0; i--) {

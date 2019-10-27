@@ -5,5 +5,8 @@
   "[typescript]": {
     "editor.formatOnSave": false
   },
-  "prettier.disableLanguages": ["typescript"]
+  "prettier.disableLanguages": [
+    "typescript"
+  ],
+  "eslint.enable": true
 }

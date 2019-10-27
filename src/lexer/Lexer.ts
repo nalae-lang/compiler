@@ -14,7 +14,7 @@ import { LexerErrorCode } from "./error/ErrorCode";
 
 export class NalaeLexer {
   private readonly state: LexerState;
-  private readonly lexers: Lexer<Token>[];
+  private readonly lexers: Array<Lexer<Token>>;
 
   public constructor(code: string) {
     this.state = {
@@ -43,19 +43,19 @@ export class NalaeLexer {
     this.state.code = code.replace("\r\n", "\n");
   }
 
-  private afterLex(tokens: Token[]): Token[] {
+  private afterLex(tokens: Array<Token>): Array<Token> {
     return IndentLexer.reduceIndent(tokens);
   }
 
-  public lex(): Token[] {
+  public lex(): Array<Token> {
     this.beforeLex();
-    const tokens: Token[] = [];
+    const tokens: Array<Token> = [];
     const { code } = this.state;
     let i = 0;
     while (i < code.length) {
       let result = null as Token | null;
       this.lexers.find(lexer => (result = lexer.parse(i)));
-      if (result) {
+      if (result !== null) {
         tokens.push(result);
         i = result.index.end;
       } else {
