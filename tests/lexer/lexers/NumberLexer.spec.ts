@@ -4,6 +4,7 @@ import { compareTokenType } from "../../helper/lexer/CompareTokenType";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 import { LexerErrorCode } from "lexer/error/ErrorCode";
 import { formatString } from "utils/FormatString";
+import snapshot = require("snap-shot-it");
 
 function testValidNumber(
   code: string,
@@ -15,6 +16,7 @@ function testValidNumber(
     const result = numberLexer.parse(0);
 
     if (compareTokenType(result, LexerTokenTypes.NUMBER)) {
+      snapshot(result);
       expect(result.radix).to.equal(radix);
       expect(result.number).to.equal(expectNumber);
       expect(result.index).to.deep.equal({ start: 0, end: code.length });
@@ -105,6 +107,7 @@ describe("NumberLexer", () => {
       const result = numberLexer.parse(0);
 
       if (compareTokenType(result, LexerTokenTypes.NUMBER)) {
+        snapshot(result);
         expect(result.number).to.equal(0);
         expect(result.radix).to.equal(10);
         expect(result.index).to.deep.equal({ start: 0, end: 1 });

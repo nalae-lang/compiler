@@ -3,6 +3,7 @@ import { OperatorLexer } from "lexer/lexers/OperatorLexer";
 import { operatorList } from "lexer/lexers/models/OperatorList";
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
+import snapshot = require("snap-shot-it");
 
 describe("OperatorLexer", () => {
   describe("매치 되는 경우", () => {
@@ -14,6 +15,7 @@ describe("OperatorLexer", () => {
         const result = operatorLexer.parse(i);
 
         if (compareTokenType(result, LexerTokenTypes.OPERATOR)) {
+          snapshot(result);
           expect(result.operator).to.equal(operatorList[i]);
         }
       }
@@ -27,6 +29,7 @@ describe("OperatorLexer", () => {
       for (const operator of operatorList) {
         const result = operatorLexer.parse(searchIndex);
         if (compareTokenType(result, LexerTokenTypes.OPERATOR)) {
+          snapshot(result);
           expect(result.operator).to.equal(operator);
           searchIndex = result.index.end + 1;
         }

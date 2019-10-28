@@ -32,7 +32,7 @@ export const keywordList = [
     match: "반복"
   },
   {
-    name: "arrayIndex",
+    name: "array_index",
     match: "번째"
   },
   {
@@ -50,5 +50,13 @@ export const keywordList = [
   {
     name: "class",
     match: "틀"
+  },
+  {
+    name: "extend",
+    match: "부모가"
+  },
+  {
+    name: "create",
+    match: "생성"
   }
 ] as const;

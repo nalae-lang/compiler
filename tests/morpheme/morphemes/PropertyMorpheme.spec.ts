@@ -2,6 +2,7 @@ import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
 import { PropertyMorpheme } from "morpheme/morphemes/PropertyMorpheme";
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
 import { mockGrammer } from "../../helper/morpheme/MockGrammer";
+import snapshot = require("snap-shot-it");
 
 describe("PropertyMorpheme", () => {
   const propertyMorpheme = new PropertyMorpheme();
@@ -11,6 +12,7 @@ describe("PropertyMorpheme", () => {
       const result = propertyMorpheme.analyze(mockGrammerToken);
 
       if (compareTokenType(result, MorphemeTokenTypes.PROPERTY)) {
+        snapshot(result);
         expect(result.object.type).to.equal(MorphemeTokenTypes.IDENTIFIER);
         expect(result.object.name).to.equal("사람");
       }

@@ -4,6 +4,7 @@ import { KeywordLexer } from "lexer/lexers/KeywordLexer";
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 import { operatorList } from "lexer/lexers/models/OperatorList";
+import snapshot = require("snap-shot-it");
 
 describe("KeywordLexer", () => {
   describe("매치 되는 경우", () => {
@@ -16,6 +17,7 @@ describe("KeywordLexer", () => {
         const result = keywordLexer.parse(index);
 
         if (compareTokenType(result, LexerTokenTypes.KEYWORD)) {
+          snapshot(result);
           expect(result.name).to.equal(keyword.name);
           expect(code.substring(result.index.start, result.index.end)).to.equal(
             keyword.match
@@ -39,6 +41,7 @@ describe("KeywordLexer", () => {
         const result = keywordLexer.parse(index);
 
         if (compareTokenType(result, LexerTokenTypes.KEYWORD)) {
+          snapshot(result);
           expect(result.name).to.equal(keyword.name);
           expect(code.substring(result.index.start, result.index.end)).to.equal(
             keyword.match

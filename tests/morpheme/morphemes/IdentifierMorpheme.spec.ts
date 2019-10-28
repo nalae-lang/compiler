@@ -2,6 +2,7 @@ import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
 import { IdentifierMorpheme } from "morpheme/morphemes/IdentifierMorpheme";
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
 import { mockGrammer } from "../../helper/lexer/MockToken";
+import snapshot = require("snap-shot-it");
 
 describe("IdentifierMorpheme", () => {
   const identifierMorpheme = new IdentifierMorpheme();
@@ -11,6 +12,7 @@ describe("IdentifierMorpheme", () => {
       const result = identifierMorpheme.analyze(mockGrammerToken);
 
       if (compareTokenType(result, MorphemeTokenTypes.IDENTIFIER)) {
+        snapshot(result);
         expect(result.name).to.equal(mockGrammerToken.text);
       }
     });

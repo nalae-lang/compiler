@@ -3,11 +3,17 @@ import { PropertyMorpheme } from "./morphemes/PropertyMorpheme";
 import { MorphemeAnalyser } from "morpheme";
 import { Token } from "token";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
+import { DefineMorpheme } from "./morphemes/DefineMorpheme";
+import { NamedMorpheme } from "./morphemes/NamedMorpheme";
+import { IdentifierMorpheme } from "./morphemes/IdentifierMorpheme";
 
 export class NalaeMorphemeAnalyser {
   private readonly morphemes: Array<MorphemeAnalyser<Token>> = [
     new SubjectMorpheme(),
-    new PropertyMorpheme()
+    new PropertyMorpheme(),
+    new DefineMorpheme(),
+    new NamedMorpheme(),
+    new IdentifierMorpheme()
   ];
 
   public analyse(tokens: Array<Token>): Array<Token> {

@@ -2,6 +2,7 @@ import { createLexer } from "../../helper/lexer/CreateLexer";
 import { EndLexer } from "lexer/lexers/EndLexer";
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
+import snapshot = require("snap-shot-it");
 
 describe("EndLexer", () => {
   describe("매치 되는 경우", () => {
@@ -11,6 +12,7 @@ describe("EndLexer", () => {
       const result = endLexer.parse(0);
 
       if (compareTokenType(result, LexerTokenTypes.END)) {
+        snapshot(result);
         expect(result.endType).to.equal("dot");
         expect(result.index).to.deep.equal({ start: 0, end: code.length });
       }
@@ -22,6 +24,7 @@ describe("EndLexer", () => {
       const result = endLexer.parse(0);
 
       if (compareTokenType(result, LexerTokenTypes.END)) {
+        snapshot(result);
         expect(result.endType).to.equal("newLine");
         expect(result.index).to.deep.equal({ start: 0, end: code.length });
       }

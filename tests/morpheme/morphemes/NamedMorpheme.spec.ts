@@ -4,6 +4,7 @@ import { compareTokenType } from "../../helper/lexer/CompareTokenType";
 import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
 import { formatString } from "utils/FormatString";
 import { MorphemeErrorCode } from "morpheme/morphemes/error/ErrorCode";
+import snapshot = require("snap-shot-it");
 
 describe("NamedMorpheme", () => {
   const namedMorpheme = new NamedMorpheme();
@@ -13,6 +14,7 @@ describe("NamedMorpheme", () => {
       const result = namedMorpheme.analyze(mockGrammerToken);
 
       if (compareTokenType(result, MorphemeTokenTypes.NAMED)) {
+        snapshot(result);
         expect(result.name).to.equal("이라는");
         expect(result.subject.name).to.equal("사람");
       }
@@ -23,6 +25,7 @@ describe("NamedMorpheme", () => {
       const result = namedMorpheme.analyze(mockGrammerToken);
 
       if (compareTokenType(result, MorphemeTokenTypes.NAMED)) {
+        snapshot(result);
         expect(result.name).to.equal("라는");
         expect(result.subject.name).to.equal("가나");
       }

@@ -12,6 +12,8 @@ import { PropertyToken } from "morpheme/morphemes/PropertyMorpheme";
 import { SubjectToken } from "morpheme/morphemes/SubjectMorpheme";
 import { LexerTokenTypes } from "./types/LexerTokenTypes";
 import { MorphemeTokenTypes } from "./types/MorphemeTokenTypes";
+import { DefineToken } from "morpheme/morphemes/DefineMorpheme";
+import { NamedToken } from "morpheme/morphemes/NamedMorpheme";
 
 export type TokenTypes = LexerTokenTypes | MorphemeTokenTypes;
 
@@ -37,6 +39,8 @@ export type Token =
   | CommentToken
   | IdentifierToken
   | PropertyToken
-  | SubjectToken;
+  | SubjectToken
+  | DefineToken
+  | NamedToken;
 
 export type ValueToken = StringToken | NumberToken | IdentifierToken;

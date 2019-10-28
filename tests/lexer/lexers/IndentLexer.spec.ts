@@ -4,6 +4,7 @@ import { compareTokenType } from "../../helper/lexer/CompareTokenType";
 import { createLexer } from "../../helper/lexer/CreateLexer";
 import { IndentLexer } from "lexer/lexers/IndentLexer";
 import { mockIndent, mockEnd } from "../../helper/lexer/MockToken";
+import snapshot = require("snap-shot-it");
 
 describe("IndentLexer", () => {
   describe("매치되는 경우", () => {
@@ -12,6 +13,7 @@ describe("IndentLexer", () => {
       const result = indentLexer.parse(0);
 
       if (compareTokenType(result, LexerTokenTypes.INDENT)) {
+        snapshot(result);
         expect(result.indentType).to.equal("tab");
         expect(result.index).to.deep.equal({ start: 0, end: 1 });
       }
@@ -22,6 +24,7 @@ describe("IndentLexer", () => {
       const result = indentLexer.parse(0);
 
       if (compareTokenType(result, LexerTokenTypes.INDENT)) {
+        snapshot(result);
         expect(result.indentType).to.equal("space");
         expect(result.index).to.deep.equal({ start: 0, end: 2 });
       }
@@ -49,6 +52,7 @@ describe("IndentLexer", () => {
         mockIndentToken
       ]);
 
+      snapshot(tokens);
       expect(tokens.length).to.equal(3);
     });
 
@@ -62,6 +66,7 @@ describe("IndentLexer", () => {
         mockIndentToken
       ]);
 
+      snapshot(tokens);
       expect(tokens.length).to.equal(4);
     });
 
@@ -72,6 +77,7 @@ describe("IndentLexer", () => {
         mockIndentToken
       ]);
 
+      snapshot(tokens);
       expect(tokens.length).to.equal(1);
     });
   });

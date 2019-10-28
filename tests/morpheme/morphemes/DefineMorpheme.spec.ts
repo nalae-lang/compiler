@@ -2,6 +2,7 @@ import { DefineMorpheme } from "morpheme/morphemes/DefineMorpheme";
 import { mockGrammer } from "../../helper/lexer/MockToken";
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
 import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
+import snapshot = require("snap-shot-it");
 
 describe("DefineMorpheme", () => {
   const defineMorpheme = new DefineMorpheme();
@@ -12,6 +13,7 @@ describe("DefineMorpheme", () => {
 
       if (compareTokenType(result, MorphemeTokenTypes.DEFINE)) {
         if (compareTokenType(result.value, MorphemeTokenTypes.IDENTIFIER)) {
+          snapshot(result);
           expect(result.value.name).to.equal("사람");
           expect(result.value.index.end).to.equal(2);
         }
@@ -24,6 +26,7 @@ describe("DefineMorpheme", () => {
 
       if (compareTokenType(result, MorphemeTokenTypes.DEFINE)) {
         if (compareTokenType(result.value, MorphemeTokenTypes.IDENTIFIER)) {
+          snapshot(result);
           expect(result.value.name).to.equal("바다");
           expect(result.value.index.end).to.equal(2);
         }
@@ -36,6 +39,7 @@ describe("DefineMorpheme", () => {
 
       if (compareTokenType(result, MorphemeTokenTypes.DEFINE)) {
         if (compareTokenType(result.value, MorphemeTokenTypes.IDENTIFIER)) {
+          snapshot(result);
           expect(result.value.name).to.equal("바다");
           expect(result.value.index.end).to.equal(2);
         }
@@ -47,6 +51,7 @@ describe("DefineMorpheme", () => {
       const result = defineMorpheme.analyze(mockGrammerToken);
 
       if (compareTokenType(result, MorphemeTokenTypes.DEFINE)) {
+        snapshot(result);
         expect(result.value).to.be.null;
       }
     });

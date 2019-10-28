@@ -5,6 +5,7 @@ import {
 } from "morpheme/morphemes/SubjectMorpheme";
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
 import { mockGrammer } from "../../helper/morpheme/MockGrammer";
+import snapshot = require("snap-shot-it");
 
 function expectSubjectIdentifier(result: SubjectToken, name: string): void {
   expect(result.subject).to.be.exist;
@@ -23,6 +24,7 @@ describe("SubjectMorpheme", () => {
       const mockGrammerToken = mockGrammer("변수는");
       const result = subjectMorpheme.analyze(mockGrammerToken);
       if (compareTokenType(result, MorphemeTokenTypes.SUBJECT)) {
+        snapshot(result);
         expect(result.subjectType).to.equal("은/는");
         expectSubjectIdentifier(result, "변수");
       }
@@ -32,6 +34,7 @@ describe("SubjectMorpheme", () => {
       const mockGrammerToken = mockGrammer("받침은");
       const result = subjectMorpheme.analyze(mockGrammerToken);
       if (compareTokenType(result, MorphemeTokenTypes.SUBJECT)) {
+        snapshot(result);
         expect(result.subjectType).to.equal("은/는");
         expectSubjectIdentifier(result, "받침");
       }
@@ -41,6 +44,7 @@ describe("SubjectMorpheme", () => {
       const mockGrammerToken = mockGrammer("변수가");
       const result = subjectMorpheme.analyze(mockGrammerToken);
       if (compareTokenType(result, MorphemeTokenTypes.SUBJECT)) {
+        snapshot(result);
         expect(result.subjectType).to.equal("이/가");
         expectSubjectIdentifier(result, "변수");
       }
@@ -50,6 +54,7 @@ describe("SubjectMorpheme", () => {
       const mockGrammerToken = mockGrammer("받침이");
       const result = subjectMorpheme.analyze(mockGrammerToken);
       if (compareTokenType(result, MorphemeTokenTypes.SUBJECT)) {
+        snapshot(result);
         expect(result.subjectType).to.equal("이/가");
         expectSubjectIdentifier(result, "받침");
       }
@@ -60,6 +65,7 @@ describe("SubjectMorpheme", () => {
       const result = subjectMorpheme.analyze(mockGrammerToken);
 
       if (compareTokenType(result, MorphemeTokenTypes.SUBJECT)) {
+        snapshot(result);
         expect(result.subjectType).to.equal("이/가");
         expect(result.subject).to.be.null;
       }
@@ -70,6 +76,7 @@ describe("SubjectMorpheme", () => {
       const result = subjectMorpheme.analyze(mockGrammerToken);
 
       if (compareTokenType(result, MorphemeTokenTypes.SUBJECT)) {
+        snapshot(result);
         expect(result.subjectType).to.equal("은/는");
         expect(result.subject).to.be.null;
       }

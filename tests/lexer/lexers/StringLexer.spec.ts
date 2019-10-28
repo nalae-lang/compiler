@@ -3,6 +3,7 @@ import { StringLexer } from "lexer/lexers/StringLexer";
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 import { LexerErrorCode } from "lexer/error/ErrorCode";
+import snapshot = require("snap-shot-it");
 
 describe("StringLexer", () => {
   describe("매치 되는 경우", () => {
@@ -12,6 +13,7 @@ describe("StringLexer", () => {
       const result = stringLexer.parse(0);
 
       if (compareTokenType(result, LexerTokenTypes.STRING)) {
+        snapshot(result);
         expect(result.string).to.equal("string");
         expect(result.index).to.deep.equal({ start: 0, end: code.length });
       }

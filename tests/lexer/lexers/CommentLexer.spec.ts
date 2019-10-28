@@ -4,6 +4,7 @@ import { compareTokenType } from "../../helper/lexer/CompareTokenType";
 import { createLexer } from "../../helper/lexer/CreateLexer";
 import { CommentLexer } from "lexer/lexers/CommentLexer";
 import { LexerErrorCode } from "lexer/error/ErrorCode";
+import snapshot = require("snap-shot-it");
 
 describe("CommentLexer", () => {
   describe("매치되는 경우", () => {
@@ -13,6 +14,7 @@ describe("CommentLexer", () => {
       const result = commentLexer.parse(0);
 
       if (compareTokenType(result, LexerTokenTypes.COMMENT)) {
+        snapshot(result);
         expect(result.comment).to.equal("test comment");
         expect(result.index).to.deep.equal({ start: 0, end: code.length });
       }
@@ -24,6 +26,7 @@ describe("CommentLexer", () => {
       const result = commentLexer.parse(0);
 
       if (compareTokenType(result, LexerTokenTypes.COMMENT)) {
+        snapshot(result);
         expect(result.comment).to.equal("test comment");
         expect(result.index).to.deep.equal({ start: 0, end: code.length });
       }
@@ -35,6 +38,7 @@ describe("CommentLexer", () => {
       const result = commentLexer.parse(0);
 
       if (compareTokenType(result, LexerTokenTypes.COMMENT)) {
+        snapshot(result);
         expect(result.comment).to.equal("test comment");
         expect(result.index).to.deep.equal({ start: 0, end: code.length });
       }
