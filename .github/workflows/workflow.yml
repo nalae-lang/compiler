@@ -3,15 +3,12 @@ on: [push]
 jobs:
   run:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: ["12", "10", "8"]
     steps:
       - uses: actions/checkout@master
-      - name: Use Node.js ${{ matrix.node }}
+      - name: Use Node.js 8
         uses: actions/setup-node@master
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 8
       - name: npm install
         run: |
           npm install
