@@ -9,10 +9,10 @@ import { IdentifierMorpheme } from "./morphemes/IdentifierMorpheme";
 
 export class NalaeMorphemeAnalyser {
   private readonly morphemes: Array<MorphemeAnalyser<Token>> = [
-    new SubjectMorpheme(),
-    new PropertyMorpheme(),
-    new DefineMorpheme(),
     new NamedMorpheme(),
+    new PropertyMorpheme(),
+    new SubjectMorpheme(),
+    new DefineMorpheme(),
     new IdentifierMorpheme()
   ];
 

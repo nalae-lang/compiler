@@ -211,12 +211,55 @@ exports['LEXER_RESULT_GRAMMER_3'] = [
     "name": "class"
   },
   {
-    "type": "grammer",
+    "type": "keyword",
     "index": {
       "start": 8,
       "end": 10
     },
-    "text": "생성"
+    "name": "create"
+  },
+  {
+    "type": "end",
+    "index": {
+      "start": 10,
+      "end": 11
+    },
+    "endType": "dot"
+  }
+]
+
+exports['MORPHEME_RESULT_3'] = [
+  {
+    "type": "named",
+    "subject": {
+      "type": "identifier",
+      "index": {
+        "start": 0,
+        "end": 2
+      },
+      "name": "사람"
+    },
+    "index": {
+      "start": 0,
+      "end": 5
+    },
+    "name": "이라는"
+  },
+  {
+    "type": "keyword",
+    "index": {
+      "start": 6,
+      "end": 7
+    },
+    "name": "class"
+  },
+  {
+    "type": "keyword",
+    "index": {
+      "start": 8,
+      "end": 10
+    },
+    "name": "create"
   },
   {
     "type": "end",
