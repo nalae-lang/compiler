@@ -15,6 +15,6 @@ jobs:
       - name: npm install
         run: |
           npm install
-      - name: Generate coverage report
+      - name: Run Test
         run: |
           npm run test
