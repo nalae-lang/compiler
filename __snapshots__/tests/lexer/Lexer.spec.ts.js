@@ -32,12 +32,12 @@ exports['LEXER_RESULT_DEFAULT'] = [
     "text": "텍스트박스"
   },
   {
-    "type": "grammer",
+    "type": "keyword",
     "index": {
       "start": 17,
       "end": 21
     },
-    "text": "불러오기"
+    "name": "import"
   },
   {
     "type": "end",
@@ -387,12 +387,12 @@ exports['LEXER_RESULT_CREATE_CLASS_1'] = [
     "name": "class"
   },
   {
-    "type": "grammer",
+    "type": "keyword",
     "index": {
       "start": 8,
       "end": 10
     },
-    "text": "생성"
+    "name": "create"
   },
   {
     "type": "end",
@@ -422,12 +422,12 @@ exports['LEXER_RESULT_CREATE_CLASS_2'] = [
     "name": "class"
   },
   {
-    "type": "grammer",
+    "type": "keyword",
     "index": {
       "start": 9,
       "end": 11
     },
-    "text": "생성"
+    "name": "create"
   },
   {
     "type": "end",

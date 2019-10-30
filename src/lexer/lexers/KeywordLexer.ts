@@ -9,7 +9,7 @@ export interface KeywordToken extends TokenBase {
   readonly name: (typeof keywordList)[number]["name"];
 }
 
-export const ALLOWED_KEYWORD_NEXT = ["\n", " ", "\t", ...operatorList];
+export const ALLOWED_KEYWORD_NEXT = ["\n", " ", "\t", ".", ...operatorList];
 
 export class KeywordLexer extends Lexer<KeywordToken> {
   public static readonly TOKEN_TYPE = LexerTokenTypes.KEYWORD;
