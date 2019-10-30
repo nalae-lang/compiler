@@ -8,7 +8,7 @@
     "test": "tsc && nyc mocha --opts tests/mocha-coverage.opts",
     "test:watch": "mocha --opts tests/mocha.opts --watch",
     "test:snapshot": "cross-env SNAPSHOT_UPDATE=1 yarn test",
-    "test:web": "mocha --opts tests/mocha-web.opts > test-result.md"
+    "test:web": "mocha --opts tests/mocha-web.opts"
   },
   "keywords": [],
   "author": "",
