@@ -1,7 +1,7 @@
-import { Lexer } from "lexer";
 import { NalaeLexerError } from "lexer/error";
 import { LexerErrorCode } from "lexer/error/ErrorCode";
-import { TokenBase } from "token";
+import { Lexer } from "lexer/interface";
+import { TokenBase } from "token/interface";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
 export interface CommentToken extends TokenBase {

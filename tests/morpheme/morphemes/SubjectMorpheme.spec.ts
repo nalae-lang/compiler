@@ -1,11 +1,12 @@
-import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
 import {
   SubjectMorpheme,
   SubjectToken
 } from "morpheme/morphemes/SubjectMorpheme";
+import snapshot = require("snap-shot-it");
+import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
+
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
 import { mockGrammer } from "../../helper/morpheme/MockGrammer";
-import snapshot = require("snap-shot-it");
 
 function expectSubjectIdentifier(result: SubjectToken, name: string): void {
   expect(result.subject).to.be.exist;

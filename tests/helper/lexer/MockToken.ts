@@ -1,7 +1,7 @@
+import { EndToken, EndType } from "lexer/lexers/EndLexer";
 import { GrammerToken } from "lexer/lexers/GrammerLexer";
+import { IndentToken, IndentType } from "lexer/lexers/IndentLexer";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
-import { EndType, EndToken } from "lexer/lexers/EndLexer";
-import { IndentType, IndentToken } from "lexer/lexers/IndentLexer";
 
 export function mockGrammer(text: string): GrammerToken {
   return {

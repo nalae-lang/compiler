@@ -1,8 +1,9 @@
 import { DefineMorpheme } from "morpheme/morphemes/DefineMorpheme";
-import { mockGrammer } from "../../helper/lexer/MockToken";
-import { compareTokenType } from "../../helper/lexer/CompareTokenType";
-import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
 import snapshot = require("snap-shot-it");
+import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
+
+import { compareTokenType } from "../../helper/lexer/CompareTokenType";
+import { mockGrammer } from "../../helper/lexer/MockToken";
 
 describe("DefineMorpheme", () => {
   const defineMorpheme = new DefineMorpheme();

@@ -1,10 +1,11 @@
-import { keywordList } from "lexer/lexers/models/KeywordList";
-import { createLexer } from "../../helper/lexer/CreateLexer";
 import { KeywordLexer } from "lexer/lexers/KeywordLexer";
-import { compareTokenType } from "../../helper/lexer/CompareTokenType";
-import { LexerTokenTypes } from "token/types/LexerTokenTypes";
+import { keywordList } from "lexer/lexers/models/KeywordList";
 import { operatorList } from "lexer/lexers/models/OperatorList";
 import snapshot = require("snap-shot-it");
+import { LexerTokenTypes } from "token/types/LexerTokenTypes";
+
+import { compareTokenType } from "../../helper/lexer/CompareTokenType";
+import { createLexer } from "../../helper/lexer/CreateLexer";
 
 describe("KeywordLexer", () => {
   describe("매치 되는 경우", () => {

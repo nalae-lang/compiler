@@ -1,9 +1,9 @@
+import { GrammerLexer } from "lexer/lexers/GrammerLexer";
+import snapshot = require("snap-shot-it");
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
 import { createLexer } from "../../helper/lexer/CreateLexer";
-import { GrammerLexer } from "lexer/lexers/GrammerLexer";
-import snapshot = require("snap-shot-it");
 
 describe("GrammerLexer", () => {
   describe("매치되는 경우", () => {

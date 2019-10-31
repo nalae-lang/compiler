@@ -1,10 +1,11 @@
-import { TokenBase } from "token";
-import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
-import { MorphemeAnalyser } from "morpheme";
 import { GrammerToken } from "lexer/lexers/GrammerLexer";
+import { MorphemeAnalyser } from "morpheme/interface";
+import { TokenBase } from "token/interface";
+import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
+import { checkPostPosition } from "utils/CheckPostPosition";
+
 import { NalaeMorphemeError } from "./error";
 import { MorphemeErrorCode } from "./error/ErrorCode";
-import { checkPostPosition } from "utils/CheckPostPosition";
 import { IdentifierToken } from "./IdentifierMorpheme";
 
 export interface NamedToken extends TokenBase {

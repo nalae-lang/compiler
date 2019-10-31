@@ -1,10 +1,11 @@
-import { createLexer } from "../../helper/lexer/CreateLexer";
-import { NumberLexer, Radix } from "lexer/lexers/NumberLexer";
-import { compareTokenType } from "../../helper/lexer/CompareTokenType";
-import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 import { LexerErrorCode } from "lexer/error/ErrorCode";
-import { formatString } from "utils/FormatString";
+import { NumberLexer, Radix } from "lexer/lexers/NumberLexer";
 import snapshot = require("snap-shot-it");
+import { LexerTokenTypes } from "token/types/LexerTokenTypes";
+import { formatString } from "utils/FormatString";
+
+import { compareTokenType } from "../../helper/lexer/CompareTokenType";
+import { createLexer } from "../../helper/lexer/CreateLexer";
 
 function testValidNumber(
   code: string,

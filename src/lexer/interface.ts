@@ -1,4 +1,4 @@
-import { TokenBase } from "../token";
+import { TokenBase } from "../token/interface";
 
 export interface LexerState {
   code: string;

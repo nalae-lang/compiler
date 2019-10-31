@@ -1,8 +1,9 @@
-import { createLexer } from "../../helper/lexer/CreateLexer";
 import { EndLexer } from "lexer/lexers/EndLexer";
-import { compareTokenType } from "../../helper/lexer/CompareTokenType";
-import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 import snapshot = require("snap-shot-it");
+import { LexerTokenTypes } from "token/types/LexerTokenTypes";
+
+import { compareTokenType } from "../../helper/lexer/CompareTokenType";
+import { createLexer } from "../../helper/lexer/CreateLexer";
 
 describe("EndLexer", () => {
   describe("매치 되는 경우", () => {

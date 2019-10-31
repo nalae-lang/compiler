@@ -1,16 +1,17 @@
-import { CommentLexer } from "./lexers/CommentLexer";
-import { LexerState, Lexer } from "lexer";
-import { StringLexer } from "./lexers/StringLexer";
-import { RawCodeLexer } from "./lexers/RawCodeLexer";
-import { GrammerLexer } from "./lexers/GrammerLexer";
-import { KeywordLexer } from "./lexers/KeywordLexer";
-import { IndentLexer } from "./lexers/IndentLexer";
-import { NumberLexer } from "./lexers/NumberLexer";
-import { OperatorLexer } from "./lexers/OperatorLexer";
-import { EndLexer } from "./lexers/EndLexer";
-import { Token } from "token";
+import { Token } from "token/interface";
+
 import { NalaeLexerError } from "./error";
 import { LexerErrorCode } from "./error/ErrorCode";
+import { Lexer, LexerState } from "./interface";
+import { CommentLexer } from "./lexers/CommentLexer";
+import { EndLexer } from "./lexers/EndLexer";
+import { GrammerLexer } from "./lexers/GrammerLexer";
+import { IndentLexer } from "./lexers/IndentLexer";
+import { KeywordLexer } from "./lexers/KeywordLexer";
+import { NumberLexer } from "./lexers/NumberLexer";
+import { OperatorLexer } from "./lexers/OperatorLexer";
+import { RawCodeLexer } from "./lexers/RawCodeLexer";
+import { StringLexer } from "./lexers/StringLexer";
 
 export class NalaeLexer {
   private readonly state: LexerState;

@@ -1,6 +1,7 @@
-import { TokenBase, Token } from "token";
+import { Lexer } from "lexer/interface";
+import { Token, TokenBase } from "token/interface";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
-import { Lexer } from "lexer";
+
 import { EndToken } from "./EndLexer";
 
 export type IndentType = "tab" | "space";

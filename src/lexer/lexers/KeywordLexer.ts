@@ -1,7 +1,8 @@
-import { TokenBase } from "token";
+import { Lexer } from "lexer/interface";
+import { TokenBase } from "token/interface";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
+
 import { keywordList } from "./models/KeywordList";
-import { Lexer } from "lexer";
 import { operatorList } from "./models/OperatorList";
 
 export interface KeywordToken extends TokenBase {

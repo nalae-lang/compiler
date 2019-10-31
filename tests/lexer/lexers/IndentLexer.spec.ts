@@ -1,10 +1,10 @@
+import { IndentLexer } from "lexer/lexers/IndentLexer";
+import snapshot = require("snap-shot-it");
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
 import { createLexer } from "../../helper/lexer/CreateLexer";
-import { IndentLexer } from "lexer/lexers/IndentLexer";
-import { mockIndent, mockEnd } from "../../helper/lexer/MockToken";
-import snapshot = require("snap-shot-it");
+import { mockEnd, mockIndent } from "../../helper/lexer/MockToken";
 
 describe("IndentLexer", () => {
   describe("매치되는 경우", () => {

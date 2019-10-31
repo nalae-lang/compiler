@@ -1,8 +1,8 @@
 import { NalaeLexer } from "lexer/Lexer";
-import snapshot = require("snap-shot-it");
 import { NalaeMorphemeAnalyser } from "morpheme/Morpheme";
-import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
+import snapshot = require("snap-shot-it");
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
+import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
 
 describe("Morpheme", () => {
   const morphemeAnalyser = new NalaeMorphemeAnalyser();

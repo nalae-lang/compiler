@@ -1,8 +1,8 @@
-import { TokenBase } from "token";
-import { LexerTokenTypes } from "token/types/LexerTokenTypes";
-import { Lexer } from "lexer";
 import { NalaeLexerError } from "lexer/error";
 import { LexerErrorCode } from "lexer/error/ErrorCode";
+import { Lexer } from "lexer/interface";
+import { TokenBase } from "token/interface";
+import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
 export interface StringToken extends TokenBase {
   readonly type: LexerTokenTypes.STRING;

@@ -1,7 +1,7 @@
+import { LexerErrorCode } from "lexer/error/ErrorCode";
 import { NalaeLexer } from "lexer/Lexer";
 import snapshot from "snap-shot-it";
 import { formatString } from "utils/FormatString";
-import { LexerErrorCode } from "lexer/error/ErrorCode";
 
 describe("Lexer", () => {
   it("기본 문법 테스트", () => {

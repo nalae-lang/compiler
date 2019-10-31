@@ -1,7 +1,7 @@
-import { TokenBase } from "token";
-import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
-import { MorphemeAnalyser } from "morpheme";
 import { GrammerToken } from "lexer/lexers/GrammerLexer";
+import { MorphemeAnalyser } from "morpheme/interface";
+import { TokenBase } from "token/interface";
+import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
 
 export interface IdentifierToken extends TokenBase {
   readonly type: MorphemeTokenTypes.IDENTIFIER;

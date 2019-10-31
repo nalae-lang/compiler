@@ -1,8 +1,9 @@
-import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
 import { PropertyMorpheme } from "morpheme/morphemes/PropertyMorpheme";
+import snapshot = require("snap-shot-it");
+import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
+
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
 import { mockGrammer } from "../../helper/morpheme/MockGrammer";
-import snapshot = require("snap-shot-it");
 
 describe("PropertyMorpheme", () => {
   const propertyMorpheme = new PropertyMorpheme();

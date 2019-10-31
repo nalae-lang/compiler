@@ -1,4 +1,4 @@
-import { Index } from "token";
+import { Index } from "token/interface";
 import { MorphemeErrorCode } from "./ErrorCode";
 import { formatString } from "utils/FormatString";
 

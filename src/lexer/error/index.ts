@@ -1,7 +1,7 @@
-import { Index } from "token";
+import { Index } from "token/interface";
+import { formatString } from "utils/FormatString";
 
 import { LexerErrorCode } from "./ErrorCode";
-import { formatString } from "utils/FormatString";
 
 export class NalaeLexerError {
   public name = "NalaeLexerError";

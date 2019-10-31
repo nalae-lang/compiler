@@ -5,8 +5,9 @@
   "[typescript]": {
     "editor.formatOnSave": false
   },
-  "prettier.disableLanguages": [
-    "typescript"
-  ],
-  "eslint.enable": true
+  "prettier.disableLanguages": ["typescript"],
+  "eslint.enable": true,
+  "typescriptHero.imports.stringQuoteStyle": "\"",
+  "typescriptHero.imports.multiLineWrapThreshold": 80,
+  "typescriptHero.imports.multiLineTrailingComma": false
 }

@@ -1,7 +1,7 @@
-import { TokenBase, ValueToken } from "token";
-import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
-import { MorphemeAnalyser } from "morpheme";
 import { GrammerToken } from "lexer/lexers/GrammerLexer";
+import { MorphemeAnalyser } from "morpheme/interface";
+import { TokenBase, ValueToken } from "token/interface";
+import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
 import { checkPostPosition } from "utils/CheckPostPosition";
 
 export interface SubjectToken extends TokenBase {

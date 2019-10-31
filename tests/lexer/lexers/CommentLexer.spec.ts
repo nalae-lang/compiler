@@ -1,10 +1,10 @@
+import { LexerErrorCode } from "lexer/error/ErrorCode";
+import { CommentLexer } from "lexer/lexers/CommentLexer";
+import snapshot = require("snap-shot-it");
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
 import { createLexer } from "../../helper/lexer/CreateLexer";
-import { CommentLexer } from "lexer/lexers/CommentLexer";
-import { LexerErrorCode } from "lexer/error/ErrorCode";
-import snapshot = require("snap-shot-it");
 
 describe("CommentLexer", () => {
   describe("매치되는 경우", () => {

@@ -1,11 +1,12 @@
-import { SubjectMorpheme } from "./morphemes/SubjectMorpheme";
-import { PropertyMorpheme } from "./morphemes/PropertyMorpheme";
-import { MorphemeAnalyser } from "morpheme";
-import { Token } from "token";
+import { MorphemeAnalyser } from "morpheme/interface";
+import { Token } from "token/interface";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
+
 import { DefineMorpheme } from "./morphemes/DefineMorpheme";
-import { NamedMorpheme } from "./morphemes/NamedMorpheme";
 import { IdentifierMorpheme } from "./morphemes/IdentifierMorpheme";
+import { NamedMorpheme } from "./morphemes/NamedMorpheme";
+import { PropertyMorpheme } from "./morphemes/PropertyMorpheme";
+import { SubjectMorpheme } from "./morphemes/SubjectMorpheme";
 
 export class NalaeMorphemeAnalyser {
   private readonly morphemes: Array<MorphemeAnalyser<Token>> = [

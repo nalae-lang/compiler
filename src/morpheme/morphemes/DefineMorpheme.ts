@@ -1,10 +1,11 @@
-import { TokenBase } from "token";
-import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
-import { MorphemeAnalyser } from "morpheme";
 import { GrammerToken } from "lexer/lexers/GrammerLexer";
-import { IdentifierToken } from "./IdentifierMorpheme";
-import { isKorean } from "utils/IsKorean";
+import { MorphemeAnalyser } from "morpheme/interface";
+import { TokenBase } from "token/interface";
+import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
 import { hasJongSung } from "utils/HasJongSung";
+import { isKorean } from "utils/IsKorean";
+
+import { IdentifierToken } from "./IdentifierMorpheme";
 
 export interface DefineToken extends TokenBase {
   readonly type: MorphemeTokenTypes.DEFINE;

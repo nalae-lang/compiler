@@ -1,10 +1,11 @@
+import { MorphemeErrorCode } from "morpheme/morphemes/error/ErrorCode";
 import { NamedMorpheme } from "morpheme/morphemes/NamedMorpheme";
-import { mockGrammer } from "../../helper/morpheme/MockGrammer";
-import { compareTokenType } from "../../helper/lexer/CompareTokenType";
+import snapshot = require("snap-shot-it");
 import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
 import { formatString } from "utils/FormatString";
-import { MorphemeErrorCode } from "morpheme/morphemes/error/ErrorCode";
-import snapshot = require("snap-shot-it");
+
+import { compareTokenType } from "../../helper/lexer/CompareTokenType";
+import { mockGrammer } from "../../helper/morpheme/MockGrammer";
 
 describe("NamedMorpheme", () => {
   const namedMorpheme = new NamedMorpheme();

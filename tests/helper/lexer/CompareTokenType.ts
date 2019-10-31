@@ -1,4 +1,4 @@
-import { TokenBase, TokenTypes } from "token";
+import { TokenBase, TokenTypes } from "token/interface";
 
 export function compareTokenType<T extends TokenBase>(
   token: T | null,

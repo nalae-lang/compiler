@@ -1,9 +1,10 @@
-import { createLexer } from "../../helper/lexer/CreateLexer";
-import { StringLexer } from "lexer/lexers/StringLexer";
-import { compareTokenType } from "../../helper/lexer/CompareTokenType";
-import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 import { LexerErrorCode } from "lexer/error/ErrorCode";
+import { StringLexer } from "lexer/lexers/StringLexer";
 import snapshot = require("snap-shot-it");
+import { LexerTokenTypes } from "token/types/LexerTokenTypes";
+
+import { compareTokenType } from "../../helper/lexer/CompareTokenType";
+import { createLexer } from "../../helper/lexer/CreateLexer";
 
 describe("StringLexer", () => {
   describe("매치 되는 경우", () => {
