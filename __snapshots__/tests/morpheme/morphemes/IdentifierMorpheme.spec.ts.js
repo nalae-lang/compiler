@@ -4,5 +4,9 @@ exports['IdentifierMorpheme 매치 되는 경우 IdentifierMorpheme Token으로 
     "start": 0,
     "end": 3
   },
+  "tokenIndex": {
+    "start": 0,
+    "end": 1
+  },
   "name": "변수1"
 }

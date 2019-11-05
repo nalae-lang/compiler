@@ -50,8 +50,8 @@ export class NalaeLexer {
 
   public lex(): Array<Token> {
     this.beforeLex();
-    const tokens: Array<Token> = [];
     const { code } = this.state;
+    const tokens: Array<Token> = [];
     let i = 0;
     while (i < code.length) {
       let result = null as Token | null;

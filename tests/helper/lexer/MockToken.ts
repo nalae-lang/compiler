@@ -1,6 +1,9 @@
 import { EndToken, EndType } from "lexer/lexers/EndLexer";
 import { GrammerToken } from "lexer/lexers/GrammerLexer";
 import { IndentToken, IndentType } from "lexer/lexers/IndentLexer";
+import { NumberToken, Radix } from "lexer/lexers/NumberLexer";
+import { RawCodeToken } from "lexer/lexers/RawCodeLexer";
+import { StringToken } from "lexer/lexers/StringLexer";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
 export function mockGrammer(text: string): GrammerToken {
@@ -11,6 +14,40 @@ export function mockGrammer(text: string): GrammerToken {
       end: text.length
     },
     text
+  };
+}
+
+export function mockNumber(number: number, radix: Radix = 10): NumberToken {
+  return {
+    type: LexerTokenTypes.NUMBER,
+    index: {
+      start: 0,
+      end: `${number}`.length
+    },
+    number,
+    radix
+  };
+}
+
+export function mockString(string: string): StringToken {
+  return {
+    type: LexerTokenTypes.STRING,
+    index: {
+      start: 0,
+      end: string.length
+    },
+    string
+  };
+}
+
+export function mockRawCode(code: string): RawCodeToken {
+  return {
+    type: LexerTokenTypes.RAWCODE,
+    index: {
+      start: 0,
+      end: code.length
+    },
+    code
   };
 }
 

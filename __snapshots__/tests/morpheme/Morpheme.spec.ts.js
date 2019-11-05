@@ -48,11 +48,19 @@ exports['MORPHEME_RESULT_1'] = [
       "start": 0,
       "end": 6
     },
+    "tokenIndex": {
+      "start": 0,
+      "end": 1
+    },
     "object": {
       "type": "identifier",
       "index": {
         "start": 0,
         "end": 5
+      },
+      "tokenIndex": {
+        "start": 0,
+        "end": 1
       },
       "name": "텍스트박스"
     }
@@ -63,23 +71,22 @@ exports['MORPHEME_RESULT_1'] = [
       "start": 7,
       "end": 9
     },
+    "tokenIndex": {
+      "start": 1,
+      "end": 2
+    },
     "subject": {
       "type": "identifier",
       "index": {
         "start": 7,
         "end": 8
       },
+      "tokenIndex": {
+        "start": 1,
+        "end": 2
+      },
       "name": "값"
-    },
-    "subjectType": "은/는"
-  },
-  {
-    "type": "string",
-    "index": {
-      "start": 10,
-      "end": 17
-    },
-    "string": "안녕하세요"
+    }
   },
   {
     "type": "define",
@@ -87,7 +94,18 @@ exports['MORPHEME_RESULT_1'] = [
       "start": 17,
       "end": 19
     },
-    "value": null
+    "tokenIndex": {
+      "start": 2,
+      "end": 4
+    },
+    "value": {
+      "type": "string",
+      "index": {
+        "start": 10,
+        "end": 17
+      },
+      "string": "안녕하세요"
+    }
   },
   {
     "type": "end",
@@ -149,15 +167,22 @@ exports['MORPHEME_RESULT_2'] = [
       "start": 0,
       "end": 3
     },
+    "tokenIndex": {
+      "start": 0,
+      "end": 1
+    },
     "subject": {
       "type": "identifier",
       "index": {
         "start": 0,
         "end": 2
       },
+      "tokenIndex": {
+        "start": 0,
+        "end": 1
+      },
       "name": "콘솔"
-    },
-    "subjectType": "은/는"
+    }
   },
   {
     "type": "string",
@@ -173,6 +198,10 @@ exports['MORPHEME_RESULT_2'] = [
       "start": 11,
       "end": 12
     },
+    "tokenIndex": {
+      "start": 2,
+      "end": 3
+    },
     "name": "를"
   },
   {
@@ -180,6 +209,10 @@ exports['MORPHEME_RESULT_2'] = [
     "index": {
       "start": 13,
       "end": 17
+    },
+    "tokenIndex": {
+      "start": 3,
+      "end": 4
     },
     "name": "출력한다"
   },
@@ -237,11 +270,19 @@ exports['MORPHEME_RESULT_3'] = [
         "start": 0,
         "end": 2
       },
+      "tokenIndex": {
+        "start": 0,
+        "end": 1
+      },
       "name": "사람"
     },
     "index": {
       "start": 0,
       "end": 5
+    },
+    "tokenIndex": {
+      "start": 0,
+      "end": 1
     },
     "name": "이라는"
   },

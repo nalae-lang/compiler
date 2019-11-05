@@ -1,38 +1,53 @@
-import { MorphemeAnalyser } from "morpheme/interface";
-import { Token } from "token/interface";
-import { LexerTokenTypes } from "token/types/LexerTokenTypes";
+import { MorphemeAnalyser, MorphemeState } from "morpheme/interface";
+import { MorphemeTokenBase, Token } from "token/interface";
 
 import { DefineMorpheme } from "./morphemes/DefineMorpheme";
 import { IdentifierMorpheme } from "./morphemes/IdentifierMorpheme";
 import { NamedMorpheme } from "./morphemes/NamedMorpheme";
 import { PropertyMorpheme } from "./morphemes/PropertyMorpheme";
 import { SubjectMorpheme } from "./morphemes/SubjectMorpheme";
+import { SubstituteMorpheme } from "./morphemes/SubstituteMorpheme";
 
 export class NalaeMorphemeAnalyser {
-  private readonly morphemes: Array<MorphemeAnalyser<Token>> = [
-    new NamedMorpheme(),
-    new PropertyMorpheme(),
-    new SubjectMorpheme(),
-    new DefineMorpheme(),
-    new IdentifierMorpheme()
-  ];
+  private readonly state: MorphemeState;
+  private readonly morphemes: Array<MorphemeAnalyser<MorphemeTokenBase>>;
 
-  public analyse(tokens: Array<Token>): Array<Token> {
-    return tokens.map(token => {
-      if (token.type === LexerTokenTypes.GRAMMER) {
-        let result = null as Token | null;
-        this.morphemes.find(morpheme => (result = morpheme.analyze(token)));
+  public constructor(tokens: Array<Token>) {
+    this.state = {
+      tokens
+    };
+    this.morphemes = [
+      new NamedMorpheme(this.state),
+      new PropertyMorpheme(this.state),
+      new SubjectMorpheme(this.state),
+      new DefineMorpheme(this.state),
+      new SubstituteMorpheme(this.state),
+      new IdentifierMorpheme(this.state)
+    ];
+  }
 
-        /*
-          istanbul ignore else
-          GrammerToken인 경우 맞는 형태소를 못 찾으면 무조건 IdentifierMorpheme로 정한다.
-          그래서 사실상 result가 null인 경우는 없어 else coverage는 무시함.
-        */
-        if (result !== null) {
-          return result;
-        }
+  public analyse(): Array<Token> {
+    const { tokens } = this.state;
+    const morphemeTokens: Array<MorphemeTokenBase> = [];
+    let i = 0;
+    while (i < tokens.length) {
+      let result = null as MorphemeTokenBase | null;
+      this.morphemes.find(morpheme => (result = morpheme.analyze(i)));
+      if (result !== null) {
+        morphemeTokens.push(result);
+        i = result.tokenIndex.end;
+      } else {
+        i++;
       }
-      return token;
-    });
+    }
+    const resultTokens = tokens.slice();
+    return morphemeTokens.reduceRight((prev, curr) => {
+      prev.splice(
+        curr.tokenIndex.start,
+        curr.tokenIndex.end - curr.tokenIndex.start,
+        curr as Token
+      );
+      return prev;
+    }, resultTokens);
   }
 }

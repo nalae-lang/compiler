@@ -1,8 +1,12 @@
-import { GrammerToken } from "lexer/lexers/GrammerLexer";
-import { TokenBase } from "token/interface";
+import { MorphemeTokenBase, Token } from "token/interface";
 
-export interface MorphemeAnalyser<T extends TokenBase> {
-  analyze(token: GrammerToken): T | null;
+export interface MorphemeState {
+  readonly tokens: ReadonlyArray<Token>;
+}
+export abstract class MorphemeAnalyser<T extends MorphemeTokenBase> {
+  public constructor(protected state: MorphemeState) {}
+
+  public abstract analyze(index: number): T | null;
 }
 
 export type MorphemeList = [string, string];

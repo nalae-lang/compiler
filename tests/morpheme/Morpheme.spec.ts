@@ -5,7 +5,6 @@ import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
 
 describe("Morpheme", () => {
-  const morphemeAnalyser = new NalaeMorphemeAnalyser();
   it("주어 테스트", () => {
     const lexer = new NalaeLexer(`텍스트박스의 값은 "안녕하세요"이다.`);
     const lexerResult = lexer.lex();
@@ -18,12 +17,12 @@ describe("Morpheme", () => {
       LexerTokenTypes.END
     ]);
 
-    const morphemeResult = morphemeAnalyser.analyse(lexerResult);
+    const morphemeAnalyser = new NalaeMorphemeAnalyser(lexerResult);
+    const morphemeResult = morphemeAnalyser.analyse();
     snapshot("MORPHEME_RESULT_1", morphemeResult);
     expect(morphemeResult.map(token => token.type)).to.deep.equal([
       MorphemeTokenTypes.PROPERTY,
       MorphemeTokenTypes.SUBJECT,
-      LexerTokenTypes.STRING,
       MorphemeTokenTypes.DEFINE,
       LexerTokenTypes.END
     ]);
@@ -41,7 +40,8 @@ describe("Morpheme", () => {
       LexerTokenTypes.END
     ]);
 
-    const morphemeResult = morphemeAnalyser.analyse(lexerResult);
+    const morphemeAnalyser = new NalaeMorphemeAnalyser(lexerResult);
+    const morphemeResult = morphemeAnalyser.analyse();
     snapshot("MORPHEME_RESULT_2", morphemeResult);
     expect(morphemeResult.map(token => token.type)).to.deep.equal([
       MorphemeTokenTypes.SUBJECT,
@@ -63,7 +63,8 @@ describe("Morpheme", () => {
       LexerTokenTypes.END
     ]);
 
-    const morphemeResult = morphemeAnalyser.analyse(lexerResult);
+    const morphemeAnalyser = new NalaeMorphemeAnalyser(lexerResult);
+    const morphemeResult = morphemeAnalyser.analyse();
     snapshot("MORPHEME_RESULT_3", morphemeResult);
     expect(morphemeResult.map(token => token.type)).to.deep.equal([
       MorphemeTokenTypes.NAMED,

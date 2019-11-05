@@ -1,44 +1,62 @@
-import { GrammerToken } from "lexer/lexers/GrammerLexer";
 import { MorphemeAnalyser, MorphemeList } from "morpheme/interface";
-import { TokenBase } from "token/interface";
+import { MorphemeTokenBase, ValueToken } from "token/interface";
+import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
 import { checkPostPosition } from "utils/CheckPostPosition";
+import { isValueToken } from "utils/IsValueToken";
 
-import { IdentifierToken } from "./IdentifierMorpheme";
-
-export interface SubstituteToken extends TokenBase {
+export interface SubstituteToken extends MorphemeTokenBase {
   readonly type: MorphemeTokenTypes.SUBSTITUTE;
-  readonly value: IdentifierToken | null;
+  readonly value: ValueToken;
 }
 
 export const SubstituteMorphemeList: MorphemeList = ["으로", "로"];
 
-export class SubstituteMorpheme implements MorphemeAnalyser<SubstituteToken> {
-  public analyze(token: GrammerToken): SubstituteToken | null {
-    if (SubstituteMorphemeList.indexOf(token.text) > -1) {
-      return {
-        type: MorphemeTokenTypes.SUBSTITUTE,
-        index: token.index,
-        value: null
-      };
-    }
+export class SubstituteMorpheme extends MorphemeAnalyser<SubstituteToken> {
+  public analyze(index: number): SubstituteToken | null {
+    const { tokens } = this.state;
+    const token = tokens[index];
 
-    const match = checkPostPosition(token.text, SubstituteMorphemeList);
-
-    if (match !== false) {
-      const morphemeLength = SubstituteMorphemeList[match].length;
-      return {
-        type: MorphemeTokenTypes.SUBSTITUTE,
-        index: token.index,
-        value: {
-          type: MorphemeTokenTypes.IDENTIFIER,
-          index: {
-            start: token.index.start,
-            end: token.index.end - morphemeLength
+    if (token.type === LexerTokenTypes.GRAMMER) {
+      if (
+        SubstituteMorphemeList.indexOf(token.text) > -1 &&
+        isValueToken(tokens[index - 1])
+      ) {
+        return {
+          type: MorphemeTokenTypes.SUBSTITUTE,
+          index: token.index,
+          tokenIndex: {
+            start: index,
+            end: index + 1
           },
-          name: token.text.substr(0, token.text.length - morphemeLength)
-        }
-      };
+          value: tokens[index - 1] as ValueToken
+        };
+      }
+      const match = checkPostPosition(token.text, SubstituteMorphemeList);
+
+      if (match !== false) {
+        const morphemeLength = SubstituteMorphemeList[match].length;
+        return {
+          type: MorphemeTokenTypes.SUBSTITUTE,
+          index: token.index,
+          tokenIndex: {
+            start: index,
+            end: index + 1
+          },
+          value: {
+            type: MorphemeTokenTypes.IDENTIFIER,
+            index: {
+              start: token.index.start,
+              end: token.index.end - morphemeLength
+            },
+            tokenIndex: {
+              start: index,
+              end: index + 1
+            },
+            name: token.text.substr(0, token.text.length - morphemeLength)
+          }
+        };
+      }
     }
     return null;
   }
