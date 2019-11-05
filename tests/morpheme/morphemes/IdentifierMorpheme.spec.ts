@@ -15,8 +15,8 @@ describe("IdentifierMorpheme", () => {
       const result = identifierMorpheme.analyze(0);
 
       if (compareTokenType(result, MorphemeTokenTypes.IDENTIFIER)) {
-        snapshot(result);
         expect(result.name).to.equal("변수1");
+        snapshot(result);
       }
     });
   });

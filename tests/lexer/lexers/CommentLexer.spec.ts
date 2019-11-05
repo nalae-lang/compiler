@@ -14,9 +14,9 @@ describe("CommentLexer", () => {
       const result = commentLexer.parse(0);
 
       if (compareTokenType(result, LexerTokenTypes.COMMENT)) {
-        snapshot(result);
         expect(result.comment).to.equal("test comment");
         expect(result.index).to.deep.equal({ start: 0, end: code.length });
+        snapshot(result);
       }
     });
 
@@ -26,9 +26,9 @@ describe("CommentLexer", () => {
       const result = commentLexer.parse(0);
 
       if (compareTokenType(result, LexerTokenTypes.COMMENT)) {
-        snapshot(result);
         expect(result.comment).to.equal("test comment");
         expect(result.index).to.deep.equal({ start: 0, end: code.length });
+        snapshot(result);
       }
     });
 
@@ -38,9 +38,9 @@ describe("CommentLexer", () => {
       const result = commentLexer.parse(0);
 
       if (compareTokenType(result, LexerTokenTypes.COMMENT)) {
-        snapshot(result);
         expect(result.comment).to.equal("test comment");
         expect(result.index).to.deep.equal({ start: 0, end: code.length });
+        snapshot(result);
       }
     });
   });

@@ -13,9 +13,9 @@ describe("IndentLexer", () => {
       const result = indentLexer.parse(0);
 
       if (compareTokenType(result, LexerTokenTypes.INDENT)) {
-        snapshot(result);
         expect(result.indentType).to.equal("tab");
         expect(result.index).to.deep.equal({ start: 0, end: 1 });
+        snapshot(result);
       }
     });
 
@@ -24,9 +24,9 @@ describe("IndentLexer", () => {
       const result = indentLexer.parse(0);
 
       if (compareTokenType(result, LexerTokenTypes.INDENT)) {
-        snapshot(result);
         expect(result.indentType).to.equal("space");
         expect(result.index).to.deep.equal({ start: 0, end: 2 });
+        snapshot(result);
       }
     });
   });
@@ -52,8 +52,8 @@ describe("IndentLexer", () => {
         mockIndentToken
       ]);
 
-      snapshot(tokens);
       expect(tokens.length).to.equal(3);
+      snapshot(tokens);
     });
 
     it("유효한 Indent 토큰일 때2", () => {
@@ -66,8 +66,8 @@ describe("IndentLexer", () => {
         mockIndentToken
       ]);
 
-      snapshot(tokens);
       expect(tokens.length).to.equal(4);
+      snapshot(tokens);
     });
 
     it("유효하지 않은 Indent 토큰일 때", () => {
@@ -77,8 +77,8 @@ describe("IndentLexer", () => {
         mockIndentToken
       ]);
 
-      snapshot(tokens);
       expect(tokens.length).to.equal(1);
+      snapshot(tokens);
     });
   });
 });

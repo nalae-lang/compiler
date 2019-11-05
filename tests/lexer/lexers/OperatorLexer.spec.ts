@@ -16,8 +16,8 @@ describe("OperatorLexer", () => {
         const result = operatorLexer.parse(i);
 
         if (compareTokenType(result, LexerTokenTypes.OPERATOR)) {
-          snapshot(result);
           expect(result.operator).to.equal(operatorList[i]);
+          snapshot(result);
         }
       }
     });
@@ -30,8 +30,8 @@ describe("OperatorLexer", () => {
       for (const operator of operatorList) {
         const result = operatorLexer.parse(searchIndex);
         if (compareTokenType(result, LexerTokenTypes.OPERATOR)) {
-          snapshot(result);
           expect(result.operator).to.equal(operator);
+          snapshot(result);
           searchIndex = result.index.end + 1;
         }
       }

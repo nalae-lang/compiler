@@ -14,9 +14,9 @@ describe("StringLexer", () => {
       const result = stringLexer.parse(0);
 
       if (compareTokenType(result, LexerTokenTypes.STRING)) {
-        snapshot(result);
         expect(result.string).to.equal("string");
         expect(result.index).to.deep.equal({ start: 0, end: code.length });
+        snapshot(result);
       }
     });
   });

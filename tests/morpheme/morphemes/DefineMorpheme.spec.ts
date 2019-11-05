@@ -22,9 +22,9 @@ describe("DefineMorpheme", () => {
 
       if (compareTokenType(result, MorphemeTokenTypes.DEFINE)) {
         if (compareTokenType(result.value, MorphemeTokenTypes.IDENTIFIER)) {
-          snapshot(result);
           expect(result.value.name).to.equal("사람");
           expect(result.value.index.end).to.equal(2);
+          snapshot(result);
         }
       }
     });
@@ -37,9 +37,9 @@ describe("DefineMorpheme", () => {
 
       if (compareTokenType(result, MorphemeTokenTypes.DEFINE)) {
         if (compareTokenType(result.value, MorphemeTokenTypes.IDENTIFIER)) {
-          snapshot(result);
           expect(result.value.name).to.equal("바다");
           expect(result.value.index.end).to.equal(2);
+          snapshot(result);
         }
       }
     });
@@ -52,9 +52,9 @@ describe("DefineMorpheme", () => {
 
       if (compareTokenType(result, MorphemeTokenTypes.DEFINE)) {
         if (compareTokenType(result.value, MorphemeTokenTypes.IDENTIFIER)) {
-          snapshot(result);
           expect(result.value.name).to.equal("바다");
           expect(result.value.index.end).to.equal(2);
+          snapshot(result);
         }
       }
     });
@@ -67,9 +67,9 @@ describe("DefineMorpheme", () => {
       const result = defineMorpheme.analyze(1);
 
       if (compareTokenType(result, MorphemeTokenTypes.DEFINE)) {
-        snapshot(result);
         if (compareTokenType(result.value, LexerTokenTypes.NUMBER)) {
           expect(result.value.number).to.equal(3);
+          snapshot(result);
         }
       }
     });
@@ -82,9 +82,9 @@ describe("DefineMorpheme", () => {
       const result = defineMorpheme.analyze(1);
 
       if (compareTokenType(result, MorphemeTokenTypes.DEFINE)) {
-        snapshot(result);
         if (compareTokenType(result.value, LexerTokenTypes.STRING)) {
           expect(result.value.string).to.equal("가나다라");
+          snapshot(result);
         }
       }
     });
@@ -97,9 +97,9 @@ describe("DefineMorpheme", () => {
       const result = defineMorpheme.analyze(1);
 
       if (compareTokenType(result, MorphemeTokenTypes.DEFINE)) {
-        snapshot(result);
         if (compareTokenType(result.value, LexerTokenTypes.RAWCODE)) {
           expect(result.value.code).to.equal("new Date()");
+          snapshot(result);
         }
       }
     });

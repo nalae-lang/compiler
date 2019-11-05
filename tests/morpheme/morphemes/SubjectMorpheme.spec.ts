@@ -14,9 +14,9 @@ describe("SubjectMorpheme", () => {
       ]);
       const result = subjectMorpheme.analyze(0);
       if (compareTokenType(result, MorphemeTokenTypes.SUBJECT)) {
-        snapshot(result);
         if (compareTokenType(result.subject, MorphemeTokenTypes.IDENTIFIER)) {
           expect(result.subject.name).to.equal("변수");
+          snapshot(result);
         }
       }
     });
@@ -27,9 +27,9 @@ describe("SubjectMorpheme", () => {
       ]);
       const result = subjectMorpheme.analyze(0);
       if (compareTokenType(result, MorphemeTokenTypes.SUBJECT)) {
-        snapshot(result);
         if (compareTokenType(result.subject, MorphemeTokenTypes.IDENTIFIER)) {
           expect(result.subject.name).to.equal("받침");
+          snapshot(result);
         }
       }
     });
@@ -40,9 +40,9 @@ describe("SubjectMorpheme", () => {
       ]);
       const result = subjectMorpheme.analyze(0);
       if (compareTokenType(result, MorphemeTokenTypes.SUBJECT)) {
-        snapshot(result);
         if (compareTokenType(result.subject, MorphemeTokenTypes.IDENTIFIER)) {
           expect(result.subject.name).to.equal("변수");
+          snapshot(result);
         }
       }
     });
@@ -53,9 +53,9 @@ describe("SubjectMorpheme", () => {
       ]);
       const result = subjectMorpheme.analyze(0);
       if (compareTokenType(result, MorphemeTokenTypes.SUBJECT)) {
-        snapshot(result);
         if (compareTokenType(result.subject, MorphemeTokenTypes.IDENTIFIER)) {
           expect(result.subject.name).to.equal("받침");
+          snapshot(result);
         }
       }
     });

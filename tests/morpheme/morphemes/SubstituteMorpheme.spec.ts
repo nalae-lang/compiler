@@ -22,11 +22,11 @@ describe("SubstituteMorpheme", () => {
 
       if (compareTokenType(result, MorphemeTokenTypes.SUBSTITUTE)) {
         if (compareTokenType(result.value, MorphemeTokenTypes.IDENTIFIER)) {
-          snapshot(result);
           expect(result.value.name).to.equal("사람");
           expect(result.value.index.end).to.equal(2);
         }
         expect(result.index.end).to.equal(4);
+        snapshot(result);
       }
     });
 
@@ -37,12 +37,12 @@ describe("SubstituteMorpheme", () => {
       const result = substituteMorpheme.analyze(0);
 
       if (compareTokenType(result, MorphemeTokenTypes.SUBSTITUTE)) {
-        snapshot(result);
         if (compareTokenType(result.value, MorphemeTokenTypes.IDENTIFIER)) {
           expect(result.value.name).to.equal("바다");
           expect(result.value.index.end).to.equal(2);
         }
         expect(result.index.end).to.equal(3);
+        snapshot(result);
       }
     });
 
@@ -54,9 +54,9 @@ describe("SubstituteMorpheme", () => {
       const result = substituteMorpheme.analyze(1);
 
       if (compareTokenType(result, MorphemeTokenTypes.SUBSTITUTE)) {
-        snapshot(result);
         if (compareTokenType(result.value, LexerTokenTypes.NUMBER)) {
           expect(result.value.number).to.equal(3);
+          snapshot(result);
         }
       }
     });
@@ -69,9 +69,9 @@ describe("SubstituteMorpheme", () => {
       const result = substituteMorpheme.analyze(1);
 
       if (compareTokenType(result, MorphemeTokenTypes.SUBSTITUTE)) {
-        snapshot(result);
         if (compareTokenType(result.value, LexerTokenTypes.STRING)) {
           expect(result.value.string).to.equal("문자열");
+          snapshot(result);
         }
       }
     });
@@ -84,9 +84,9 @@ describe("SubstituteMorpheme", () => {
       const result = substituteMorpheme.analyze(1);
 
       if (compareTokenType(result, MorphemeTokenTypes.SUBSTITUTE)) {
-        snapshot(result);
         if (compareTokenType(result.value, LexerTokenTypes.RAWCODE)) {
           expect(result.value.code).to.equal("new Date()");
+          snapshot(result);
         }
       }
     });

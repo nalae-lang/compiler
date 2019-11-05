@@ -13,9 +13,9 @@ describe("EndLexer", () => {
       const result = endLexer.parse(0);
 
       if (compareTokenType(result, LexerTokenTypes.END)) {
-        snapshot(result);
         expect(result.endType).to.equal("dot");
         expect(result.index).to.deep.equal({ start: 0, end: code.length });
+        snapshot(result);
       }
     });
 
@@ -25,9 +25,9 @@ describe("EndLexer", () => {
       const result = endLexer.parse(0);
 
       if (compareTokenType(result, LexerTokenTypes.END)) {
-        snapshot(result);
         expect(result.endType).to.equal("newLine");
         expect(result.index).to.deep.equal({ start: 0, end: code.length });
+        snapshot(result);
       }
     });
   });

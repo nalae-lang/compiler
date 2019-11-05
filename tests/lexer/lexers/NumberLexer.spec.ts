@@ -17,10 +17,10 @@ function testValidNumber(
     const result = numberLexer.parse(0);
 
     if (compareTokenType(result, LexerTokenTypes.NUMBER)) {
-      snapshot(result);
       expect(result.radix).to.equal(radix);
       expect(result.number).to.equal(expectNumber);
       expect(result.index).to.deep.equal({ start: 0, end: code.length });
+      snapshot(result);
     }
   };
 }

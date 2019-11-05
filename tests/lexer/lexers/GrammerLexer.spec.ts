@@ -13,9 +13,9 @@ describe("GrammerLexer", () => {
       const result = grammerLexer.parse(0);
 
       if (compareTokenType(result, LexerTokenTypes.GRAMMER)) {
-        snapshot(result);
         expect(result.text).to.equal(code);
         expect(result.index).to.deep.equal({ start: 0, end: code.length });
+        snapshot(result);
       }
     });
 
@@ -25,9 +25,9 @@ describe("GrammerLexer", () => {
       const result = grammerLexer.parse(0);
 
       if (compareTokenType(result, LexerTokenTypes.GRAMMER)) {
-        snapshot(result);
         expect(result.text).to.equal(code);
         expect(result.index).to.deep.equal({ start: 0, end: code.length });
+        snapshot(result);
       }
     });
 
@@ -37,9 +37,9 @@ describe("GrammerLexer", () => {
       const result = grammerLexer.parse(0);
 
       if (compareTokenType(result, LexerTokenTypes.GRAMMER)) {
-        snapshot(result);
         expect(result.text).to.equal(code);
         expect(result.index).to.deep.equal({ start: 0, end: code.length });
+        snapshot(result);
       }
     });
 
@@ -49,9 +49,9 @@ describe("GrammerLexer", () => {
       const result = grammerLexer.parse(0);
 
       if (compareTokenType(result, LexerTokenTypes.GRAMMER)) {
-        snapshot(result);
         expect(result.text).to.equal(code);
         expect(result.index).to.deep.equal({ start: 0, end: code.length });
+        snapshot(result);
       }
     });
 
@@ -61,9 +61,9 @@ describe("GrammerLexer", () => {
       const result = grammerLexer.parse(0);
 
       if (compareTokenType(result, LexerTokenTypes.GRAMMER)) {
-        snapshot(result);
         expect(result.text).to.equal(code);
         expect(result.index).to.deep.equal({ start: 0, end: code.length });
+        snapshot(result);
       }
     });
   });

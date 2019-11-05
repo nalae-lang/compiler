@@ -17,9 +17,9 @@ describe("NamedMorpheme", () => {
       const result = namedMorpheme.analyze(0);
 
       if (compareTokenType(result, MorphemeTokenTypes.NAMED)) {
-        snapshot(result);
         expect(result.name).to.equal("이라는");
         expect(result.subject.name).to.equal("사람");
+        snapshot(result);
       }
     });
 
@@ -30,9 +30,9 @@ describe("NamedMorpheme", () => {
       const result = namedMorpheme.analyze(0);
 
       if (compareTokenType(result, MorphemeTokenTypes.NAMED)) {
-        snapshot(result);
         expect(result.name).to.equal("라는");
         expect(result.subject.name).to.equal("가나");
+        snapshot(result);
       }
     });
   });
