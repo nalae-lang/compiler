@@ -4,8 +4,8 @@ import snapshot = require("snap-shot-it");
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
 
-describe("Morpheme", () => {
-  it("주어 테스트", () => {
+describe("Morpheme", function() {
+  it("주어 테스트", function() {
     const lexer = new NalaeLexer(`텍스트박스의 값은 "안녕하세요"이다.`);
     const lexerResult = lexer.lex();
     expect(lexerResult.map(token => token.type)).to.deep.equal([
@@ -28,7 +28,7 @@ describe("Morpheme", () => {
     snapshot("MORPHEME_RESULT_1", morphemeResult);
   });
 
-  it("함수 테스트", () => {
+  it("함수 테스트", function() {
     const lexer = new NalaeLexer(`콘솔은 "안녕하세요"를 출력한다.`);
     const lexerResult = lexer.lex();
     expect(lexerResult.map(token => token.type)).to.deep.equal([
@@ -52,7 +52,7 @@ describe("Morpheme", () => {
     snapshot("MORPHEME_RESULT_2", morphemeResult);
   });
 
-  it("틀 테스트", () => {
+  it("틀 테스트", function() {
     const lexer = new NalaeLexer(`사람이라는 틀 생성.`);
     const lexerResult = lexer.lex();
     expect(lexerResult.map(token => token.type)).to.deep.equal([

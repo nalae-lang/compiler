@@ -8,9 +8,9 @@ import { compareTokenType } from "../../helper/lexer/CompareTokenType";
 import { createMorpheme } from "../../helper/lexer/CreateMorpheme";
 import { mockGrammer } from "../../helper/lexer/MockToken";
 
-describe("NamedMorpheme", () => {
-  describe("매치 되는 경우", () => {
-    it("뒤에 '이라는'이 붙었을 때", () => {
+describe("NamedMorpheme", function() {
+  describe("매치 되는 경우", function() {
+    it("'사람이라는'일 때", function() {
       const namedMorpheme = createMorpheme(NamedMorpheme, [
         mockGrammer("사람이라는")
       ]);
@@ -23,7 +23,7 @@ describe("NamedMorpheme", () => {
       }
     });
 
-    it("뒤에 '라는'이 붙었을 때", () => {
+    it("'가나라는'일 때", function() {
       const namedMorpheme = createMorpheme(NamedMorpheme, [
         mockGrammer("가나라는")
       ]);
@@ -37,8 +37,8 @@ describe("NamedMorpheme", () => {
     });
   });
 
-  describe("매치 되지 않는 경우", () => {
-    it("뒤에 관형어가 없을 때", () => {
+  describe("매치 되지 않는 경우", function() {
+    it("'사람은'일 때", function() {
       const namedMorpheme = createMorpheme(NamedMorpheme, [
         mockGrammer("사람은")
       ]);
@@ -47,7 +47,7 @@ describe("NamedMorpheme", () => {
       expect(result).to.be.null;
     });
 
-    it("뒤에 맞지 않는 관형오가 올 때", () => {
+    it("'사람라는'일 때", function() {
       const namedMorpheme = createMorpheme(NamedMorpheme, [
         mockGrammer("사람라는")
       ]);
@@ -56,12 +56,12 @@ describe("NamedMorpheme", () => {
       expect(result).to.be.null;
     });
 
-    it("관형어만 있을 때", () => {
+    it("'이라는'일 때", function() {
       const namedMorpheme = createMorpheme(NamedMorpheme, [
         mockGrammer("이라는")
       ]);
 
-      expect(() => {
+      expect(function() {
         namedMorpheme.analyze(0);
       }).to.throw(formatString(MorphemeErrorCode.NAMED_SUBJECT_NOT_EXISTS));
     });

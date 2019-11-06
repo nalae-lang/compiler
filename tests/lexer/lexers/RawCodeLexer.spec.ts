@@ -6,9 +6,9 @@ import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
 import { createLexer } from "../../helper/lexer/CreateLexer";
 
-describe("RawCodeLexer", () => {
-  describe("매치 되는 경우", () => {
-    it("코드일 때", () => {
+describe("RawCodeLexer", function() {
+  describe("매치 되는 경우", function() {
+    it("코드일 때", function() {
       const code = "`code test`";
       const rawCodeLexer = createLexer(RawCodeLexer, code);
       const result = rawCodeLexer.parse(0);
@@ -21,17 +21,17 @@ describe("RawCodeLexer", () => {
     });
   });
 
-  describe("매치 되지 않는 경우", () => {
-    it("코드가 아닐 때", () => {
+  describe("매치 되지 않는 경우", function() {
+    it("코드가 아닐 때", function() {
       const rawCodeLexer = createLexer(RawCodeLexer, "code");
       const result = rawCodeLexer.parse(0);
 
-      expect(result).to.be.not.ok;
+      expect(result).to.be.not.exist;
     });
 
-    it("코드가 끝나지 않을 때", () => {
+    it("코드가 끝나지 않을 때", function() {
       const rawCodeLexer = createLexer(RawCodeLexer, "`code test");
-      expect(() => {
+      expect(function() {
         rawCodeLexer.parse(0);
       }).to.be.throw(LexerErrorCode.RAWCODE_NOT_END);
     });

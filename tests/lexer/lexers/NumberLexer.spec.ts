@@ -12,7 +12,7 @@ function testValidNumber(
   expectNumber: number,
   radix: Radix
 ): () => void {
-  return (): void => {
+  return function(): void {
     const numberLexer = createLexer(NumberLexer, code);
     const result = numberLexer.parse(0);
 
@@ -25,8 +25,8 @@ function testValidNumber(
   };
 }
 
-describe("NumberLexer", () => {
-  describe("매치 되는 경우", () => {
+describe("NumberLexer", function() {
+  describe("매치 되는 경우", function() {
     it("2진수일 때", testValidNumber("0b1001", 0b1001, 2));
 
     it("음수인 2진수일 때", testValidNumber("-0b1001", -0b1001, 2));
@@ -54,56 +54,56 @@ describe("NumberLexer", () => {
     it("0일 때", testValidNumber("0", 0, 10));
   });
 
-  describe("매치 되지 않을 때", () => {
-    it("8진수에서 16진수를 사용했을 때", () => {
+  describe("매치 되지 않을 때", function() {
+    it("8진수에서 16진수를 사용했을 때", function() {
       const numberLexer = createLexer(NumberLexer, "0o41FF");
 
-      expect(() => {
+      expect(function() {
         numberLexer.parse(0);
       }).to.be.throw(
         formatString(LexerErrorCode.NUMBER_BASE_NOT_MATCH, [8, "F"])
       );
     });
 
-    it("2진수에서 16진수를 사용했을 때", () => {
+    it("2진수에서 16진수를 사용했을 때", function() {
       const numberLexer = createLexer(NumberLexer, "0b41FF");
 
-      expect(() => {
+      expect(function() {
         numberLexer.parse(0);
       }).to.be.throw(
         formatString(LexerErrorCode.NUMBER_BASE_NOT_MATCH, [2, "4"])
       );
     });
 
-    it("8진수에서 10진수를 사용했을 때", () => {
+    it("8진수에서 10진수를 사용했을 때", function() {
       const numberLexer = createLexer(NumberLexer, "092");
 
-      expect(() => {
+      expect(function() {
         numberLexer.parse(0);
       }).to.be.throw(
         formatString(LexerErrorCode.NUMBER_BASE_NOT_MATCH, [8, 9])
       );
     });
 
-    it("8진수에서 소수점을 사용했을 때", () => {
+    it("8진수에서 소수점을 사용했을 때", function() {
       const numberLexer = createLexer(NumberLexer, "015.32");
 
-      expect(() => {
+      expect(function() {
         numberLexer.parse(0);
       }).to.be.throw(
         formatString(LexerErrorCode.NUMBER_FLOAT_NOT_ALLOWED, [8])
       );
     });
 
-    it("0x 만 사용했을 때", () => {
+    it("0x 만 사용했을 때", function() {
       const numberLexer = createLexer(NumberLexer, "0x");
 
-      expect(() => {
+      expect(function() {
         numberLexer.parse(0);
       }).to.be.throw(formatString(LexerErrorCode.NUMBER_UNKNOWN));
     });
 
-    it("0z를 적었을 때", () => {
+    it("0z를 적었을 때", function() {
       const numberLexer = createLexer(NumberLexer, "0z");
       const result = numberLexer.parse(0);
 
@@ -115,11 +115,11 @@ describe("NumberLexer", () => {
       }
     });
 
-    it("숫자가 아닐 때", () => {
+    it("숫자가 아닐 때", function() {
       const numberLexer = createLexer(NumberLexer, "text");
       const result = numberLexer.parse(0);
 
-      expect(result).to.be.not.ok;
+      expect(result).to.be.not.exist;
     });
   });
 });

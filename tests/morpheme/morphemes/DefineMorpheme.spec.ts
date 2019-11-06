@@ -12,9 +12,9 @@ import {
   mockString
 } from "../../helper/lexer/MockToken";
 
-describe("DefineMorpheme", () => {
-  describe("매치 되는 경우", () => {
-    it("'사람이다'일 때", () => {
+describe("DefineMorpheme", function() {
+  describe("매치 되는 경우", function() {
+    it("'사람이다'일 때", function() {
       const defineMorpheme = createMorpheme(DefineMorpheme, [
         mockGrammer("사람이다")
       ]);
@@ -29,7 +29,7 @@ describe("DefineMorpheme", () => {
       }
     });
 
-    it("'바다이다'일 때", () => {
+    it("'바다이다'일 때", function() {
       const defineMorpheme = createMorpheme(DefineMorpheme, [
         mockGrammer("바다이다")
       ]);
@@ -44,7 +44,7 @@ describe("DefineMorpheme", () => {
       }
     });
 
-    it("'바다다'일 때", () => {
+    it("'바다다'일 때", function() {
       const defineMorpheme = createMorpheme(DefineMorpheme, [
         mockGrammer("바다다")
       ]);
@@ -59,7 +59,7 @@ describe("DefineMorpheme", () => {
       }
     });
 
-    it("숫자 + '이다'일 때", () => {
+    it("'3이다'일 때", function() {
       const defineMorpheme = createMorpheme(DefineMorpheme, [
         mockNumber(3),
         mockGrammer("이다")
@@ -74,7 +74,7 @@ describe("DefineMorpheme", () => {
       }
     });
 
-    it("문자열 + '이다'일 때", () => {
+    it("'\"가나다라\"이다'일 때", function() {
       const defineMorpheme = createMorpheme(DefineMorpheme, [
         mockString("가나다라"),
         mockGrammer("이다")
@@ -89,7 +89,7 @@ describe("DefineMorpheme", () => {
       }
     });
 
-    it("js코드 + '이다'일 때", () => {
+    it("'`new Date()`이다'일 때", function() {
       const defineMorpheme = createMorpheme(DefineMorpheme, [
         mockRawCode("new Date()"),
         mockGrammer("이다")
@@ -105,8 +105,8 @@ describe("DefineMorpheme", () => {
     });
   });
 
-  describe("매치 되지 않는 경우", () => {
-    it("'사람다'일 때", () => {
+  describe("매치 되지 않는 경우", function() {
+    it("'사람다'일 때", function() {
       const defineMorpheme = createMorpheme(DefineMorpheme, [
         mockGrammer("사람다")
       ]);
@@ -115,7 +115,7 @@ describe("DefineMorpheme", () => {
       expect(result).to.be.null;
     });
 
-    it("'다'일 때", () => {
+    it("'다'일 때", function() {
       const defineMorpheme = createMorpheme(DefineMorpheme, [
         mockGrammer("다")
       ]);

@@ -12,9 +12,9 @@ import {
   mockString
 } from "../../helper/lexer/MockToken";
 
-describe("SubstituteMorpheme", () => {
-  describe("매치 되는 경우", () => {
-    it("'사람으로'일 때", () => {
+describe("SubstituteMorpheme", function() {
+  describe("매치 되는 경우", function() {
+    it("'사람으로'일 때", function() {
       const substituteMorpheme = createMorpheme(SubstituteMorpheme, [
         mockGrammer("사람으로")
       ]);
@@ -30,7 +30,7 @@ describe("SubstituteMorpheme", () => {
       }
     });
 
-    it("'바다로'일 때", () => {
+    it("'바다로'일 때", function() {
       const substituteMorpheme = createMorpheme(SubstituteMorpheme, [
         mockGrammer("바다로")
       ]);
@@ -46,7 +46,7 @@ describe("SubstituteMorpheme", () => {
       }
     });
 
-    it("'3으로'일 때", () => {
+    it("'3으로'일 때", function() {
       const substituteMorpheme = createMorpheme(SubstituteMorpheme, [
         mockNumber(3),
         mockGrammer("으로")
@@ -61,7 +61,7 @@ describe("SubstituteMorpheme", () => {
       }
     });
 
-    it("'\"문자열\"로'일 때", () => {
+    it("'\"문자열\"로'일 때", function() {
       const substituteMorpheme = createMorpheme(SubstituteMorpheme, [
         mockString("문자열"),
         mockGrammer("으로")
@@ -76,7 +76,7 @@ describe("SubstituteMorpheme", () => {
       }
     });
 
-    it("'`new Date()`로'일 때", () => {
+    it("'`new Date()`로'일 때", function() {
       const substituteMorpheme = createMorpheme(SubstituteMorpheme, [
         mockRawCode("new Date()"),
         mockGrammer("으로")
@@ -92,8 +92,8 @@ describe("SubstituteMorpheme", () => {
     });
   });
 
-  describe("매치 되지 않는 경우", () => {
-    it("'서울로'일 때", () => {
+  describe("매치 되지 않는 경우", function() {
+    it("'서울로'일 때", function() {
       const substituteMorpheme = createMorpheme(SubstituteMorpheme, [
         mockGrammer("서울로")
       ]);
@@ -101,7 +101,7 @@ describe("SubstituteMorpheme", () => {
 
       expect(result).to.be.null;
     });
-    it("'바다으로'일 때", () => {
+    it("'바다으로'일 때", function() {
       const substituteMorpheme = createMorpheme(SubstituteMorpheme, [
         mockGrammer("바다으로")
       ]);

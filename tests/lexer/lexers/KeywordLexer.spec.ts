@@ -7,9 +7,9 @@ import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 import { compareTokenType } from "../../helper/lexer/CompareTokenType";
 import { createLexer } from "../../helper/lexer/CreateLexer";
 
-describe("KeywordLexer", () => {
-  describe("매치 되는 경우", () => {
-    it("단어가 모두 일치할 때", () => {
+describe("KeywordLexer", function() {
+  describe("매치 되는 경우", function() {
+    it("단어가 모두 일치할 때", function() {
       const code = keywordList.map(keyword => keyword.match).join(" ");
       const keywordLexer = createLexer(KeywordLexer, code);
 
@@ -28,7 +28,7 @@ describe("KeywordLexer", () => {
       }
     });
 
-    it("단어 뒤에 특수기호가 붙었을 때", () => {
+    it("단어 뒤에 특수기호가 붙었을 때", function() {
       const code = keywordList
         .map(
           (keyword, index) =>
@@ -53,8 +53,8 @@ describe("KeywordLexer", () => {
       }
     });
   });
-  describe("매치 되지 않는 경우", () => {
-    it("단어 뒤에 특수기호가 아닌 문자가 붙었을 때", () => {
+  describe("매치 되지 않는 경우", function() {
+    it("단어 뒤에 특수기호가 아닌 문자가 붙었을 때", function() {
       const keywordLexer = createLexer(
         KeywordLexer,
         keywordList[0].match + "1"
@@ -62,14 +62,14 @@ describe("KeywordLexer", () => {
 
       const result = keywordLexer.parse(0);
 
-      expect(result).to.be.not.ok;
+      expect(result).to.be.not.exist;
     });
-    it("사전에 없는 단어가 붙었을 때", () => {
+    it("사전에 없는 단어가 붙었을 때", function() {
       const keywordLexer = createLexer(KeywordLexer, "키워드아님");
 
       const result = keywordLexer.parse(0);
 
-      expect(result).to.be.not.ok;
+      expect(result).to.be.not.exist;
     });
   });
 });

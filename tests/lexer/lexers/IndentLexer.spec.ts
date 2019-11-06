@@ -6,9 +6,13 @@ import { compareTokenType } from "../../helper/lexer/CompareTokenType";
 import { createLexer } from "../../helper/lexer/CreateLexer";
 import { mockEnd, mockIndent } from "../../helper/lexer/MockToken";
 
-describe("IndentLexer", () => {
-  describe("매치되는 경우", () => {
-    it("tab을 사용할 때 (tab전에 아무것도 없을 때)", () => {
+const mockIndentToken = mockIndent("tab");
+const mockEndToken = mockEnd("newLine");
+const mockEndDotToken = mockEnd("dot");
+
+describe("IndentLexer", function() {
+  describe("매치되는 경우", function() {
+    it("tab을 사용할 때 (tab전에 아무것도 없을 때)", function() {
       const indentLexer = createLexer(IndentLexer, "\tvalue");
       const result = indentLexer.parse(0);
 
@@ -19,7 +23,7 @@ describe("IndentLexer", () => {
       }
     });
 
-    it("스페이스를 사용할 때", () => {
+    it("스페이스를 사용할 때", function() {
       const indentLexer = createLexer(IndentLexer, "  value");
       const result = indentLexer.parse(0);
 
@@ -31,21 +35,17 @@ describe("IndentLexer", () => {
     });
   });
 
-  describe("매치되지 않는 경우", () => {
-    it("스페이스가 하나일 때", () => {
+  describe("매치되지 않는 경우", function() {
+    it("스페이스가 하나일 때", function() {
       const indentLexer = createLexer(IndentLexer, " value");
       const result = indentLexer.parse(0);
 
-      expect(result).to.be.not.ok;
+      expect(result).to.be.not.exist;
     });
   });
 
-  describe("reduceIndent 함수", () => {
-    const mockIndentToken = mockIndent("tab");
-    const mockEndToken = mockEnd("newLine");
-    const mockEndDotToken = mockEnd("dot");
-
-    it("유효한 Indent 토큰일 때", () => {
+  describe("reduceIndent 함수", function() {
+    it("유효한 Indent 토큰일 때", function() {
       const tokens = IndentLexer.reduceIndent([
         mockEndToken,
         mockIndentToken,
@@ -56,7 +56,7 @@ describe("IndentLexer", () => {
       snapshot(tokens);
     });
 
-    it("유효한 Indent 토큰일 때2", () => {
+    it("유효한 Indent 토큰일 때2", function() {
       const tokens = IndentLexer.reduceIndent([
         mockEndDotToken,
         mockIndentToken,
@@ -70,7 +70,7 @@ describe("IndentLexer", () => {
       snapshot(tokens);
     });
 
-    it("유효하지 않은 Indent 토큰일 때", () => {
+    it("유효하지 않은 Indent 토큰일 때", function() {
       const tokens = IndentLexer.reduceIndent([
         mockEndDotToken,
         mockIndentToken,
