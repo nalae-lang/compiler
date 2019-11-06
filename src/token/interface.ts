@@ -14,11 +14,10 @@ import { PropertyToken } from "morpheme/morphemes/PropertyMorpheme";
 import { SubjectToken } from "morpheme/morphemes/SubjectMorpheme";
 import { SubstituteToken } from "morpheme/morphemes/SubstituteMorpheme";
 
-import { ASTTokenTypes } from "./types/ASTTokenTypes";
 import { LexerTokenTypes } from "./types/LexerTokenTypes";
 import { MorphemeTokenTypes } from "./types/MorphemeTokenTypes";
 
-export type TokenTypes = LexerTokenTypes | MorphemeTokenTypes | ASTTokenTypes;
+export type TokenTypes = LexerTokenTypes | MorphemeTokenTypes;
 
 export interface Index {
   start: number;
