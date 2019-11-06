@@ -29,10 +29,6 @@ export interface TokenBase {
   readonly index: Index;
 }
 
-export interface MorphemeTokenBase extends TokenBase {
-  readonly tokenIndex: Index;
-}
-
 export type Token =
   | IndentToken
   | StringToken

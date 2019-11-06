@@ -1,5 +1,8 @@
-import { MorphemeTokenBase, Token } from "token/interface";
+import { Index, Token, TokenBase } from "token/interface";
 
+export interface MorphemeTokenBase extends TokenBase {
+  readonly tokenIndex: Index;
+}
 export interface MorphemeState {
   readonly tokens: ReadonlyArray<Token>;
 }

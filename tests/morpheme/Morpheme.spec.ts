@@ -1,5 +1,5 @@
 import { NalaeLexer } from "lexer/Lexer";
-import { NalaeMorphemeAnalyser } from "morpheme/Morpheme";
+import { NalaeMorphemeAnalyzer } from "morpheme/Morpheme";
 import snapshot = require("snap-shot-it");
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
@@ -16,7 +16,7 @@ describe("Morpheme", function() {
       LexerTokenTypes.END
     ]);
 
-    const morphemeAnalyser = new NalaeMorphemeAnalyser(lexerResult);
+    const morphemeAnalyser = new NalaeMorphemeAnalyzer(lexerResult);
     const morphemeResult = morphemeAnalyser.analyse();
     expect(morphemeResult.map(token => token.type)).to.deep.equal([
       MorphemeTokenTypes.PROPERTY,
@@ -39,7 +39,7 @@ describe("Morpheme", function() {
       LexerTokenTypes.END
     ]);
 
-    const morphemeAnalyser = new NalaeMorphemeAnalyser(lexerResult);
+    const morphemeAnalyser = new NalaeMorphemeAnalyzer(lexerResult);
     const morphemeResult = morphemeAnalyser.analyse();
     expect(morphemeResult.map(token => token.type)).to.deep.equal([
       MorphemeTokenTypes.SUBJECT,
@@ -62,7 +62,7 @@ describe("Morpheme", function() {
       LexerTokenTypes.END
     ]);
 
-    const morphemeAnalyser = new NalaeMorphemeAnalyser(lexerResult);
+    const morphemeAnalyser = new NalaeMorphemeAnalyzer(lexerResult);
     const morphemeResult = morphemeAnalyser.analyse();
     expect(morphemeResult.map(token => token.type)).to.deep.equal([
       MorphemeTokenTypes.NAMED,

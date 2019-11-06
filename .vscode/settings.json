@@ -5,6 +5,7 @@
   "[typescript]": {
     "editor.formatOnSave": false
   },
+  "typescript.tsdk": "./node_modules/typescript/lib",
   "prettier.disableLanguages": ["typescript"],
   "eslint.enable": true,
   "typescriptHero.imports.stringQuoteStyle": "\"",

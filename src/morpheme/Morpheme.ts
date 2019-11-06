@@ -1,5 +1,9 @@
-import { MorphemeAnalyser, MorphemeState } from "morpheme/interface";
-import { MorphemeTokenBase, Token } from "token/interface";
+import {
+  MorphemeAnalyser,
+  MorphemeState,
+  MorphemeTokenBase
+} from "morpheme/interface";
+import { Token } from "token/interface";
 
 import { DefineMorpheme } from "./morphemes/DefineMorpheme";
 import { IdentifierMorpheme } from "./morphemes/IdentifierMorpheme";
@@ -8,7 +12,7 @@ import { PropertyMorpheme } from "./morphemes/PropertyMorpheme";
 import { SubjectMorpheme } from "./morphemes/SubjectMorpheme";
 import { SubstituteMorpheme } from "./morphemes/SubstituteMorpheme";
 
-export class NalaeMorphemeAnalyser {
+export class NalaeMorphemeAnalyzer {
   private readonly state: MorphemeState;
   private readonly morphemes: Array<MorphemeAnalyser<MorphemeTokenBase>>;
 

@@ -1,5 +1,5 @@
-import { MorphemeAnalyser } from "morpheme/interface";
-import { MorphemeTokenBase, ValueToken } from "token/interface";
+import { MorphemeAnalyser, MorphemeTokenBase } from "morpheme/interface";
+import { ValueToken } from "token/interface";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
 import { checkPostPosition } from "utils/CheckPostPosition";

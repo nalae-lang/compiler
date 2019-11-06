@@ -1,4 +1,4 @@
-exports['NamedMorpheme 매치 되는 경우 뒤에 \'이라는\'이 붙었을 때 1'] = {
+exports['NamedMorpheme 매치 되는 경우 \'사람이라는\'일 때 1'] = {
   "type": "named",
   "subject": {
     "type": "identifier",
@@ -23,7 +23,7 @@ exports['NamedMorpheme 매치 되는 경우 뒤에 \'이라는\'이 붙었을 �
   "name": "이라는"
 }
 
-exports['NamedMorpheme 매치 되는 경우 뒤에 \'라는\'이 붙었을 때 1'] = {
+exports['NamedMorpheme 매치 되는 경우 \'가나라는\'일 때 1'] = {
   "type": "named",
   "subject": {
     "type": "identifier",

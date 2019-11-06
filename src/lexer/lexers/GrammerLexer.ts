@@ -12,8 +12,8 @@ export class GrammerLexer extends Lexer<GrammerToken> {
 
   public parse(index: number): GrammerToken | null {
     const { code } = this.state;
-
     const match = code.substr(index).match(/[가-힣a-zA-Z_][가-힣a-zA-Z0-9_]*/);
+
     if (match !== null && match.index === 0) {
       return {
         type: LexerTokenTypes.GRAMMER,

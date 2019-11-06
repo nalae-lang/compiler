@@ -70,7 +70,7 @@ exports['DefineMorpheme 매치 되는 경우 \'바다다\'일 때 1'] = {
   }
 }
 
-exports['DefineMorpheme 매치 되는 경우 숫자 + \'이다\'일 때 1'] = {
+exports['DefineMorpheme 매치 되는 경우 \'3이다\'일 때 1'] = {
   "type": "define",
   "index": {
     "start": 0,
@@ -91,7 +91,7 @@ exports['DefineMorpheme 매치 되는 경우 숫자 + \'이다\'일 때 1'] = {
   }
 }
 
-exports['DefineMorpheme 매치 되는 경우 문자열 + \'이다\'일 때 1'] = {
+exports['DefineMorpheme 매치 되는 경우 \'"가나다라"이다\'일 때 1'] = {
   "type": "define",
   "index": {
     "start": 0,
@@ -111,7 +111,7 @@ exports['DefineMorpheme 매치 되는 경우 문자열 + \'이다\'일 때 1'] =
   }
 }
 
-exports['DefineMorpheme 매치 되는 경우 js코드 + \'이다\'일 때 1'] = {
+exports['DefineMorpheme 매치 되는 경우 \'`new Date()`이다\'일 때 1'] = {
   "type": "define",
   "index": {
     "start": 0,
