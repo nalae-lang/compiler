@@ -6,9 +6,9 @@ import { RawCodeToken } from "lexer/lexers/RawCodeLexer";
 import { StringToken } from "lexer/lexers/StringLexer";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
-export function mockGrammer(text: string): GrammerToken {
+export function mockGrammar(text: string): GrammerToken {
   return {
-    type: LexerTokenTypes.GRAMMER,
+    type: LexerTokenTypes.GRAMMAR,
     index: {
       start: 0,
       end: text.length

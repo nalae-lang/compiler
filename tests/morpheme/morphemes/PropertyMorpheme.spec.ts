@@ -6,7 +6,7 @@ import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
 import { expectTokenType } from "../../helper/lexer/CompareTokenType";
 import { createMorpheme } from "../../helper/lexer/CreateMorpheme";
 import {
-  mockGrammer,
+  mockGrammar,
   mockNumber,
   mockRawCode,
   mockString
@@ -16,7 +16,7 @@ describe("PropertyMorpheme", function() {
   describe("매치 되는 경우", function() {
     it("'사람의'일 때", function() {
       const propertyMorpheme = createMorpheme(PropertyMorpheme, [
-        mockGrammer("사람의")
+        mockGrammar("사람의")
       ]);
       const result = propertyMorpheme.analyze(0);
 
@@ -29,7 +29,7 @@ describe("PropertyMorpheme", function() {
     it("'3의'일 때", function() {
       const propertyMorpheme = createMorpheme(PropertyMorpheme, [
         mockNumber(3),
-        mockGrammer("의")
+        mockGrammar("의")
       ]);
       const result = propertyMorpheme.analyze(1);
 
@@ -42,7 +42,7 @@ describe("PropertyMorpheme", function() {
     it("'\"문자열\"의'일 때", function() {
       const propertyMorpheme = createMorpheme(PropertyMorpheme, [
         mockString("문자열"),
-        mockGrammer("의")
+        mockGrammar("의")
       ]);
       const result = propertyMorpheme.analyze(1);
 
@@ -56,7 +56,7 @@ describe("PropertyMorpheme", function() {
     it("'`new Date()`의'일 때", function() {
       const propertyMorpheme = createMorpheme(PropertyMorpheme, [
         mockRawCode("new Date()"),
-        mockGrammer("의")
+        mockGrammar("의")
       ]);
       const result = propertyMorpheme.analyze(1);
 
@@ -70,7 +70,7 @@ describe("PropertyMorpheme", function() {
   describe("매치 되지 않는 경우", function() {
     it("'사람'일 때", function() {
       const propertyMorpheme = createMorpheme(PropertyMorpheme, [
-        mockGrammer("사람")
+        mockGrammar("사람")
       ]);
       const result = propertyMorpheme.analyze(0);
 

@@ -4,13 +4,13 @@ import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
 
 import { expectTokenType } from "../../helper/lexer/CompareTokenType";
 import { createMorpheme } from "../../helper/lexer/CreateMorpheme";
-import { mockGrammer, mockNumber } from "../../helper/lexer/MockToken";
+import { mockGrammar, mockNumber } from "../../helper/lexer/MockToken";
 
 describe("IdentifierMorpheme", function() {
   describe("매치 되는 경우", function() {
     it("'변수1'일 때", function() {
       const identifierMorpheme = createMorpheme(IdentifierMorpheme, [
-        mockGrammer("변수1")
+        mockGrammar("변수1")
       ]);
       const result = identifierMorpheme.analyze(0);
 

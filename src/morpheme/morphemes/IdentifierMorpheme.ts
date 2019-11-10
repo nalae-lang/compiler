@@ -12,7 +12,7 @@ export class IdentifierMorpheme extends MorphemeAnalyser<IdentifierToken> {
     const { tokens } = this.state;
     const token = tokens[index];
 
-    if (token.type === LexerTokenTypes.GRAMMER) {
+    if (token.type === LexerTokenTypes.GRAMMAR) {
       return {
         type: MorphemeTokenTypes.IDENTIFIER,
         index: token.index,

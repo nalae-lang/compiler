@@ -4,7 +4,7 @@ export enum LexerTokenTypes {
   COMMENT = "comment",
   RAWCODE = "rawcode",
   NUMBER = "number",
-  GRAMMER = "grammer",
+  GRAMMAR = "grammar",
   KEYWORD = "keyword",
   OPERATOR = "operator",
   END = "end"

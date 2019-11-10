@@ -12,7 +12,7 @@ describe("GrammerLexer", function() {
       const grammerLexer = createLexer(GrammerLexer, code);
       const result = grammerLexer.parse(0);
 
-      expectTokenType(result, LexerTokenTypes.GRAMMER);
+      expectTokenType(result, LexerTokenTypes.GRAMMAR);
       expect(result.text).to.equal(code);
       expect(result.index).to.deep.equal({ start: 0, end: code.length });
       snapshot(result);
@@ -23,7 +23,7 @@ describe("GrammerLexer", function() {
       const grammerLexer = createLexer(GrammerLexer, code);
       const result = grammerLexer.parse(0);
 
-      expectTokenType(result, LexerTokenTypes.GRAMMER);
+      expectTokenType(result, LexerTokenTypes.GRAMMAR);
       expect(result.text).to.equal(code);
       expect(result.index).to.deep.equal({ start: 0, end: code.length });
       snapshot(result);
@@ -34,7 +34,7 @@ describe("GrammerLexer", function() {
       const grammerLexer = createLexer(GrammerLexer, code);
       const result = grammerLexer.parse(0);
 
-      expectTokenType(result, LexerTokenTypes.GRAMMER);
+      expectTokenType(result, LexerTokenTypes.GRAMMAR);
       expect(result.text).to.equal(code);
       expect(result.index).to.deep.equal({ start: 0, end: code.length });
       snapshot(result);
@@ -45,7 +45,7 @@ describe("GrammerLexer", function() {
       const grammerLexer = createLexer(GrammerLexer, code);
       const result = grammerLexer.parse(0);
 
-      expectTokenType(result, LexerTokenTypes.GRAMMER);
+      expectTokenType(result, LexerTokenTypes.GRAMMAR);
       expect(result.text).to.equal(code);
       expect(result.index).to.deep.equal({ start: 0, end: code.length });
       snapshot(result);
@@ -56,7 +56,7 @@ describe("GrammerLexer", function() {
       const grammerLexer = createLexer(GrammerLexer, code);
       const result = grammerLexer.parse(0);
 
-      expectTokenType(result, LexerTokenTypes.GRAMMER);
+      expectTokenType(result, LexerTokenTypes.GRAMMAR);
       expect(result.text).to.equal(code);
       expect(result.index).to.deep.equal({ start: 0, end: code.length });
       snapshot(result);

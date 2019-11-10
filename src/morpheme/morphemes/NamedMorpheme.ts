@@ -20,7 +20,7 @@ export class NamedMorpheme extends MorphemeAnalyser<NamedToken> {
     const { tokens } = this.state;
     const token = tokens[index];
 
-    if (token.type === LexerTokenTypes.GRAMMER) {
+    if (token.type === LexerTokenTypes.GRAMMAR) {
       if (NamedMorphemeList.indexOf(token.text) > -1) {
         throw new NalaeMorphemeError(
           MorphemeErrorCode.NAMED_SUBJECT_NOT_EXISTS,

@@ -17,7 +17,7 @@ export class DefineMorpheme extends MorphemeAnalyser<DefineToken> {
     const { tokens } = this.state;
     const token = tokens[index];
 
-    if (token.type === LexerTokenTypes.GRAMMER) {
+    if (token.type === LexerTokenTypes.GRAMMAR) {
       if (
         token.text === DefineMorphemeList[0] &&
         isValueToken(tokens[index - 1])

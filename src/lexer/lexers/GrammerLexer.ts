@@ -3,12 +3,12 @@ import { TokenBase } from "token/interface";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
 export interface GrammerToken extends TokenBase {
-  readonly type: LexerTokenTypes.GRAMMER;
+  readonly type: LexerTokenTypes.GRAMMAR;
   readonly text: string;
 }
 
 export class GrammerLexer extends Lexer<GrammerToken> {
-  public static readonly TOKEN_TYPE = LexerTokenTypes.GRAMMER;
+  public static readonly TOKEN_TYPE = LexerTokenTypes.GRAMMAR;
 
   public parse(index: number): GrammerToken | null {
     const { code } = this.state;
@@ -16,7 +16,7 @@ export class GrammerLexer extends Lexer<GrammerToken> {
 
     if (match?.index === 0) {
       return {
-        type: LexerTokenTypes.GRAMMER,
+        type: LexerTokenTypes.GRAMMAR,
         index: {
           start: index,
           end: index + match[0].length

@@ -6,13 +6,13 @@ import { formatString } from "utils/FormatString";
 
 import { expectTokenType } from "../../helper/lexer/CompareTokenType";
 import { createMorpheme } from "../../helper/lexer/CreateMorpheme";
-import { mockGrammer } from "../../helper/lexer/MockToken";
+import { mockGrammar } from "../../helper/lexer/MockToken";
 
 describe("NamedMorpheme", function() {
   describe("매치 되는 경우", function() {
     it("'사람이라는'일 때", function() {
       const namedMorpheme = createMorpheme(NamedMorpheme, [
-        mockGrammer("사람이라는")
+        mockGrammar("사람이라는")
       ]);
       const result = namedMorpheme.analyze(0);
 
@@ -24,7 +24,7 @@ describe("NamedMorpheme", function() {
 
     it("'가나라는'일 때", function() {
       const namedMorpheme = createMorpheme(NamedMorpheme, [
-        mockGrammer("가나라는")
+        mockGrammar("가나라는")
       ]);
       const result = namedMorpheme.analyze(0);
 
@@ -38,7 +38,7 @@ describe("NamedMorpheme", function() {
   describe("매치 되지 않는 경우", function() {
     it("'사람은'일 때", function() {
       const namedMorpheme = createMorpheme(NamedMorpheme, [
-        mockGrammer("사람은")
+        mockGrammar("사람은")
       ]);
       const result = namedMorpheme.analyze(0);
 
@@ -47,7 +47,7 @@ describe("NamedMorpheme", function() {
 
     it("'사람라는'일 때", function() {
       const namedMorpheme = createMorpheme(NamedMorpheme, [
-        mockGrammer("사람라는")
+        mockGrammar("사람라는")
       ]);
       const result = namedMorpheme.analyze(0);
 
@@ -56,7 +56,7 @@ describe("NamedMorpheme", function() {
 
     it("'이라는'일 때", function() {
       const namedMorpheme = createMorpheme(NamedMorpheme, [
-        mockGrammer("이라는")
+        mockGrammar("이라는")
       ]);
 
       expect(function() {

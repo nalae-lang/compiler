@@ -19,7 +19,7 @@ export class SubjectMorpheme extends MorphemeAnalyser<SubjectToken> {
     const { tokens } = this.state;
     const token = tokens[index];
 
-    if (token.type === LexerTokenTypes.GRAMMER) {
+    if (token.type === LexerTokenTypes.GRAMMAR) {
       if (SubjectEnd.indexOf(token.text as SubjectEndType) > -1) {
         return {
           type: MorphemeTokenTypes.SUBJECT,

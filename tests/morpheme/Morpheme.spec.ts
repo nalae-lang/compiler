@@ -9,10 +9,10 @@ describe("Morpheme", function() {
     const lexer = new NalaeLexer(`텍스트박스의 값은 "안녕하세요"이다.`);
     const lexerResult = lexer.lex();
     expect(lexerResult.map(token => token.type)).to.deep.equal([
-      LexerTokenTypes.GRAMMER,
-      LexerTokenTypes.GRAMMER,
+      LexerTokenTypes.GRAMMAR,
+      LexerTokenTypes.GRAMMAR,
       LexerTokenTypes.STRING,
-      LexerTokenTypes.GRAMMER,
+      LexerTokenTypes.GRAMMAR,
       LexerTokenTypes.END
     ]);
 
@@ -32,10 +32,10 @@ describe("Morpheme", function() {
     const lexer = new NalaeLexer(`콘솔은 "안녕하세요"를 출력한다.`);
     const lexerResult = lexer.lex();
     expect(lexerResult.map(token => token.type)).to.deep.equal([
-      LexerTokenTypes.GRAMMER,
+      LexerTokenTypes.GRAMMAR,
       LexerTokenTypes.STRING,
-      LexerTokenTypes.GRAMMER,
-      LexerTokenTypes.GRAMMER,
+      LexerTokenTypes.GRAMMAR,
+      LexerTokenTypes.GRAMMAR,
       LexerTokenTypes.END
     ]);
 
@@ -56,7 +56,7 @@ describe("Morpheme", function() {
     const lexer = new NalaeLexer(`사람이라는 틀 생성.`);
     const lexerResult = lexer.lex();
     expect(lexerResult.map(token => token.type)).to.deep.equal([
-      LexerTokenTypes.GRAMMER,
+      LexerTokenTypes.GRAMMAR,
       LexerTokenTypes.KEYWORD,
       LexerTokenTypes.KEYWORD,
       LexerTokenTypes.END

@@ -21,7 +21,7 @@ export class SubstituteMorpheme extends MorphemeAnalyser<SubstituteToken> {
     const { tokens } = this.state;
     const token = tokens[index];
 
-    if (token.type === LexerTokenTypes.GRAMMER) {
+    if (token.type === LexerTokenTypes.GRAMMAR) {
       if (
         SubstituteMorphemeList.indexOf(token.text) > -1 &&
         isValueToken(tokens[index - 1])

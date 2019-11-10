@@ -14,7 +14,7 @@ export class PropertyMorpheme extends MorphemeAnalyser<PropertyToken> {
     const { tokens } = this.state;
     const token = tokens[index];
 
-    if (token.type === LexerTokenTypes.GRAMMER) {
+    if (token.type === LexerTokenTypes.GRAMMAR) {
       if (token.text === "의" && isValueToken(tokens[index - 1])) {
         return {
           type: MorphemeTokenTypes.PROPERTY,
