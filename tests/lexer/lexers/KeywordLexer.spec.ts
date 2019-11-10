@@ -4,7 +4,7 @@ import { operatorList } from "lexer/lexers/models/OperatorList";
 import snapshot = require("snap-shot-it");
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
-import { compareTokenType } from "../../helper/lexer/CompareTokenType";
+import { expectTokenType } from "../../helper/lexer/CompareTokenType";
 import { createLexer } from "../../helper/lexer/CreateLexer";
 
 describe("KeywordLexer", function() {
@@ -17,14 +17,13 @@ describe("KeywordLexer", function() {
       for (const keyword of keywordList) {
         const result = keywordLexer.parse(index);
 
-        if (compareTokenType(result, LexerTokenTypes.KEYWORD)) {
-          expect(result.name).to.equal(keyword.name);
-          expect(code.substring(result.index.start, result.index.end)).to.equal(
-            keyword.match
-          );
-          snapshot(result);
-          index = result.index.end + 1;
-        }
+        expectTokenType(result, LexerTokenTypes.KEYWORD);
+        expect(result.name).to.equal(keyword.name);
+        expect(code.substring(result.index.start, result.index.end)).to.equal(
+          keyword.match
+        );
+        snapshot(result);
+        index = result.index.end + 1;
       }
     });
 
@@ -41,15 +40,14 @@ describe("KeywordLexer", function() {
       for (const keyword of keywordList) {
         const result = keywordLexer.parse(index);
 
-        if (compareTokenType(result, LexerTokenTypes.KEYWORD)) {
-          expect(result.name).to.equal(keyword.name);
-          expect(code.substring(result.index.start, result.index.end)).to.equal(
-            keyword.match
-          );
-          snapshot(result);
-          // 뒤에 추가로 붙은 Operator 길이를 더함
-          index = result.index.end + 2;
-        }
+        expectTokenType(result, LexerTokenTypes.KEYWORD);
+        expect(result.name).to.equal(keyword.name);
+        expect(code.substring(result.index.start, result.index.end)).to.equal(
+          keyword.match
+        );
+        snapshot(result);
+        // 뒤에 추가로 붙은 Operator 길이를 더함
+        index = result.index.end + 2;
       }
     });
   });

@@ -3,7 +3,7 @@ import snapshot = require("snap-shot-it");
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
 
-import { compareTokenType } from "../../helper/lexer/CompareTokenType";
+import { expectTokenType } from "../../helper/lexer/CompareTokenType";
 import { createMorpheme } from "../../helper/lexer/CreateMorpheme";
 import {
   mockGrammer,
@@ -20,14 +20,12 @@ describe("SubstituteMorpheme", function() {
       ]);
       const result = substituteMorpheme.analyze(0);
 
-      if (compareTokenType(result, MorphemeTokenTypes.SUBSTITUTE)) {
-        if (compareTokenType(result.value, MorphemeTokenTypes.IDENTIFIER)) {
-          expect(result.value.name).to.equal("사람");
-          expect(result.value.index.end).to.equal(2);
-        }
-        expect(result.index.end).to.equal(4);
-        snapshot(result);
-      }
+      expectTokenType(result, MorphemeTokenTypes.SUBSTITUTE);
+      expectTokenType(result.value, MorphemeTokenTypes.IDENTIFIER);
+      expect(result.value.name).to.equal("사람");
+      expect(result.value.index.end).to.equal(2);
+      expect(result.index.end).to.equal(4);
+      snapshot(result);
     });
 
     it("'바다로'일 때", function() {
@@ -36,14 +34,12 @@ describe("SubstituteMorpheme", function() {
       ]);
       const result = substituteMorpheme.analyze(0);
 
-      if (compareTokenType(result, MorphemeTokenTypes.SUBSTITUTE)) {
-        if (compareTokenType(result.value, MorphemeTokenTypes.IDENTIFIER)) {
-          expect(result.value.name).to.equal("바다");
-          expect(result.value.index.end).to.equal(2);
-        }
-        expect(result.index.end).to.equal(3);
-        snapshot(result);
-      }
+      expectTokenType(result, MorphemeTokenTypes.SUBSTITUTE);
+      expectTokenType(result.value, MorphemeTokenTypes.IDENTIFIER);
+      expect(result.value.name).to.equal("바다");
+      expect(result.value.index.end).to.equal(2);
+      expect(result.index.end).to.equal(3);
+      snapshot(result);
     });
 
     it("'3으로'일 때", function() {
@@ -53,12 +49,10 @@ describe("SubstituteMorpheme", function() {
       ]);
       const result = substituteMorpheme.analyze(1);
 
-      if (compareTokenType(result, MorphemeTokenTypes.SUBSTITUTE)) {
-        if (compareTokenType(result.value, LexerTokenTypes.NUMBER)) {
-          expect(result.value.number).to.equal(3);
-          snapshot(result);
-        }
-      }
+      expectTokenType(result, MorphemeTokenTypes.SUBSTITUTE);
+      expectTokenType(result.value, LexerTokenTypes.NUMBER);
+      expect(result.value.number).to.equal(3);
+      snapshot(result);
     });
 
     it("'\"문자열\"로'일 때", function() {
@@ -68,12 +62,10 @@ describe("SubstituteMorpheme", function() {
       ]);
       const result = substituteMorpheme.analyze(1);
 
-      if (compareTokenType(result, MorphemeTokenTypes.SUBSTITUTE)) {
-        if (compareTokenType(result.value, LexerTokenTypes.STRING)) {
-          expect(result.value.string).to.equal("문자열");
-          snapshot(result);
-        }
-      }
+      expectTokenType(result, MorphemeTokenTypes.SUBSTITUTE);
+      expectTokenType(result.value, LexerTokenTypes.STRING);
+      expect(result.value.string).to.equal("문자열");
+      snapshot(result);
     });
 
     it("'`new Date()`로'일 때", function() {
@@ -83,12 +75,10 @@ describe("SubstituteMorpheme", function() {
       ]);
       const result = substituteMorpheme.analyze(1);
 
-      if (compareTokenType(result, MorphemeTokenTypes.SUBSTITUTE)) {
-        if (compareTokenType(result.value, LexerTokenTypes.RAWCODE)) {
-          expect(result.value.code).to.equal("new Date()");
-          snapshot(result);
-        }
-      }
+      expectTokenType(result, MorphemeTokenTypes.SUBSTITUTE);
+      expectTokenType(result.value, LexerTokenTypes.RAWCODE);
+      expect(result.value.code).to.equal("new Date()");
+      snapshot(result);
     });
   });
 

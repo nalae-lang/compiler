@@ -3,7 +3,7 @@ import { StringLexer } from "lexer/lexers/StringLexer";
 import snapshot = require("snap-shot-it");
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
-import { compareTokenType } from "../../helper/lexer/CompareTokenType";
+import { expectTokenType } from "../../helper/lexer/CompareTokenType";
 import { createLexer } from "../../helper/lexer/CreateLexer";
 
 describe("StringLexer", function() {
@@ -13,11 +13,10 @@ describe("StringLexer", function() {
       const stringLexer = createLexer(StringLexer, code);
       const result = stringLexer.parse(0);
 
-      if (compareTokenType(result, LexerTokenTypes.STRING)) {
-        expect(result.string).to.equal("string");
-        expect(result.index).to.deep.equal({ start: 0, end: code.length });
-        snapshot(result);
-      }
+      expectTokenType(result, LexerTokenTypes.STRING);
+      expect(result.string).to.equal("string");
+      expect(result.index).to.deep.equal({ start: 0, end: code.length });
+      snapshot(result);
     });
   });
 

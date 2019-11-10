@@ -1,12 +1,11 @@
 import { TokenBase, TokenTypes } from "token/interface";
 
-export function compareTokenType<T extends TokenBase, TT extends TokenTypes>(
+export function expectTokenType<T extends TokenBase, TT extends TokenTypes>(
   token: T | null,
   type: TT
-): token is T extends { type: TT } ? T : never {
+): asserts token is T extends { type: TT } ? T : never {
   expect(token).to.be.ok;
   if (token !== null) {
     expect(token.type).to.equal(type);
   }
-  return token !== null && token.type === type;
 }

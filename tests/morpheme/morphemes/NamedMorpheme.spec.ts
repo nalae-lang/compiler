@@ -4,7 +4,7 @@ import snapshot = require("snap-shot-it");
 import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
 import { formatString } from "utils/FormatString";
 
-import { compareTokenType } from "../../helper/lexer/CompareTokenType";
+import { expectTokenType } from "../../helper/lexer/CompareTokenType";
 import { createMorpheme } from "../../helper/lexer/CreateMorpheme";
 import { mockGrammer } from "../../helper/lexer/MockToken";
 
@@ -16,11 +16,10 @@ describe("NamedMorpheme", function() {
       ]);
       const result = namedMorpheme.analyze(0);
 
-      if (compareTokenType(result, MorphemeTokenTypes.NAMED)) {
-        expect(result.name).to.equal("이라는");
-        expect(result.subject.name).to.equal("사람");
-        snapshot(result);
-      }
+      expectTokenType(result, MorphemeTokenTypes.NAMED);
+      expect(result.name).to.equal("이라는");
+      expect(result.subject.name).to.equal("사람");
+      snapshot(result);
     });
 
     it("'가나라는'일 때", function() {
@@ -29,11 +28,10 @@ describe("NamedMorpheme", function() {
       ]);
       const result = namedMorpheme.analyze(0);
 
-      if (compareTokenType(result, MorphemeTokenTypes.NAMED)) {
-        expect(result.name).to.equal("라는");
-        expect(result.subject.name).to.equal("가나");
-        snapshot(result);
-      }
+      expectTokenType(result, MorphemeTokenTypes.NAMED);
+      expect(result.name).to.equal("라는");
+      expect(result.subject.name).to.equal("가나");
+      snapshot(result);
     });
   });
 

@@ -1,8 +1,9 @@
 # 나래 프로그래밍 언어 컴파일러
 
-[![codecov](https://codecov.io/gh/nalae-lang/compiler/branch/master/graph/badge.svg)](https://codecov.io/gh/nalae-lang/compiler)
-[![Codecov Github Actions](https://github.com/nalae-lang/compiler/workflows/Codecov%20Github%20Actions/badge.svg)](https://github.com/nalae-lang/compiler/actions)
-[![Mocha Test](https://github.com/nalae-lang/compiler/workflows/Mocha%20Test/badge.svg)](https://github.com/nalae-lang/compiler/actions)
+[![codecov](https://codecov.io/gh/nalae-lang/compiler/branch/master/graph/badge.svg?style=flat-square)](https://codecov.io/gh/nalae-lang/compiler)
+[![Mocha Test](https://github.com/nalae-lang/compiler/workflows/Mocha%20Test/badge.svg?style=flat-square)](https://github.com/nalae-lang/compiler/actions)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+![license](https://img.shields.io/github/license/nalae-lang/compiler)
 
 나래 프로그래밍 언어는 한글 문장형 언어입니다.
 

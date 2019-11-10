@@ -3,7 +3,7 @@ import { CommentLexer } from "lexer/lexers/CommentLexer";
 import snapshot = require("snap-shot-it");
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
-import { compareTokenType } from "../../helper/lexer/CompareTokenType";
+import { expectTokenType } from "../../helper/lexer/CompareTokenType";
 import { createLexer } from "../../helper/lexer/CreateLexer";
 
 describe("CommentLexer", function() {
@@ -13,11 +13,10 @@ describe("CommentLexer", function() {
       const commentLexer = createLexer(CommentLexer, code);
       const result = commentLexer.parse(0);
 
-      if (compareTokenType(result, LexerTokenTypes.COMMENT)) {
-        expect(result.comment).to.equal("test comment");
-        expect(result.index).to.deep.equal({ start: 0, end: code.length });
-        snapshot(result);
-      }
+      expectTokenType(result, LexerTokenTypes.COMMENT);
+      expect(result.comment).to.equal("test comment");
+      expect(result.index).to.deep.equal({ start: 0, end: code.length });
+      snapshot(result);
     });
 
     it("// 이 존재할 때", function() {
@@ -25,11 +24,10 @@ describe("CommentLexer", function() {
       const commentLexer = createLexer(CommentLexer, code);
       const result = commentLexer.parse(0);
 
-      if (compareTokenType(result, LexerTokenTypes.COMMENT)) {
-        expect(result.comment).to.equal("test comment");
-        expect(result.index).to.deep.equal({ start: 0, end: code.length });
-        snapshot(result);
-      }
+      expectTokenType(result, LexerTokenTypes.COMMENT);
+      expect(result.comment).to.equal("test comment");
+      expect(result.index).to.deep.equal({ start: 0, end: code.length });
+      snapshot(result);
     });
 
     it("// 이 존재하고 다음 라인으로 갈 때", function() {
@@ -37,11 +35,10 @@ describe("CommentLexer", function() {
       const commentLexer = createLexer(CommentLexer, code + "\nnext");
       const result = commentLexer.parse(0);
 
-      if (compareTokenType(result, LexerTokenTypes.COMMENT)) {
-        expect(result.comment).to.equal("test comment");
-        expect(result.index).to.deep.equal({ start: 0, end: code.length });
-        snapshot(result);
-      }
+      expectTokenType(result, LexerTokenTypes.COMMENT);
+      expect(result.comment).to.equal("test comment");
+      expect(result.index).to.deep.equal({ start: 0, end: code.length });
+      snapshot(result);
     });
   });
 

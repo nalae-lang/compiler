@@ -7,7 +7,7 @@ import { operatorList } from "./models/OperatorList";
 
 export interface KeywordToken extends TokenBase {
   readonly type: LexerTokenTypes.KEYWORD;
-  readonly name: (typeof keywordList)[number]["name"];
+  readonly name: typeof keywordList[number]["name"];
 }
 
 export const ALLOWED_KEYWORD_NEXT = ["\n", " ", "\t", ".", ...operatorList];

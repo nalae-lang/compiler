@@ -9,19 +9,19 @@ export const keywordList = [
   },
   {
     name: ">=",
-    match: "이상"
+    match: "이상이면"
   },
   {
     name: "<=",
-    match: "이하"
+    match: "이하이면"
   },
   {
     name: ">",
-    match: "초과"
+    match: "초과이면"
   },
   {
     name: "<",
-    match: "미만"
+    match: "미만이면"
   },
   {
     name: "function_define",

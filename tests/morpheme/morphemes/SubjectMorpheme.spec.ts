@@ -2,7 +2,7 @@ import { SubjectMorpheme } from "morpheme/morphemes/SubjectMorpheme";
 import snapshot = require("snap-shot-it");
 import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
 
-import { compareTokenType } from "../../helper/lexer/CompareTokenType";
+import { expectTokenType } from "../../helper/lexer/CompareTokenType";
 import { createMorpheme } from "../../helper/lexer/CreateMorpheme";
 import { mockGrammer } from "../../helper/lexer/MockToken";
 
@@ -13,12 +13,11 @@ describe("SubjectMorpheme", function() {
         mockGrammer("변수는")
       ]);
       const result = subjectMorpheme.analyze(0);
-      if (compareTokenType(result, MorphemeTokenTypes.SUBJECT)) {
-        if (compareTokenType(result.subject, MorphemeTokenTypes.IDENTIFIER)) {
-          expect(result.subject.name).to.equal("변수");
-          snapshot(result);
-        }
-      }
+
+      expectTokenType(result, MorphemeTokenTypes.SUBJECT);
+      expectTokenType(result.subject, MorphemeTokenTypes.IDENTIFIER);
+      expect(result.subject.name).to.equal("변수");
+      snapshot(result);
     });
 
     it("받침이 있을 때 + 은", function() {
@@ -26,12 +25,11 @@ describe("SubjectMorpheme", function() {
         mockGrammer("받침은")
       ]);
       const result = subjectMorpheme.analyze(0);
-      if (compareTokenType(result, MorphemeTokenTypes.SUBJECT)) {
-        if (compareTokenType(result.subject, MorphemeTokenTypes.IDENTIFIER)) {
-          expect(result.subject.name).to.equal("받침");
-          snapshot(result);
-        }
-      }
+
+      expectTokenType(result, MorphemeTokenTypes.SUBJECT);
+      expectTokenType(result.subject, MorphemeTokenTypes.IDENTIFIER);
+      expect(result.subject.name).to.equal("받침");
+      snapshot(result);
     });
 
     it("받침이 없을 때 + 가", function() {
@@ -39,12 +37,11 @@ describe("SubjectMorpheme", function() {
         mockGrammer("변수가")
       ]);
       const result = subjectMorpheme.analyze(0);
-      if (compareTokenType(result, MorphemeTokenTypes.SUBJECT)) {
-        if (compareTokenType(result.subject, MorphemeTokenTypes.IDENTIFIER)) {
-          expect(result.subject.name).to.equal("변수");
-          snapshot(result);
-        }
-      }
+
+      expectTokenType(result, MorphemeTokenTypes.SUBJECT);
+      expectTokenType(result.subject, MorphemeTokenTypes.IDENTIFIER);
+      expect(result.subject.name).to.equal("변수");
+      snapshot(result);
     });
 
     it("받침이 있을 때 + 이", function() {
@@ -52,12 +49,21 @@ describe("SubjectMorpheme", function() {
         mockGrammer("받침이")
       ]);
       const result = subjectMorpheme.analyze(0);
-      if (compareTokenType(result, MorphemeTokenTypes.SUBJECT)) {
-        if (compareTokenType(result.subject, MorphemeTokenTypes.IDENTIFIER)) {
-          expect(result.subject.name).to.equal("받침");
-          snapshot(result);
-        }
-      }
+
+      expectTokenType(result, MorphemeTokenTypes.SUBJECT);
+      expectTokenType(result.subject, MorphemeTokenTypes.IDENTIFIER);
+      expect(result.subject.name).to.equal("받침");
+      snapshot(result);
+    });
+
+    it("'이'일 때", function() {
+      const subjectMorpheme = createMorpheme(SubjectMorpheme, [
+        mockGrammer("이")
+      ]);
+      const result = subjectMorpheme.analyze(0);
+
+      expectTokenType(result, MorphemeTokenTypes.SUBJECT);
+      expect(result.subject).to.be.not.exist;
     });
   });
 

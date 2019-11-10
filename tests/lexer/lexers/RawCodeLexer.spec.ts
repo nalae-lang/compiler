@@ -3,7 +3,7 @@ import { RawCodeLexer } from "lexer/lexers/RawCodeLexer";
 import snapshot = require("snap-shot-it");
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
-import { compareTokenType } from "../../helper/lexer/CompareTokenType";
+import { expectTokenType } from "../../helper/lexer/CompareTokenType";
 import { createLexer } from "../../helper/lexer/CreateLexer";
 
 describe("RawCodeLexer", function() {
@@ -13,11 +13,10 @@ describe("RawCodeLexer", function() {
       const rawCodeLexer = createLexer(RawCodeLexer, code);
       const result = rawCodeLexer.parse(0);
 
-      if (compareTokenType(result, LexerTokenTypes.RAWCODE)) {
-        expect(result.code).to.equal("code test");
-        expect(result.index).to.deep.equal({ start: 0, end: code.length });
-        snapshot(result);
-      }
+      expectTokenType(result, LexerTokenTypes.RAWCODE);
+      expect(result.code).to.equal("code test");
+      expect(result.index).to.deep.equal({ start: 0, end: code.length });
+      snapshot(result);
     });
   });
 

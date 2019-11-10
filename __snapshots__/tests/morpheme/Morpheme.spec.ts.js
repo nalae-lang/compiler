@@ -86,7 +86,8 @@ exports['MORPHEME_RESULT_1'] = [
         "end": 2
       },
       "name": "값"
-    }
+    },
+    "endType": "은"
   },
   {
     "type": "define",
@@ -182,7 +183,8 @@ exports['MORPHEME_RESULT_2'] = [
         "end": 1
       },
       "name": "콘솔"
-    }
+    },
+    "endType": "은"
   },
   {
     "type": "string",

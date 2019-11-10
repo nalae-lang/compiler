@@ -3,7 +3,7 @@ import snapshot = require("snap-shot-it");
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
 
-import { compareTokenType } from "../../helper/lexer/CompareTokenType";
+import { expectTokenType } from "../../helper/lexer/CompareTokenType";
 import { createMorpheme } from "../../helper/lexer/CreateMorpheme";
 import {
   mockGrammer,
@@ -20,12 +20,10 @@ describe("PropertyMorpheme", function() {
       ]);
       const result = propertyMorpheme.analyze(0);
 
-      if (compareTokenType(result, MorphemeTokenTypes.PROPERTY)) {
-        if (compareTokenType(result.object, MorphemeTokenTypes.IDENTIFIER)) {
-          expect(result.object.name).to.equal("사람");
-          snapshot(result);
-        }
-      }
+      expectTokenType(result, MorphemeTokenTypes.PROPERTY);
+      expectTokenType(result.object, MorphemeTokenTypes.IDENTIFIER);
+      expect(result.object.name).to.equal("사람");
+      snapshot(result);
     });
 
     it("'3의'일 때", function() {
@@ -35,12 +33,10 @@ describe("PropertyMorpheme", function() {
       ]);
       const result = propertyMorpheme.analyze(1);
 
-      if (compareTokenType(result, MorphemeTokenTypes.PROPERTY)) {
-        if (compareTokenType(result.object, LexerTokenTypes.NUMBER)) {
-          expect(result.object.number).to.equal(3);
-          snapshot(result);
-        }
-      }
+      expectTokenType(result, MorphemeTokenTypes.PROPERTY);
+      expectTokenType(result.object, LexerTokenTypes.NUMBER);
+      expect(result.object.number).to.equal(3);
+      snapshot(result);
     });
 
     it("'\"문자열\"의'일 때", function() {
@@ -50,12 +46,11 @@ describe("PropertyMorpheme", function() {
       ]);
       const result = propertyMorpheme.analyze(1);
 
-      if (compareTokenType(result, MorphemeTokenTypes.PROPERTY)) {
-        if (compareTokenType(result.object, LexerTokenTypes.STRING)) {
-          expect(result.object.string).to.equal("문자열");
-          snapshot(result);
-        }
-      }
+      expectTokenType(result, MorphemeTokenTypes.PROPERTY);
+      expectTokenType(result.object, LexerTokenTypes.STRING);
+
+      expect(result.object.string).to.equal("문자열");
+      snapshot(result);
     });
 
     it("'`new Date()`의'일 때", function() {
@@ -65,12 +60,10 @@ describe("PropertyMorpheme", function() {
       ]);
       const result = propertyMorpheme.analyze(1);
 
-      if (compareTokenType(result, MorphemeTokenTypes.PROPERTY)) {
-        if (compareTokenType(result.object, LexerTokenTypes.RAWCODE)) {
-          expect(result.object.code).to.equal("new Date()");
-          snapshot(result);
-        }
-      }
+      expectTokenType(result, MorphemeTokenTypes.PROPERTY);
+      expectTokenType(result.object, LexerTokenTypes.RAWCODE);
+      expect(result.object.code).to.equal("new Date()");
+      snapshot(result);
     });
   });
 

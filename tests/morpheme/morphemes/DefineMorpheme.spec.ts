@@ -3,7 +3,7 @@ import snapshot = require("snap-shot-it");
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
 
-import { compareTokenType } from "../../helper/lexer/CompareTokenType";
+import { expectTokenType } from "../../helper/lexer/CompareTokenType";
 import { createMorpheme } from "../../helper/lexer/CreateMorpheme";
 import {
   mockGrammer,
@@ -19,14 +19,11 @@ describe("DefineMorpheme", function() {
         mockGrammer("사람이다")
       ]);
       const result = defineMorpheme.analyze(0);
-
-      if (compareTokenType(result, MorphemeTokenTypes.DEFINE)) {
-        if (compareTokenType(result.value, MorphemeTokenTypes.IDENTIFIER)) {
-          expect(result.value.name).to.equal("사람");
-          expect(result.value.index.end).to.equal(2);
-          snapshot(result);
-        }
-      }
+      expectTokenType(result, MorphemeTokenTypes.DEFINE);
+      expectTokenType(result.value, MorphemeTokenTypes.IDENTIFIER);
+      expect(result.value.name).to.equal("사람");
+      expect(result.value.index.end).to.equal(2);
+      snapshot(result);
     });
 
     it("'바다이다'일 때", function() {
@@ -34,14 +31,11 @@ describe("DefineMorpheme", function() {
         mockGrammer("바다이다")
       ]);
       const result = defineMorpheme.analyze(0);
-
-      if (compareTokenType(result, MorphemeTokenTypes.DEFINE)) {
-        if (compareTokenType(result.value, MorphemeTokenTypes.IDENTIFIER)) {
-          expect(result.value.name).to.equal("바다");
-          expect(result.value.index.end).to.equal(2);
-          snapshot(result);
-        }
-      }
+      expectTokenType(result, MorphemeTokenTypes.DEFINE);
+      expectTokenType(result.value, MorphemeTokenTypes.IDENTIFIER);
+      expect(result.value.name).to.equal("바다");
+      expect(result.value.index.end).to.equal(2);
+      snapshot(result);
     });
 
     it("'바다다'일 때", function() {
@@ -50,13 +44,11 @@ describe("DefineMorpheme", function() {
       ]);
       const result = defineMorpheme.analyze(0);
 
-      if (compareTokenType(result, MorphemeTokenTypes.DEFINE)) {
-        if (compareTokenType(result.value, MorphemeTokenTypes.IDENTIFIER)) {
-          expect(result.value.name).to.equal("바다");
-          expect(result.value.index.end).to.equal(2);
-          snapshot(result);
-        }
-      }
+      expectTokenType(result, MorphemeTokenTypes.DEFINE);
+      expectTokenType(result.value, MorphemeTokenTypes.IDENTIFIER);
+      expect(result.value.name).to.equal("바다");
+      expect(result.value.index.end).to.equal(2);
+      snapshot(result);
     });
 
     it("'3이다'일 때", function() {
@@ -66,12 +58,10 @@ describe("DefineMorpheme", function() {
       ]);
       const result = defineMorpheme.analyze(1);
 
-      if (compareTokenType(result, MorphemeTokenTypes.DEFINE)) {
-        if (compareTokenType(result.value, LexerTokenTypes.NUMBER)) {
-          expect(result.value.number).to.equal(3);
-          snapshot(result);
-        }
-      }
+      expectTokenType(result, MorphemeTokenTypes.DEFINE);
+      expectTokenType(result.value, LexerTokenTypes.NUMBER);
+      expect(result.value.number).to.equal(3);
+      snapshot(result);
     });
 
     it("'\"가나다라\"이다'일 때", function() {
@@ -81,12 +71,11 @@ describe("DefineMorpheme", function() {
       ]);
       const result = defineMorpheme.analyze(1);
 
-      if (compareTokenType(result, MorphemeTokenTypes.DEFINE)) {
-        if (compareTokenType(result.value, LexerTokenTypes.STRING)) {
-          expect(result.value.string).to.equal("가나다라");
-          snapshot(result);
-        }
-      }
+      expectTokenType(result, MorphemeTokenTypes.DEFINE);
+      expectTokenType(result.value, LexerTokenTypes.STRING);
+
+      expect(result.value.string).to.equal("가나다라");
+      snapshot(result);
     });
 
     it("'`new Date()`이다'일 때", function() {
@@ -96,12 +85,11 @@ describe("DefineMorpheme", function() {
       ]);
       const result = defineMorpheme.analyze(1);
 
-      if (compareTokenType(result, MorphemeTokenTypes.DEFINE)) {
-        if (compareTokenType(result.value, LexerTokenTypes.RAWCODE)) {
-          expect(result.value.code).to.equal("new Date()");
-          snapshot(result);
-        }
-      }
+      expectTokenType(result, MorphemeTokenTypes.DEFINE);
+      expectTokenType(result.value, LexerTokenTypes.RAWCODE);
+
+      expect(result.value.code).to.equal("new Date()");
+      snapshot(result);
     });
   });
 

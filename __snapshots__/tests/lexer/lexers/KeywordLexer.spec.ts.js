@@ -20,7 +20,7 @@ exports['KeywordLexer 매치 되는 경우 단어가 모두 일치할 때 3'] = 
   "type": "keyword",
   "index": {
     "start": 7,
-    "end": 9
+    "end": 11
   },
   "name": ">="
 }
@@ -28,8 +28,8 @@ exports['KeywordLexer 매치 되는 경우 단어가 모두 일치할 때 3'] = 
 exports['KeywordLexer 매치 되는 경우 단어가 모두 일치할 때 4'] = {
   "type": "keyword",
   "index": {
-    "start": 10,
-    "end": 12
+    "start": 12,
+    "end": 16
   },
   "name": "<="
 }
@@ -37,8 +37,8 @@ exports['KeywordLexer 매치 되는 경우 단어가 모두 일치할 때 4'] = 
 exports['KeywordLexer 매치 되는 경우 단어가 모두 일치할 때 5'] = {
   "type": "keyword",
   "index": {
-    "start": 13,
-    "end": 15
+    "start": 17,
+    "end": 21
   },
   "name": ">"
 }
@@ -46,8 +46,8 @@ exports['KeywordLexer 매치 되는 경우 단어가 모두 일치할 때 5'] = 
 exports['KeywordLexer 매치 되는 경우 단어가 모두 일치할 때 6'] = {
   "type": "keyword",
   "index": {
-    "start": 16,
-    "end": 18
+    "start": 22,
+    "end": 26
   },
   "name": "<"
 }
@@ -55,8 +55,8 @@ exports['KeywordLexer 매치 되는 경우 단어가 모두 일치할 때 6'] = 
 exports['KeywordLexer 매치 되는 경우 단어가 모두 일치할 때 7'] = {
   "type": "keyword",
   "index": {
-    "start": 19,
-    "end": 23
+    "start": 27,
+    "end": 31
   },
   "name": "function_define"
 }
@@ -64,8 +64,8 @@ exports['KeywordLexer 매치 되는 경우 단어가 모두 일치할 때 7'] = 
 exports['KeywordLexer 매치 되는 경우 단어가 모두 일치할 때 8'] = {
   "type": "keyword",
   "index": {
-    "start": 24,
-    "end": 26
+    "start": 32,
+    "end": 34
   },
   "name": "while"
 }
@@ -73,8 +73,8 @@ exports['KeywordLexer 매치 되는 경우 단어가 모두 일치할 때 8'] = 
 exports['KeywordLexer 매치 되는 경우 단어가 모두 일치할 때 9'] = {
   "type": "keyword",
   "index": {
-    "start": 27,
-    "end": 29
+    "start": 35,
+    "end": 37
   },
   "name": "array_index"
 }
@@ -82,8 +82,8 @@ exports['KeywordLexer 매치 되는 경우 단어가 모두 일치할 때 9'] = 
 exports['KeywordLexer 매치 되는 경우 단어가 모두 일치할 때 10'] = {
   "type": "keyword",
   "index": {
-    "start": 30,
-    "end": 34
+    "start": 38,
+    "end": 42
   },
   "name": "import"
 }
@@ -91,8 +91,8 @@ exports['KeywordLexer 매치 되는 경우 단어가 모두 일치할 때 10'] =
 exports['KeywordLexer 매치 되는 경우 단어가 모두 일치할 때 11'] = {
   "type": "keyword",
   "index": {
-    "start": 35,
-    "end": 39
+    "start": 43,
+    "end": 47
   },
   "name": "export"
 }
@@ -100,8 +100,8 @@ exports['KeywordLexer 매치 되는 경우 단어가 모두 일치할 때 11'] =
 exports['KeywordLexer 매치 되는 경우 단어가 모두 일치할 때 12'] = {
   "type": "keyword",
   "index": {
-    "start": 40,
-    "end": 44
+    "start": 48,
+    "end": 52
   },
   "name": "variable_define"
 }
@@ -109,8 +109,8 @@ exports['KeywordLexer 매치 되는 경우 단어가 모두 일치할 때 12'] =
 exports['KeywordLexer 매치 되는 경우 단어가 모두 일치할 때 13'] = {
   "type": "keyword",
   "index": {
-    "start": 45,
-    "end": 46
+    "start": 53,
+    "end": 54
   },
   "name": "class"
 }
@@ -118,8 +118,8 @@ exports['KeywordLexer 매치 되는 경우 단어가 모두 일치할 때 13'] =
 exports['KeywordLexer 매치 되는 경우 단어가 모두 일치할 때 14'] = {
   "type": "keyword",
   "index": {
-    "start": 47,
-    "end": 50
+    "start": 55,
+    "end": 58
   },
   "name": "extend"
 }
@@ -127,8 +127,8 @@ exports['KeywordLexer 매치 되는 경우 단어가 모두 일치할 때 14'] =
 exports['KeywordLexer 매치 되는 경우 단어가 모두 일치할 때 15'] = {
   "type": "keyword",
   "index": {
-    "start": 51,
-    "end": 53
+    "start": 59,
+    "end": 61
   },
   "name": "create"
 }
@@ -155,7 +155,7 @@ exports['KeywordLexer 매치 되는 경우 단어 뒤에 특수기호가 붙었�
   "type": "keyword",
   "index": {
     "start": 9,
-    "end": 11
+    "end": 13
   },
   "name": ">="
 }
@@ -163,8 +163,8 @@ exports['KeywordLexer 매치 되는 경우 단어 뒤에 특수기호가 붙었�
 exports['KeywordLexer 매치 되는 경우 단어 뒤에 특수기호가 붙었을 때 4'] = {
   "type": "keyword",
   "index": {
-    "start": 13,
-    "end": 15
+    "start": 15,
+    "end": 19
   },
   "name": "<="
 }
@@ -172,8 +172,8 @@ exports['KeywordLexer 매치 되는 경우 단어 뒤에 특수기호가 붙었�
 exports['KeywordLexer 매치 되는 경우 단어 뒤에 특수기호가 붙었을 때 5'] = {
   "type": "keyword",
   "index": {
-    "start": 17,
-    "end": 19
+    "start": 21,
+    "end": 25
   },
   "name": ">"
 }
@@ -181,8 +181,8 @@ exports['KeywordLexer 매치 되는 경우 단어 뒤에 특수기호가 붙었�
 exports['KeywordLexer 매치 되는 경우 단어 뒤에 특수기호가 붙었을 때 6'] = {
   "type": "keyword",
   "index": {
-    "start": 21,
-    "end": 23
+    "start": 27,
+    "end": 31
   },
   "name": "<"
 }
@@ -190,8 +190,8 @@ exports['KeywordLexer 매치 되는 경우 단어 뒤에 특수기호가 붙었�
 exports['KeywordLexer 매치 되는 경우 단어 뒤에 특수기호가 붙었을 때 7'] = {
   "type": "keyword",
   "index": {
-    "start": 25,
-    "end": 29
+    "start": 33,
+    "end": 37
   },
   "name": "function_define"
 }
@@ -199,8 +199,8 @@ exports['KeywordLexer 매치 되는 경우 단어 뒤에 특수기호가 붙었�
 exports['KeywordLexer 매치 되는 경우 단어 뒤에 특수기호가 붙었을 때 8'] = {
   "type": "keyword",
   "index": {
-    "start": 31,
-    "end": 33
+    "start": 39,
+    "end": 41
   },
   "name": "while"
 }
@@ -208,8 +208,8 @@ exports['KeywordLexer 매치 되는 경우 단어 뒤에 특수기호가 붙었�
 exports['KeywordLexer 매치 되는 경우 단어 뒤에 특수기호가 붙었을 때 9'] = {
   "type": "keyword",
   "index": {
-    "start": 35,
-    "end": 37
+    "start": 43,
+    "end": 45
   },
   "name": "array_index"
 }
@@ -217,8 +217,8 @@ exports['KeywordLexer 매치 되는 경우 단어 뒤에 특수기호가 붙었�
 exports['KeywordLexer 매치 되는 경우 단어 뒤에 특수기호가 붙었을 때 10'] = {
   "type": "keyword",
   "index": {
-    "start": 39,
-    "end": 43
+    "start": 47,
+    "end": 51
   },
   "name": "import"
 }
@@ -226,8 +226,8 @@ exports['KeywordLexer 매치 되는 경우 단어 뒤에 특수기호가 붙었�
 exports['KeywordLexer 매치 되는 경우 단어 뒤에 특수기호가 붙었을 때 11'] = {
   "type": "keyword",
   "index": {
-    "start": 45,
-    "end": 49
+    "start": 53,
+    "end": 57
   },
   "name": "export"
 }
@@ -235,8 +235,8 @@ exports['KeywordLexer 매치 되는 경우 단어 뒤에 특수기호가 붙었�
 exports['KeywordLexer 매치 되는 경우 단어 뒤에 특수기호가 붙었을 때 12'] = {
   "type": "keyword",
   "index": {
-    "start": 51,
-    "end": 55
+    "start": 59,
+    "end": 63
   },
   "name": "variable_define"
 }
@@ -244,8 +244,8 @@ exports['KeywordLexer 매치 되는 경우 단어 뒤에 특수기호가 붙었�
 exports['KeywordLexer 매치 되는 경우 단어 뒤에 특수기호가 붙었을 때 13'] = {
   "type": "keyword",
   "index": {
-    "start": 57,
-    "end": 58
+    "start": 65,
+    "end": 66
   },
   "name": "class"
 }
@@ -253,8 +253,8 @@ exports['KeywordLexer 매치 되는 경우 단어 뒤에 특수기호가 붙었�
 exports['KeywordLexer 매치 되는 경우 단어 뒤에 특수기호가 붙었을 때 14'] = {
   "type": "keyword",
   "index": {
-    "start": 60,
-    "end": 63
+    "start": 68,
+    "end": 71
   },
   "name": "extend"
 }
@@ -262,8 +262,8 @@ exports['KeywordLexer 매치 되는 경우 단어 뒤에 특수기호가 붙었�
 exports['KeywordLexer 매치 되는 경우 단어 뒤에 특수기호가 붙었을 때 15'] = {
   "type": "keyword",
   "index": {
-    "start": 65,
-    "end": 67
+    "start": 73,
+    "end": 75
   },
   "name": "create"
 }

@@ -2,7 +2,7 @@ import { IndentLexer } from "lexer/lexers/IndentLexer";
 import snapshot = require("snap-shot-it");
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
-import { compareTokenType } from "../../helper/lexer/CompareTokenType";
+import { expectTokenType } from "../../helper/lexer/CompareTokenType";
 import { createLexer } from "../../helper/lexer/CreateLexer";
 import { mockEnd, mockIndent } from "../../helper/lexer/MockToken";
 
@@ -16,22 +16,20 @@ describe("IndentLexer", function() {
       const indentLexer = createLexer(IndentLexer, "\tvalue");
       const result = indentLexer.parse(0);
 
-      if (compareTokenType(result, LexerTokenTypes.INDENT)) {
-        expect(result.indentType).to.equal("tab");
-        expect(result.index).to.deep.equal({ start: 0, end: 1 });
-        snapshot(result);
-      }
+      expectTokenType(result, LexerTokenTypes.INDENT);
+      expect(result.indentType).to.equal("tab");
+      expect(result.index).to.deep.equal({ start: 0, end: 1 });
+      snapshot(result);
     });
 
     it("스페이스를 사용할 때", function() {
       const indentLexer = createLexer(IndentLexer, "  value");
       const result = indentLexer.parse(0);
 
-      if (compareTokenType(result, LexerTokenTypes.INDENT)) {
-        expect(result.indentType).to.equal("space");
-        expect(result.index).to.deep.equal({ start: 0, end: 2 });
-        snapshot(result);
-      }
+      expectTokenType(result, LexerTokenTypes.INDENT);
+      expect(result.indentType).to.equal("space");
+      expect(result.index).to.deep.equal({ start: 0, end: 2 });
+      snapshot(result);
     });
   });
 

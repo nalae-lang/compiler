@@ -3,7 +3,7 @@ import { OperatorLexer } from "lexer/lexers/OperatorLexer";
 import snapshot = require("snap-shot-it");
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
-import { compareTokenType } from "../../helper/lexer/CompareTokenType";
+import { expectTokenType } from "../../helper/lexer/CompareTokenType";
 import { createLexer } from "../../helper/lexer/CreateLexer";
 
 describe("OperatorLexer", function() {
@@ -15,10 +15,9 @@ describe("OperatorLexer", function() {
       for (let i = 0; i < operatorList.length; i++) {
         const result = operatorLexer.parse(i);
 
-        if (compareTokenType(result, LexerTokenTypes.OPERATOR)) {
-          expect(result.operator).to.equal(operatorList[i]);
-          snapshot(result);
-        }
+        expectTokenType(result, LexerTokenTypes.OPERATOR);
+        expect(result.operator).to.equal(operatorList[i]);
+        snapshot(result);
       }
     });
 
@@ -29,11 +28,11 @@ describe("OperatorLexer", function() {
       let searchIndex = 0;
       for (const operator of operatorList) {
         const result = operatorLexer.parse(searchIndex);
-        if (compareTokenType(result, LexerTokenTypes.OPERATOR)) {
-          expect(result.operator).to.equal(operator);
-          snapshot(result);
-          searchIndex = result.index.end + 1;
-        }
+
+        expectTokenType(result, LexerTokenTypes.OPERATOR);
+        expect(result.operator).to.equal(operator);
+        snapshot(result);
+        searchIndex = result.index.end + 1;
       }
     });
   });

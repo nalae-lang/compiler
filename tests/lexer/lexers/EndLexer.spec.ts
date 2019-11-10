@@ -2,7 +2,7 @@ import { EndLexer } from "lexer/lexers/EndLexer";
 import snapshot = require("snap-shot-it");
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
-import { compareTokenType } from "../../helper/lexer/CompareTokenType";
+import { expectTokenType } from "../../helper/lexer/CompareTokenType";
 import { createLexer } from "../../helper/lexer/CreateLexer";
 
 describe("EndLexer", function() {
@@ -12,11 +12,10 @@ describe("EndLexer", function() {
       const endLexer = createLexer(EndLexer, code);
       const result = endLexer.parse(0);
 
-      if (compareTokenType(result, LexerTokenTypes.END)) {
-        expect(result.endType).to.equal("dot");
-        expect(result.index).to.deep.equal({ start: 0, end: code.length });
-        snapshot(result);
-      }
+      expectTokenType(result, LexerTokenTypes.END);
+      expect(result.endType).to.equal("dot");
+      expect(result.index).to.deep.equal({ start: 0, end: code.length });
+      snapshot(result);
     });
 
     it("띄어쓰기로 끝날 때", function() {
@@ -24,11 +23,10 @@ describe("EndLexer", function() {
       const endLexer = createLexer(EndLexer, code);
       const result = endLexer.parse(0);
 
-      if (compareTokenType(result, LexerTokenTypes.END)) {
-        expect(result.endType).to.equal("newLine");
-        expect(result.index).to.deep.equal({ start: 0, end: code.length });
-        snapshot(result);
-      }
+      expectTokenType(result, LexerTokenTypes.END);
+      expect(result.endType).to.equal("newLine");
+      expect(result.index).to.deep.equal({ start: 0, end: code.length });
+      snapshot(result);
     });
   });
   describe("매치 되지 않는 경우", function() {

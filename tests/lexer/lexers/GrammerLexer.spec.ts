@@ -2,7 +2,7 @@ import { GrammerLexer } from "lexer/lexers/GrammerLexer";
 import snapshot = require("snap-shot-it");
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
-import { compareTokenType } from "../../helper/lexer/CompareTokenType";
+import { expectTokenType } from "../../helper/lexer/CompareTokenType";
 import { createLexer } from "../../helper/lexer/CreateLexer";
 
 describe("GrammerLexer", function() {
@@ -12,11 +12,10 @@ describe("GrammerLexer", function() {
       const grammerLexer = createLexer(GrammerLexer, code);
       const result = grammerLexer.parse(0);
 
-      if (compareTokenType(result, LexerTokenTypes.GRAMMER)) {
-        expect(result.text).to.equal(code);
-        expect(result.index).to.deep.equal({ start: 0, end: code.length });
-        snapshot(result);
-      }
+      expectTokenType(result, LexerTokenTypes.GRAMMER);
+      expect(result.text).to.equal(code);
+      expect(result.index).to.deep.equal({ start: 0, end: code.length });
+      snapshot(result);
     });
 
     it("영어만 존재할 때", function() {
@@ -24,11 +23,10 @@ describe("GrammerLexer", function() {
       const grammerLexer = createLexer(GrammerLexer, code);
       const result = grammerLexer.parse(0);
 
-      if (compareTokenType(result, LexerTokenTypes.GRAMMER)) {
-        expect(result.text).to.equal(code);
-        expect(result.index).to.deep.equal({ start: 0, end: code.length });
-        snapshot(result);
-      }
+      expectTokenType(result, LexerTokenTypes.GRAMMER);
+      expect(result.text).to.equal(code);
+      expect(result.index).to.deep.equal({ start: 0, end: code.length });
+      snapshot(result);
     });
 
     it("영어 + 한글 + _", function() {
@@ -36,11 +34,10 @@ describe("GrammerLexer", function() {
       const grammerLexer = createLexer(GrammerLexer, code);
       const result = grammerLexer.parse(0);
 
-      if (compareTokenType(result, LexerTokenTypes.GRAMMER)) {
-        expect(result.text).to.equal(code);
-        expect(result.index).to.deep.equal({ start: 0, end: code.length });
-        snapshot(result);
-      }
+      expectTokenType(result, LexerTokenTypes.GRAMMER);
+      expect(result.text).to.equal(code);
+      expect(result.index).to.deep.equal({ start: 0, end: code.length });
+      snapshot(result);
     });
 
     it("_로 시작", function() {
@@ -48,11 +45,10 @@ describe("GrammerLexer", function() {
       const grammerLexer = createLexer(GrammerLexer, code);
       const result = grammerLexer.parse(0);
 
-      if (compareTokenType(result, LexerTokenTypes.GRAMMER)) {
-        expect(result.text).to.equal(code);
-        expect(result.index).to.deep.equal({ start: 0, end: code.length });
-        snapshot(result);
-      }
+      expectTokenType(result, LexerTokenTypes.GRAMMER);
+      expect(result.text).to.equal(code);
+      expect(result.index).to.deep.equal({ start: 0, end: code.length });
+      snapshot(result);
     });
 
     it("한글 + 숫자", function() {
@@ -60,11 +56,10 @@ describe("GrammerLexer", function() {
       const grammerLexer = createLexer(GrammerLexer, code);
       const result = grammerLexer.parse(0);
 
-      if (compareTokenType(result, LexerTokenTypes.GRAMMER)) {
-        expect(result.text).to.equal(code);
-        expect(result.index).to.deep.equal({ start: 0, end: code.length });
-        snapshot(result);
-      }
+      expectTokenType(result, LexerTokenTypes.GRAMMER);
+      expect(result.text).to.equal(code);
+      expect(result.index).to.deep.equal({ start: 0, end: code.length });
+      snapshot(result);
     });
   });
 
