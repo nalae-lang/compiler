@@ -6,7 +6,7 @@ import { operatorList } from "./models/OperatorList";
 
 export interface OperatorToken extends TokenBase {
   readonly type: LexerTokenTypes.OPERATOR;
-  readonly operator: (typeof operatorList)[number];
+  readonly operator: typeof operatorList[number];
 }
 
 export class OperatorLexer extends Lexer<OperatorToken> {
