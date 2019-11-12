@@ -1,11 +1,11 @@
-import { Lexer } from "lexer/interface";
-import { Token, TokenBase } from "token/interface";
+import { Lexer, LexerTokenBase } from "lexer/interface";
+import { Token } from "token/interface";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
 import { EndToken } from "./EndLexer";
 
 export type IndentType = "tab" | "space";
-export interface IndentToken extends TokenBase {
+export interface IndentToken extends LexerTokenBase {
   readonly type: LexerTokenTypes.INDENT;
   readonly indentType: IndentType;
 }

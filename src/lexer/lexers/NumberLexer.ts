@@ -1,11 +1,10 @@
 import { NalaeLexerError } from "lexer/error";
 import { LexerErrorCode } from "lexer/error/ErrorCode";
-import { Lexer } from "lexer/interface";
-import { TokenBase } from "token/interface";
+import { Lexer, LexerTokenBase } from "lexer/interface";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
 export type Radix = 2 | 8 | 10 | 16;
-export interface NumberToken extends TokenBase {
+export interface NumberToken extends LexerTokenBase {
   readonly type: LexerTokenTypes.NUMBER;
   readonly number: number;
   readonly radix: Radix;

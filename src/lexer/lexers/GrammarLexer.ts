@@ -1,8 +1,7 @@
-import { Lexer } from "lexer/interface";
-import { TokenBase } from "token/interface";
+import { Lexer, LexerTokenBase } from "lexer/interface";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
-export interface GrammarToken extends TokenBase {
+export interface GrammarToken extends LexerTokenBase {
   readonly type: LexerTokenTypes.GRAMMAR;
   readonly text: string;
 }

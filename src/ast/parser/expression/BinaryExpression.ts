@@ -8,26 +8,25 @@ import { NalaeASTParserError } from "../error";
 import { ASTParserErrorCode } from "../error/ErrorCode";
 import { ASTParser, ParserTokenBase } from "../interface";
 
-interface BinaryExpressionToken extends ParserTokenBase {
+export interface BinaryExpressionToken extends ParserTokenBase {
   readonly type: ParserTokenTypes.BINARY_EXPRESSION;
-  readonly left: ValueToken | BinaryExpressionToken;
-  readonly right: ValueToken | BinaryExpressionToken;
+  readonly left: ValueToken;
+  readonly right: ValueToken;
   readonly operator: BinaryExpressionOperatorToken;
 }
 
-const binaryExpressionableOperatorToken = ["+", "-", "*", "/", "%"] as const;
+const binaryExpressionOperatorToken = ["+", "-", "*", "/", "%"] as const;
 
-interface BinaryExpressionOperatorToken extends OperatorToken {
-  operator: typeof binaryExpressionableOperatorToken[number];
+export interface BinaryExpressionOperatorToken extends OperatorToken {
+  operator: typeof binaryExpressionOperatorToken[number];
 }
 
-function isBinaryExpressionOperatorToken(
+export function isBinaryExpressionOperatorToken(
   token: Token | undefined
 ): token is BinaryExpressionOperatorToken {
   return (
-    token !== undefined &&
-    token.type === LexerTokenTypes.OPERATOR &&
-    (binaryExpressionableOperatorToken as ReadonlyArray<string>).indexOf(
+    token?.type === LexerTokenTypes.OPERATOR &&
+    (binaryExpressionOperatorToken as ReadonlyArray<string>).indexOf(
       token.operator
     ) > -1
   );
@@ -46,7 +45,15 @@ export const BinaryExpressionParser: ASTParser<BinaryExpressionToken> = (
         type: ParserTokenTypes.BINARY_EXPRESSION,
         left: tokens[index] as ValueToken,
         operator: tokens[index + 1] as BinaryExpressionOperatorToken,
-        right: tokens[index + 2] as ValueToken
+        right: tokens[index + 2] as ValueToken,
+        index: {
+          start: tokens[index].index.start,
+          end: tokens[index + 2].index.end
+        },
+        tokenIndex: {
+          start: index,
+          end: index + 2
+        }
       };
     }
 

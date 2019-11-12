@@ -1,8 +1,9 @@
 import { ParserTokenTypes } from "ast/types/ParserTokenTypes";
-import { Token } from "token/interface";
+import { Index, Token, TokenBase } from "token/interface";
 
-export interface ParserTokenBase {
+export interface ParserTokenBase extends TokenBase {
   readonly type: ParserTokenTypes;
+  readonly tokenIndex: Index;
 }
 
 export type ASTParser<T extends ParserTokenBase> = (

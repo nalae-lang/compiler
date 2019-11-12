@@ -1,9 +1,8 @@
-import { Lexer } from "lexer/interface";
-import { TokenBase } from "token/interface";
+import { Lexer, LexerTokenBase } from "lexer/interface";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
 export type EndType = "dot" | "newLine";
-export interface EndToken extends TokenBase {
+export interface EndToken extends LexerTokenBase {
   readonly type: LexerTokenTypes.END;
   readonly endType: EndType;
 }

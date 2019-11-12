@@ -4,12 +4,11 @@ import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
 
 export function isValueToken(token: Token): token is ValueToken {
   return (
-    token !== undefined &&
     [
       LexerTokenTypes.STRING,
       LexerTokenTypes.RAWCODE,
       LexerTokenTypes.NUMBER,
       MorphemeTokenTypes.IDENTIFIER
-    ].indexOf(token.type) > -1
+    ].indexOf(token?.type) > -1
   );
 }

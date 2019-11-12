@@ -1,10 +1,9 @@
-import { Lexer } from "lexer/interface";
-import { TokenBase } from "token/interface";
+import { Lexer, LexerTokenBase } from "lexer/interface";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
 import { operatorList } from "./models/OperatorList";
 
-export interface OperatorToken extends TokenBase {
+export interface OperatorToken extends LexerTokenBase {
   readonly type: LexerTokenTypes.OPERATOR;
   readonly operator: typeof operatorList[number];
 }

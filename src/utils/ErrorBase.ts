@@ -3,7 +3,7 @@ import { Index } from "token/interface";
 import { formatString } from "./FormatString";
 
 export abstract class NalaeErrorBase<T extends string> {
-  public name = "NalaeLexerError";
+  public abstract name: string;
   public index: Index;
   public message: string;
   public constructor(

@@ -1,16 +1,16 @@
 import { NalaeLexerError } from "lexer/error";
 import { LexerErrorCode } from "lexer/error/ErrorCode";
-import { Lexer } from "lexer/interface";
-import { TokenBase } from "token/interface";
+import { Lexer, LexerTokenBase } from "lexer/interface";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
-export interface CommentToken extends TokenBase {
+export interface CommentToken extends LexerTokenBase {
   readonly type: LexerTokenTypes.COMMENT;
   readonly comment: string;
 }
 
 export class CommentLexer extends Lexer<CommentToken> {
   public static readonly TOKEN_TYPE = LexerTokenTypes.COMMENT;
+
   public parse(index: number): CommentToken | null {
     const { code } = this.state;
 
