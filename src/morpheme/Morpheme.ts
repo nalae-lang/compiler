@@ -30,7 +30,7 @@ export class NalaeMorphemeAnalyzer {
     ];
   }
 
-  public analyse(): Array<Token> {
+  public analyze(): Array<Token> {
     const { tokens } = this.state;
     const morphemeTokens: Array<MorphemeTokenBase> = [];
     let i = 0;

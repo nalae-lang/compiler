@@ -4,7 +4,7 @@ import { hasJongSung } from "./HasJongSung";
 function comparePostPosition(
   word: string,
   josa: string,
-  needJongSong: boolean,
+  needJongSung: boolean,
   executeSecond?: () => ReturnType<typeof comparePostPosition>
 ): 1 | 0 | false {
   const matchIndex = executeSecond !== undefined ? 0 : 1;
@@ -12,7 +12,7 @@ function comparePostPosition(
     const char = word.charAt(word.length - josa.length - 1);
 
     if (isKorean(char)) {
-      if (needJongSong) {
+      if (needJongSung) {
         if (hasJongSung(char)) {
           return matchIndex;
         }

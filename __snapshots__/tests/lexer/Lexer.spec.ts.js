@@ -16,7 +16,7 @@ exports['LEXER_RESULT_DEFAULT'] = [
     "string": "./web"
   },
   {
-    "type": "grammer",
+    "type": "grammar",
     "index": {
       "start": 8,
       "end": 10
@@ -24,7 +24,7 @@ exports['LEXER_RESULT_DEFAULT'] = [
     "text": "에서"
   },
   {
-    "type": "grammer",
+    "type": "grammar",
     "index": {
       "start": 11,
       "end": 16
@@ -56,7 +56,7 @@ exports['LEXER_RESULT_DEFAULT'] = [
     "endType": "newLine"
   },
   {
-    "type": "grammer",
+    "type": "grammar",
     "index": {
       "start": 23,
       "end": 29
@@ -64,7 +64,7 @@ exports['LEXER_RESULT_DEFAULT'] = [
     "text": "텍스트박스의"
   },
   {
-    "type": "grammer",
+    "type": "grammar",
     "index": {
       "start": 30,
       "end": 32
@@ -80,7 +80,7 @@ exports['LEXER_RESULT_DEFAULT'] = [
     "string": "안녕하세요"
   },
   {
-    "type": "grammer",
+    "type": "grammar",
     "index": {
       "start": 40,
       "end": 42
@@ -120,7 +120,7 @@ exports['LEXER_RESULT_DEFAULT'] = [
     "endType": "newLine"
   },
   {
-    "type": "grammer",
+    "type": "grammar",
     "index": {
       "start": 59,
       "end": 65
@@ -136,7 +136,7 @@ exports['LEXER_RESULT_DEFAULT'] = [
     "operator": "~"
   },
   {
-    "type": "grammer",
+    "type": "grammar",
     "index": {
       "start": 67,
       "end": 68
@@ -144,7 +144,7 @@ exports['LEXER_RESULT_DEFAULT'] = [
     "text": "로"
   },
   {
-    "type": "grammer",
+    "type": "grammar",
     "index": {
       "start": 69,
       "end": 72
@@ -152,7 +152,7 @@ exports['LEXER_RESULT_DEFAULT'] = [
     "text": "수정될"
   },
   {
-    "type": "grammer",
+    "type": "grammar",
     "index": {
       "start": 73,
       "end": 75
@@ -192,7 +192,7 @@ exports['LEXER_RESULT_DEFAULT'] = [
     "indentType": "space"
   },
   {
-    "type": "grammer",
+    "type": "grammar",
     "index": {
       "start": 84,
       "end": 87
@@ -217,7 +217,7 @@ exports['LEXER_RESULT_DEFAULT'] = [
     "name": "array_index"
   },
   {
-    "type": "grammer",
+    "type": "grammar",
     "index": {
       "start": 92,
       "end": 94
@@ -241,7 +241,7 @@ exports['LEXER_RESULT_DEFAULT'] = [
     "string": "로 수정됨"
   },
   {
-    "type": "grammer",
+    "type": "grammar",
     "index": {
       "start": 104,
       "end": 105
@@ -249,7 +249,7 @@ exports['LEXER_RESULT_DEFAULT'] = [
     "text": "을"
   },
   {
-    "type": "grammer",
+    "type": "grammar",
     "index": {
       "start": 106,
       "end": 110
@@ -268,7 +268,7 @@ exports['LEXER_RESULT_DEFAULT'] = [
 
 exports['LEXER_RESULT_CALCULATE'] = [
   {
-    "type": "grammer",
+    "type": "grammar",
     "index": {
       "start": 0,
       "end": 3
@@ -352,7 +352,7 @@ exports['LEXER_RESULT_CALCULATE'] = [
     "operator": ")"
   },
   {
-    "type": "grammer",
+    "type": "grammar",
     "index": {
       "start": 19,
       "end": 20
@@ -360,7 +360,7 @@ exports['LEXER_RESULT_CALCULATE'] = [
     "text": "를"
   },
   {
-    "type": "grammer",
+    "type": "grammar",
     "index": {
       "start": 21,
       "end": 23
@@ -371,7 +371,7 @@ exports['LEXER_RESULT_CALCULATE'] = [
 
 exports['LEXER_RESULT_CREATE_CLASS_1'] = [
   {
-    "type": "grammer",
+    "type": "grammar",
     "index": {
       "start": 0,
       "end": 5
@@ -406,7 +406,7 @@ exports['LEXER_RESULT_CREATE_CLASS_1'] = [
 
 exports['LEXER_RESULT_CREATE_CLASS_2'] = [
   {
-    "type": "grammer",
+    "type": "grammar",
     "index": {
       "start": 0,
       "end": 6

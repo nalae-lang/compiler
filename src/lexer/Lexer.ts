@@ -5,7 +5,7 @@ import { LexerErrorCode } from "./error/ErrorCode";
 import { Lexer, LexerState } from "./interface";
 import { CommentLexer } from "./lexers/CommentLexer";
 import { EndLexer } from "./lexers/EndLexer";
-import { GrammerLexer } from "./lexers/GrammerLexer";
+import { GrammarLexer } from "./lexers/GrammarLexer";
 import { IndentLexer } from "./lexers/IndentLexer";
 import { KeywordLexer } from "./lexers/KeywordLexer";
 import { NumberLexer } from "./lexers/NumberLexer";
@@ -30,7 +30,7 @@ export class NalaeLexer {
       new IndentLexer(this.state),
       new EndLexer(this.state),
       new NumberLexer(this.state),
-      new GrammerLexer(this.state)
+      new GrammarLexer(this.state)
     ];
   }
 

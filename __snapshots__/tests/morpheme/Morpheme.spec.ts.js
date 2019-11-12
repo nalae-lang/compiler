@@ -1,6 +1,6 @@
-exports['LEXER_RESULT_GRAMMER_1'] = [
+exports['LEXER_RESULT_GRAMMAR_1'] = [
   {
-    "type": "grammer",
+    "type": "grammar",
     "index": {
       "start": 0,
       "end": 6
@@ -8,7 +8,7 @@ exports['LEXER_RESULT_GRAMMER_1'] = [
     "text": "텍스트박스의"
   },
   {
-    "type": "grammer",
+    "type": "grammar",
     "index": {
       "start": 7,
       "end": 9
@@ -24,7 +24,7 @@ exports['LEXER_RESULT_GRAMMER_1'] = [
     "string": "안녕하세요"
   },
   {
-    "type": "grammer",
+    "type": "grammar",
     "index": {
       "start": 17,
       "end": 19
@@ -118,9 +118,9 @@ exports['MORPHEME_RESULT_1'] = [
   }
 ]
 
-exports['LEXER_RESULT_GRAMMER_2'] = [
+exports['LEXER_RESULT_GRAMMAR_2'] = [
   {
-    "type": "grammer",
+    "type": "grammar",
     "index": {
       "start": 0,
       "end": 3
@@ -136,7 +136,7 @@ exports['LEXER_RESULT_GRAMMER_2'] = [
     "string": "안녕하세요"
   },
   {
-    "type": "grammer",
+    "type": "grammar",
     "index": {
       "start": 11,
       "end": 12
@@ -144,7 +144,7 @@ exports['LEXER_RESULT_GRAMMER_2'] = [
     "text": "를"
   },
   {
-    "type": "grammer",
+    "type": "grammar",
     "index": {
       "start": 13,
       "end": 17
@@ -228,9 +228,9 @@ exports['MORPHEME_RESULT_2'] = [
   }
 ]
 
-exports['LEXER_RESULT_GRAMMER_3'] = [
+exports['LEXER_RESULT_GRAMMAR_3'] = [
   {
-    "type": "grammer",
+    "type": "grammar",
     "index": {
       "start": 0,
       "end": 5

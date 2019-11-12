@@ -1,6 +1,6 @@
 import { CommentToken } from "lexer/lexers/CommentLexer";
 import { EndToken } from "lexer/lexers/EndLexer";
-import { GrammerToken } from "lexer/lexers/GrammerLexer";
+import { GrammarToken } from "lexer/lexers/GrammarLexer";
 import { IndentToken } from "lexer/lexers/IndentLexer";
 import { KeywordToken } from "lexer/lexers/KeywordLexer";
 import { NumberToken } from "lexer/lexers/NumberLexer";
@@ -35,7 +35,7 @@ export type Token =
   | EndToken
   | RawCodeToken
   | NumberToken
-  | GrammerToken
+  | GrammarToken
   | OperatorToken
   | KeywordToken
   | CommentToken

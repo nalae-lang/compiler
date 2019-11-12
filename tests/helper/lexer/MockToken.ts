@@ -1,12 +1,12 @@
 import { EndToken, EndType } from "lexer/lexers/EndLexer";
-import { GrammerToken } from "lexer/lexers/GrammerLexer";
+import { GrammarToken } from "lexer/lexers/GrammarLexer";
 import { IndentToken, IndentType } from "lexer/lexers/IndentLexer";
 import { NumberToken, Radix } from "lexer/lexers/NumberLexer";
 import { RawCodeToken } from "lexer/lexers/RawCodeLexer";
 import { StringToken } from "lexer/lexers/StringLexer";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
-export function mockGrammar(text: string): GrammerToken {
+export function mockGrammar(text: string): GrammarToken {
   return {
     type: LexerTokenTypes.GRAMMAR,
     index: {

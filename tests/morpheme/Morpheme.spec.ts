@@ -17,14 +17,14 @@ describe("Morpheme", function() {
     ]);
 
     const morphemeAnalyser = new NalaeMorphemeAnalyzer(lexerResult);
-    const morphemeResult = morphemeAnalyser.analyse();
+    const morphemeResult = morphemeAnalyser.analyze();
     expect(morphemeResult.map(token => token.type)).to.deep.equal([
       MorphemeTokenTypes.PROPERTY,
       MorphemeTokenTypes.SUBJECT,
       MorphemeTokenTypes.DEFINE,
       LexerTokenTypes.END
     ]);
-    snapshot("LEXER_RESULT_GRAMMER_1", lexerResult);
+    snapshot("LEXER_RESULT_GRAMMAR_1", lexerResult);
     snapshot("MORPHEME_RESULT_1", morphemeResult);
   });
 
@@ -40,7 +40,7 @@ describe("Morpheme", function() {
     ]);
 
     const morphemeAnalyser = new NalaeMorphemeAnalyzer(lexerResult);
-    const morphemeResult = morphemeAnalyser.analyse();
+    const morphemeResult = morphemeAnalyser.analyze();
     expect(morphemeResult.map(token => token.type)).to.deep.equal([
       MorphemeTokenTypes.SUBJECT,
       LexerTokenTypes.STRING,
@@ -48,7 +48,7 @@ describe("Morpheme", function() {
       MorphemeTokenTypes.IDENTIFIER,
       LexerTokenTypes.END
     ]);
-    snapshot("LEXER_RESULT_GRAMMER_2", lexerResult);
+    snapshot("LEXER_RESULT_GRAMMAR_2", lexerResult);
     snapshot("MORPHEME_RESULT_2", morphemeResult);
   });
 
@@ -63,14 +63,14 @@ describe("Morpheme", function() {
     ]);
 
     const morphemeAnalyser = new NalaeMorphemeAnalyzer(lexerResult);
-    const morphemeResult = morphemeAnalyser.analyse();
+    const morphemeResult = morphemeAnalyser.analyze();
     expect(morphemeResult.map(token => token.type)).to.deep.equal([
       MorphemeTokenTypes.NAMED,
       LexerTokenTypes.KEYWORD,
       LexerTokenTypes.KEYWORD,
       LexerTokenTypes.END
     ]);
-    snapshot("LEXER_RESULT_GRAMMER_3", lexerResult);
+    snapshot("LEXER_RESULT_GRAMMAR_3", lexerResult);
     snapshot("MORPHEME_RESULT_3", morphemeResult);
   });
 });

@@ -2,15 +2,15 @@ import { Lexer } from "lexer/interface";
 import { TokenBase } from "token/interface";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
-export interface GrammerToken extends TokenBase {
+export interface GrammarToken extends TokenBase {
   readonly type: LexerTokenTypes.GRAMMAR;
   readonly text: string;
 }
 
-export class GrammerLexer extends Lexer<GrammerToken> {
+export class GrammarLexer extends Lexer<GrammarToken> {
   public static readonly TOKEN_TYPE = LexerTokenTypes.GRAMMAR;
 
-  public parse(index: number): GrammerToken | null {
+  public parse(index: number): GrammarToken | null {
     const { code } = this.state;
     const match = code.substr(index).match(/[가-힣a-zA-Z_][가-힣a-zA-Z0-9_]*/);
 
