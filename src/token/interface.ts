@@ -1,3 +1,4 @@
+import { ParserTokenTypes } from "ast/types/ParserTokenTypes";
 import { CommentToken } from "lexer/lexers/CommentLexer";
 import { EndToken } from "lexer/lexers/EndLexer";
 import { GrammarToken } from "lexer/lexers/GrammarLexer";
@@ -7,6 +8,7 @@ import { NumberToken } from "lexer/lexers/NumberLexer";
 import { OperatorToken } from "lexer/lexers/OperatorLexer";
 import { RawCodeToken } from "lexer/lexers/RawCodeLexer";
 import { StringToken } from "lexer/lexers/StringLexer";
+import { ArgumentToken } from "morpheme/morphemes/ArgumentMorpheme";
 import { DefineToken } from "morpheme/morphemes/DefineMorpheme";
 import { IdentifierToken } from "morpheme/morphemes/IdentifierMorpheme";
 import { NamedToken } from "morpheme/morphemes/NamedMorpheme";
@@ -17,7 +19,10 @@ import { SubstituteToken } from "morpheme/morphemes/SubstituteMorpheme";
 import { LexerTokenTypes } from "./types/LexerTokenTypes";
 import { MorphemeTokenTypes } from "./types/MorphemeTokenTypes";
 
-export type TokenTypes = LexerTokenTypes | MorphemeTokenTypes;
+export type TokenTypes =
+  | LexerTokenTypes
+  | MorphemeTokenTypes
+  | ParserTokenTypes;
 
 export type ExtendableToken<T extends TokenBase> = Omit<T, "type">;
 
@@ -46,6 +51,7 @@ export type Token =
   | SubjectToken
   | DefineToken
   | NamedToken
+  | ArgumentToken
   | SubstituteToken;
 
 export type ValueToken =

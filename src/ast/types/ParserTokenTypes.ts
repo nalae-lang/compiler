@@ -1,4 +1,6 @@
 export enum ParserTokenTypes {
   BINARY_EXPRESSION = "binary_expression",
-  EXPRESSION = "expression"
+  EXPRESSION = "expression",
+  FUNCTION_DEFINITION = "function_definition",
+  ARGUMENT = "argument"
 }

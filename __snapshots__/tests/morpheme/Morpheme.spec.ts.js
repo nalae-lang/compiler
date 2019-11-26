@@ -1,4 +1,4 @@
-exports['LEXER_RESULT_GRAMMAR_1'] = [
+exports['Morpheme 주어 테스트 1'] = [
   {
     "type": "grammar",
     "index": {
@@ -41,7 +41,7 @@ exports['LEXER_RESULT_GRAMMAR_1'] = [
   }
 ]
 
-exports['MORPHEME_RESULT_1'] = [
+exports['Morpheme 주어 테스트 2'] = [
   {
     "type": "property",
     "index": {
@@ -118,7 +118,7 @@ exports['MORPHEME_RESULT_1'] = [
   }
 ]
 
-exports['LEXER_RESULT_GRAMMAR_2'] = [
+exports['Morpheme 함수 테스트 1'] = [
   {
     "type": "grammar",
     "index": {
@@ -161,7 +161,7 @@ exports['LEXER_RESULT_GRAMMAR_2'] = [
   }
 ]
 
-exports['MORPHEME_RESULT_2'] = [
+exports['Morpheme 함수 테스트 2'] = [
   {
     "type": "subject",
     "index": {
@@ -228,7 +228,128 @@ exports['MORPHEME_RESULT_2'] = [
   }
 ]
 
-exports['LEXER_RESULT_GRAMMAR_3'] = [
+exports['Morpheme 함수 정의 테스트 1'] = [
+  {
+    "type": "grammar",
+    "index": {
+      "start": 0,
+      "end": 3
+    },
+    "text": "콘솔은"
+  },
+  {
+    "type": "operator",
+    "index": {
+      "start": 4,
+      "end": 5
+    },
+    "operator": "~"
+  },
+  {
+    "type": "grammar",
+    "index": {
+      "start": 5,
+      "end": 6
+    },
+    "text": "를"
+  },
+  {
+    "type": "grammar",
+    "index": {
+      "start": 7,
+      "end": 12
+    },
+    "text": "출력한다를"
+  },
+  {
+    "type": "keyword",
+    "index": {
+      "start": 13,
+      "end": 17
+    },
+    "name": "function_define"
+  },
+  {
+    "type": "operator",
+    "index": {
+      "start": 17,
+      "end": 18
+    },
+    "operator": ","
+  }
+]
+
+exports['Morpheme 함수 정의 테스트 2'] = [
+  {
+    "type": "subject",
+    "index": {
+      "start": 0,
+      "end": 3
+    },
+    "tokenIndex": {
+      "start": 0,
+      "end": 1
+    },
+    "subject": {
+      "type": "identifier",
+      "index": {
+        "start": 0,
+        "end": 2
+      },
+      "tokenIndex": {
+        "start": 0,
+        "end": 1
+      },
+      "name": "콘솔"
+    },
+    "endType": "은"
+  },
+  {
+    "type": "argument",
+    "index": {
+      "start": 4,
+      "end": 6
+    },
+    "tokenIndex": {
+      "start": 1,
+      "end": 3
+    },
+    "names": [
+      "을",
+      "를"
+    ]
+  },
+  {
+    "type": "identifier",
+    "index": {
+      "start": 7,
+      "end": 12
+    },
+    "tokenIndex": {
+      "start": 3,
+      "end": 4
+    },
+    "name": "출력한다를"
+  },
+  {
+    "type": "keyword",
+    "index": {
+      "start": 13,
+      "end": 17
+    },
+    "name": "function_define"
+  },
+  {
+    "type": "operator",
+    "index": {
+      "start": 17,
+      "end": 18
+    },
+    "operator": ","
+  }
+]
+
+exports['Morpheme 틀 테스트 1'] = [
   {
     "type": "grammar",
     "index": {
@@ -263,7 +384,7 @@ exports['LEXER_RESULT_GRAMMAR_3'] = [
   }
 ]
 
-exports['MORPHEME_RESULT_3'] = [
+exports['Morpheme 틀 테스트 2'] = [
   {
     "type": "named",
     "subject": {

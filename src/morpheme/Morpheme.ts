@@ -5,6 +5,7 @@ import {
 } from "morpheme/interface";
 import { Token } from "token/interface";
 
+import { ArgumentMorpheme } from "./morphemes/ArgumentMorpheme";
 import { DefineMorpheme } from "./morphemes/DefineMorpheme";
 import { IdentifierMorpheme } from "./morphemes/IdentifierMorpheme";
 import { NamedMorpheme } from "./morphemes/NamedMorpheme";
@@ -23,6 +24,7 @@ export class NalaeMorphemeAnalyzer {
     this.morphemes = [
       new NamedMorpheme(this.state),
       new PropertyMorpheme(this.state),
+      new ArgumentMorpheme(this.state),
       new SubjectMorpheme(this.state),
       new DefineMorpheme(this.state),
       new SubstituteMorpheme(this.state),
