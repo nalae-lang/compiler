@@ -19,8 +19,6 @@ import { MorphemeTokenTypes } from "./types/MorphemeTokenTypes";
 
 export type TokenTypes = LexerTokenTypes | MorphemeTokenTypes;
 
-export type ExtendableToken<T extends TokenBase> = Omit<T, "type">;
-
 export interface Index {
   start: number;
   end: number;

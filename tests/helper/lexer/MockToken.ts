@@ -5,6 +5,9 @@ import { NumberToken, Radix } from "lexer/lexers/NumberLexer";
 import { RawCodeToken } from "lexer/lexers/RawCodeLexer";
 import { StringToken } from "lexer/lexers/StringLexer";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
+import { OperatorToken } from "../../../src/lexer/lexers/OperatorLexer";
+import { operatorList } from "../../../src/lexer/lexers/models/OperatorList";
+import { Index } from "../../../src/token/interface";
 
 export function mockGrammar(text: string): GrammarToken {
   return {
@@ -70,5 +73,19 @@ export function mockIndent(indentType: IndentType): IndentToken {
       end: 2
     },
     indentType
+  };
+}
+
+export function mockOperator(
+  type: typeof operatorList[number],
+  index: Index = {
+    start: 0,
+    end: type.length
+  }
+): OperatorToken {
+  return {
+    type: LexerTokenTypes.OPERATOR,
+    operator: type,
+    index
   };
 }
