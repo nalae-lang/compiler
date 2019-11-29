@@ -2,5 +2,4 @@ node_modules/
 .nyc_output/
 dist/
 coverage
-yarn.lock
 .DS_Store

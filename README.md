@@ -1,7 +1,7 @@
 # 나래 프로그래밍 언어 컴파일러
 
 [![codecov](https://codecov.io/gh/nalae-lang/compiler/branch/master/graph/badge.svg?style=flat-square)](https://codecov.io/gh/nalae-lang/compiler)
-[![Mocha Test](https://github.com/nalae-lang/compiler/workflows/Mocha%20Test/badge.svg?style=flat-square)](https://github.com/nalae-lang/compiler/actions)
+[![유닛 테스트](https://github.com/nalae-lang/compiler/workflows/유닛%20테스트/badge.svg?style=flat-square)](https://github.com/nalae-lang/compiler/actions)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 ![license](https://img.shields.io/github/license/nalae-lang/compiler)
 
