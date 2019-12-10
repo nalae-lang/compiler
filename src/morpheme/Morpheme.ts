@@ -14,7 +14,7 @@ import { SubjectMorpheme } from "./morphemes/SubjectMorpheme";
 import { SubstituteMorpheme } from "./morphemes/SubstituteMorpheme";
 
 export class NalaeMorphemeAnalyzer {
-  private readonly state: MorphemeState;
+  private state: MorphemeState;
   private readonly morphemes: Array<MorphemeAnalyser<MorphemeTokenBase>>;
 
   public constructor(tokens: Array<Token>) {
@@ -30,6 +30,10 @@ export class NalaeMorphemeAnalyzer {
       new SubstituteMorpheme(this.state),
       new IdentifierMorpheme(this.state),
     ];
+  }
+
+  public setTokens(tokens: Array<Token>): void {
+    this.state = { tokens };
   }
 
   public analyze(): Array<Token> {

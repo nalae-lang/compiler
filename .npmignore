@@ -1,0 +1,11 @@
+__snapshots__
+.github
+.idea
+.vscode
+tests
+tsconfig.build.json
+yarn.lock
+codecov.yml
+.gitattributes
+.eslintignore
+.eslintrc.json
