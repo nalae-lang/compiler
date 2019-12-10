@@ -1,18 +1,14 @@
-name: 유닛 테스트
+name: package 배포
 on: [push, pull_request]
 jobs:
   run:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        node: ["12", "10", "8"]
-        os: [ubuntu-latest, windows-latest]
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Node ${{ matrix.node }} 사용, OS ${{ matrix.os }} 사용
+      - name: node 설정
         uses: actions/setup-node@master
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 8
       - name: yarn 캐시 사용
         id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -25,6 +21,13 @@ jobs:
       - name: npm 모듈 설치
         run: |
           yarn install
-      - name: Mocha 테스트
+      - name: 빌드
         run: |
-          yarn test:only
+          yarn build
+      - run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.ACCOUNT_TOKEN }}" > ~/.npmrc
+      - name: 배포
+        uses: primer/publish@emplums-patch-1
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCOUNT_TOKEN }}
+          GPR_AUTH_TOKEN: ${{ secrets.ACCOUNT_TOKEN }}
+          NPM_REGISTRY_URL: "npm.pkg.github.com"

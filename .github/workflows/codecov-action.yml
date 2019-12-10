@@ -1,5 +1,8 @@
 name: CodeCov 테스트
-on: [push]
+on:
+  push:
+    branches:
+      - master
 jobs:
   run:
     runs-on: ubuntu-latest
@@ -9,7 +12,7 @@ jobs:
         uses: actions/setup-node@master
         with:
           node-version: 8
-      - name: yarn 캐쉬 사용
+      - name: yarn 캐시 사용
         id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
       - uses: actions/cache@v1

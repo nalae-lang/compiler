@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "pretty": true,
+    "target": "es5",
+    "lib": ["es6"],
+    "sourceMap": true,
+    "noEmitOnError": true,
+    "baseUrl": "src",
+    "outDir": "dist",
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictPropertyInitialization": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "alwaysStrict": true,
+    "preserveConstEnums": true,
+    "esModuleInterop": true,
+    "newLine": "lf",
+    "types": ["./tests/chai", "mocha", "chai", "./__snapshots__/module"],
+    "paths": {
+      "snapshots/*": ["../__snapshots__/*"]
+    }
+  },
+  "include": ["src/**/*.ts"]
+}
