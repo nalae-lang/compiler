@@ -1,5 +1,5 @@
 name: 유닛 테스트
-on: [push, pull_request]
+on: [push]
 jobs:
   run:
     runs-on: ${{ matrix.os }}
