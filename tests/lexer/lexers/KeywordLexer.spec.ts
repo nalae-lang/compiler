@@ -20,7 +20,7 @@ describe("KeywordLexer", function() {
         expectTokenType(result, LexerTokenTypes.KEYWORD);
         expect(result.name).to.equal(keyword.name);
         expect(code.substring(result.index.start, result.index.end)).to.equal(
-          keyword.match
+          keyword.match,
         );
         snapshot(result);
         index = result.index.end + 1;
@@ -31,7 +31,7 @@ describe("KeywordLexer", function() {
       const code = keywordList
         .map(
           (keyword, index) =>
-            keyword.match + operatorList[index % operatorList.length]
+            keyword.match + operatorList[index % operatorList.length],
         )
         .join(" ");
       const keywordLexer = createLexer(KeywordLexer, code);
@@ -43,7 +43,7 @@ describe("KeywordLexer", function() {
         expectTokenType(result, LexerTokenTypes.KEYWORD);
         expect(result.name).to.equal(keyword.name);
         expect(code.substring(result.index.start, result.index.end)).to.equal(
-          keyword.match
+          keyword.match,
         );
         snapshot(result);
         // 뒤에 추가로 붙은 Operator 길이를 더함
@@ -55,7 +55,7 @@ describe("KeywordLexer", function() {
     it("단어 뒤에 특수기호가 아닌 문자가 붙었을 때", function() {
       const keywordLexer = createLexer(
         KeywordLexer,
-        keywordList[0].match + "1"
+        keywordList[0].match + "1",
       );
 
       const result = keywordLexer.parse(0);

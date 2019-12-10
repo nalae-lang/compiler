@@ -1,7 +1,7 @@
 import {
   MorphemeAnalyser,
   MorphemeState,
-  MorphemeTokenBase
+  MorphemeTokenBase,
 } from "morpheme/interface";
 import { Token } from "token/interface";
 
@@ -19,7 +19,7 @@ export class NalaeMorphemeAnalyzer {
 
   public constructor(tokens: Array<Token>) {
     this.state = {
-      tokens
+      tokens,
     };
     this.morphemes = [
       new NamedMorpheme(this.state),
@@ -28,7 +28,7 @@ export class NalaeMorphemeAnalyzer {
       new SubjectMorpheme(this.state),
       new DefineMorpheme(this.state),
       new SubstituteMorpheme(this.state),
-      new IdentifierMorpheme(this.state)
+      new IdentifierMorpheme(this.state),
     ];
   }
 
@@ -51,7 +51,7 @@ export class NalaeMorphemeAnalyzer {
       prev.splice(
         curr.tokenIndex.start,
         curr.tokenIndex.end - curr.tokenIndex.start,
-        curr as Token
+        curr as Token,
       );
       return prev;
     }, resultTokens);

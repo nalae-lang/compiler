@@ -22,9 +22,9 @@ export class IndentLexer extends Lexer<IndentToken> {
         type: LexerTokenTypes.INDENT,
         index: {
           start: index,
-          end: index + 1
+          end: index + 1,
         },
-        indentType: "tab"
+        indentType: "tab",
       };
     }
 
@@ -34,9 +34,9 @@ export class IndentLexer extends Lexer<IndentToken> {
         type: LexerTokenTypes.INDENT,
         index: {
           start: index,
-          end: index + 2
+          end: index + 2,
         },
-        indentType: "space"
+        indentType: "space",
       };
     }
     return null;

@@ -23,15 +23,15 @@ export class CommentLexer extends Lexer<CommentToken> {
             type: LexerTokenTypes.COMMENT,
             index: {
               start: index,
-              end: i + 2
+              end: i + 2,
             },
-            comment: code.substring(index + 2, i)
+            comment: code.substring(index + 2, i),
           };
         }
       }
       throw new NalaeLexerError(LexerErrorCode.COMMENT_NOT_END, {
         start: index,
-        end: i
+        end: i,
       });
     }
 
@@ -47,9 +47,9 @@ export class CommentLexer extends Lexer<CommentToken> {
         type: LexerTokenTypes.COMMENT,
         index: {
           start: index,
-          end: i
+          end: i,
         },
-        comment: code.substring(index + 2, i)
+        comment: code.substring(index + 2, i),
       };
     }
     return null;

@@ -5,7 +5,7 @@ function comparePostPosition(
   word: string,
   josa: string,
   needJongSung: boolean,
-  executeSecond?: () => ReturnType<typeof comparePostPosition>
+  executeSecond?: () => ReturnType<typeof comparePostPosition>,
 ): 1 | 0 | false {
   const matchIndex = executeSecond !== undefined ? 0 : 1;
   if (word.endsWith(josa)) {
@@ -39,15 +39,15 @@ function comparePostPosition(
  */
 export function checkPostPosition(
   word: string,
-  josa: [string, string]
+  josa: [string, string],
 ): 0 | 1 | false {
   // 길이가 긴 조사부터 단어를 비교해야 함.
   if (josa[0].length < josa[1].length) {
     return comparePostPosition(word, josa[1], false, () =>
-      comparePostPosition(word, josa[0], true)
+      comparePostPosition(word, josa[0], true),
     );
   }
   return comparePostPosition(word, josa[0], true, () =>
-    comparePostPosition(word, josa[1], false)
+    comparePostPosition(word, josa[1], false),
   );
 }

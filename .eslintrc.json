@@ -13,9 +13,8 @@
   },
   "extends": [
     "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
-    "plugin:prettier/recommended",
-    "plugin:mocha/recommended"
+    "plugin:mocha/recommended",
+    "prettier"
   ],
   "plugins": ["@typescript-eslint", "mocha"],
   "rules": {
@@ -52,6 +51,7 @@
     "@typescript-eslint/prefer-nullish-coalescing": "error",
     "@typescript-eslint/prefer-readonly": "error",
 
+    // typescript-eslint에서 사용되는 룰
     "quotes": "off",
     "@typescript-eslint/quotes": [
       "error",
@@ -61,6 +61,9 @@
 
     "semi": "off",
     "@typescript-eslint/semi": "error",
+
+    "indent": "off",
+    "@typescript-eslint/indent": ["error", 2],
 
     "brace-style": "off",
     "@typescript-eslint/brace-style": ["error"],
@@ -72,6 +75,8 @@
     ],
 
     // eslint
+
+    "max-len": ["error", 80],
     "constructor-super": "error",
     "curly": ["error", "multi-line"],
     "dot-notation": "error",
@@ -112,7 +117,8 @@
     "quote-props": ["error", "consistent-as-needed"],
     "space-in-parens": "error",
     "unicode-bom": ["error", "never"],
-    "use-isnan": "error"
+    "use-isnan": "error",
+    "comma-dangle": ["error", "always-multiline"]
   },
   "overrides": [
     {

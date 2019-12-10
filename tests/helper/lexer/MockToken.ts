@@ -10,12 +10,12 @@ import { RawCodeToken } from "lexer/lexers/RawCodeLexer";
 import { StringToken } from "lexer/lexers/StringLexer";
 import {
   ArgumentMorpheme,
-  ArgumentToken
+  ArgumentToken,
 } from "morpheme/morphemes/ArgumentMorpheme";
 import { IdentifierToken } from "morpheme/morphemes/IdentifierMorpheme";
 import {
   SubjectMorpheme,
-  SubjectToken
+  SubjectToken,
 } from "morpheme/morphemes/SubjectMorpheme";
 import { Index } from "token/interface";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
@@ -27,13 +27,13 @@ export function mockGrammar(
   text: string,
   index: Index = {
     start: 0,
-    end: text.length
-  }
+    end: text.length,
+  },
 ): GrammarToken {
   return {
     type: LexerTokenTypes.GRAMMAR,
     index,
-    text
+    text,
   };
 }
 
@@ -42,14 +42,14 @@ export function mockNumber(
   radix: Radix = 10,
   index: Index = {
     start: 0,
-    end: `${number}`.length
-  }
+    end: `${number}`.length,
+  },
 ): NumberToken {
   return {
     type: LexerTokenTypes.NUMBER,
     index,
     number,
-    radix
+    radix,
   };
 }
 
@@ -57,13 +57,13 @@ export function mockString(
   string: string,
   index: Index = {
     start: 0,
-    end: string.length
-  }
+    end: string.length,
+  },
 ): StringToken {
   return {
     type: LexerTokenTypes.STRING,
     index,
-    string
+    string,
   };
 }
 
@@ -71,13 +71,13 @@ export function mockRawCode(
   code: string,
   index: Index = {
     start: 0,
-    end: code.length
-  }
+    end: code.length,
+  },
 ): RawCodeToken {
   return {
     type: LexerTokenTypes.RAWCODE,
     index,
-    code
+    code,
   };
 }
 
@@ -85,13 +85,13 @@ export function mockEnd(
   endType: EndType,
   index: Index = {
     start: 0,
-    end: 1
-  }
+    end: 1,
+  },
 ): EndToken {
   return {
     type: LexerTokenTypes.END,
     index,
-    endType
+    endType,
   };
 }
 
@@ -99,13 +99,13 @@ export function mockIndent(
   indentType: IndentType,
   index: Index = {
     start: 0,
-    end: 2
-  }
+    end: 2,
+  },
 ): IndentToken {
   return {
     type: LexerTokenTypes.INDENT,
     index,
-    indentType
+    indentType,
   };
 }
 
@@ -113,26 +113,35 @@ export function mockOperator(
   operator: typeof operatorList[number],
   index: Index = {
     start: 0,
-    end: operator.length
-  }
+    end: operator.length,
+  },
 ): OperatorToken {
   return {
     type: LexerTokenTypes.OPERATOR,
     index,
-    operator
+    operator,
   };
 }
 
-export function mockSubject(text: string): SubjectToken {
-  return createMorpheme(SubjectMorpheme, [mockGrammar(text)]).analyze(
-    0
-  ) as SubjectToken;
+export function mockSubject(text: string,
+  index: Index = {
+    start: 0,
+    end: text.length,
+  },
+  tokenIndex?: Index,
+): SubjectToken {
+  return {
+    ...(createMorpheme(SubjectMorpheme, [mockGrammar(text, index)]).analyze(
+      0,
+    ) as SubjectToken),
+    ...(tokenIndex ?? {}),
+  };
 }
 
-export function mockArgument(postfix: string): ArgumentToken {
+export function mockArgument(postfix?: string): ArgumentToken {
   return createMorpheme(ArgumentMorpheme, [
     mockOperator("~"),
-    postfix !== undefined ? mockGrammar(postfix) : mockEnd("dot")
+    postfix !== undefined ? mockGrammar(postfix) : mockEnd("dot"),
   ]).analyze(0) as ArgumentToken;
 }
 
@@ -140,14 +149,18 @@ export function mockIdentifier(
   name: string,
   index: Index = {
     start: 0,
-    end: name.length
-  }
+    end: name.length,
+  },
+  tokenIndex: Index = {
+    start: 0,
+    end: 1,
+  },
 ): IdentifierToken {
   return {
     type: MorphemeTokenTypes.IDENTIFIER,
     index,
     name,
-    tokenIndex: { start: 0, end: 1 }
+    tokenIndex,
   };
 }
 
@@ -155,12 +168,12 @@ export function mockKeyword(
   keyword: typeof keywordList[number]["name"],
   index: Index = {
     start: 0,
-    end: keyword.length
-  }
+    end: keyword.length,
+  },
 ): KeywordToken {
   return {
     type: LexerTokenTypes.KEYWORD,
     index,
-    name: keyword
+    name: keyword,
   };
 }

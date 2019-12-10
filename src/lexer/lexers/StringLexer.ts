@@ -22,15 +22,15 @@ export class StringLexer extends Lexer<StringToken> {
             type: LexerTokenTypes.STRING,
             index: {
               start: index,
-              end: i + 1
+              end: i + 1,
             },
-            string: code.substring(index + 1, i)
+            string: code.substring(index + 1, i),
           };
         }
       }
       throw new NalaeLexerError(LexerErrorCode.STRING_NOT_END, {
         start: index,
-        end: i
+        end: i,
       });
     }
     return null;

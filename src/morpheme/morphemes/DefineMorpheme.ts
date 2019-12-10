@@ -27,9 +27,9 @@ export class DefineMorpheme extends MorphemeAnalyser<DefineToken> {
           index: token.index,
           tokenIndex: {
             start: index - 1,
-            end: index + 1
+            end: index + 1,
           },
-          value: tokens[index - 1] as ValueToken
+          value: tokens[index - 1] as ValueToken,
         };
       }
 
@@ -39,20 +39,20 @@ export class DefineMorpheme extends MorphemeAnalyser<DefineToken> {
           index: token.index,
           tokenIndex: {
             start: index,
-            end: index + 1
+            end: index + 1,
           },
           value: {
             type: MorphemeTokenTypes.IDENTIFIER,
             index: {
               start: token.index.start,
-              end: token.index.end - 2
+              end: token.index.end - 2,
             },
             tokenIndex: {
               start: index,
-              end: index + 1
+              end: index + 1,
             },
-            name: token.text.substr(0, token.text.length - 2)
-          }
+            name: token.text.substr(0, token.text.length - 2),
+          },
         };
       }
 
@@ -64,20 +64,20 @@ export class DefineMorpheme extends MorphemeAnalyser<DefineToken> {
             index: token.index,
             tokenIndex: {
               start: index,
-              end: index + 1
+              end: index + 1,
             },
             value: {
               type: MorphemeTokenTypes.IDENTIFIER,
               index: {
                 start: token.index.start,
-                end: token.index.end - 1
+                end: token.index.end - 1,
               },
               tokenIndex: {
                 start: index,
-                end: index + 1
+                end: index + 1,
               },
-              name: token.text.substr(0, token.text.length - 1)
-            }
+              name: token.text.substr(0, token.text.length - 1),
+            },
           };
         }
       }

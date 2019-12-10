@@ -1,7 +1,7 @@
 import {
   MorphemeAnalyser,
   MorphemeList,
-  MorphemeTokenBase
+  MorphemeTokenBase,
 } from "morpheme/interface";
 import { ValueToken } from "token/interface";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
@@ -31,9 +31,9 @@ export class SubstituteMorpheme extends MorphemeAnalyser<SubstituteToken> {
           index: token.index,
           tokenIndex: {
             start: index,
-            end: index + 1
+            end: index + 1,
           },
-          value: tokens[index - 1] as ValueToken
+          value: tokens[index - 1] as ValueToken,
         };
       }
       const match = checkPostPosition(token.text, SubstituteMorphemeList);
@@ -45,20 +45,20 @@ export class SubstituteMorpheme extends MorphemeAnalyser<SubstituteToken> {
           index: token.index,
           tokenIndex: {
             start: index,
-            end: index + 1
+            end: index + 1,
           },
           value: {
             type: MorphemeTokenTypes.IDENTIFIER,
             index: {
               start: token.index.start,
-              end: token.index.end - morphemeLength
+              end: token.index.end - morphemeLength,
             },
             tokenIndex: {
               start: index,
-              end: index + 1
+              end: index + 1,
             },
-            name: token.text.substr(0, token.text.length - morphemeLength)
-          }
+            name: token.text.substr(0, token.text.length - morphemeLength),
+          },
         };
       }
     }

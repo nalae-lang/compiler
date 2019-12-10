@@ -22,15 +22,15 @@ export class RawCodeLexer extends Lexer<RawCodeToken> {
             type: LexerTokenTypes.RAWCODE,
             index: {
               start: index,
-              end: i + 1
+              end: i + 1,
             },
-            code: code.substring(index + 1, i)
+            code: code.substring(index + 1, i),
           };
         }
       }
       throw new NalaeLexerError(LexerErrorCode.RAWCODE_NOT_END, {
         start: index,
-        end: i
+        end: i,
       });
     }
     return null;

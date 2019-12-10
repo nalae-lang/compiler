@@ -13,7 +13,7 @@ describe("Lexer", function() {
   테스트 주석
 */
 텍스트박스가 ~로 수정될 때를 정의하면,
-  콘솔이 1번째 인자 + "로 수정됨"을 출력한다.`
+  콘솔이 1번째 인자 + "로 수정됨"을 출력한다.`,
     );
     snapshot("LEXER_RESULT_DEFAULT", lexer.lex());
   });

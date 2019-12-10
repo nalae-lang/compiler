@@ -11,7 +11,7 @@ describe("ArgumentMorpheme", function() {
     it("'~과' 일 때", function() {
       const argumentMorpheme = createMorpheme(ArgumentMorpheme, [
         mockOperator("~"),
-        mockGrammar("과")
+        mockGrammar("과"),
       ]);
       const result = argumentMorpheme.analyze(0);
       expectTokenType(result, MorphemeTokenTypes.ARGUMENT);
@@ -22,7 +22,7 @@ describe("ArgumentMorpheme", function() {
     it("'~와' 일 때", function() {
       const argumentMorpheme = createMorpheme(ArgumentMorpheme, [
         mockOperator("~"),
-        mockGrammar("와")
+        mockGrammar("와"),
       ]);
       const result = argumentMorpheme.analyze(0);
       expectTokenType(result, MorphemeTokenTypes.ARGUMENT);
@@ -33,7 +33,7 @@ describe("ArgumentMorpheme", function() {
     it("'~로부터' 일 때", function() {
       const argumentMorpheme = createMorpheme(ArgumentMorpheme, [
         mockOperator("~"),
-        mockGrammar("로부터")
+        mockGrammar("로부터"),
       ]);
       const result = argumentMorpheme.analyze(0);
       expectTokenType(result, MorphemeTokenTypes.ARGUMENT);
@@ -44,7 +44,7 @@ describe("ArgumentMorpheme", function() {
     it("'~가' 일 때", function() {
       const argumentMorpheme = createMorpheme(ArgumentMorpheme, [
         mockOperator("~"),
-        mockGrammar("가")
+        mockGrammar("가"),
       ]);
       const result = argumentMorpheme.analyze(0);
       expectTokenType(result, MorphemeTokenTypes.ARGUMENT);
@@ -54,7 +54,7 @@ describe("ArgumentMorpheme", function() {
 
     it("'~' 일 때", function() {
       const argumentMorpheme = createMorpheme(ArgumentMorpheme, [
-        mockOperator("~")
+        mockOperator("~"),
       ]);
       const result = argumentMorpheme.analyze(0);
       expectTokenType(result, MorphemeTokenTypes.ARGUMENT);
@@ -66,7 +66,7 @@ describe("ArgumentMorpheme", function() {
   describe("매치 되지 않는 경우", function() {
     it("'-' 일 때", function() {
       const argumentMorpheme = createMorpheme(ArgumentMorpheme, [
-        mockOperator("-")
+        mockOperator("-"),
       ]);
       const result = argumentMorpheme.analyze(0);
       expect(result).to.be.not.exist;

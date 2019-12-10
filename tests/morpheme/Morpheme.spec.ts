@@ -15,7 +15,7 @@ describe("Morpheme", function() {
       LexerTokenTypes.GRAMMAR,
       LexerTokenTypes.STRING,
       LexerTokenTypes.GRAMMAR,
-      LexerTokenTypes.END
+      LexerTokenTypes.END,
     ]);
 
     const morphemeAnalyser = new NalaeMorphemeAnalyzer(lexerResult);
@@ -24,7 +24,7 @@ describe("Morpheme", function() {
       MorphemeTokenTypes.PROPERTY,
       MorphemeTokenTypes.SUBJECT,
       MorphemeTokenTypes.DEFINE,
-      LexerTokenTypes.END
+      LexerTokenTypes.END,
     ]);
     snapshot(lexerResult);
     snapshot(morphemeResult);
@@ -38,7 +38,7 @@ describe("Morpheme", function() {
       LexerTokenTypes.STRING,
       LexerTokenTypes.GRAMMAR,
       LexerTokenTypes.GRAMMAR,
-      LexerTokenTypes.END
+      LexerTokenTypes.END,
     ]);
 
     const morphemeAnalyser = new NalaeMorphemeAnalyzer(lexerResult);
@@ -48,7 +48,7 @@ describe("Morpheme", function() {
       LexerTokenTypes.STRING,
       MorphemeTokenTypes.IDENTIFIER,
       MorphemeTokenTypes.IDENTIFIER,
-      LexerTokenTypes.END
+      LexerTokenTypes.END,
     ]);
     snapshot(lexerResult);
     snapshot(morphemeResult);
@@ -64,7 +64,7 @@ describe("Morpheme", function() {
       LexerTokenTypes.GRAMMAR,
       LexerTokenTypes.GRAMMAR,
       LexerTokenTypes.KEYWORD,
-      LexerTokenTypes.OPERATOR
+      LexerTokenTypes.OPERATOR,
     ]);
 
     const morphemeAnalyser = new NalaeMorphemeAnalyzer(lexerResult);
@@ -75,7 +75,7 @@ describe("Morpheme", function() {
       MorphemeTokenTypes.ARGUMENT,
       MorphemeTokenTypes.IDENTIFIER,
       LexerTokenTypes.KEYWORD,
-      LexerTokenTypes.OPERATOR
+      LexerTokenTypes.OPERATOR,
     ]);
 
     snapshot(lexerResult);
@@ -89,7 +89,7 @@ describe("Morpheme", function() {
       LexerTokenTypes.GRAMMAR,
       LexerTokenTypes.KEYWORD,
       LexerTokenTypes.KEYWORD,
-      LexerTokenTypes.END
+      LexerTokenTypes.END,
     ]);
 
     const morphemeAnalyser = new NalaeMorphemeAnalyzer(lexerResult);
@@ -98,7 +98,7 @@ describe("Morpheme", function() {
       MorphemeTokenTypes.NAMED,
       LexerTokenTypes.KEYWORD,
       LexerTokenTypes.KEYWORD,
-      LexerTokenTypes.END
+      LexerTokenTypes.END,
     ]);
     snapshot(lexerResult);
     snapshot(morphemeResult);

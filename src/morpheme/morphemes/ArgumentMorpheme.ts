@@ -3,7 +3,7 @@ import { MorphemeAnalyser, MorphemeTokenBase } from "morpheme/interface";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
 
-const AllowedEndList: ReadonlyArray<ReadonlyArray<string>> = [
+const ChangeableEndList: ReadonlyArray<ReadonlyArray<string>> = [
   ["을", "를"],
   ["과", "와"],
   ["아", "야"],
@@ -12,7 +12,7 @@ const AllowedEndList: ReadonlyArray<ReadonlyArray<string>> = [
   ["으로", "로"],
   ["으로서", "로서"],
   ["으로써", "로써"],
-  ["으로부터", "로부터"]
+  ["으로부터", "로부터"],
 ];
 
 export interface ArgumentToken extends MorphemeTokenBase {
@@ -28,19 +28,21 @@ export class ArgumentMorpheme extends MorphemeAnalyser<ArgumentToken> {
     if (token.type === LexerTokenTypes.OPERATOR && token.operator === "~") {
       if (tokens[index + 1]?.type === LexerTokenTypes.GRAMMAR) {
         const grammerText = (tokens[index + 1] as GrammarToken).text;
-        const ends = AllowedEndList.find(end => end.indexOf(grammerText) > -1);
+        const ends = ChangeableEndList.find(
+          end => end.indexOf(grammerText) > -1,
+        );
 
         return {
           type: MorphemeTokenTypes.ARGUMENT,
           index: {
             start: token.index.start,
-            end: tokens[index + 1].index.end
+            end: tokens[index + 1].index.end,
           },
           tokenIndex: {
             start: index,
-            end: index + 2
+            end: index + 2,
           },
-          names: ends !== undefined ? ends : [grammerText]
+          names: ends !== undefined ? ends : [grammerText],
         };
       }
 
@@ -49,8 +51,8 @@ export class ArgumentMorpheme extends MorphemeAnalyser<ArgumentToken> {
         index: token.index,
         tokenIndex: {
           start: index,
-          end: index + 1
-        }
+          end: index + 1,
+        },
       };
     }
     return null;

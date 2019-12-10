@@ -8,7 +8,7 @@ export abstract class NalaeErrorBase<T extends string> {
   public constructor(
     code: T,
     public index: Index,
-    parameter?: ReadonlyArray<string | number>
+    parameter?: ReadonlyArray<string | number>,
   ) {
     this.message = formatString(code, parameter);
   }

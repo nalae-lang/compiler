@@ -21,9 +21,9 @@ export class OperatorLexer extends Lexer<OperatorToken> {
         type: LexerTokenTypes.OPERATOR,
         index: {
           start: index,
-          end: index + 1
+          end: index + 1,
         },
-        operator: find
+        operator: find,
       };
     }
     return null;

@@ -26,10 +26,10 @@ export class SubjectMorpheme extends MorphemeAnalyser<SubjectToken> {
           index: token.index,
           tokenIndex: {
             start: index,
-            end: index + 1
+            end: index + 1,
           },
           subject: null,
-          endType: token.text as SubjectEndType
+          endType: token.text as SubjectEndType,
         };
       }
       if (
@@ -41,21 +41,21 @@ export class SubjectMorpheme extends MorphemeAnalyser<SubjectToken> {
           index: token.index,
           tokenIndex: {
             start: index,
-            end: index + 1
+            end: index + 1,
           },
           subject: {
             type: MorphemeTokenTypes.IDENTIFIER,
             index: {
               start: token.index.start,
-              end: token.index.end - 1
+              end: token.index.end - 1,
             },
             tokenIndex: {
               start: index,
-              end: index + 1
+              end: index + 1,
             },
-            name: token.text.substr(0, token.text.length - 1)
+            name: token.text.substr(0, token.text.length - 1),
           },
-          endType: token.text[token.text.length - 1] as SubjectEndType
+          endType: token.text[token.text.length - 1] as SubjectEndType,
         };
       }
     }

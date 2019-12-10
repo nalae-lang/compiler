@@ -9,14 +9,14 @@ import {
   mockGrammar,
   mockNumber,
   mockRawCode,
-  mockString
+  mockString,
 } from "../../helper/lexer/MockToken";
 
 describe("DefineMorpheme", function() {
   describe("매치 되는 경우", function() {
     it("'사람이다'일 때", function() {
       const defineMorpheme = createMorpheme(DefineMorpheme, [
-        mockGrammar("사람이다")
+        mockGrammar("사람이다"),
       ]);
       const result = defineMorpheme.analyze(0);
       expectTokenType(result, MorphemeTokenTypes.DEFINE);
@@ -28,7 +28,7 @@ describe("DefineMorpheme", function() {
 
     it("'바다이다'일 때", function() {
       const defineMorpheme = createMorpheme(DefineMorpheme, [
-        mockGrammar("바다이다")
+        mockGrammar("바다이다"),
       ]);
       const result = defineMorpheme.analyze(0);
       expectTokenType(result, MorphemeTokenTypes.DEFINE);
@@ -40,7 +40,7 @@ describe("DefineMorpheme", function() {
 
     it("'바다다'일 때", function() {
       const defineMorpheme = createMorpheme(DefineMorpheme, [
-        mockGrammar("바다다")
+        mockGrammar("바다다"),
       ]);
       const result = defineMorpheme.analyze(0);
 
@@ -54,7 +54,7 @@ describe("DefineMorpheme", function() {
     it("'3이다'일 때", function() {
       const defineMorpheme = createMorpheme(DefineMorpheme, [
         mockNumber(3),
-        mockGrammar("이다")
+        mockGrammar("이다"),
       ]);
       const result = defineMorpheme.analyze(1);
 
@@ -67,7 +67,7 @@ describe("DefineMorpheme", function() {
     it("'\"가나다라\"이다'일 때", function() {
       const defineMorpheme = createMorpheme(DefineMorpheme, [
         mockString("가나다라"),
-        mockGrammar("이다")
+        mockGrammar("이다"),
       ]);
       const result = defineMorpheme.analyze(1);
 
@@ -81,7 +81,7 @@ describe("DefineMorpheme", function() {
     it("'`new Date()`이다'일 때", function() {
       const defineMorpheme = createMorpheme(DefineMorpheme, [
         mockRawCode("new Date()"),
-        mockGrammar("이다")
+        mockGrammar("이다"),
       ]);
       const result = defineMorpheme.analyze(1);
 
@@ -96,7 +96,7 @@ describe("DefineMorpheme", function() {
   describe("매치 되지 않는 경우", function() {
     it("'사람다'일 때", function() {
       const defineMorpheme = createMorpheme(DefineMorpheme, [
-        mockGrammar("사람다")
+        mockGrammar("사람다"),
       ]);
       const result = defineMorpheme.analyze(0);
 
@@ -105,7 +105,7 @@ describe("DefineMorpheme", function() {
 
     it("'다'일 때", function() {
       const defineMorpheme = createMorpheme(DefineMorpheme, [
-        mockGrammar("다")
+        mockGrammar("다"),
       ]);
       const result = defineMorpheme.analyze(0);
 

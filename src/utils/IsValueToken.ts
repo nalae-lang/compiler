@@ -8,7 +8,7 @@ export function isValueToken(token: Token): token is ValueToken {
       LexerTokenTypes.STRING,
       LexerTokenTypes.RAWCODE,
       LexerTokenTypes.NUMBER,
-      MorphemeTokenTypes.IDENTIFIER
+      MorphemeTokenTypes.IDENTIFIER,
     ].indexOf(token?.type) > -1
   );
 }

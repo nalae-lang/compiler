@@ -36,9 +36,9 @@ export class KeywordLexer extends Lexer<KeywordToken> {
         type: LexerTokenTypes.KEYWORD,
         index: {
           start: index,
-          end: index + find.match.length
+          end: index + find.match.length,
         },
-        name: find.name
+        name: find.name,
       };
     }
 

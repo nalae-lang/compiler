@@ -24,7 +24,7 @@ export class NamedMorpheme extends MorphemeAnalyser<NamedToken> {
       if (NamedMorphemeList.indexOf(token.text) > -1) {
         throw new NalaeMorphemeError(
           MorphemeErrorCode.NAMED_SUBJECT_NOT_EXISTS,
-          token.index
+          token.index,
         );
       }
       const match = checkPostPosition(token.text, NamedMorphemeList);
@@ -35,23 +35,23 @@ export class NamedMorpheme extends MorphemeAnalyser<NamedToken> {
             type: MorphemeTokenTypes.IDENTIFIER,
             index: {
               start: token.index.start,
-              end: token.index.end - NamedMorphemeList[match].length
+              end: token.index.end - NamedMorphemeList[match].length,
             },
             tokenIndex: {
               start: index,
-              end: index + 1
+              end: index + 1,
             },
             name: token.text.substr(
               0,
-              token.text.length - NamedMorphemeList[match].length
-            )
+              token.text.length - NamedMorphemeList[match].length,
+            ),
           },
           index: token.index,
           tokenIndex: {
             start: index,
-            end: index + 1
+            end: index + 1,
           },
-          name: NamedMorphemeList[match]
+          name: NamedMorphemeList[match],
         };
       }
     }

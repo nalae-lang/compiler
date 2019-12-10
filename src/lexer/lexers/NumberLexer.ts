@@ -28,7 +28,7 @@ export class NumberLexer extends Lexer<NumberToken> {
   private parseNumber(
     index: number,
     startOfNumber: number,
-    radix: Radix
+    radix: Radix,
   ): NumberToken {
     const { code } = this.state;
     let i = index + startOfNumber;
@@ -48,9 +48,9 @@ export class NumberLexer extends Lexer<NumberToken> {
           LexerErrorCode.NUMBER_BASE_NOT_MATCH,
           {
             start: i,
-            end: i + 1
+            end: i + 1,
           },
-          [radix, code[i]]
+          [radix, code[i]],
         );
       } else if (code[i] === "." && this.checkNumber(i + 1, 16)) {
         // 소수점이 있을 때
@@ -62,9 +62,9 @@ export class NumberLexer extends Lexer<NumberToken> {
           LexerErrorCode.NUMBER_FLOAT_NOT_ALLOWED,
           {
             start: i,
-            end: i + 1
+            end: i + 1,
           },
-          [radix]
+          [radix],
         );
       }
       break;
@@ -72,16 +72,16 @@ export class NumberLexer extends Lexer<NumberToken> {
     const resultNumber =
       radix !== 10
         ? parseInt(
-            (isNegative ? "-" : "") + code.substr(index + startOfNumber, i + 1),
-            radix
-          )
+          (isNegative ? "-" : "") + code.substr(index + startOfNumber, i + 1),
+          radix,
+        )
         : parseFloat(
-            (isNegative ? "-" : "") + code.substr(index + startOfNumber, i + 1)
-          );
+          (isNegative ? "-" : "") + code.substr(index + startOfNumber, i + 1),
+        );
     if (isNaN(resultNumber)) {
       throw new NalaeLexerError(LexerErrorCode.NUMBER_UNKNOWN, {
         start: index,
-        end: i + 1
+        end: i + 1,
       });
     }
 
@@ -89,10 +89,10 @@ export class NumberLexer extends Lexer<NumberToken> {
       type: LexerTokenTypes.NUMBER,
       index: {
         start: index - (isNegative ? 1 : 0),
-        end: i
+        end: i,
       },
       radix,
-      number: resultNumber
+      number: resultNumber,
     };
   }
   public parse(index: number): NumberToken | null {
@@ -123,11 +123,11 @@ export class NumberLexer extends Lexer<NumberToken> {
       return {
         index: {
           start: i,
-          end: i + 1
+          end: i + 1,
         },
         number: 0,
         radix: 10,
-        type: LexerTokenTypes.NUMBER
+        type: LexerTokenTypes.NUMBER,
       };
     } else if (code[i] >= "1" && code[i] <= "9") {
       return this.parseNumber(i, 0, 10);

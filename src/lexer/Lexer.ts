@@ -19,7 +19,7 @@ export class NalaeLexer {
 
   public constructor(code: string) {
     this.state = {
-      code
+      code,
     };
     this.lexers = [
       new CommentLexer(this.state),
@@ -30,7 +30,7 @@ export class NalaeLexer {
       new IndentLexer(this.state),
       new EndLexer(this.state),
       new NumberLexer(this.state),
-      new GrammarLexer(this.state)
+      new GrammarLexer(this.state),
     ];
   }
 
@@ -67,9 +67,9 @@ export class NalaeLexer {
             LexerErrorCode.LEXER_UNKNOWN_WORD,
             {
               start: i,
-              end: i + 1
+              end: i + 1,
             },
-            [code[i]]
+            [code[i]],
           );
         }
       }

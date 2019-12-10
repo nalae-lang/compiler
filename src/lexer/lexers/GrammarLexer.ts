@@ -18,9 +18,9 @@ export class GrammarLexer extends Lexer<GrammarToken> {
         type: LexerTokenTypes.GRAMMAR,
         index: {
           start: index,
-          end: index + match[0].length
+          end: index + match[0].length,
         },
-        text: match[0]
+        text: match[0],
       };
     }
     return null;

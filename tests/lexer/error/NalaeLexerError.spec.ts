@@ -6,7 +6,7 @@ describe("NalaeLexerError", function() {
     expect(() => {
       throw new NalaeLexerError(LexerErrorCode.COMMENT_NOT_END, {
         start: 0,
-        end: 1
+        end: 1,
       });
     }).to.throw(LexerErrorCode.COMMENT_NOT_END);
   });
@@ -14,7 +14,7 @@ describe("NalaeLexerError", function() {
   it("LexerError name 비교", function() {
     const lexerError = new NalaeLexerError(LexerErrorCode.LEXER_LOOP, {
       start: 1,
-      end: 2
+      end: 2,
     });
 
     expect(lexerError.name).to.equal("NalaeLexerError");

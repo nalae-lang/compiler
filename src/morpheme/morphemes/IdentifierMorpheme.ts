@@ -18,9 +18,9 @@ export class IdentifierMorpheme extends MorphemeAnalyser<IdentifierToken> {
         index: token.index,
         tokenIndex: {
           start: index,
-          end: index + 1
+          end: index + 1,
         },
-        name: token.text
+        name: token.text,
       };
     }
     return null;

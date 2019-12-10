@@ -10,7 +10,7 @@ describe("IdentifierMorpheme", function() {
   describe("매치 되는 경우", function() {
     it("'변수1'일 때", function() {
       const identifierMorpheme = createMorpheme(IdentifierMorpheme, [
-        mockGrammar("변수1")
+        mockGrammar("변수1"),
       ]);
       const result = identifierMorpheme.analyze(0);
 
@@ -22,7 +22,7 @@ describe("IdentifierMorpheme", function() {
   describe("매치 되지 않는 경우", function() {
     it("'3'일 때", function() {
       const identifierMorpheme = createMorpheme(IdentifierMorpheme, [
-        mockNumber(3)
+        mockNumber(3),
       ]);
       const result = identifierMorpheme.analyze(0);
 

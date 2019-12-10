@@ -21,9 +21,9 @@ export class PropertyMorpheme extends MorphemeAnalyser<PropertyToken> {
           index: token.index,
           tokenIndex: {
             start: index,
-            end: index + 1
+            end: index + 1,
           },
-          object: tokens[index - 1] as ValueToken
+          object: tokens[index - 1] as ValueToken,
         };
       }
       if (token.text.length > 2 && token.text[token.text.length - 1] === "의") {
@@ -32,20 +32,20 @@ export class PropertyMorpheme extends MorphemeAnalyser<PropertyToken> {
           index: token.index,
           tokenIndex: {
             start: index,
-            end: index + 1
+            end: index + 1,
           },
           object: {
             type: MorphemeTokenTypes.IDENTIFIER,
             index: {
               start: token.index.start,
-              end: token.index.end - 1
+              end: token.index.end - 1,
             },
             tokenIndex: {
               start: index,
-              end: index + 1
+              end: index + 1,
             },
-            name: token.text.substr(0, token.text.length - 1)
-          }
+            name: token.text.substr(0, token.text.length - 1),
+          },
         };
       }
     }

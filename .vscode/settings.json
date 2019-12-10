@@ -1,4 +1,5 @@
 {
+  "eslint.enable": true,
   "eslint.autoFixOnSave": true,
   "eslint.validate": [{ "language": "typescript", "autoFix": true }],
   "editor.formatOnSave": true,
@@ -7,8 +8,6 @@
     "editor.formatOnSave": false
   },
   "typescript.tsdk": "./node_modules/typescript/lib",
-  "prettier.disableLanguages": ["typescript"],
-  "eslint.enable": true,
   "typescriptHero.imports.stringQuoteStyle": "\"",
   "typescriptHero.imports.multiLineWrapThreshold": 80,
   "typescriptHero.imports.multiLineTrailingComma": false

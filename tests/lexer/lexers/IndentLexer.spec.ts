@@ -47,7 +47,7 @@ describe("IndentLexer", function() {
       const tokens = IndentLexer.reduceIndent([
         mockEndToken,
         mockIndentToken,
-        mockIndentToken
+        mockIndentToken,
       ]);
 
       expect(tokens.length).to.equal(3);
@@ -61,7 +61,7 @@ describe("IndentLexer", function() {
         mockIndentToken,
         mockEndToken,
         mockIndentToken,
-        mockIndentToken
+        mockIndentToken,
       ]);
 
       expect(tokens.length).to.equal(4);
@@ -72,7 +72,7 @@ describe("IndentLexer", function() {
       const tokens = IndentLexer.reduceIndent([
         mockEndDotToken,
         mockIndentToken,
-        mockIndentToken
+        mockIndentToken,
       ]);
 
       expect(tokens.length).to.equal(1);

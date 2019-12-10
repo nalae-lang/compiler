@@ -19,9 +19,9 @@ export class EndLexer extends Lexer<EndToken> {
         type: LexerTokenTypes.END,
         index: {
           start: index,
-          end: index + 1
+          end: index + 1,
         },
-        endType: "newLine"
+        endType: "newLine",
       };
     }
 
@@ -31,9 +31,9 @@ export class EndLexer extends Lexer<EndToken> {
         type: LexerTokenTypes.END,
         index: {
           start: index,
-          end: index + 1
+          end: index + 1,
         },
-        endType: "dot"
+        endType: "dot",
       };
     }
 

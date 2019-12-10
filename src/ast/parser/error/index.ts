@@ -10,7 +10,7 @@ export class NalaeASTParserError extends NalaeErrorBase<ASTParserErrorCode> {
     code: ASTParserErrorCode,
     index: Index,
     public tokenIndex: Index,
-    parameter?: ReadonlyArray<string | number>
+    parameter?: ReadonlyArray<string | number>,
   ) {
     super(code, index, parameter);
   }

@@ -10,7 +10,7 @@ import { createLexer } from "../../helper/lexer/CreateLexer";
 function testValidNumber(
   code: string,
   expectNumber: number,
-  radix: Radix
+  radix: Radix,
 ): () => void {
   return function(): void {
     const numberLexer = createLexer(NumberLexer, code);
@@ -60,7 +60,7 @@ describe("NumberLexer", function() {
       expect(function() {
         numberLexer.parse(0);
       }).to.be.throw(
-        formatString(LexerErrorCode.NUMBER_BASE_NOT_MATCH, [8, "F"])
+        formatString(LexerErrorCode.NUMBER_BASE_NOT_MATCH, [8, "F"]),
       );
     });
 
@@ -70,7 +70,7 @@ describe("NumberLexer", function() {
       expect(function() {
         numberLexer.parse(0);
       }).to.be.throw(
-        formatString(LexerErrorCode.NUMBER_BASE_NOT_MATCH, [2, "4"])
+        formatString(LexerErrorCode.NUMBER_BASE_NOT_MATCH, [2, "4"]),
       );
     });
 
@@ -80,7 +80,7 @@ describe("NumberLexer", function() {
       expect(function() {
         numberLexer.parse(0);
       }).to.be.throw(
-        formatString(LexerErrorCode.NUMBER_BASE_NOT_MATCH, [8, 9])
+        formatString(LexerErrorCode.NUMBER_BASE_NOT_MATCH, [8, 9]),
       );
     });
 
@@ -90,7 +90,7 @@ describe("NumberLexer", function() {
       expect(function() {
         numberLexer.parse(0);
       }).to.be.throw(
-        formatString(LexerErrorCode.NUMBER_FLOAT_NOT_ALLOWED, [8])
+        formatString(LexerErrorCode.NUMBER_FLOAT_NOT_ALLOWED, [8]),
       );
     });
 
