@@ -28,7 +28,8 @@ jobs:
       - name: npm버전 추가
         run: |
           current_commit="$(git rev-parse --short HEAD)";
-          npm version prerelease -preid "${current_commit}" -no-git-tag-version
+          current_version="$(npm version prerelease -preid "${current_commit}" -no-git-tag-version)";
+          echo "::set-env name=npm_version::${current_version#?}";
       - name: npm에 배포
         run: npm publish --tag build
         env:
@@ -40,3 +41,11 @@ jobs:
         run: npm publish --tag build
         env:
           NODE_AUTH_TOKEN: ${{ secrets.ACCOUNT_TOKEN }}
+      - name: 알림
+        uses: peter-evans/commit-comment@v1
+        with:
+          token: ${{ secrets.ACCOUNT_TOKEN }}
+          body: |
+            모듈 배포 성공!
+            - npm - https://www.npmjs.com/package/@nalae-lang/compiler/v/${{ env.npm_version }}
+            - github package registry - https://github.com/nalae-lang/compiler/packages/72233?version=${{ env.npm_version }}
