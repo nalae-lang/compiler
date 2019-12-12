@@ -1,5 +1,5 @@
 name: package 배포
-on: [pull_request]
+on: [push]
 jobs:
   run:
     runs-on: ubuntu-latest
@@ -9,6 +9,7 @@ jobs:
         uses: actions/setup-node@master
         with:
           node-version: 8
+          registry-url: "https://registry.npmjs.org"
       - name: yarn 캐시 사용
         id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -24,10 +25,18 @@ jobs:
       - name: 빌드
         run: |
           yarn build
-      - run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.ACCOUNT_TOKEN }}" > ~/.npmrc
-      - name: 배포
-        uses: primer/publish@emplums-patch-1
+      - name: npm버전 추가
+        run: |
+          current_commit="$(git rev-parse --short HEAD)";
+          npm version prerelease -preid "${current_commit}" -no-git-tag-version
+      - name: npm에 배포
+        run: npm publish --tag build
         env:
-          GITHUB_TOKEN: ${{ secrets.ACCOUNT_TOKEN }}
-          GPR_AUTH_TOKEN: ${{ secrets.ACCOUNT_TOKEN }}
-          NPM_REGISTRY_URL: "npm.pkg.github.com"
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - uses: actions/setup-node@v1
+        with:
+          registry-url: "https://npm.pkg.github.com"
+      - name: gpr에 배포
+        run: npm publish --tag build
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.ACCOUNT_TOKEN }}

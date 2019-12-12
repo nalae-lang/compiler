@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "repository": "git://github.com/nalae-lang/compiler.git",
   "scripts": {
-    "lint": "eslint */**/*.ts --fix",
+    "lint": "eslint \"*/**/*.ts\" --fix",
     "build": "tsc --build tsconfig.build.json",
     "test": "tsc && nyc mocha --opts tests/mocha-coverage.opts",
     "test:only": "mocha --opts tests/mocha.opts",
