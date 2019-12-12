@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "pretty": true,
     "target": "es5",
     "lib": ["es6"],
+    "declaration": true,
     "sourceMap": true,
     "noEmitOnError": true,
     "baseUrl": "src",

@@ -3,6 +3,7 @@ __snapshots__
 .idea
 .vscode
 tests
+src
 tsconfig.build.json
 yarn.lock
 codecov.yml
