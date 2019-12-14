@@ -14,7 +14,7 @@ import {
   mockSubject,
 } from "../../../helper/lexer/MockToken";
 
-describe("FunctionDifinition", function() {
+describe("FunctionDefinition", function() {
   describe("매치될 때", function() {
     it("'사람이 ~로 이동한다를 정의하면,' 일 때", function() {
       const mockTokens = [
