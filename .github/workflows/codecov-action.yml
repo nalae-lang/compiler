@@ -1,8 +1,5 @@
 name: CodeCov 테스트
-on:
-  push:
-    branches:
-      - master
+on: push
 jobs:
   run:
     runs-on: ubuntu-latest
