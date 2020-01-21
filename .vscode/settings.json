@@ -1,7 +1,6 @@
 {
   "eslint.enable": true,
-  "eslint.autoFixOnSave": true,
-  "eslint.validate": [{ "language": "typescript", "autoFix": true }],
+  "eslint.validate": ["typescript"],
   "editor.formatOnSave": true,
   "files.eol": "\n",
   "[typescript]": {
@@ -10,5 +9,8 @@
   "typescript.tsdk": "./node_modules/typescript/lib",
   "typescriptHero.imports.stringQuoteStyle": "\"",
   "typescriptHero.imports.multiLineWrapThreshold": 80,
-  "typescriptHero.imports.multiLineTrailingComma": false
+  "typescriptHero.imports.multiLineTrailingComma": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }
