@@ -5,10 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Node 8 사용
+      - name: Node 10 사용
         uses: actions/setup-node@master
         with:
-          node-version: 8
+          node-version: 10
       # - name: yarn 캐시 사용
       #   id: yarn-cache
       #   run: echo "::set-output name=dir::$(yarn cache dir)"

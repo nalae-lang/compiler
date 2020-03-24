@@ -8,7 +8,7 @@ jobs:
       - name: node 설정
         uses: actions/setup-node@master
         with:
-          node-version: 8
+          node-version: 10
           registry-url: "https://registry.npmjs.org"
       # - name: yarn 캐시 사용
       #   id: yarn-cache
