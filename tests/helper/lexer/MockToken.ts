@@ -17,7 +17,8 @@ import {
   SubjectMorpheme,
   SubjectToken,
 } from "morpheme/morphemes/SubjectMorpheme";
-import { Index } from "token/interface";
+import { SubstituteToken } from "morpheme/morphemes/SubstituteMorpheme";
+import { Index, ValueToken } from "token/interface";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
 
@@ -123,7 +124,8 @@ export function mockOperator(
   };
 }
 
-export function mockSubject(text: string,
+export function mockSubject(
+  text: string,
   index: Index = {
     start: 0,
     end: text.length,
@@ -161,6 +163,22 @@ export function mockIdentifier(
     index,
     name,
     tokenIndex,
+  };
+}
+
+export function mockSubstitute(
+  value: ValueToken,
+  index: Index = value.index,
+  tokenIndex: Index = {
+    start: 0,
+    end: 1,
+  },
+): SubstituteToken {
+  return {
+    type: MorphemeTokenTypes.SUBSTITUTE,
+    index,
+    tokenIndex,
+    value,
   };
 }
 

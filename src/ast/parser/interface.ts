@@ -8,5 +8,5 @@ export interface ParserTokenBase extends TokenBase {
 
 export type ASTParser<T extends ParserTokenBase> = (
   tokens: ReadonlyArray<Token>,
-  index: number
+  index: number,
 ) => T | null;

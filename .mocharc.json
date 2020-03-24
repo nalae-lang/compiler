@@ -1,0 +1,10 @@
+{
+  "require": [
+    "tsconfig-paths/register",
+    "source-map-support/register",
+    "tests/mocha-setup.js"
+  ],
+  "recursive": true,
+  "watch-extensions": "ts",
+  "spec": "tests/**/*.spec.ts"
+}

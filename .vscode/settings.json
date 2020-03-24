@@ -8,8 +8,8 @@
   },
   "typescript.tsdk": "./node_modules/typescript/lib",
   "typescriptHero.imports.stringQuoteStyle": "\"",
-  "typescriptHero.imports.multiLineWrapThreshold": 80,
-  "typescriptHero.imports.multiLineTrailingComma": false,
+  "typescriptHero.imports.multiLineWrapThreshold": 85,
+  "typescriptHero.imports.multiLineTrailingComma": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   }

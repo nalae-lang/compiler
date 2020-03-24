@@ -1,6 +1,4 @@
-import {
-  FunctionDefinitionParser,
-} from "ast/parser/parsers/FunctionDefinition";
+import { FunctionDefinitionParser } from "ast/parser/parsers/FunctionDefinition";
 import { ParserTokenTypes } from "ast/types/ParserTokenTypes";
 import snapshot = require("snap-shot-it");
 import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";

@@ -5,5 +5,5 @@ export enum MorphemeTokenTypes {
   PROPERTY = "property",
   NAMED = "named",
   DEFINE = "define",
-  SUBSTITUTE = "substitute"
+  SUBSTITUTE = "substitute",
 }

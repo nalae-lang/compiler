@@ -10,8 +10,6 @@ export default class NalaeCompiler {
     this.lexer.setCode(code);
     const tokens = this.lexer.lex();
     this.morpheme.setTokens(tokens);
-    const morphemeToken = this.morpheme.analyze();
-
-    return morphemeToken;
+    return this.morpheme.analyze();
   }
 }

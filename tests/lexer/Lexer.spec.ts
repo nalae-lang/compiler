@@ -4,7 +4,7 @@ import snapshot from "snap-shot-it";
 import { formatString } from "utils/FormatString";
 
 describe("Lexer", function() {
-  test("기본 문법 테스트", function() {
+  it("기본 문법 테스트", function() {
     const lexer = new NalaeLexer(
       `
 "./web"에서 텍스트박스 불러오기.

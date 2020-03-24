@@ -1,4 +1,4 @@
-exports['FunctionDifinition 매치될 때 \'사람이 ~로 이동한다를 정의하면,\' 일 때 1'] = {
+exports['FunctionDefinition 매치될 때 \'사람이 ~로 이동한다를 정의하면,\' 일 때 1'] = {
   "type": "function_definition",
   "arguments": [
     {
@@ -63,7 +63,7 @@ exports['FunctionDifinition 매치될 때 \'사람이 ~로 이동한다를 정�
   }
 }
 
-exports['FunctionDifinition 매치될 때 콘솔은 ~를 오류로 출력한다를 정의하면,\' 일 때 1'] = {
+exports['FunctionDefinition 매치될 때 콘솔은 ~를 오류로 출력한다를 정의하면,\' 일 때 1'] = {
   "type": "function_definition",
   "arguments": [
     {

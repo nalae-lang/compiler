@@ -7,5 +7,5 @@ export enum LexerTokenTypes {
   GRAMMAR = "grammar",
   KEYWORD = "keyword",
   OPERATOR = "operator",
-  END = "end"
+  END = "end",
 }

@@ -15,5 +15,5 @@ export enum LexerErrorCode {
   RAWCODE_NOT_END = "코드가 끝나지 않았습니다.",
 
   // 문자열 오류
-  STRING_NOT_END = "문자열이 끝나지 않았습니다."
+  STRING_NOT_END = "문자열이 끝나지 않았습니다.",
 }

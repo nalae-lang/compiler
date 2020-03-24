@@ -72,12 +72,12 @@ export class NumberLexer extends Lexer<NumberToken> {
     const resultNumber =
       radix !== 10
         ? parseInt(
-          (isNegative ? "-" : "") + code.substr(index + startOfNumber, i + 1),
-          radix,
-        )
+            (isNegative ? "-" : "") + code.substr(index + startOfNumber, i + 1),
+            radix,
+          )
         : parseFloat(
-          (isNegative ? "-" : "") + code.substr(index + startOfNumber, i + 1),
-        );
+            (isNegative ? "-" : "") + code.substr(index + startOfNumber, i + 1),
+          );
     if (isNaN(resultNumber)) {
       throw new NalaeLexerError(LexerErrorCode.NUMBER_UNKNOWN, {
         start: index,

@@ -23,34 +23,39 @@ export const VariableDefinitionParser: ASTParser<VariableDefinitionToken> = (
     token.type === MorphemeTokenTypes.IDENTIFIER &&
     checkPostPosition(token.name, ["을", "를"]) !== false
   ) {
-    if (tokens[index + 1]?.type === MorphemeTokenTypes.SUBSTITUTE) {
-      const defineKeywordToken = tokens[index + 2];
-      if (
-        defineKeywordToken.type === LexerTokenTypes.KEYWORD &&
-        defineKeywordToken.name === "variable_define"
-      ) {
-        return {
-          type: ParserTokenTypes.VARIABLE_DEFINITION,
+    const valuableToken = tokens[index + 1];
+    const defineKeywordToken =
+      valuableToken.type === MorphemeTokenTypes.SUBSTITUTE
+        ? tokens[index + 2]
+        : tokens[index + 1];
+    if (
+      defineKeywordToken.type === LexerTokenTypes.KEYWORD &&
+      defineKeywordToken.name === "variable_define"
+    ) {
+      return {
+        type: ParserTokenTypes.VARIABLE_DEFINITION,
+        index: {
+          start: token.index.start,
+          end: defineKeywordToken.index.end,
+        },
+        name: {
+          type: MorphemeTokenTypes.IDENTIFIER,
           index: {
             start: token.index.start,
-            end: defineKeywordToken.index.end,
+            end: token.index.end - 1,
           },
-          name: {
-            type: MorphemeTokenTypes.IDENTIFIER,
-            index: {
-              start: token.index.start,
-              end: token.index.end - 1,
-            },
-            name: token.name.substr(0, token.name.length - 1),
-            tokenIndex: token.tokenIndex,
-          },
-          tokenIndex: {
-            start: index,
-            end: index + 2,
-          },
-          value: null,
-        };
-      }
+          name: token.name.substr(0, token.name.length - 1),
+          tokenIndex: token.tokenIndex,
+        },
+        tokenIndex: {
+          start: index,
+          end: index + 2,
+        },
+        value:
+          valuableToken.type === MorphemeTokenTypes.SUBSTITUTE
+            ? valuableToken.value
+            : null,
+      };
     }
   }
   return null;

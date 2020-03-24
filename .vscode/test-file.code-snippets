@@ -1,0 +1,32 @@
+{
+  // Place your nalae-compiler workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+  // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+  // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+  // used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  // Example:
+  // "Print to console": {
+  // 	"scope": "javascript,typescript",
+  // 	"prefix": "log",
+  // 	"body": [
+  // 		"console.log('$1');",
+  // 		"$2"
+  // 	],
+  // 	"description": "Log output to console"
+  // }
+  "나래 테스트 코드 기본": {
+    "scope": "javascript,typescript",
+    "prefix": "nalae_test",
+    "body": [
+      "describe(\"$TM_FILENAME_BASE$1\", function () {",
+      "\tdescribe(\"매치 되는 경우\", function() {",
+      "\t\tit(\"${2:~} 일 때\", function() {$3})",
+      "\t})",
+      "\tdescribe(\"매치 되지 않는 경우\", function() {",
+      "\t\tit(\"${4:~} 일 때\", function() {$5})",
+      "\t})",
+      "})"
+    ]
+  }
+}
