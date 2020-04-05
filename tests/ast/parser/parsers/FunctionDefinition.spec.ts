@@ -12,9 +12,9 @@ import {
   mockSubject,
 } from "../../../helper/lexer/MockToken";
 
-describe("FunctionDefinition", function() {
-  describe("매치될 때", function() {
-    it("'사람이 ~로 이동한다를 정의하면,' 일 때", function() {
+describe("FunctionDefinition", function () {
+  describe("매치될 때", function () {
+    it("'사람이 ~로 이동한다를 정의하면,' 일 때", function () {
       const mockTokens = [
         mockSubject("사람이"),
         mockArgument("로"),
@@ -34,7 +34,29 @@ describe("FunctionDefinition", function() {
       snapshot(result);
     });
 
-    it("콘솔은 ~를 오류로 출력한다를 정의하면,' 일 때", function() {
+    it("'사람이 ~로 ~만큼 움직인다를 정의하면,' 일 때", function () {
+      const mockTokens = [
+        mockSubject("사람이"),
+        mockArgument("로"),
+        mockArgument("만큼"),
+        mockIdentifier("움직인다를"),
+        mockKeyword("function_define"),
+        mockOperator(","),
+      ];
+      const result = FunctionDefinitionParser(mockTokens, 4);
+
+      expectTokenType(result, ParserTokenTypes.FUNCTION_DEFINITION);
+      expect(result.name.name).to.equal("움직인다");
+      expectTokenType(result.subject.subject, MorphemeTokenTypes.IDENTIFIER);
+      expect(result.subject.subject.name).to.equal("사람");
+      expectTokenType(result.arguments[0], MorphemeTokenTypes.ARGUMENT);
+      expect(result.arguments[0].names).to.deep.equal(["으로", "로"]);
+      expectTokenType(result.arguments[1], MorphemeTokenTypes.ARGUMENT);
+      expect(result.arguments[1].names).to.deep.equals(["만큼"]);
+      snapshot(result);
+    });
+
+    it("콘솔은 ~를 오류로 출력한다를 정의하면,' 일 때", function () {
       const mockTokens = [
         mockSubject("콘솔은"),
         mockArgument("를"),

@@ -37,8 +37,7 @@ export const FunctionDefinitionParser: ASTParser<FunctionDefinitionToken> = (
       if (tokens[i]?.type === LexerTokenTypes.END || i < 0) {
         throw new NalaeASTParserError(
           ASTParserErrorCode.FUNCTION_DEFINE_SUBJECT_NEED,
-          { start: tokens[i].index.end, end: token.index.end },
-          { start: i, end: index },
+          { start: tokens[i], end: token },
         );
       } else if (
         tokens[i]?.type === MorphemeTokenTypes.ARGUMENT ||
@@ -50,8 +49,7 @@ export const FunctionDefinitionParser: ASTParser<FunctionDefinitionToken> = (
       } else {
         throw new NalaeASTParserError(
           ASTParserErrorCode.FUNCTION_DEFINE_UNKNOWN_TOKEN,
-          { start: tokens[i].index.end, end: token.index.end },
-          { start: i, end: index },
+          { start: tokens[i], end: token },
         );
       }
     }
@@ -72,8 +70,8 @@ export const FunctionDefinitionParser: ASTParser<FunctionDefinitionToken> = (
           type: ParserTokenTypes.FUNCTION_DEFINITION,
           arguments: argumentList,
           tokenIndex: {
-            start: i,
-            end: index + 2,
+            start: tokens[i],
+            end: tokens[index + 2],
           },
           index: {
             start: subjectToken.index.start,
@@ -95,15 +93,13 @@ export const FunctionDefinitionParser: ASTParser<FunctionDefinitionToken> = (
           tokens[index - 1].type === MorphemeTokenTypes.IDENTIFIER
             ? ASTParserErrorCode.FUNCTION_DEFINE_NAME_NOT_FORMATTED
             : ASTParserErrorCode.FUNCTION_DEFINE_NAME_NOT_EXISTS,
-          { start: tokens[index - 1].index.start, end: token.index.end },
-          { start: index - 1, end: index + 1 },
+          { start: tokens[index - 1], end: token },
         );
       }
     } else {
       throw new NalaeASTParserError(
         ASTParserErrorCode.FUNCTION_DEFINE_COMMA_NOT_EXISTS,
-        token.index,
-        { start: index, end: index + 1 },
+        { start: token, end: token },
       );
     }
   }

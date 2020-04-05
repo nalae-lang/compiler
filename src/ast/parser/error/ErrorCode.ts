@@ -6,4 +6,6 @@ export enum ASTParserErrorCode {
   FUNCTION_DEFINE_COMMA_NOT_EXISTS = "함수 정의 뒤에는 쉼표(,)가 필요합니다.",
   FUNCTION_DEFINE_NAME_NOT_EXISTS = "함수 이름이 필요합니다.",
   FUNCTION_DEFINE_NAME_NOT_FORMATTED = "함수 이름뒤에 을/를이 필요합니다.",
+
+  CONDITIONAL_DEFINITION_SUBJECT_NEED = "조건문에는 주어가 필요합니다.",
 }

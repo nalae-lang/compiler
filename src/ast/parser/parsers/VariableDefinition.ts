@@ -48,8 +48,8 @@ export const VariableDefinitionParser: ASTParser<VariableDefinitionToken> = (
           tokenIndex: token.tokenIndex,
         },
         tokenIndex: {
-          start: index,
-          end: index + 2,
+          start: tokens[index],
+          end: tokens[index + 2],
         },
         value:
           valuableToken.type === MorphemeTokenTypes.SUBSTITUTE
