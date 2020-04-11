@@ -4,7 +4,7 @@ import { IndentToken, IndentType } from "lexer/lexers/IndentLexer";
 import { KeywordToken } from "lexer/lexers/KeywordLexer";
 import { keywordList } from "lexer/lexers/models/KeywordList";
 import { operatorList } from "lexer/lexers/models/OperatorList";
-import { NumberToken, Radix } from "lexer/lexers/NumberLexer";
+import { NumberToken } from "lexer/lexers/NumberLexer";
 import { OperatorToken } from "lexer/lexers/OperatorLexer";
 import { RawCodeToken } from "lexer/lexers/RawCodeLexer";
 import { StringToken } from "lexer/lexers/StringLexer";
@@ -40,7 +40,6 @@ export function mockGrammar(
 
 export function mockNumber(
   number: number,
-  radix: Radix = 10,
   index: Index = {
     start: 0,
     end: `${number}`.length,
@@ -50,7 +49,6 @@ export function mockNumber(
     type: LexerTokenTypes.NUMBER,
     index,
     number,
-    radix,
   };
 }
 

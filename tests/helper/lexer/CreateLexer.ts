@@ -1,11 +1,19 @@
-import { Lexer, LexerState } from "lexer/interface";
-import { TokenBase } from "token/interface";
+import { Lexer } from "lexer/interface";
+import { LexerToken } from "../../../src/token/interface";
+import LexerState from "../../../src/lexer/LexerState";
 
-export function createLexer<T extends Lexer<TokenBase>>(
-  lexer: new (state: LexerState) => T,
+export function createLexer(
+  lexer: Lexer,
   code: string,
-): T {
-  return new lexer({
-    code,
-  });
+): {
+  parse: (index: number) => LexerToken;
+} {
+  return {
+    parse: (index): LexerToken => {
+      const state = new LexerState(code);
+      state.setIndex(index);
+      lexer(state);
+      return state.lexerTokens[0];
+    },
+  };
 }

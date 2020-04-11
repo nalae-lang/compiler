@@ -8,24 +8,18 @@ export interface OperatorToken extends LexerTokenBase {
   readonly operator: typeof operatorList[number];
 }
 
-export class OperatorLexer extends Lexer<OperatorToken> {
-  public static readonly TOKEN_TYPE = LexerTokenTypes.OPERATOR;
-
-  public parse(index: number): OperatorToken | null {
-    const { code } = this.state;
-
-    const find = operatorList.find(operator => operator === code[index]);
-
-    if (find !== undefined) {
-      return {
-        type: LexerTokenTypes.OPERATOR,
-        index: {
-          start: index,
-          end: index + 1,
-        },
-        operator: find,
-      };
-    }
-    return null;
+export const OperatorLexer: Lexer = state => {
+  const code = state.getCurrentCode(1);
+  if (operatorList.indexOf(code[0] as never) > -1) {
+    state.addLexerToken({
+      type: LexerTokenTypes.OPERATOR,
+      index: {
+        start: state.getIndex(),
+        end: state.getIndex() + 1,
+      },
+      operator: code[0] as typeof operatorList[number],
+    });
+    return true;
   }
-}
+  return false;
+};

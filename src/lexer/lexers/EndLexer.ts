@@ -7,36 +7,28 @@ export interface EndToken extends LexerTokenBase {
   readonly endType: EndType;
 }
 
-export class EndLexer extends Lexer<EndToken> {
-  public static readonly TOKEN_TYPE = LexerTokenTypes.END;
-
-  public parse(index: number): EndToken | null {
-    const { code } = this.state;
-
-    // 1. 엔터로 줄을 끝내는 경우
-    if (code[index] === "\n") {
-      return {
-        type: LexerTokenTypes.END,
-        index: {
-          start: index,
-          end: index + 1,
-        },
-        endType: "newLine",
-      };
-    }
-
-    // 2. '.'으로 줄을 끝내는 경우
-    if (code[index] === ".") {
-      return {
-        type: LexerTokenTypes.END,
-        index: {
-          start: index,
-          end: index + 1,
-        },
-        endType: "dot",
-      };
-    }
-
-    return null;
+export const EndLexer: Lexer = state => {
+  if (state.getCurrentCode().startsWith("\n")) {
+    state.addLexerToken({
+      type: LexerTokenTypes.END,
+      index: {
+        start: state.getIndex(),
+        end: state.getIndex() + 1,
+      },
+      endType: "newLine",
+    });
+    return true;
   }
-}
+  if (state.getCurrentCode().startsWith(".")) {
+    state.addLexerToken({
+      type: LexerTokenTypes.END,
+      index: {
+        start: state.getIndex(),
+        end: state.getIndex() + 1,
+      },
+      endType: "dot",
+    });
+    return true;
+  }
+  return false;
+};

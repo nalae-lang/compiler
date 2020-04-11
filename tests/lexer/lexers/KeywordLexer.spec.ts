@@ -1,15 +1,15 @@
 import { KeywordLexer } from "lexer/lexers/KeywordLexer";
 import { keywordList } from "lexer/lexers/models/KeywordList";
 import { operatorList } from "lexer/lexers/models/OperatorList";
-import snapshot = require("snap-shot-it");
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
 import { expectTokenType } from "../../helper/lexer/CompareTokenType";
 import { createLexer } from "../../helper/lexer/CreateLexer";
+import snapshot = require("snap-shot-it");
 
-describe("KeywordLexer", function() {
-  describe("매치 되는 경우", function() {
-    it("단어가 모두 일치할 때", function() {
+describe("KeywordLexer", function () {
+  describe("매치 되는 경우", function () {
+    it("단어가 모두 일치할 때", function () {
       const code = keywordList.map(keyword => keyword.match).join(" ");
       const keywordLexer = createLexer(KeywordLexer, code);
 
@@ -27,7 +27,7 @@ describe("KeywordLexer", function() {
       }
     });
 
-    it("단어 뒤에 특수기호가 붙었을 때", function() {
+    it("단어 뒤에 특수기호가 붙었을 때", function () {
       const code = keywordList
         .map(
           (keyword, index) =>
@@ -51,8 +51,8 @@ describe("KeywordLexer", function() {
       }
     });
   });
-  describe("매치 되지 않는 경우", function() {
-    it("단어 뒤에 특수기호가 아닌 문자가 붙었을 때", function() {
+  describe("매치 되지 않는 경우", function () {
+    it("단어 뒤에 특수기호가 아닌 문자가 붙었을 때", function () {
       const keywordLexer = createLexer(
         KeywordLexer,
         keywordList[0].match + "1",
@@ -62,7 +62,7 @@ describe("KeywordLexer", function() {
 
       expect(result).to.be.not.exist;
     });
-    it("사전에 없는 단어가 붙었을 때", function() {
+    it("사전에 없는 단어가 붙었을 때", function () {
       const keywordLexer = createLexer(KeywordLexer, "키워드아님");
 
       const result = keywordLexer.parse(0);

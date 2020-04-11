@@ -1,14 +1,14 @@
 import { SubjectMorpheme } from "morpheme/morphemes/SubjectMorpheme";
-import snapshot = require("snap-shot-it");
 import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
 
 import { expectTokenType } from "../../helper/lexer/CompareTokenType";
 import { createMorpheme } from "../../helper/lexer/CreateMorpheme";
 import { mockGrammar } from "../../helper/lexer/MockToken";
+import snapshot = require("snap-shot-it");
 
-describe("SubjectMorpheme", function() {
-  describe("매치 되는 경우", function() {
-    it("'변수는'일 때", function() {
+describe("SubjectMorpheme", function () {
+  describe("매치 되는 경우", function () {
+    it("'변수는'일 때", function () {
       const subjectMorpheme = createMorpheme(SubjectMorpheme, [
         mockGrammar("변수는"),
       ]);
@@ -20,7 +20,7 @@ describe("SubjectMorpheme", function() {
       snapshot(result);
     });
 
-    it("받침이 있을 때 + 은", function() {
+    it("받침이 있을 때 + 은", function () {
       const subjectMorpheme = createMorpheme(SubjectMorpheme, [
         mockGrammar("받침은"),
       ]);
@@ -32,7 +32,7 @@ describe("SubjectMorpheme", function() {
       snapshot(result);
     });
 
-    it("받침이 없을 때 + 가", function() {
+    it("받침이 없을 때 + 가", function () {
       const subjectMorpheme = createMorpheme(SubjectMorpheme, [
         mockGrammar("변수가"),
       ]);
@@ -44,7 +44,7 @@ describe("SubjectMorpheme", function() {
       snapshot(result);
     });
 
-    it("받침이 있을 때 + 이", function() {
+    it("받침이 있을 때 + 이", function () {
       const subjectMorpheme = createMorpheme(SubjectMorpheme, [
         mockGrammar("받침이"),
       ]);
@@ -56,7 +56,7 @@ describe("SubjectMorpheme", function() {
       snapshot(result);
     });
 
-    it("'이'일 때", function() {
+    it("'이'일 때", function () {
       const subjectMorpheme = createMorpheme(SubjectMorpheme, [
         mockGrammar("이"),
       ]);
@@ -67,8 +67,8 @@ describe("SubjectMorpheme", function() {
     });
   });
 
-  describe("매치 되지 않는 경우", function() {
-    it("받침이 없을 때 + 은", function() {
+  describe("매치 되지 않는 경우", function () {
+    it("받침이 없을 때 + 은", function () {
       const subjectMorpheme = createMorpheme(SubjectMorpheme, [
         mockGrammar("변수은"),
       ]);
@@ -77,7 +77,7 @@ describe("SubjectMorpheme", function() {
       expect(result).to.be.null;
     });
 
-    it("받침이 있을 때 + 는", function() {
+    it("받침이 있을 때 + 는", function () {
       const subjectMorpheme = createMorpheme(SubjectMorpheme, [
         mockGrammar("받침는"),
       ]);
@@ -86,7 +86,7 @@ describe("SubjectMorpheme", function() {
       expect(result).to.be.null;
     });
 
-    it("받침이 없을 때 + 이", function() {
+    it("받침이 없을 때 + 이", function () {
       const subjectMorpheme = createMorpheme(SubjectMorpheme, [
         mockGrammar("변수이"),
       ]);
@@ -95,7 +95,7 @@ describe("SubjectMorpheme", function() {
       expect(result).to.be.null;
     });
 
-    it("받침이 있을 때 + 가", function() {
+    it("받침이 있을 때 + 가", function () {
       const subjectMorpheme = createMorpheme(SubjectMorpheme, [
         mockGrammar("받침가"),
       ]);
@@ -104,7 +104,7 @@ describe("SubjectMorpheme", function() {
       expect(result).to.be.null;
     });
 
-    it("은/는/이/가로 끝나지 않을 때", function() {
+    it("은/는/이/가로 끝나지 않을 때", function () {
       const subjectMorpheme = createMorpheme(SubjectMorpheme, [
         mockGrammar("받침"),
       ]);

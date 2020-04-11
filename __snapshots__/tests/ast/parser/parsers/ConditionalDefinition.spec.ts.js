@@ -18,8 +18,7 @@ exports['ConditionalDefinition 매치될 때 \'키가 30이상이면,\' 일 때 
       "start": 0,
       "end": 2
     },
-    "number": 30,
-    "radix": 10
+    "number": 30
   },
   "operator": ">=",
   "tokenIndex": {

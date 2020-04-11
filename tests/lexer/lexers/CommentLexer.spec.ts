@@ -1,14 +1,14 @@
 import { LexerErrorCode } from "lexer/error/ErrorCode";
 import { CommentLexer } from "lexer/lexers/CommentLexer";
-import snapshot = require("snap-shot-it");
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 
 import { expectTokenType } from "../../helper/lexer/CompareTokenType";
 import { createLexer } from "../../helper/lexer/CreateLexer";
+import snapshot = require("snap-shot-it");
 
-describe("CommentLexer", function() {
-  describe("매치되는 경우", function() {
-    it("/* */이 존재할 때", function() {
+describe("CommentLexer", function () {
+  describe("매치되는 경우", function () {
+    it("/* */이 존재할 때", function () {
       const code = "/*test comment*/";
       const commentLexer = createLexer(CommentLexer, code);
       const result = commentLexer.parse(0);
@@ -19,7 +19,7 @@ describe("CommentLexer", function() {
       snapshot(result);
     });
 
-    it("// 이 존재할 때", function() {
+    it("// 이 존재할 때", function () {
       const code = "//test comment";
       const commentLexer = createLexer(CommentLexer, code);
       const result = commentLexer.parse(0);
@@ -30,7 +30,7 @@ describe("CommentLexer", function() {
       snapshot(result);
     });
 
-    it("// 이 존재하고 다음 라인으로 갈 때", function() {
+    it("// 이 존재하고 다음 라인으로 갈 때", function () {
       const code = "//test comment";
       const commentLexer = createLexer(CommentLexer, code + "\nnext");
       const result = commentLexer.parse(0);
@@ -42,28 +42,28 @@ describe("CommentLexer", function() {
     });
   });
 
-  describe("매치되지 않는 경우", function() {
-    it("/* 로 시작하고 안끝날때", function() {
+  describe("매치되지 않는 경우", function () {
+    it("/* 로 시작하고 안끝날때", function () {
       const commentLexer = createLexer(CommentLexer, "/* tesfs");
-      expect(function() {
+      expect(function () {
         commentLexer.parse(0);
       }).to.throw(LexerErrorCode.COMMENT_NOT_END);
     });
 
-    it("/*/ 일 때", function() {
+    it("/*/ 일 때", function () {
       const commentLexer = createLexer(CommentLexer, "/*fdg/");
-      expect(function() {
+      expect(function () {
         commentLexer.parse(0);
       }).to.throw(LexerErrorCode.COMMENT_NOT_END);
     });
 
-    it("완전 존재하지 않을 때", function() {
+    it("완전 존재하지 않을 때", function () {
       const commentLexer = createLexer(CommentLexer, "dfsdfdf");
       const result = commentLexer.parse(0);
       expect(result).to.be.not.exist;
     });
 
-    it("/ 하나일 때", function() {
+    it("/ 하나일 때", function () {
       const commentLexer = createLexer(CommentLexer, "/");
       const result = commentLexer.parse(0);
       expect(result).to.be.not.exist;

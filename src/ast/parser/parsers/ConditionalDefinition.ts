@@ -59,7 +59,7 @@ export const ConditionalDefinitionParser: ASTParser<ConditionalDefinitionToken> 
             type: ParserTokenTypes.CONDITIONAL_EXPRESSION,
             leftValue: token.subject,
             rightValue: rightValueToken,
-            operator: operatorToken.name as typeof ConditionalOperatorList[number],
+            operator: operatorToken.name,
             tokenIndex: {
               start: token,
               end: commaToken,

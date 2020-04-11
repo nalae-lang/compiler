@@ -1,8 +1,5 @@
 import { Lexer, LexerTokenBase } from "lexer/interface";
-import { Token } from "token/interface";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
-
-import { EndToken } from "./EndLexer";
 
 export type IndentType = "tab" | "space";
 export interface IndentToken extends LexerTokenBase {
@@ -10,58 +7,44 @@ export interface IndentToken extends LexerTokenBase {
   readonly indentType: IndentType;
 }
 
-export class IndentLexer extends Lexer<IndentToken> {
-  public static readonly TOKEN_TYPE = LexerTokenTypes.INDENT;
-
-  public parse(index: number): IndentToken | null {
-    const { code } = this.state;
-
-    // tab을 사용할 때
-    if (code[index] === "\t") {
-      return {
+export const IndentLexer: Lexer = state => {
+  const isIndentAvailable =
+    [LexerTokenTypes.INDENT, LexerTokenTypes.END].indexOf(
+      state.lexerTokens[state.lexerTokens.length - 1]?.type,
+    ) === -1;
+  if (state.getCurrentCode(1).startsWith("\t")) {
+    if (isIndentAvailable) {
+      state.addLexerToken({
         type: LexerTokenTypes.INDENT,
         index: {
-          start: index,
-          end: index + 1,
+          start: state.getIndex(),
+          end: state.getIndex() + 1,
         },
         indentType: "tab",
-      };
+      });
+    } else {
+      state.setIndex(state.getIndex() + 1);
     }
-
-    // space 2칸을 사용할 때
-    if (code[index] === " " && code[index + 1] === " ") {
-      return {
+    return true;
+  }
+  if (state.getCurrentCode(2).startsWith("  ")) {
+    if (isIndentAvailable) {
+      state.addLexerToken({
         type: LexerTokenTypes.INDENT,
         index: {
-          start: index,
-          end: index + 2,
+          start: state.getIndex(),
+          end: state.getIndex() + 2,
         },
         indentType: "space",
-      };
+      });
+    } else {
+      state.setIndex(state.getIndex() + 2);
     }
-    return null;
+    return true;
   }
-
-  /**
-   * 유효한 IndentToken을 걸러내는 함수
-   * */
-  public static reduceIndent(tokens: Array<Token>): Array<Token> {
-    return tokens.filter((token, index) => {
-      if (token.type === LexerTokenTypes.INDENT) {
-        for (let i = index; i >= 0; i--) {
-          if (
-            tokens[i].type === LexerTokenTypes.END &&
-            (tokens[i] as EndToken).endType === "newLine"
-          ) {
-            return true;
-          }
-          if (tokens[i].type === LexerTokenTypes.INDENT) {
-            continue;
-          }
-        }
-        return false;
-      }
-      return true;
-    });
+  if (state.getCurrentCode(1).startsWith(" ")) {
+    state.setIndex(state.getIndex() + 1);
+    return true;
   }
-}
+  return false;
+};

@@ -1,38 +1,34 @@
-import { NalaeLexerError } from "lexer/error";
-import { LexerErrorCode } from "lexer/error/ErrorCode";
 import { Lexer, LexerTokenBase } from "lexer/interface";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
+import { NalaeLexerError } from "../error";
+import { LexerErrorCode } from "../error/ErrorCode";
 
 export interface StringToken extends LexerTokenBase {
   readonly type: LexerTokenTypes.STRING;
   readonly string: string;
 }
 
-export class StringLexer extends Lexer<StringToken> {
-  public static readonly TOKEN_TYPE = LexerTokenTypes.STRING;
-
-  public parse(index: number): StringToken | null {
-    const { code } = this.state;
-
-    if (code[index] === '"') {
-      let i = index + 1;
-      for (; i < code.length; i++) {
-        if (code[i] === '"' && code[i - 1] !== "\\") {
-          return {
-            type: LexerTokenTypes.STRING,
-            index: {
-              start: index,
-              end: i + 1,
-            },
-            string: code.substring(index + 1, i),
-          };
-        }
-      }
-      throw new NalaeLexerError(LexerErrorCode.STRING_NOT_END, {
-        start: index,
-        end: i,
+export const StringLexer: Lexer = state => {
+  if (state.getCurrentCode(1).startsWith('"')) {
+    const match = state
+      .getCurrentCode()
+      .substr(1)
+      .match(/[^\\]"/);
+    if (match?.index !== undefined) {
+      state.addLexerToken({
+        type: LexerTokenTypes.STRING,
+        index: {
+          start: state.getIndex(),
+          end: state.getIndex() + match.index + 3,
+        },
+        string: state.getCurrentCode(match.index + 2).substr(1),
       });
+      return true;
     }
-    return null;
+    throw new NalaeLexerError(LexerErrorCode.STRING_NOT_END, {
+      start: state.getIndex(),
+      end: state.getCodeLength(),
+    });
   }
-}
+  return false;
+};

@@ -1,8 +1,8 @@
 import { NalaeLexerError } from "../../../src/lexer/error";
 import { LexerErrorCode } from "../../../src/lexer/error/ErrorCode";
 
-describe("NalaeLexerError", function() {
-  it("LexerError가 throw될 때", function() {
+describe("NalaeLexerError", function () {
+  it("LexerError가 throw될 때", function () {
     expect(() => {
       throw new NalaeLexerError(LexerErrorCode.COMMENT_NOT_END, {
         start: 0,
@@ -11,7 +11,7 @@ describe("NalaeLexerError", function() {
     }).to.throw(LexerErrorCode.COMMENT_NOT_END);
   });
 
-  it("LexerError name 비교", function() {
+  it("LexerError name 비교", function () {
     const lexerError = new NalaeLexerError(LexerErrorCode.LEXER_LOOP, {
       start: 1,
       end: 2,

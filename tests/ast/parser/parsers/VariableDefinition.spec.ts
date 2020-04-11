@@ -12,9 +12,9 @@ import {
 } from "../../../helper/lexer/MockToken";
 import { MorphemeTokenTypes } from "../../../../src/token/types/MorphemeTokenTypes";
 
-describe("VariableDefinition", function() {
-  describe("매치 되는 경우", function() {
-    it("'변수1을 4로 선언한다.' 일 때", function() {
+describe("VariableDefinition", function () {
+  describe("매치 되는 경우", function () {
+    it("'변수1을 4로 선언한다.' 일 때", function () {
       const mockTokens = [
         mockIdentifier("변수1을"),
         mockSubstitute(mockNumber(4)),
@@ -30,7 +30,7 @@ describe("VariableDefinition", function() {
       expect(result.value.number).to.equal(4);
     });
 
-    it("'변수1을 선언한다.' 일 때", function() {
+    it("'변수1을 선언한다.' 일 때", function () {
       const mockTokens = [
         mockIdentifier("변수1을"),
         mockKeyword("variable_define"),
@@ -43,5 +43,5 @@ describe("VariableDefinition", function() {
       expect(result.name.name).to.equal("변수1");
     });
   });
-  describe("매치 되지 않는 경우", function() {});
+  describe("매치 되지 않는 경우", function () {});
 });

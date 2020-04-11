@@ -27,9 +27,9 @@ export class ArgumentMorpheme extends MorphemeAnalyser<ArgumentToken> {
 
     if (token.type === LexerTokenTypes.OPERATOR && token.operator === "~") {
       if (tokens[index + 1]?.type === LexerTokenTypes.GRAMMAR) {
-        const grammerText = (tokens[index + 1] as GrammarToken).text;
+        const grammarText = (tokens[index + 1] as GrammarToken).text;
         const ends = ChangeableEndList.find(
-          end => end.indexOf(grammerText) > -1,
+          end => end.indexOf(grammarText) > -1,
         );
 
         return {
@@ -42,7 +42,7 @@ export class ArgumentMorpheme extends MorphemeAnalyser<ArgumentToken> {
             start: index,
             end: index + 2,
           },
-          names: ends !== undefined ? ends : [grammerText],
+          names: ends !== undefined ? ends : [grammarText],
         };
       }
 

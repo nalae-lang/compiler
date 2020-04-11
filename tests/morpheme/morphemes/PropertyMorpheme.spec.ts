@@ -1,5 +1,4 @@
 import { PropertyMorpheme } from "morpheme/morphemes/PropertyMorpheme";
-import snapshot = require("snap-shot-it");
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
 
@@ -11,10 +10,11 @@ import {
   mockRawCode,
   mockString,
 } from "../../helper/lexer/MockToken";
+import snapshot = require("snap-shot-it");
 
-describe("PropertyMorpheme", function() {
-  describe("매치 되는 경우", function() {
-    it("'사람의'일 때", function() {
+describe("PropertyMorpheme", function () {
+  describe("매치 되는 경우", function () {
+    it("'사람의'일 때", function () {
       const propertyMorpheme = createMorpheme(PropertyMorpheme, [
         mockGrammar("사람의"),
       ]);
@@ -26,7 +26,7 @@ describe("PropertyMorpheme", function() {
       snapshot(result);
     });
 
-    it("'3의'일 때", function() {
+    it("'3의'일 때", function () {
       const propertyMorpheme = createMorpheme(PropertyMorpheme, [
         mockNumber(3),
         mockGrammar("의"),
@@ -39,7 +39,7 @@ describe("PropertyMorpheme", function() {
       snapshot(result);
     });
 
-    it("'\"문자열\"의'일 때", function() {
+    it("'\"문자열\"의'일 때", function () {
       const propertyMorpheme = createMorpheme(PropertyMorpheme, [
         mockString("문자열"),
         mockGrammar("의"),
@@ -53,7 +53,7 @@ describe("PropertyMorpheme", function() {
       snapshot(result);
     });
 
-    it("'`new Date()`의'일 때", function() {
+    it("'`new Date()`의'일 때", function () {
       const propertyMorpheme = createMorpheme(PropertyMorpheme, [
         mockRawCode("new Date()"),
         mockGrammar("의"),
@@ -67,8 +67,8 @@ describe("PropertyMorpheme", function() {
     });
   });
 
-  describe("매치 되지 않는 경우", function() {
-    it("'사람'일 때", function() {
+  describe("매치 되지 않는 경우", function () {
+    it("'사람'일 때", function () {
       const propertyMorpheme = createMorpheme(PropertyMorpheme, [
         mockGrammar("사람"),
       ]);

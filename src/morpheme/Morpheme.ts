@@ -4,14 +4,15 @@ import {
   MorphemeTokenBase,
 } from "morpheme/interface";
 import { Token } from "token/interface";
-
-import { ArgumentMorpheme } from "./morphemes/ArgumentMorpheme";
-import { DefineMorpheme } from "./morphemes/DefineMorpheme";
-import { IdentifierMorpheme } from "./morphemes/IdentifierMorpheme";
-import { NamedMorpheme } from "./morphemes/NamedMorpheme";
-import { PropertyMorpheme } from "./morphemes/PropertyMorpheme";
-import { SubjectMorpheme } from "./morphemes/SubjectMorpheme";
-import { SubstituteMorpheme } from "./morphemes/SubstituteMorpheme";
+import {
+  ArgumentMorpheme,
+  DefineMorpheme,
+  IdentifierMorpheme,
+  NamedMorpheme,
+  PropertyMorpheme,
+  SubjectMorpheme,
+  SubstituteMorpheme,
+} from "./morphemes";
 
 export class NalaeMorphemeAnalyzer {
   private state: MorphemeState;

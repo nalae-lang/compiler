@@ -1,5 +1,4 @@
 import { SubstituteMorpheme } from "morpheme/morphemes/SubstituteMorpheme";
-import snapshot = require("snap-shot-it");
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
 
@@ -11,10 +10,11 @@ import {
   mockRawCode,
   mockString,
 } from "../../helper/lexer/MockToken";
+import snapshot = require("snap-shot-it");
 
-describe("SubstituteMorpheme", function() {
-  describe("매치 되는 경우", function() {
-    it("'사람으로'일 때", function() {
+describe("SubstituteMorpheme", function () {
+  describe("매치 되는 경우", function () {
+    it("'사람으로'일 때", function () {
       const substituteMorpheme = createMorpheme(SubstituteMorpheme, [
         mockGrammar("사람으로"),
       ]);
@@ -28,7 +28,7 @@ describe("SubstituteMorpheme", function() {
       snapshot(result);
     });
 
-    it("'바다로'일 때", function() {
+    it("'바다로'일 때", function () {
       const substituteMorpheme = createMorpheme(SubstituteMorpheme, [
         mockGrammar("바다로"),
       ]);
@@ -42,7 +42,7 @@ describe("SubstituteMorpheme", function() {
       snapshot(result);
     });
 
-    it("'3으로'일 때", function() {
+    it("'3으로'일 때", function () {
       const substituteMorpheme = createMorpheme(SubstituteMorpheme, [
         mockNumber(3),
         mockGrammar("으로"),
@@ -55,7 +55,7 @@ describe("SubstituteMorpheme", function() {
       snapshot(result);
     });
 
-    it("'\"문자열\"로'일 때", function() {
+    it("'\"문자열\"로'일 때", function () {
       const substituteMorpheme = createMorpheme(SubstituteMorpheme, [
         mockString("문자열"),
         mockGrammar("으로"),
@@ -68,7 +68,7 @@ describe("SubstituteMorpheme", function() {
       snapshot(result);
     });
 
-    it("'`new Date()`로'일 때", function() {
+    it("'`new Date()`로'일 때", function () {
       const substituteMorpheme = createMorpheme(SubstituteMorpheme, [
         mockRawCode("new Date()"),
         mockGrammar("으로"),
@@ -82,8 +82,8 @@ describe("SubstituteMorpheme", function() {
     });
   });
 
-  describe("매치 되지 않는 경우", function() {
-    it("'서울로'일 때", function() {
+  describe("매치 되지 않는 경우", function () {
+    it("'서울로'일 때", function () {
       const substituteMorpheme = createMorpheme(SubstituteMorpheme, [
         mockGrammar("서울로"),
       ]);
@@ -91,7 +91,7 @@ describe("SubstituteMorpheme", function() {
 
       expect(result).to.be.null;
     });
-    it("'바다으로'일 때", function() {
+    it("'바다으로'일 때", function () {
       const substituteMorpheme = createMorpheme(SubstituteMorpheme, [
         mockGrammar("바다으로"),
       ]);

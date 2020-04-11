@@ -1,4 +1,4 @@
-exports['LEXER_RESULT_DEFAULT'] = [
+exports['Lexer Lexer1 1'] = [
   {
     "type": "end",
     "index": {
@@ -184,14 +184,6 @@ exports['LEXER_RESULT_DEFAULT'] = [
     "endType": "newLine"
   },
   {
-    "type": "indent",
-    "index": {
-      "start": 82,
-      "end": 84
-    },
-    "indentType": "space"
-  },
-  {
     "type": "grammar",
     "index": {
       "start": 84,
@@ -201,12 +193,11 @@ exports['LEXER_RESULT_DEFAULT'] = [
   },
   {
     "type": "number",
+    "number": 1,
     "index": {
       "start": 88,
       "end": 89
-    },
-    "radix": 10,
-    "number": 1
+    }
   },
   {
     "type": "keyword",
@@ -277,12 +268,11 @@ exports['LEXER_RESULT_CALCULATE'] = [
   },
   {
     "type": "number",
+    "number": 3,
     "index": {
       "start": 4,
       "end": 5
-    },
-    "radix": 10,
-    "number": 3
+    }
   },
   {
     "type": "operator",
@@ -294,12 +284,11 @@ exports['LEXER_RESULT_CALCULATE'] = [
   },
   {
     "type": "number",
+    "number": 2,
     "index": {
       "start": 8,
       "end": 9
-    },
-    "radix": 10,
-    "number": 2
+    }
   },
   {
     "type": "operator",
@@ -319,12 +308,11 @@ exports['LEXER_RESULT_CALCULATE'] = [
   },
   {
     "type": "number",
+    "number": 5,
     "index": {
       "start": 13,
       "end": 14
-    },
-    "radix": 10,
-    "number": 5
+    }
   },
   {
     "type": "operator",
@@ -336,12 +324,11 @@ exports['LEXER_RESULT_CALCULATE'] = [
   },
   {
     "type": "number",
+    "number": 3,
     "index": {
       "start": 17,
       "end": 18
-    },
-    "radix": 10,
-    "number": 3
+    }
   },
   {
     "type": "operator",
@@ -366,75 +353,5 @@ exports['LEXER_RESULT_CALCULATE'] = [
       "end": 23
     },
     "text": "출력"
-  }
-]
-
-exports['LEXER_RESULT_CREATE_CLASS_1'] = [
-  {
-    "type": "grammar",
-    "index": {
-      "start": 0,
-      "end": 5
-    },
-    "text": "사람이라는"
-  },
-  {
-    "type": "keyword",
-    "index": {
-      "start": 6,
-      "end": 7
-    },
-    "name": "class"
-  },
-  {
-    "type": "keyword",
-    "index": {
-      "start": 8,
-      "end": 10
-    },
-    "name": "create"
-  },
-  {
-    "type": "end",
-    "index": {
-      "start": 10,
-      "end": 11
-    },
-    "endType": "dot"
-  }
-]
-
-exports['LEXER_RESULT_CREATE_CLASS_2'] = [
-  {
-    "type": "grammar",
-    "index": {
-      "start": 0,
-      "end": 6
-    },
-    "text": "한국인이라는"
-  },
-  {
-    "type": "keyword",
-    "index": {
-      "start": 7,
-      "end": 8
-    },
-    "name": "class"
-  },
-  {
-    "type": "keyword",
-    "index": {
-      "start": 9,
-      "end": 11
-    },
-    "name": "create"
-  },
-  {
-    "type": "end",
-    "index": {
-      "start": 11,
-      "end": 12
-    },
-    "endType": "dot"
   }
 ]

@@ -86,8 +86,7 @@ exports['DefineMorpheme 매치 되는 경우 \'3이다\'일 때 1'] = {
       "start": 0,
       "end": 1
     },
-    "number": 3,
-    "radix": 10
+    "number": 3
   }
 }
 

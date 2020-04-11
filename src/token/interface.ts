@@ -1,30 +1,31 @@
-import { ParserTokenTypes } from "ast/types/ParserTokenTypes";
-import { CommentToken } from "lexer/lexers/CommentLexer";
-import { EndToken } from "lexer/lexers/EndLexer";
-import { GrammarToken } from "lexer/lexers/GrammarLexer";
-import { IndentToken } from "lexer/lexers/IndentLexer";
-import { KeywordToken } from "lexer/lexers/KeywordLexer";
-import { NumberToken } from "lexer/lexers/NumberLexer";
-import { OperatorToken } from "lexer/lexers/OperatorLexer";
-import { RawCodeToken } from "lexer/lexers/RawCodeLexer";
-import { StringToken } from "lexer/lexers/StringLexer";
-import { ArgumentToken } from "morpheme/morphemes/ArgumentMorpheme";
-import { DefineToken } from "morpheme/morphemes/DefineMorpheme";
-import { IdentifierToken } from "morpheme/morphemes/IdentifierMorpheme";
-import { NamedToken } from "morpheme/morphemes/NamedMorpheme";
-import { PropertyToken } from "morpheme/morphemes/PropertyMorpheme";
-import { SubjectToken } from "morpheme/morphemes/SubjectMorpheme";
-import { SubstituteToken } from "morpheme/morphemes/SubstituteMorpheme";
-
-import { LexerTokenTypes } from "./types/LexerTokenTypes";
-import { MorphemeTokenTypes } from "./types/MorphemeTokenTypes";
+import type {
+  CommentToken,
+  EndToken,
+  GrammarToken,
+  IndentToken,
+  KeywordToken,
+  NumberToken,
+  OperatorToken,
+  RawCodeToken,
+  StringToken,
+} from "../lexer/lexers";
+import type {
+  ArgumentToken,
+  DefineToken,
+  IdentifierToken,
+  NamedToken,
+  PropertyToken,
+  SubjectToken,
+  SubstituteToken,
+} from "../morpheme/morphemes";
+import type { LexerTokenTypes } from "./types/LexerTokenTypes";
+import type { ParserTokenTypes } from "../ast/types/ParserTokenTypes";
+import type { MorphemeTokenTypes } from "./types/MorphemeTokenTypes";
 
 export type TokenTypes =
   | LexerTokenTypes
   | MorphemeTokenTypes
   | ParserTokenTypes;
-
-export type ExtendableToken<T extends TokenBase> = Omit<T, "type">;
 
 export interface Index {
   start: number;
@@ -36,16 +37,18 @@ export interface TokenBase {
   readonly index: Index;
 }
 
-export type Token =
-  | IndentToken
+export type LexerToken =
   | StringToken
   | EndToken
-  | RawCodeToken
+  | IndentToken
   | NumberToken
+  | RawCodeToken
   | GrammarToken
-  | OperatorToken
-  | KeywordToken
   | CommentToken
+  | OperatorToken
+  | KeywordToken;
+
+export type MorphemeToken =
   | IdentifierToken
   | PropertyToken
   | SubjectToken
@@ -53,6 +56,8 @@ export type Token =
   | NamedToken
   | ArgumentToken
   | SubstituteToken;
+
+export type Token = LexerToken | MorphemeToken;
 
 export type ValueToken =
   | StringToken
