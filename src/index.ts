@@ -5,7 +5,7 @@ import nalaeMorphemeAnalyze from "./morpheme/Morpheme";
 export default class NalaeCompiler {
   private readonly lexer = new NalaeLexer();
 
-  public compile(code: string): Array<Token> {
+  public compile(code: string): ReadonlyArray<Token> {
     const tokens = this.lexer.lex(code);
     return nalaeMorphemeAnalyze(tokens);
   }
