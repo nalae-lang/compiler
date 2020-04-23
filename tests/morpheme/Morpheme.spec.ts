@@ -1,9 +1,9 @@
 import { NalaeLexer } from "lexer/Lexer";
-import { NalaeMorphemeAnalyzer } from "morpheme/Morpheme";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
 
 import { compareTokenList } from "../helper/lexer/CompareTokenList";
+import nalaeMorphemeAnalyze from "../../src/morpheme/Morpheme";
 import snapshot = require("snap-shot-it");
 
 describe("Morpheme", function () {
@@ -18,12 +18,11 @@ describe("Morpheme", function () {
       LexerTokenTypes.END,
     ]);
 
-    const morphemeAnalyser = new NalaeMorphemeAnalyzer(lexerResult);
-    const morphemeResult = morphemeAnalyser.analyze();
+    const morphemeResult = nalaeMorphemeAnalyze(lexerResult);
     compareTokenList(morphemeResult, [
       MorphemeTokenTypes.PROPERTY,
       MorphemeTokenTypes.SUBJECT,
-      MorphemeTokenTypes.DEFINE,
+      MorphemeTokenTypes.ASSERT,
       LexerTokenTypes.END,
     ]);
     snapshot(lexerResult);
@@ -40,8 +39,8 @@ describe("Morpheme", function () {
       LexerTokenTypes.END,
     ]);
 
-    const morphemeAnalyser = new NalaeMorphemeAnalyzer(lexerResult);
-    const morphemeResult = morphemeAnalyser.analyze();
+    const morphemeResult = nalaeMorphemeAnalyze(lexerResult);
+
     compareTokenList(morphemeResult, [
       MorphemeTokenTypes.SUBJECT,
       LexerTokenTypes.STRING,
@@ -65,8 +64,7 @@ describe("Morpheme", function () {
       LexerTokenTypes.OPERATOR,
     ]);
 
-    const morphemeAnalyser = new NalaeMorphemeAnalyzer(lexerResult);
-    const morphemeResult = morphemeAnalyser.analyze();
+    const morphemeResult = nalaeMorphemeAnalyze(lexerResult);
 
     compareTokenList(morphemeResult, [
       MorphemeTokenTypes.SUBJECT,
@@ -89,8 +87,8 @@ describe("Morpheme", function () {
       LexerTokenTypes.END,
     ]);
 
-    const morphemeAnalyser = new NalaeMorphemeAnalyzer(lexerResult);
-    const morphemeResult = morphemeAnalyser.analyze();
+    const morphemeResult = nalaeMorphemeAnalyze(lexerResult);
+
     compareTokenList(morphemeResult, [
       MorphemeTokenTypes.NAMED,
       LexerTokenTypes.KEYWORD,

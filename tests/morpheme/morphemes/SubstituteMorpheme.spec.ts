@@ -47,7 +47,7 @@ describe("SubstituteMorpheme", function () {
         mockNumber(3),
         mockGrammar("으로"),
       ]);
-      const result = substituteMorpheme.analyze(1);
+      const result = substituteMorpheme.analyze(0);
 
       expectTokenType(result, MorphemeTokenTypes.SUBSTITUTE);
       expectTokenType(result.value, LexerTokenTypes.NUMBER);
@@ -60,7 +60,7 @@ describe("SubstituteMorpheme", function () {
         mockString("문자열"),
         mockGrammar("으로"),
       ]);
-      const result = substituteMorpheme.analyze(1);
+      const result = substituteMorpheme.analyze(0);
 
       expectTokenType(result, MorphemeTokenTypes.SUBSTITUTE);
       expectTokenType(result.value, LexerTokenTypes.STRING);
@@ -73,7 +73,7 @@ describe("SubstituteMorpheme", function () {
         mockRawCode("new Date()"),
         mockGrammar("으로"),
       ]);
-      const result = substituteMorpheme.analyze(1);
+      const result = substituteMorpheme.analyze(0);
 
       expectTokenType(result, MorphemeTokenTypes.SUBSTITUTE);
       expectTokenType(result.value, LexerTokenTypes.RAWCODE);

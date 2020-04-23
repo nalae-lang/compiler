@@ -1,4 +1,3 @@
-import { GrammarToken } from "lexer/lexers/GrammarLexer";
 import { MorphemeAnalyser, MorphemeTokenBase } from "morpheme/interface";
 import { LexerTokenTypes } from "token/types/LexerTokenTypes";
 import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
@@ -20,41 +19,33 @@ export interface ArgumentToken extends MorphemeTokenBase {
   readonly names?: ReadonlyArray<string>;
 }
 
-export class ArgumentMorpheme extends MorphemeAnalyser<ArgumentToken> {
-  public analyze(index: number): ArgumentToken | null {
-    const { tokens } = this.state;
-    const token = tokens[index];
+export const ArgumentMorpheme: MorphemeAnalyser<ArgumentToken> = state => {
+  const token = state.getLexerToken();
+  if (token?.type === LexerTokenTypes.OPERATOR && token.operator === "~") {
+    const grammarToken = state.getLexerToken(1);
+    if (grammarToken?.type === LexerTokenTypes.GRAMMAR) {
+      const grammarText = grammarToken.text;
+      const ends = ChangeableEndList.find(end => end.indexOf(grammarText) > -1);
 
-    if (token.type === LexerTokenTypes.OPERATOR && token.operator === "~") {
-      if (tokens[index + 1]?.type === LexerTokenTypes.GRAMMAR) {
-        const grammarText = (tokens[index + 1] as GrammarToken).text;
-        const ends = ChangeableEndList.find(
-          end => end.indexOf(grammarText) > -1,
-        );
-
-        return {
-          type: MorphemeTokenTypes.ARGUMENT,
-          index: {
-            start: token.index.start,
-            end: tokens[index + 1].index.end,
-          },
-          tokenIndex: {
-            start: index,
-            end: index + 2,
-          },
-          names: ends !== undefined ? ends : [grammarText],
-        };
-      }
-
-      return {
+      state.addMorphemeToken({
         type: MorphemeTokenTypes.ARGUMENT,
-        index: token.index,
         tokenIndex: {
-          start: index,
-          end: index + 1,
+          start: state.getIndex(),
+          end: state.getIndex() + 2,
         },
-      };
+        names: ends !== undefined ? ends : [grammarText],
+      });
+      return true;
     }
-    return null;
+
+    state.addMorphemeToken({
+      type: MorphemeTokenTypes.ARGUMENT,
+      tokenIndex: {
+        start: state.getIndex(),
+        end: state.getIndex() + 1,
+      },
+    });
+    return true;
   }
-}
+  return false;
+};

@@ -9,9 +9,12 @@ export interface NumberToken extends LexerTokenBase {
 }
 
 export const NumberLexer: Lexer = state => {
-  const match = state.getCurrentCode().match(/^-?\d+[\d\.]*/);
+  const match = state.getCurrentCode().match(/^-?\d+[\d.]*/);
   if (match?.[0] !== undefined) {
     const number = parseFloat(match[0]);
+
+    // TODO(test): NaN인 테스트 케이스를 추가한다.
+    /* istanbul ignore if  */
     if (isNaN(number)) {
       throw new NalaeLexerError(LexerErrorCode.NUMBER_UNKNOWN, {
         start: state.getIndex(),

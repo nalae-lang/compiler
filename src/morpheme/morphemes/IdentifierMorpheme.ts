@@ -7,22 +7,18 @@ export interface IdentifierToken extends MorphemeTokenBase {
   readonly name: string;
 }
 
-export class IdentifierMorpheme extends MorphemeAnalyser<IdentifierToken> {
-  public analyze(index: number): IdentifierToken | null {
-    const { tokens } = this.state;
-    const token = tokens[index];
-
-    if (token.type === LexerTokenTypes.GRAMMAR) {
-      return {
-        type: MorphemeTokenTypes.IDENTIFIER,
-        index: token.index,
-        tokenIndex: {
-          start: index,
-          end: index + 1,
-        },
-        name: token.text,
-      };
-    }
-    return null;
+export const IdentifierMorpheme: MorphemeAnalyser<IdentifierToken> = state => {
+  const token = state.getLexerToken();
+  if (token?.type === LexerTokenTypes.GRAMMAR) {
+    state.addMorphemeToken({
+      type: MorphemeTokenTypes.IDENTIFIER,
+      tokenIndex: {
+        start: state.getIndex(),
+        end: state.getIndex() + 1,
+      },
+      name: token.text,
+    });
+    return true;
   }
-}
+  return false;
+};

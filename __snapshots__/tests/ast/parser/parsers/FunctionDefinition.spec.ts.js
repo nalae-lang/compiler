@@ -3,10 +3,6 @@ exports['FunctionDefinition 매치될 때 \'사람이 ~로 ~만큼 움직인다�
   "arguments": [
     {
       "type": "argument",
-      "index": {
-        "start": 0,
-        "end": 1
-      },
       "tokenIndex": {
         "start": 0,
         "end": 2
@@ -14,47 +10,51 @@ exports['FunctionDefinition 매치될 때 \'사람이 ~로 ~만큼 움직인다�
       "names": [
         "으로",
         "로"
-      ]
+      ],
+      "index": {
+        "start": 0,
+        "end": 1
+      }
     },
     {
       "type": "argument",
-      "index": {
-        "start": 0,
-        "end": 2
-      },
       "tokenIndex": {
         "start": 0,
         "end": 2
       },
       "names": [
         "만큼"
-      ]
+      ],
+      "index": {
+        "start": 0,
+        "end": 2
+      }
     }
   ],
   "tokenIndex": {
     "start": {
       "type": "subject",
-      "index": {
-        "start": 0,
-        "end": 3
-      },
       "tokenIndex": {
         "start": 0,
         "end": 1
       },
       "subject": {
         "type": "identifier",
-        "index": {
-          "start": 0,
-          "end": 2
-        },
         "tokenIndex": {
           "start": 0,
           "end": 1
         },
+        "index": {
+          "start": 0,
+          "end": 2
+        },
         "name": "사람"
       },
-      "endType": "이"
+      "endType": "이",
+      "index": {
+        "start": 0,
+        "end": 3
+      }
     }
   },
   "index": {
@@ -75,27 +75,27 @@ exports['FunctionDefinition 매치될 때 \'사람이 ~로 ~만큼 움직인다�
   },
   "subject": {
     "type": "subject",
-    "index": {
-      "start": 0,
-      "end": 3
-    },
     "tokenIndex": {
       "start": 0,
       "end": 1
     },
     "subject": {
       "type": "identifier",
-      "index": {
-        "start": 0,
-        "end": 2
-      },
       "tokenIndex": {
         "start": 0,
         "end": 1
       },
+      "index": {
+        "start": 0,
+        "end": 2
+      },
       "name": "사람"
     },
-    "endType": "이"
+    "endType": "이",
+    "index": {
+      "start": 0,
+      "end": 3
+    }
   }
 }
 
@@ -104,10 +104,6 @@ exports['FunctionDefinition 매치될 때 \'사람이 ~로 이동한다를 정�
   "arguments": [
     {
       "type": "argument",
-      "index": {
-        "start": 0,
-        "end": 1
-      },
       "tokenIndex": {
         "start": 0,
         "end": 2
@@ -115,33 +111,37 @@ exports['FunctionDefinition 매치될 때 \'사람이 ~로 이동한다를 정�
       "names": [
         "으로",
         "로"
-      ]
+      ],
+      "index": {
+        "start": 0,
+        "end": 1
+      }
     }
   ],
   "tokenIndex": {
     "start": {
       "type": "subject",
-      "index": {
-        "start": 0,
-        "end": 3
-      },
       "tokenIndex": {
         "start": 0,
         "end": 1
       },
       "subject": {
         "type": "identifier",
-        "index": {
-          "start": 0,
-          "end": 2
-        },
         "tokenIndex": {
           "start": 0,
           "end": 1
         },
+        "index": {
+          "start": 0,
+          "end": 2
+        },
         "name": "사람"
       },
-      "endType": "이"
+      "endType": "이",
+      "index": {
+        "start": 0,
+        "end": 3
+      }
     }
   },
   "index": {
@@ -162,27 +162,27 @@ exports['FunctionDefinition 매치될 때 \'사람이 ~로 이동한다를 정�
   },
   "subject": {
     "type": "subject",
-    "index": {
-      "start": 0,
-      "end": 3
-    },
     "tokenIndex": {
       "start": 0,
       "end": 1
     },
     "subject": {
       "type": "identifier",
-      "index": {
-        "start": 0,
-        "end": 2
-      },
       "tokenIndex": {
         "start": 0,
         "end": 1
       },
+      "index": {
+        "start": 0,
+        "end": 2
+      },
       "name": "사람"
     },
-    "endType": "이"
+    "endType": "이",
+    "index": {
+      "start": 0,
+      "end": 3
+    }
   }
 }
 
@@ -191,10 +191,6 @@ exports['FunctionDefinition 매치될 때 콘솔은 ~를 오류로 출력한다�
   "arguments": [
     {
       "type": "argument",
-      "index": {
-        "start": 0,
-        "end": 1
-      },
       "tokenIndex": {
         "start": 0,
         "end": 2
@@ -202,7 +198,11 @@ exports['FunctionDefinition 매치될 때 콘솔은 ~를 오류로 출력한다�
       "names": [
         "을",
         "를"
-      ]
+      ],
+      "index": {
+        "start": 0,
+        "end": 1
+      }
     },
     {
       "type": "identifier",
@@ -220,27 +220,27 @@ exports['FunctionDefinition 매치될 때 콘솔은 ~를 오류로 출력한다�
   "tokenIndex": {
     "start": {
       "type": "subject",
-      "index": {
-        "start": 0,
-        "end": 3
-      },
       "tokenIndex": {
         "start": 0,
         "end": 1
       },
       "subject": {
         "type": "identifier",
-        "index": {
-          "start": 0,
-          "end": 2
-        },
         "tokenIndex": {
           "start": 0,
           "end": 1
         },
+        "index": {
+          "start": 0,
+          "end": 2
+        },
         "name": "콘솔"
       },
-      "endType": "은"
+      "endType": "은",
+      "index": {
+        "start": 0,
+        "end": 3
+      }
     }
   },
   "index": {
@@ -261,26 +261,26 @@ exports['FunctionDefinition 매치될 때 콘솔은 ~를 오류로 출력한다�
   },
   "subject": {
     "type": "subject",
-    "index": {
-      "start": 0,
-      "end": 3
-    },
     "tokenIndex": {
       "start": 0,
       "end": 1
     },
     "subject": {
       "type": "identifier",
-      "index": {
-        "start": 0,
-        "end": 2
-      },
       "tokenIndex": {
         "start": 0,
         "end": 1
       },
+      "index": {
+        "start": 0,
+        "end": 2
+      },
       "name": "콘솔"
     },
-    "endType": "은"
+    "endType": "은",
+    "index": {
+      "start": 0,
+      "end": 3
+    }
   }
 }

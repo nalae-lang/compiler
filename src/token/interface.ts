@@ -8,18 +8,18 @@ import type {
   OperatorToken,
   RawCodeToken,
   StringToken,
-} from "../lexer/lexers";
+} from "lexer/lexers";
 import type {
   ArgumentToken,
-  DefineToken,
+  AssertToken,
   IdentifierToken,
   NamedToken,
   PropertyToken,
   SubjectToken,
   SubstituteToken,
-} from "../morpheme/morphemes";
+} from "morpheme/morphemes";
 import type { LexerTokenTypes } from "./types/LexerTokenTypes";
-import type { ParserTokenTypes } from "../ast/types/ParserTokenTypes";
+import type { ParserTokenTypes } from "ast/types/ParserTokenTypes";
 import type { MorphemeTokenTypes } from "./types/MorphemeTokenTypes";
 
 export type TokenTypes =
@@ -52,7 +52,7 @@ export type MorphemeToken =
   | IdentifierToken
   | PropertyToken
   | SubjectToken
-  | DefineToken
+  | AssertToken
   | NamedToken
   | ArgumentToken
   | SubstituteToken;

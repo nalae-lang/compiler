@@ -1,5 +1,5 @@
 export * from "./NamedMorpheme";
-export * from "./DefineMorpheme";
+export * from "./AssertMorpheme";
 export * from "./SubjectMorpheme";
 export * from "./ArgumentMorpheme";
 export * from "./PropertyMorpheme";

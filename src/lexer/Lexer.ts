@@ -1,4 +1,4 @@
-import { Token } from "token/interface";
+import { LexerToken } from "token/interface";
 import { Lexer } from "./interface";
 import LexerState from "./LexerState";
 import {
@@ -32,13 +32,13 @@ export class NalaeLexer {
     ];
   }
 
-  private beforeLex(code: string): string {
+  private static beforeLex(code: string): string {
     // \r\n을 \n으로 압축
     return code.replace("\r\n", "\n");
   }
 
-  public lex(code: string): Array<Token> {
-    const lexerState = new LexerState(this.beforeLex(code));
+  public lex(code: string): Array<LexerToken> {
+    const lexerState = new LexerState(NalaeLexer.beforeLex(code));
     while (lexerState.isLexable()) {
       if (!this.lexers.some(lexer => lexer(lexerState))) {
         throw new NalaeLexerError(

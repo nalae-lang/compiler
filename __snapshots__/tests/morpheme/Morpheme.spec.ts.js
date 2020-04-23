@@ -44,61 +44,53 @@ exports['Morpheme 주어 테스트 1'] = [
 exports['Morpheme 주어 테스트 2'] = [
   {
     "type": "property",
-    "index": {
-      "start": 0,
-      "end": 6
-    },
     "tokenIndex": {
       "start": 0,
       "end": 1
     },
     "object": {
       "type": "identifier",
-      "index": {
-        "start": 0,
-        "end": 5
-      },
       "tokenIndex": {
         "start": 0,
         "end": 1
       },
+      "index": {
+        "start": 0,
+        "end": 5
+      },
       "name": "텍스트박스"
+    },
+    "index": {
+      "start": 0,
+      "end": 6
     }
   },
   {
     "type": "subject",
-    "index": {
-      "start": 7,
-      "end": 9
-    },
     "tokenIndex": {
       "start": 1,
       "end": 2
     },
     "subject": {
       "type": "identifier",
-      "index": {
-        "start": 7,
-        "end": 8
-      },
       "tokenIndex": {
         "start": 1,
         "end": 2
       },
+      "index": {
+        "start": 7,
+        "end": 8
+      },
       "name": "값"
     },
-    "endType": "은"
+    "endType": "은",
+    "index": {
+      "start": 7,
+      "end": 9
+    }
   },
   {
-    "type": "define",
-    "index": {
-      "start": 17,
-      "end": 19
-    },
-    "tokenIndex": {
-      "start": 2,
-      "end": 4
-    },
+    "type": "assert",
     "value": {
       "type": "string",
       "index": {
@@ -106,6 +98,14 @@ exports['Morpheme 주어 테스트 2'] = [
         "end": 17
       },
       "string": "안녕하세요"
+    },
+    "tokenIndex": {
+      "start": 2,
+      "end": 4
+    },
+    "index": {
+      "start": 10,
+      "end": 19
     }
   },
   {
@@ -164,27 +164,27 @@ exports['Morpheme 함수 테스트 1'] = [
 exports['Morpheme 함수 테스트 2'] = [
   {
     "type": "subject",
-    "index": {
-      "start": 0,
-      "end": 3
-    },
     "tokenIndex": {
       "start": 0,
       "end": 1
     },
     "subject": {
       "type": "identifier",
-      "index": {
-        "start": 0,
-        "end": 2
-      },
       "tokenIndex": {
         "start": 0,
         "end": 1
       },
+      "index": {
+        "start": 0,
+        "end": 2
+      },
       "name": "콘솔"
     },
-    "endType": "은"
+    "endType": "은",
+    "index": {
+      "start": 0,
+      "end": 3
+    }
   },
   {
     "type": "string",
@@ -196,27 +196,27 @@ exports['Morpheme 함수 테스트 2'] = [
   },
   {
     "type": "identifier",
-    "index": {
-      "start": 11,
-      "end": 12
-    },
     "tokenIndex": {
       "start": 2,
       "end": 3
     },
-    "name": "를"
+    "name": "를",
+    "index": {
+      "start": 11,
+      "end": 12
+    }
   },
   {
     "type": "identifier",
-    "index": {
-      "start": 13,
-      "end": 17
-    },
     "tokenIndex": {
       "start": 3,
       "end": 4
     },
-    "name": "출력한다"
+    "name": "출력한다",
+    "index": {
+      "start": 13,
+      "end": 17
+    }
   },
   {
     "type": "end",
@@ -282,34 +282,30 @@ exports['Morpheme 함수 정의 테스트 1'] = [
 exports['Morpheme 함수 정의 테스트 2'] = [
   {
     "type": "subject",
-    "index": {
-      "start": 0,
-      "end": 3
-    },
     "tokenIndex": {
       "start": 0,
       "end": 1
     },
     "subject": {
       "type": "identifier",
-      "index": {
-        "start": 0,
-        "end": 2
-      },
       "tokenIndex": {
         "start": 0,
         "end": 1
       },
+      "index": {
+        "start": 0,
+        "end": 2
+      },
       "name": "콘솔"
     },
-    "endType": "은"
+    "endType": "은",
+    "index": {
+      "start": 0,
+      "end": 3
+    }
   },
   {
     "type": "argument",
-    "index": {
-      "start": 4,
-      "end": 6
-    },
     "tokenIndex": {
       "start": 1,
       "end": 3
@@ -317,19 +313,23 @@ exports['Morpheme 함수 정의 테스트 2'] = [
     "names": [
       "을",
       "를"
-    ]
+    ],
+    "index": {
+      "start": 4,
+      "end": 6
+    }
   },
   {
     "type": "identifier",
-    "index": {
-      "start": 7,
-      "end": 12
-    },
     "tokenIndex": {
       "start": 3,
       "end": 4
     },
-    "name": "출력한다를"
+    "name": "출력한다를",
+    "index": {
+      "start": 7,
+      "end": 12
+    }
   },
   {
     "type": "keyword",
@@ -389,25 +389,25 @@ exports['Morpheme 틀 테스트 2'] = [
     "type": "named",
     "subject": {
       "type": "identifier",
-      "index": {
-        "start": 0,
-        "end": 2
-      },
       "tokenIndex": {
         "start": 0,
         "end": 1
       },
+      "index": {
+        "start": 0,
+        "end": 2
+      },
       "name": "사람"
-    },
-    "index": {
-      "start": 0,
-      "end": 5
     },
     "tokenIndex": {
       "start": 0,
       "end": 1
     },
-    "name": "이라는"
+    "name": "이라는",
+    "index": {
+      "start": 0,
+      "end": 5
+    }
   },
   {
     "type": "keyword",

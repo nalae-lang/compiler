@@ -21,7 +21,8 @@
     "newLine": "lf",
     "types": ["./tests/chai", "mocha", "chai", "./__snapshots__/module"],
     "paths": {
-      "snapshots/*": ["../__snapshots__/*"]
+      "snapshots/*": ["../__snapshots__/*"],
+      "tests/*": ["../tests/*"]
     }
   },
   "include": ["src/**/*.ts", "tests/**/*.ts"]

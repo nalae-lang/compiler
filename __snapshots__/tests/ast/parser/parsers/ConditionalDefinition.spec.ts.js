@@ -2,11 +2,11 @@ exports['ConditionalDefinition 매치될 때 \'키가 30이상이면,\' 일 때 
   "type": "conditional_expression",
   "leftValue": {
     "type": "identifier",
-    "index": {
+    "tokenIndex": {
       "start": 0,
       "end": 1
     },
-    "tokenIndex": {
+    "index": {
       "start": 0,
       "end": 1
     },
@@ -24,27 +24,27 @@ exports['ConditionalDefinition 매치될 때 \'키가 30이상이면,\' 일 때 
   "tokenIndex": {
     "start": {
       "type": "subject",
-      "index": {
-        "start": 0,
-        "end": 2
-      },
       "tokenIndex": {
         "start": 0,
         "end": 1
       },
       "subject": {
         "type": "identifier",
-        "index": {
+        "tokenIndex": {
           "start": 0,
           "end": 1
         },
-        "tokenIndex": {
+        "index": {
           "start": 0,
           "end": 1
         },
         "name": "키"
       },
-      "endType": "가"
+      "endType": "가",
+      "index": {
+        "start": 0,
+        "end": 2
+      }
     },
     "end": {
       "type": "operator",

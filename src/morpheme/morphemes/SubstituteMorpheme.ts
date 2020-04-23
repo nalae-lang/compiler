@@ -16,52 +16,51 @@ export interface SubstituteToken extends MorphemeTokenBase {
 
 export const SubstituteMorphemeList: MorphemeList = ["으로", "로"];
 
-export class SubstituteMorpheme extends MorphemeAnalyser<SubstituteToken> {
-  public analyze(index: number): SubstituteToken | null {
-    const { tokens } = this.state;
-    const token = tokens[index];
+export const SubstituteMorpheme: MorphemeAnalyser<SubstituteToken> = state => {
+  const token = state.getLexerToken();
 
-    if (token.type === LexerTokenTypes.GRAMMAR) {
-      if (
-        SubstituteMorphemeList.indexOf(token.text) > -1 &&
-        isValueToken(tokens[index - 1])
-      ) {
-        return {
+  if (isValueToken(token)) {
+    const nextToken = state.getLexerToken(1);
+    if (nextToken?.type === LexerTokenTypes.GRAMMAR) {
+      if (SubstituteMorphemeList.indexOf(nextToken.text) > -1) {
+        state.addMorphemeToken({
           type: MorphemeTokenTypes.SUBSTITUTE,
-          index: token.index,
           tokenIndex: {
-            start: index,
-            end: index + 1,
+            start: state.getIndex(),
+            end: state.getIndex() + 1,
           },
-          value: tokens[index - 1] as ValueToken,
-        };
-      }
-      const match = checkPostPosition(token.text, SubstituteMorphemeList);
-
-      if (match !== false) {
-        const morphemeLength = SubstituteMorphemeList[match].length;
-        return {
-          type: MorphemeTokenTypes.SUBSTITUTE,
-          index: token.index,
-          tokenIndex: {
-            start: index,
-            end: index + 1,
-          },
-          value: {
-            type: MorphemeTokenTypes.IDENTIFIER,
-            index: {
-              start: token.index.start,
-              end: token.index.end - morphemeLength,
-            },
-            tokenIndex: {
-              start: index,
-              end: index + 1,
-            },
-            name: token.text.substr(0, token.text.length - morphemeLength),
-          },
-        };
+          value: token,
+        });
+        return true;
       }
     }
-    return null;
   }
-}
+  if (token?.type === LexerTokenTypes.GRAMMAR) {
+    const match = checkPostPosition(token.text, SubstituteMorphemeList);
+
+    if (match !== false) {
+      const morphemeLength = SubstituteMorphemeList[match].length;
+      state.addMorphemeToken({
+        type: MorphemeTokenTypes.SUBSTITUTE,
+        tokenIndex: {
+          start: state.getIndex(),
+          end: state.getIndex() + 1,
+        },
+        value: {
+          type: MorphemeTokenTypes.IDENTIFIER,
+          tokenIndex: {
+            start: state.getIndex(),
+            end: state.getIndex() + 1,
+          },
+          index: {
+            start: token.index.start,
+            end: token.index.end - morphemeLength,
+          },
+          name: token.text.substr(0, token.text.length - morphemeLength),
+        },
+      });
+      return true;
+    }
+  }
+  return false;
+};

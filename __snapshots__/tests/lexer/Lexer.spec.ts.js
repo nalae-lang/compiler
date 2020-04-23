@@ -184,6 +184,14 @@ exports['Lexer Lexer1 1'] = [
     "endType": "newLine"
   },
   {
+    "type": "indent",
+    "index": {
+      "start": 82,
+      "end": 84
+    },
+    "indentType": "space"
+  },
+  {
     "type": "grammar",
     "index": {
       "start": 84,

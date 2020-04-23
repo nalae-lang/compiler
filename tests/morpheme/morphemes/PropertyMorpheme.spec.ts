@@ -31,7 +31,7 @@ describe("PropertyMorpheme", function () {
         mockNumber(3),
         mockGrammar("의"),
       ]);
-      const result = propertyMorpheme.analyze(1);
+      const result = propertyMorpheme.analyze(0);
 
       expectTokenType(result, MorphemeTokenTypes.PROPERTY);
       expectTokenType(result.object, LexerTokenTypes.NUMBER);
@@ -44,7 +44,7 @@ describe("PropertyMorpheme", function () {
         mockString("문자열"),
         mockGrammar("의"),
       ]);
-      const result = propertyMorpheme.analyze(1);
+      const result = propertyMorpheme.analyze(0);
 
       expectTokenType(result, MorphemeTokenTypes.PROPERTY);
       expectTokenType(result.object, LexerTokenTypes.STRING);
@@ -58,7 +58,7 @@ describe("PropertyMorpheme", function () {
         mockRawCode("new Date()"),
         mockGrammar("의"),
       ]);
-      const result = propertyMorpheme.analyze(1);
+      const result = propertyMorpheme.analyze(0);
 
       expectTokenType(result, MorphemeTokenTypes.PROPERTY);
       expectTokenType(result.object, LexerTokenTypes.RAWCODE);

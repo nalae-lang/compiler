@@ -1,16 +1,16 @@
 import { ParserTokenTypes } from "ast/types/ParserTokenTypes";
 import { MorphemeTokenTypes } from "token/types/MorphemeTokenTypes";
 
-import { expectTokenType } from "../../../helper/lexer/CompareTokenType";
 import {
   mockKeyword,
   mockNumber,
   mockOperator,
   mockSubject,
-} from "../../../helper/lexer/MockToken";
-import { ConditionalDefinitionParser } from "../../../../src/ast/parser/parsers/ConditionalDefinition";
-import { LexerTokenTypes } from "../../../../src/token/types/LexerTokenTypes";
-import snapshot = require("snap-shot-it");
+} from "tests/helper/lexer/MockToken";
+import { ConditionalDefinitionParser } from "ast/parser/parsers";
+import { expectTokenType } from "tests/helper/lexer/CompareTokenType";
+import { LexerTokenTypes } from "token/types/LexerTokenTypes";
+import snapshot from "snap-shot-it";
 
 describe("ConditionalDefinition", function () {
   describe("매치될 때", function () {
